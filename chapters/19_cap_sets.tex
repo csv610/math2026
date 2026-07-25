@@ -8,6 +8,9 @@
 \subsection{Informal}
 Imagine a big grid of points in space where the arithmetic wraps around like a clock. You want to pick as many points as possible, but with one strict rule: no three of your chosen points can be equally spaced in a line. How many points can you pick before you are forced to have three in a row? This problem stumped mathematicians for decades, despite being easy to state.
 
+\subsection{Simplified Version}
+The classical version of this problem works over the integers: Roth's theorem (1953) says that any subset of the integers $\{1, 2, \ldots, N\}$ without three-term arithmetic progressions must be thin---its size is at most $N / \log \log N$. The cap set problem asks the same question over $\mathbb{F}_3^n$ (the $n$-dimensional vector space over the field with 3 elements), where the arithmetic wraps around like a clock. The polynomial method, adapted from finite-field geometry, finally cracked this harder version.
+
 \subsection{Formal}
 \begin{conjecture}[Frankl-Graham-Rödl, 1987]
 $r_3(n) = o(3^n)$.

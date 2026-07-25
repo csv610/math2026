@@ -8,6 +8,9 @@
 \subsection{Informal}
 Imagine you are asked a yes-or-no question about a long string of coin flips---say, ``is the number of heads even?'' If you flip one coin, the answer might change or it might not. One way to measure the question's complexity is the most coins you could flip at once to force the answer to change. Another way measures the same thing but lets you flip whole groups of coins together. The sensitivity conjecture, open for 27 years, asked whether these two ways of measuring complexity are always closely related: if a question looks simple by one measure, must it look simple by the other too?
 
+\subsection{Simplified Version}
+For the parity function $f(x_1, \ldots, x_n) = x_1 \oplus \cdots \oplus x_n$ (which outputs 1 if an odd number of bits are 1), the sensitivity is $\sqrt{n}$ while the block sensitivity is $n$---a quadratic gap. The conjecture asserted that this gap is always at most polynomial: $bs(f) \le s(f)^c$ for some constant $c$. Huang's 2019 proof showed $c \le 4$, settling the question.
+
 \subsection{Formal}
 \begin{conjecture}[Nisan-Szegedy, 1992]
 $s(f)$ and $bs(f)$ are polynomially related: $bs(f) \le s(f)^c$ for some constant $c$.

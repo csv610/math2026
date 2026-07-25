@@ -8,6 +8,9 @@
 \subsection{Informal}
 In the 1950s, two mathematicians asked a question that sounds like a riddle: suppose you have a huge collection of vectors in space, each pointing in a different direction. Can you always split them into a few groups, each of which behaves almost as nicely as a set of mutually perpendicular axes? This question, which seemed purely abstract, turned out to have deep consequences for how we understand quantum measurements, signal processing, and even the structure of data.
 
+\subsection{Simplified Version}
+The problem is equivalent to the Paving Conjecture: given an infinite-dimensional diagonal operator $D$ with bounded entries, can the basis vectors be partitioned into finitely many blocks such that each block is nearly orthogonal? This was verified numerically for many examples before the proof, and Weaver had conjectured a finite-dimensional reformulation (Weaver's conjecture $KS_2$) that was already checked for small matrices. The breakthrough came from showing that Weaver's conjecture holds in general via the ``few moments'' method.
+
 \subsection{Formal}
 \begin{conjecture}[Paving Conjecture]
 For every $\epsilon > 0$, there exists an integer $r$ such that any orthogonal projection $P$ on $\mathbb{C}^n$ with diagonal entries $P_{ii} \leq \epsilon$ can be $r$-paved. That is, the index set $\{1, \ldots, n\}$ can be partitioned into $r$ subsets $S_1, \ldots, S_r$ such that for each $j$, the submatrix $P_{S_j}$ satisfies:

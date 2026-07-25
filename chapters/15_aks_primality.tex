@@ -12,6 +12,9 @@ For thousands of years, people have wanted to know: is this number prime, or can
 The question was motivated by cryptography: RSA encryption relies on the difficulty of factoring, but key generation requires efficient primality testing. Before AKS, cryptographers relied on probabilistic tests.
 \end{historicalbox}
 
+\subsection{Simplified Version}
+For specific forms of numbers, fast primality tests already existed. Mersenne numbers ($2^p - 1$) can be tested using the Lucas--Lehmer test, and Proth's theorem handles numbers of the form $k \cdot 2^n + 1$. The challenge was a \emph{universal} deterministic test that works for \emph{all} numbers and runs in polynomial time---without relying on any unproven assumptions like the Extended Riemann Hypothesis.
+
 \subsection{Formal}
 
 The AKS conjecture (now theorem) asks: is there a deterministic polynomial-time algorithm that correctly decides whether a given integer $n$ is prime or composite, without relying on any unproven assumptions?

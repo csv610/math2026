@@ -8,6 +8,9 @@
 \subsection{Informal}
 Scatter a bunch of dots on a piece of paper and look at all the distances between every pair of dots. How many different distances are you guaranteed to see, no matter how you arrange the dots? In 1946, Paul Erd\H{o}s showed that a neat square grid arrangement produces relatively few distinct distances and conjectured that no clever arrangement could do much better. The question stayed open for 64 years until Larry Guth and Nets Katz found a nearly optimal answer using an unexpectedly elegant algebraic trick.
 
+\subsection{Simplified Version}
+If all $n$ points lie on a straight line, there are only $n-1$ distinct distances (the gaps between consecutive points). The question is how much the two-dimensional plane forces more. Erdős showed that $n$ points in the plane must produce at least $c \cdot n/\sqrt{\log n}$ distinct distances, and Guth and Katz proved in 2010 that the answer is at least $c \cdot n/\log n$---nearly matching the upper bound from the square grid.
+
 \subsection{Formal}
 \begin{equation}
 f(n) \geq \frac{n}{\sqrt{\log n}}
