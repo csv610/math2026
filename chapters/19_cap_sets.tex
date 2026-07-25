@@ -4,6 +4,10 @@
 \chapter{The Cap Set Problem}
 
 \section{The Problem}
+Suppose you have a huge grid of points in space, arranged in a three-dimensional lattice. You want to pick as many points as possible, but with one strict rule: \emph{no three of your chosen points can form a straight line}---that is, no three points can be equally spaced. How many points can you pick?
+
+This is the \emph{cap set problem}, and it is the finite-field analogue of one of the oldest questions in number theory: how large can a set of integers be if it contains no three-term arithmetic progression? In the classical setting (integers), Roth's theorem from 1953 says the answer is ``not very large.'' But in the finite-field setting---where arithmetic wraps around like a clock---the problem remained wide open for decades, resisting every known technique.
+
 A \emph{cap set} in $\mathbb{F}_3^n$ is a subset with no three-term arithmetic progression---that is, no distinct $x, y, z$ with $x + y + z = 0$. Let $r_3(n)$ be the maximum size of a cap set in $\mathbb{F}_3^n$.
 
 \begin{conjecture}[Frankl-Graham-Rödl, 1987]

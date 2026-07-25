@@ -4,6 +4,10 @@
 \chapter{The Sato-Tate Conjecture and the Langlands Program}
 
 \section{The Problem}
+An elliptic curve---think of it as a doughnut-shaped curve defined by an equation like $y^2 = x^3 + ax + b$---has a remarkable property: for each prime number $p$, you can count how many points the curve has when you do arithmetic ``modulo $p$'' (like a clock with $p$ hours). The number of such points is always close to $p+1$, but the exact count fluctuates. The question is: \emph{how do these fluctuations behave as $p$ varies?}
+
+The Sato--Tate conjecture, formulated independently by Tunnell and Sato in 1960, predicts that for a ``typical'' elliptic curve, the fluctuations follow a specific bell-shaped distribution---the \emph{Sato--Tate measure}---just as the heights of adult humans follow a normal distribution. This deceptively simple statement turned out to be extraordinarily difficult to prove, and its resolution became a landmark test case for the Langlands program, one of the deepest unifying frameworks in mathematics.
+
 Let $E/\mathbb{Q}$ be an elliptic curve without complex multiplication. For each prime $p$ of good reduction, let $a_p(E) = p + 1 - \#E(\mathbb{F}_p)$. The \emph{Sato-Tate conjecture} (1960) predicts the distribution of the normalized Frobenius traces:
 
 \begin{equation}
