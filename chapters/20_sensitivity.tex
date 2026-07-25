@@ -6,18 +6,7 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine you are asked a yes-or-no question about a long string of coin flips---say, ``is the number of heads even?'' If you flip one coin, the answer might change or it might not. The \emph{sensitivity} of the question is the maximum number of coins that, when flipped simultaneously, could change the answer. A closely related notion---\emph{block sensitivity}---asks the same question but for \emph{groups} of coins flipped together.
-
-The sensitivity conjecture, open for 27 years, asked whether these two measures of complexity are always polynomially related: if a question is simple in one sense, must it also be simple in the other? This may sound like a technical question about computer science, but it touches deep issues about how we measure the complexity of logical and computational processes.
-
-For a boolean function $f: \{0,1\}^n \to \{0,1\}$, several complexity measures characterize how ``complex'' $f$ is:
-\begin{itemize}
-\item \textbf{Sensitivity} $s(f)$: the maximum number of coordinates whose flip changes $f$.
-\item \textbf{Block sensitivity} $bs(f)$: the maximum number of disjoint blocks of coordinates whose simultaneous flip changes $f$.
-\item \textbf{Degree} $\deg(f)$: the degree of the real polynomial representing $f$.
-\end{itemize}
-
-It was known that $\deg(f) \le s(f)^2$ and $bs(f) \le \deg(f)^2$, so the conjecture would follow from $s(f) \le \deg(f)^c$.
+Imagine you are asked a yes-or-no question about a long string of coin flips---say, ``is the number of heads even?'' If you flip one coin, the answer might change or it might not. One way to measure the question's complexity is the most coins you could flip at once to force the answer to change. Another way measures the same thing but lets you flip whole groups of coins together. The sensitivity conjecture, open for 27 years, asked whether these two ways of measuring complexity are always closely related: if a question looks simple by one measure, must it look simple by the other too?
 
 \subsection{Formal}
 \begin{conjecture}[Nisan-Szegedy, 1992]

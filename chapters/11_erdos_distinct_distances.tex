@@ -6,13 +6,7 @@
 \section{The Problem}
 
 \subsection{Informal}
-In 1946, Paul Erd\H{o}s asked a deceptively simple question:
-
-\begin{quote}
-Given $n$ points in the plane, what is the minimum number of distinct distances between them?
-\end{quote}
-
-If you place all $n$ points on a line, you get only $n-1$ distinct distances (1, 2, 3, ..., $n-1$). But those points are collinear. If you require the points to be in general position, you get more distances. Erd\H{o}s showed that placing points on a square grid gives about $n/\sqrt{\log n}$ distinct distances, and conjectured this is essentially optimal:
+Scatter a bunch of dots on a piece of paper and look at all the distances between every pair of dots. How many different distances are you guaranteed to see, no matter how you arrange the dots? In 1946, Paul Erd\H{o}s showed that a neat square grid arrangement produces relatively few distinct distances and conjectured that no clever arrangement could do much better. The question stayed open for 64 years until Larry Guth and Nets Katz found a nearly optimal answer using an unexpectedly elegant algebraic trick.
 
 \subsection{Formal}
 \begin{equation}
