@@ -29,7 +29,7 @@ The problem was posed in 1959 and was known to be equivalent to several other im
 The Kadison--Singer problem sits at the crossroads of quantum physics, signal processing, and pure mathematics. A positive answer means that incomplete quantum measurements can always be completed consistently. This has implications for how we understand measurement in quantum mechanics and how we process incomplete data in engineering.
 
 \subsection{Simplified Version}
-The problem is equivalent to the Paving Conjecture: given an infinite-dimensional diagonal operator $D$ with bounded entries, can the basis vectors be partitioned into finitely many blocks such that each block is nearly orthogonal? This was verified numerically for many examples before the proof, and Weaver had conjectured a finite-dimensional reformulation (Weaver's conjecture $KS_2$) that was already checked for small matrices. The breakthrough came from showing that Weaver's conjecture holds in general via the ``few moments'' method.
+The problem is equivalent to the Paving Conjecture: given an infinite-dimensional diagonal operator $D$ with bounded entries, can the basis vectors be partitioned into finitely many blocks such that each block is nearly orthogonal? This was verified numerically for many examples before the proof. Weaver had conjectured a finite-dimensional reformulation (Weaver's conjecture $KS_2$) that was already checked for small matrices. The breakthrough came from showing that Weaver's conjecture holds in general via the ``few moments'' method.
 
 \section{Mathematical Theory}
 
@@ -68,12 +68,12 @@ Their proof used a revolutionary new technique:
 
 \begin{enumerate}
 \item \textbf{Interlacing Families of Polynomials}: They showed that the roots of certain families of polynomials interlace, which guarantees the existence of a partition where the maximum root of the characteristic polynomial is small.
-\item \textbf{Expected Characteristic Polynomials}: Instead of finding a partition directly, they studied the average characteristic polynomial over all random partitions, showing its roots are bounded by the roots of a associated univariate polynomial.
+\item \textbf{Expected Characteristic Polynomials}: Instead of finding a partition directly, they studied the average characteristic polynomial over all random partitions, showing its roots are bounded by the roots of an associated univariate polynomial.
 \item \textbf{Barrier Functions}: They used multivariate barrier functions to track and bound the roots of these polynomials under rank-one updates.
 \end{enumerate}
 
 \begin{highlightbox}
-The Marcus--Spielman--Srivastava proof settled Kadison--Singer by converting an operator algebra problem into a question about the roots of polynomials. This "method of interlacing families" has since become a major tool in combinatorics and computer science.
+The Marcus--Spielman--Srivastava proof settled Kadison--Singer by converting an operator algebra problem into a question about the roots of polynomials. This ``method of interlacing families'' has since become a major tool in combinatorics and computer science.
 \end{highlightbox}
 
 \section{Impact}
