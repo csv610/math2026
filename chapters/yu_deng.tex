@@ -1,4 +1,4 @@
-% Chapter 28: Yu Deng — From Atoms to Fluids
+% Chapter 30: Yu Deng — From Atoms to Fluids
 \let\LocalMacro\relax
 
 \chapter{Yu Deng: From Atoms to Fluids}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine watching a flowing river from far away: the water moves smoothly as a single unit. Now zoom in close enough and you see billions of individual molecules bouncing off each other like tiny billiard balls. The big question is: can you start with the rules governing those individual collisions and prove, mathematically, that the smooth river equations must follow? For over a century, this remained one of the hardest open problems in mathematical physics. In 2024, Yu Deng finally proved it for a simplified model of gas.
+
+\textbf{Background.} A gas is made of billions of tiny particles bouncing off each other. The Boltzmann equation describes how the gas evolves statistically---tracking the probability of finding a particle at a given position with a given velocity. The fluid equations (Euler or Navier--Stokes) describe the same gas as a smooth, continuous medium---like a river flowing without visible molecules.
+
+\textbf{Given.} You are given a gas of hard spheres (billiard balls) governed by Newton's laws of motion. The gas starts in a state close to equilibrium (nearly uniform, with small perturbations).
+
+\textbf{Goal.} Prove rigorously that, as the number of particles grows and the mean free path shrinks, the solutions of the Boltzmann equation converge to solutions of the fluid equations.
+
+\textbf{Constraints.} The particles must interact via realistic hard-sphere collisions (not simplified models). The convergence must hold for a mathematically controlled time interval. The initial data must be close to equilibrium. The result must be a rigorous theorem, not a heuristic argument.
+
+\textbf{Example.} Imagine a box filled with hard spheres that start nearly evenly distributed with nearly equal velocities. As time passes, the particles collide and the distribution evolves. The Boltzmann equation describes this evolution statistically. Zoom out far enough, and the gas should behave like a smooth fluid governed by the Euler equations. The question is whether this transition can be proved rigorously.
 
 \subsection{Formal}
 \begin{equation}

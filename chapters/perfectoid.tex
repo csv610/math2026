@@ -1,4 +1,4 @@
-% Chapter 19: Perfectoid Spaces and the Revolution in p-adic Geometry
+% Chapter 20: Perfectoid Spaces and the Revolution in p-adic Geometry
 \let\LocalMacro\relax
 
 \chapter{Perfectoid Spaces and the Revolution in p-adic Geometry}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Number theory has two powerful ways of studying equations: one using pure algebra, the other using geometry. For decades, there was no way to translate between them, which meant that powerful tools on one side could not be brought to bear on problems stated on the other. In 2011, a 23-year-old PhD student named Peter Scholze invented a new kind of mathematical object that serves as a universal bridge between these two worlds. The work has reshaped modern number theory and earned him the Fields Medal.
+
+\textbf{Background.} Number theory studies equations over two fundamentally different kinds of number systems: those of characteristic 0 (like the ordinary integers and rational numbers) and those of characteristic $p$ (like clock arithmetic with a prime number of hours). These two worlds have different tools and different structures, and for decades there was no way to translate between them.
+
+\textbf{Given.} You are given a geometric object (a space of solutions to equations) defined over a $p$-adic number field---a number system that extends the integers using a prime $p$.
+
+\textbf{Goal.} Build a universal translation tool that converts problems from one number system (the $p$-adics) into equivalent problems in a completely different number system (characteristic $p$), so that hard tools from one side can be applied to the other.
+
+\textbf{Constraints.} The bridge must work not just for individual spaces but for families of spaces, including singular and non-projective ones. It must preserve the cohomological invariants that number theorists care about. The construction must be functorial---it must respect the relationships between spaces.
+
+\textbf{Example.} For a single smooth projective variety over a $p$-adic field, Fontaine's $p$-adic Hodge theory already provided a dictionary to characteristic $p$. The breakthrough was extending this to \emph{families} of spaces, which required the entirely new framework of perfectoid spaces.
 
 \subsection{Formal}
 
@@ -131,6 +140,8 @@ The perfectoid approach turned the \emph{weight-monodromy conjecture} (a major o
 \item \textbf{Bhatt-Scholze (2019)}: Prismatic cohomology -- a unified cohomology theory for p-adic formal schemes.
 \item \textbf{Scholze (2020+)}: Condensed mathematics -- extending perfectoid ideas to all of topology/algebra.
 \end{itemize}
+
+\textbf{Why This Matters Beyond Number Theory.} Prismatic cohomology, born from perfectoid spaces, is now the standard tool for $p$-adic Hodge theory and is being extended to singular and non-proper families. The condensed mathematics program is using perfectoid ideas to replace traditional topological spaces with a more flexible foundation, reaching into homotopy theory and quantum field theory far beyond the original number-theoretic setting.
 
 \subsection{After the Proof}
 

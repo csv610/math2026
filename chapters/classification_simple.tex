@@ -1,4 +1,4 @@
-% Chapter 7: The Classification of Finite Simple Groups
+% Chapter 5: The Classification of Finite Simple Groups
 \let\LocalMacro\relax
 
 \chapter{Classification of Finite Simple Groups}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Every object---a square, a snowflake, a crystal---has a symmetry: a way you can rotate or flip it and have it look exactly the same. Mathematicians collect all possible symmetries of an object into one big list, and they wanted to know: can every such list be broken down into smaller, indestructible pieces, like elements on the periodic table? Over four decades, hundreds of mathematicians worked on this question and produced a complete list of all possible indestructible symmetry pieces. The list includes several infinite families plus exactly 26 strange loners that belong to no family at all.
+
+\textbf{Background.} A symmetry of an object is a way to rearrange it so that it looks exactly the same afterward. Mathematicians collect all symmetries of an object into a structure called a group. A simple group is one that cannot be broken down into smaller groups---it is an ``atom'' of symmetry. The classification problem asks whether every simple group is one of a few known types.
+
+\textbf{Given.} You are given any finite simple group---a symmetry structure that cannot be decomposed further.
+
+\textbf{Goal.} Determine whether every finite simple group belongs to one of a known list: cyclic groups of prime order, alternating groups, groups of Lie type, or one of 26 exceptional sporadic groups.
+
+\textbf{Constraints.} The group must be finite (contain finitely many elements) and simple (no nontrivial normal subgroups). The classification must be complete---no simple group may be missing from the list.
+
+\textbf{Example.} The cyclic group of order 7 (the symmetries of a regular 7-gon, excluding reflections) is simple. The alternating group $A_5$ (the even permutations of 5 objects) is simple and is one of the smallest non-abelian simple groups. The Monster group, with approximately $8 \times 10^{53}$ elements, is the largest sporadic simple group. The classification says these---and only these---are all the simple groups that exist.
 
 \subsection{Formal}
 

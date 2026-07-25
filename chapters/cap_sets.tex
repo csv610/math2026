@@ -1,4 +1,4 @@
-% Chapter 18: The Cap Set Problem
+% Chapter 3: The Cap Set Problem
 \let\LocalMacro\relax
 
 \chapter{Cap Set Problem}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine a big grid of points in space where the arithmetic wraps around like a clock. You want to pick as many points as possible, but with one strict rule: no three of your chosen points can be equally spaced in a line. How many points can you pick before you are forced to have three in a row? This problem stumped mathematicians for decades, despite being easy to state.
+
+\textbf{Background.} In ordinary arithmetic, when you count 1, 2, 3, 4, the numbers wrap around naturally. But imagine arithmetic on a clock with 3 hours: after 2 comes 0, then 1, then 2 again. This is called modular arithmetic. Now imagine this wrapping happens independently in many directions at once, creating a vast grid of points where each coordinate is 0, 1, or 2.
+
+\textbf{Given.} You are given a grid of points where each point has $n$ coordinates, each coordinate being 0, 1, or 2. There are $3^n$ points in total.
+
+\textbf{Goal.} How large a collection can you build before three evenly-spaced points are unavoidable?
+
+\textbf{Constraints.} The arithmetic wraps around like a clock: $1 + 2 = 0$ and $2 + 2 = 1$. The three points must be distinct. The collection must avoid three-term arithmetic progressions in every direction simultaneously.
+
+\textbf{Example.} In the simplest case $n = 1$, the grid has 3 points: $\{0, 1, 2\}$. The progression $0, 1, 2$ satisfies $0 + 1 + 2 = 3 \equiv 0$, so you cannot pick all three. The largest valid collection has 2 points (for instance, $\{0, 1\}$). As $n$ grows, the question is how large a collection you can build relative to $3^n$.
 
 \subsection{Formal}
 \begin{conjecture}[Frankl-Graham-Rödl, 1987]

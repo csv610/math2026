@@ -1,4 +1,4 @@
-% Chapter 22: The Kadison--Singer Problem
+% Chapter 14: The Kadison--Singer Problem
 \let\LocalMacro\relax
 
 \chapter{Kadison--Singer Problem}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-In the 1950s, two mathematicians asked a question that sounds like a riddle: suppose you have a huge collection of vectors in space, each pointing in a different direction. Can you always split them into a few groups, each of which behaves almost as nicely as a set of mutually perpendicular axes? This question, which seemed purely abstract, turned out to have deep consequences for how we understand quantum measurements, signal processing, and even the structure of data.
+
+\textbf{Background.} A frame is a collection of vectors in a space that spans it---like a set of directions that cover all possibilities. An orthogonal projection is a way of flattening space onto a subspace, like a shadow. The diagonal entries of a projection matrix tell you how much each coordinate direction contributes to the shadow.
+
+\textbf{Given.} You are given a large collection of vectors in a high-dimensional space that form a frame. The frame is not necessarily orthogonal---the vectors may point in nearly the same direction.
+
+\textbf{Goal.} Can any collection of vectors be split into a small number of groups that each behave almost like mutually perpendicular axes?
+
+\textbf{Constraints.} The partition must use only a bounded number of groups (independent of the total number of vectors). Each group must satisfy a quantitative near-orthogonality condition. The result must hold for all frames, with no exceptions.
+
+\textbf{Example.} Take 1000 vectors in 100-dimensional space that form a frame. The question is whether you can always split them into, say, 10 groups of 100 vectors each, so that within each group the vectors are nearly perpendicular to each other. The Kadison--Singer problem says yes---such a partition always exists.
 
 \subsection{Formal}
 \begin{conjecture}[Paving Conjecture]

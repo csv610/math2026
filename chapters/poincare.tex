@@ -1,4 +1,4 @@
-% Chapter 1: The Poincar\'e Conjecture
+% Chapter 21: The Poincar\'e Conjecture
 % Let \LocalMacro guards prevent redefinition
 \let\LocalMacro\relax
 
@@ -7,7 +7,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine a rubbery shape that has no holes and no edges, living in three-dimensional space. If you can twist, stretch, or squish that shape into a ball without tearing it, is it necessarily the same as a ball? In other words, could there be a closed, hole-free three-dimensional shape that behaves like a ball when you deform it, yet somehow isn't one? This seemingly simple question took over a hundred years to answer.
+
+\textbf{Background.} A topological space is a collection of points with a notion of closeness. A 3-manifold is a space that, near any point, looks like ordinary 3-dimensional space---like the surface of a balloon or the interior of a donut. A simply connected space is one where every loop can be continuously shrunk to a point without tearing.
+
+\textbf{Given.} You are given a closed (finite, no boundary), simply connected 3-manifold---a 3-dimensional shape with no holes, no boundary, and the property that every loop inside it can be shrunk to a point.
+
+\textbf{Goal.} Must every such 3-manifold be the same as the standard 3-sphere?
+
+\textbf{Constraints.} The manifold must be closed, compact, and simply connected. It lives in three dimensions---the question is specifically about dimension 3. The result must hold for all such manifolds, with no exceptions.
+
+\textbf{Example.} A balloon is a 2-sphere: its surface is a 2-dimensional simply connected closed manifold, and it is topologically the same as the standard 2-sphere. The question is whether the same is true in one higher dimension: is every simply connected closed 3-manifold topologically the same as the 3-sphere?
 
 \subsection{Formal}
 Formally, the Poincar\'e conjecture asks: let $M$ be a compact 3-manifold with no boundary. If the fundamental group $\pi_1(M)$ is trivial (i.e., every loop in $M$ can be continuously shrunk to a point), is $M$ necessarily homeomorphic to $S^3$, the standard 3-sphere?

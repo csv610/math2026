@@ -1,4 +1,4 @@
-% Chapter 4: Bounded Gaps Between Primes
+% Chapter 2: Bounded Gaps Between Primes
 \let\LocalMacro\relax
 
 \chapter{Bounded Gaps Between Primes}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Regular numbers can be broken down by multiplication: 12 is 3 times 4, 20 is 4 times 5. But some numbers refuse to factor this way---2, 3, 5, 7, 11, 13, and so on can only be divided evenly by 1 and themselves. These stubborn numbers are called primes, and they are the atoms of arithmetic: every whole number is built by multiplying primes together. Even though primes follow no simple pattern, mathematicians discovered something surprising in 2013: no matter how far you go along the number line, you will always eventually find two primes separated by no more than a fixed gap. Before that, nobody had been able to prove that prime pairs ever stay close together.
+
+\textbf{Background.} A prime number is a whole number greater than 1 that has no divisors other than 1 and itself. The primes appear irregularly along the number line---sometimes close together (like 11 and 13), sometimes far apart. The average gap between consecutive primes near a number $n$ is roughly $\log n$, which grows without bound.
+
+\textbf{Given.} You are given the sequence of all prime numbers: 2, 3, 5, 7, 11, 13, and so on, continuing forever.
+
+\textbf{Goal.} Determine whether there exists a fixed finite distance $N$ such that, no matter how far along the number line you go, you will always eventually find two primes within $N$ of each other.
+
+\textbf{Constraints.} The two primes must be consecutive (no other prime between them). The bound $N$ must be a fixed number that works for all sufficiently large primes. The result must hold infinitely often---there must be infinitely many such close pairs.
+
+\textbf{Example.} The primes 11 and 13 differ by 2. The primes 17 and 19 also differ by 2. The primes 29 and 31 differ by 2. These are twin primes. The question is whether some fixed gap---possibly larger than 2---occurs infinitely often. For instance, is there always a pair of primes within 246 of each other, no matter how far out you look?
 
 \subsection{Formal}
 \begin{equation}

@@ -1,4 +1,4 @@
-% Chapter 13: The Virtual Haken Conjecture and the Surface Subgroup Conjecture
+% Chapter 27: The Virtual Haken Conjecture and the Surface Subgroup Conjecture
 \let\LocalMacro\relax
 
 \chapter{Virtual Haken Conjecture and the Surface Subgroup Conjecture}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine you have a tangled, complicated three-dimensional shape---like a knotted ball of yarn frozen in space. Can you always find a surface tucked inside that helps you understand the shape's structure? Think of it as a soap film that cuts cleanly through the interior, revealing how everything fits together. For decades, mathematicians wondered whether every complicated 3D shape must contain such a helpful surface.
+
+\textbf{Background.} A 3-manifold is a 3-dimensional shape that locally looks like ordinary space. A Haken manifold is one that contains a special kind of surface---an incompressible surface---that helps decompose the manifold into simpler pieces. The question is whether every complicated 3-manifold can be ``simplified'' to a Haken manifold by passing to a finite cover.
+
+\textbf{Given.} You are given a compact, orientable, irreducible 3-manifold with infinite fundamental group (a 3-dimensional shape that cannot be decomposed further and is not simply connected).
+
+\textbf{Goal.} Does every such 3-manifold have a finite cover that is Haken---that is, contains a surface that cuts it into simpler pieces?
+
+\textbf{Constraints.} The manifold must be compact, orientable, and irreducible. Its fundamental group must be infinite. The cover must be finite (a bounded number of sheets). The result must hold for all such manifolds, with no exceptions.
+
+\textbf{Example.} A hyperbolic 3-manifold---one shaped by negative curvature in all three directions---is irreducible and has infinite fundamental group. The question is whether you can always find a finite cover of such a manifold that contains an embedded surface that cuts it into simpler pieces.
 
 \subsection{Formal}
 \begin{conjecture}[Virtual Haken Conjecture, Waldhausen \cite{thurston1982}]

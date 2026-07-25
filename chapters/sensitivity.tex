@@ -1,4 +1,4 @@
-% Chapter 19: The Sensitivity Conjecture
+% Chapter 24: The Sensitivity Conjecture
 \let\LocalMacro\relax
 
 \chapter{Sensitivity Conjecture}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine you are asked a yes-or-no question about a long string of coin flips---say, ``is the number of heads even?'' If you flip one coin, the answer might change or it might not. One way to measure the question's complexity is the most coins you could flip at once to force the answer to change. Another way measures the same thing but lets you flip whole groups of coins together. The sensitivity conjecture, open for 27 years, asked whether these two ways of measuring complexity are always closely related: if a question looks simple by one measure, must it look simple by the other too?
+
+\textbf{Background.} A Boolean function takes a string of bits (0s and 1s) and outputs a single bit. Several measures describe how complex such a function is. One measure, called sensitivity, asks: what is the most input bits you could flip at once to force the output to change? Another measure, called block sensitivity, asks the same question but allows you to flip whole blocks of bits together.
+
+\textbf{Given.} You are given any Boolean function that takes $n$ input bits and produces one output bit.
+
+\textbf{Goal.} Determine whether block sensitivity is always bounded by a polynomial in sensitivity. That is, if the sensitivity is $s$, must the block sensitivity be at most $s^c$ for some fixed constant $c$?
+
+\textbf{Constraints.} The function can be any mapping from $\{0,1\}^n$ to $\{0,1\}$---there are no restrictions on its form. The bound must hold for all $n$ and all Boolean functions. The constant $c$ must not depend on $n$ or on the specific function.
+
+\textbf{Example.} Consider the parity function: it outputs 1 if an odd number of input bits are 1, and 0 otherwise. Flipping any single bit always changes the output, so the sensitivity is 1. But you can also flip blocks of bits---for instance, flipping all $n$ bits at once always changes the output, so the block sensitivity is at least $n$. The question is whether this gap (sensitivity 1 versus block sensitivity $n$) can ever be worse than polynomial.
 
 \subsection{Formal}
 \begin{conjecture}[Nisan-Szegedy, 1992]

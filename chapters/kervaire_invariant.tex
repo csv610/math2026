@@ -1,4 +1,4 @@
-% Chapter 5: The Kervaire Invariant One Problem
+% Chapter 17: The Kervaire Invariant One Problem
 \let\LocalMacro\relax
 
 \chapter{Kervaire Invariant One Problem}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Some mathematical objects exist in spaces with far more directions than the three we are used to---four, five, or even dozens of independent directions at once. In 1960, a mathematician named Michel Kervaire found a way to tell certain of these objects apart using a simple yes-or-no test. He also discovered that this test only works in certain numbers of directions: in some it always says yes, in others it always says no. For decades, nobody could figure out exactly where the boundary lay. In 2016, three mathematicians finally proved that beyond a certain point, the test always says no---closing a question that had been open for over fifty years.
+
+\textbf{Background.} A manifold is a mathematical space that locally looks like ordinary flat space---like the surface of a sphere or a doughnut. A framed manifold is one that comes with a consistent choice of ``directions'' at every point. The Kervaire invariant is a simple yes-or-no invariant: it is either 0 or 1, and it distinguishes certain manifolds from others.
+
+\textbf{Given.} You are given a framed manifold in dimension $n$ (a manifold living in a space with $n$ independent directions).
+
+\textbf{Goal.} Determine in which dimensions $n$ there exists a framed manifold with Kervaire invariant equal to 1.
+
+\textbf{Constraints.} The manifold must be framed (equipped with a consistent trivialization of its tangent bundle). The Kervaire invariant is only defined in dimensions of the form $2^k - 2$ (dimensions 2, 6, 14, 30, 62, 126, 254, and so on). In other dimensions, no framed manifold can have Kervaire invariant 1.
+
+\textbf{Example.} In dimension 2, the ordinary 2-sphere has Kervaire invariant 0, but certain framed manifolds in dimension 6, 14, 30, and 62 have Kervaire invariant 1. The question is whether dimension 126 (the next candidate) also admits such a manifold, or whether 62 is the last one.
 
 \subsection{Formal}
 For which dimensions $n$ does there exist a framed manifold with Kervaire invariant equal to 1?

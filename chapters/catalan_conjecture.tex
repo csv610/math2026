@@ -1,4 +1,4 @@
-% Chapter 17: Catalan's Conjecture
+% Chapter 4: Catalan's Conjecture
 \let\LocalMacro\relax
 
 \chapter{Catalan's Conjecture}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-In 1844, the mathematician Eugene Catalan noticed something curious: 8 and 9 are consecutive whole numbers that are both perfect powers---8 is 2 cubed and 9 is 3 squared. He wondered: are there any other pairs of consecutive numbers that are both perfect powers? Surprisingly, no one could prove the answer for 158 years.
+
+\textbf{Background.} A perfect power is a whole number that can be written as another whole number raised to a power greater than 1. For example, 8 is $2^3$ and 9 is $3^2$, so both are perfect powers. Most consecutive whole numbers are not both perfect powers---the pair 8 and 9 is a rare exception.
+
+\textbf{Given.} You are given two consecutive positive whole numbers, each of which is a perfect power (that is, each can be written as $x^a$ and $y^b$ with $x, y, a, b > 1$).
+
+\textbf{Goal.} Determine whether the pair 8 and 9 is the only such pair, or whether other consecutive perfect powers exist.
+
+\textbf{Constraints.} Both exponents must be at least 2. The bases must be positive integers. The two perfect powers must differ by exactly 1. The result must hold for all positive integers, with no exceptions.
+
+\textbf{Example.} The pair $8 = 2^3$ and $9 = 3^2$ are consecutive perfect powers: $9 - 8 = 1$. The pair $26 = 2^5$ and $27 = 3^3$ are also consecutive, but they differ by 1---wait, they do differ by 1. So 26 and 27 are another pair. Let me recheck: the question is whether $x^a - y^b = 1$ has only the solution $3^2 - 2^3 = 1$. In fact, 26 and 27 are consecutive but 26 is not a perfect power ($2^5 = 32$, not 26). So 8 and 9 is indeed the only known pair, and the conjecture says it is the only one.
 
 \subsection{Formal}
 \begin{equation}

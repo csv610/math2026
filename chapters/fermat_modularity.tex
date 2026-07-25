@@ -1,4 +1,4 @@
-% Chapter 2: Fermat's Last Theorem and the Modularity Theorem
+% Chapter 8: Fermat's Last Theorem and the Modularity Theorem
 \let\LocalMacro\relax
 
 \chapter{Fermat's Last Theorem and the Modularity Theorem}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-In 1637, a French mathematician named Pierre Fermat was reading an ancient Greek math book when he scribbled a note in the margin. He claimed that no whole number raised to a power higher than two can be split into two other whole numbers raised to that same power. For example, there is no way to write two perfect cubes that add up to another perfect cube, and the same is true for fourth powers, fifth powers, and so on forever. Fermat said he had a brilliant proof but never wrote it down. Mathematicians spent over 350 years chasing this ghost.
+
+\textbf{Background.} A whole number raised to a power greater than 2 can sometimes be split into two other whole numbers raised to that same power. For example, $3^2 + 4^2 = 5^2$ works for squares. Fermat's Last Theorem asks whether this is possible for higher powers.
+
+\textbf{Given.} You are given any whole number $n$ greater than 2, and you are allowed to search for nonzero whole numbers $x$, $y$, and $z$.
+
+\textbf{Goal.} Determine whether the equation $x^n + y^n = z^n$ has any solutions in nonzero whole numbers, for every exponent $n > 2$.
+
+\textbf{Constraints.} All of $x$, $y$, and $z$ must be positive whole numbers. The exponent $n$ must be greater than 2. The result must hold for every such $n$, with no exceptions.
+
+\textbf{Example.} For $n = 2$: $3^2 + 4^2 = 5^2$ works (Pythagorean triples). For $n = 3$: is there a way to write two perfect cubes that add to a third perfect cube? Fermat claimed there is not, and that the same is true for every higher power. The theorem says the only way to split a perfect power into two perfect powers of the same degree is with squares.
 
 \subsection{Formal}
 The equation

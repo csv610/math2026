@@ -1,4 +1,4 @@
-% Chapter 3: The Kepler Conjecture
+% Chapter 16: The Kepler Conjecture
 \let\LocalMacro\relax
 
 \chapter{Kepler Conjecture}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-If you try to stack oranges as tightly as possible in a box, you naturally settle them into the gaps left by the layer below. Johannes Kepler guessed in 1611 that no arrangement of spheres in space can be more space-efficient than this everyday grocery-store stacking. He was right, but proving it took nearly four hundred years.
+
+\textbf{Background.} When you pack identical spheres---like oranges in a box or cannonballs in a stack---some space inevitably remains empty between them. The density of a packing is the fraction of total space that the spheres actually fill. Different arrangements of spheres yield different densities.
+
+\textbf{Given.} You are allowed to arrange identical spheres (all the same size) anywhere in three-dimensional space, as long as no two spheres overlap.
+
+\textbf{Goal.} Determine the maximum possible density: what is the largest fraction of space that can be filled by non-overlapping identical spheres?
+
+\textbf{Constraints.} The spheres must all have the same radius. They cannot overlap (they may touch). The arrangement does not need to follow any repeating pattern---it can be completely irregular. The density is measured over all of space, not just a finite box.
+
+\textbf{Example.} The simplest arrangement is a cubic grid: place sphere centers at the corners of a grid of cubes. This fills about 52\% of space. A better arrangement is the face-centered cubic lattice, the pattern you get when you stack oranges in a grocery store: each sphere sits in the gap left by four spheres below. This fills about 74\% of space. The question is whether any arrangement---even a chaotic, irregular one---can do better than 74\%.
 
 \subsection{Formal}
 Formally, let $\Delta$ be the density of a packing of equal spheres in $\mathbb{R}^3$. Kepler claimed:

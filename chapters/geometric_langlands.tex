@@ -1,4 +1,4 @@
-% Chapter 12: The Geometric Langlands Program
+% Chapter 10: The Geometric Langlands Program
 \let\LocalMacro\relax
 
 \chapter{Geometric Langlands Program}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Mathematics has two huge areas that seem to have nothing in common: one studies numbers and equations, the other studies shapes and curves. Over the past century, mathematicians began to suspect that there might be a perfect hidden dictionary between these two areas---a way to translate every question in one into an equivalent question in the other. Proving that this dictionary exists has become one of the deepest and most active quests in modern mathematics.
+
+\textbf{Background.} Mathematics has two vast domains: number theory (the study of equations with whole-number solutions) and geometry (the study of shapes and curves). The Langlands program conjectures a perfect dictionary between them---a way to translate every question in one domain into an equivalent question in the other. The geometric Langlands program is the version of this dictionary where number fields are replaced by geometric objects (curves and surfaces).
+
+\textbf{Given.} You are given a smooth projective curve $X$ (a compact 1-dimensional shape) and a reductive group $G$ (a symmetric algebraic structure). On the geometric side, you have collections of bundles (geometric structures spread over $X$) classified by $G$.
+
+\textbf{Goal.} Prove that two seemingly unrelated collections of geometric objects on the curve are secretly the same---one collection comes from symmetry, the other from differential equations. A perfect match between them would let you translate hard problems from one domain into the other.
+
+\textbf{Constraints.} The curve must be smooth and projective. The group must be reductive. The correspondence must be an equivalence of derived categories, not just a rough similarity. It must hold for all such curves and groups, with no exceptions.
+
+\textbf{Example.} For the simplest group $GL_1$ (the multiplicative group), the correspondence was already understood classically---it relates line bundles on $X$ to connections on $X$. The deep content of the geometric Langlands program is what happens for larger groups like $GL_2$ and beyond, where the correspondence becomes far more intricate.
 
 \subsection{Formal}
 The geometric Langlands conjecture posits a correspondence between:
@@ -147,6 +156,8 @@ Their proof established the equivalence of derived categories of D-modules and c
 \begin{highlightbox}
 The unramified geometric Langlands conjecture was proved in 2024 by Dennis Gaitsgory and a collaborative team of nine mathematicians, marking a historic milestone in 21st-century geometry and representation theory.
 \end{highlightbox}
+
+\textbf{Why This Matters Beyond Geometry.} The categorical framework built for this proof---ind-coherent sheaves, spectral gluing, and higher category theory---is now being applied to problems in derived algebraic geometry and topological field theory that have no obvious connection to Langlands. The ramified case (singular curves) and the precise relationship to conformal field theory remain wide open, and resolving them would deepen the bridge between pure mathematics and physics.
 
 \subsection{After the Proof}
 

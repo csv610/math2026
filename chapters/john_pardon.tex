@@ -1,4 +1,4 @@
-% Chapter 29: John Pardon — Geometry, Topology, and Knots
+% Chapter 13: John Pardon — Geometry, Topology, and Knots
 \let\LocalMacro\relax
 
 \chapter{John Pardon: Geometry, Topology, and Knots}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Take a piece of string and tie it into a knot. Now ask: how badly tangled can that knot possibly be? One way to measure this is to look at two points on the knot that are very close together when you walk along the string, but very far apart when you cut through the surrounding space. A knot with high distortion has pairs of points that are neighbors along the string but strangers in space. For decades, mathematicians wondered whether knots can be arbitrarily badly tangled in this sense, or whether there is a limit. In 2010, a 21-year-old undergraduate named John Pardon proved that there is no limit---knots can be tangled as badly as you like.
+
+\textbf{Background.} A knot is a loop of string tangled in space so that it cannot be undone without cutting. The distortion of a knot measures how much the knot ``stretches'' distances: it compares how close two points are along the string versus how far apart they are when measured through the surrounding space.
+
+\textbf{Given.} You are given any knot---however complicated---tied in a loop of string and placed in three-dimensional space.
+
+\textbf{Goal.} Determine whether there is an upper limit on how badly a knot can be distorted, or whether knots can be arbitrarily badly tangled in the sense of distortion.
+
+\textbf{Constraints.} The knot must be a closed loop (no endpoints). The distortion is measured as the ratio of the longest distance along the string to the shortest distance through space, over all pairs of points on the knot. The bound must hold for all knots, with no exceptions.
+
+\textbf{Example.} An untangled circle (the unknot) has distortion exactly 1: every pair of points is equally close along the string and through space. A simple trefoil knot has distortion slightly above 1. The question is whether, for any large number $C$ you name, you can tie a knot with distortion greater than $C$.
 
 \subsection{Formal}
 The problem of knot distortion asks whether there exist knots that can be arbitrarily badly tangled---measured by the ratio of distances along the knot to distances in the surrounding space. This question had been open since the 1980s.

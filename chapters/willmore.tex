@@ -1,4 +1,4 @@
-% Chapter 16: The Willmore Conjecture
+% Chapter 29: The Willmore Conjecture
 \let\LocalMacro\relax
 
 \chapter{Willmore Conjecture}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine inflating a rubber donut and dipping it in soapy water---the film tries to settle into the smoothest shape it can. But not all donut shapes are equally smooth: some are naturally wrinklier, others more rounded. In 1965, Thomas Willmore asked: what is the smoothest a donut-shaped surface can possibly be? He predicted a specific lower limit that no donut shape can ever beat, no matter how you stretch or bend it.
+
+\textbf{Background.} Every curved surface has a natural measure of how much it bends at each point. For a donut-shaped surface (a torus), you can sum up this bending over the entire surface to get a single number called the Willmore energy. A perfectly smooth, symmetric torus has a lower energy than a wrinkled or distorted one.
+
+\textbf{Given.} You are given any donut-shaped surface, however distorted, twisted, or self-intersecting it may be, living in three-dimensional space.
+
+\textbf{Goal.} Determine the smallest possible Willmore energy that any donut-shaped surface can achieve, and identify which surface achieves it.
+
+\textbf{Constraints.} The surface must be a torus (genus 1). It may self-intersect. The energy is computed from the surface's curvature at every point, averaged over the whole surface. The bound must hold for all tori, with no exceptions.
+
+\textbf{Example.} A perfectly round, symmetric torus (like a smooth doughnut) has Willmore energy $2\pi^2 \approx 19.74$. A lumpy, distorted torus has higher energy. The question is whether $2\pi^2$ is the absolute minimum, or whether some cleverly deformed torus could achieve a lower energy.
 
 \subsection{Formal}
 \begin{conjecture}[Willmore, 1965]

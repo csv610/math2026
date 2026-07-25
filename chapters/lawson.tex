@@ -1,4 +1,4 @@
-% Chapter 17: The Lawson Conjecture
+% Chapter 18: The Lawson Conjecture
 \let\LocalMacro\relax
 
 \chapter{Lawson Conjecture}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-A soap film stretched across a wire frame naturally pulls itself as tight as possible at every point, curving equally in opposite directions like a saddle. If you shape the frame like a donut, the soap film forms a beautifully symmetric shape. The Lawson conjecture, proposed in 1970, asks: is this standard soap-film donut the only one that never crosses through itself, or are there other, more exotic possibilities hiding out there?
+
+\textbf{Background.} A minimal surface is a surface that locally minimizes area---like a soap film stretched across a wire frame. Among minimal surfaces, some are embedded (they never pass through themselves) and some are immersed (they may cross themselves). A torus is a surface shaped like a doughnut.
+
+\textbf{Given.} You are given any embedded minimal torus living inside the 3-sphere (the higher-dimensional analogue of an ordinary sphere).
+
+\textbf{Goal.} Determine whether the Clifford torus---a perfectly symmetric, standard torus in the 3-sphere---is the only embedded minimal torus, or whether other, less symmetric embedded minimal tori exist.
+
+\textbf{Constraints.} The torus must be embedded (no self-intersections). It must be minimal (locally area-minimizing). It lives in the 3-sphere, not in ordinary 3-dimensional space. The claim must hold for all such tori, regardless of how they are shaped.
+
+\textbf{Example.} The Clifford torus is the most symmetric torus in the 3-sphere: it sits exactly halfway between the equator and the pole, curving equally in all directions. It is the analogue of a perfectly round doughnut. Lawson showed in 1970 that there is a whole family of minimal tori in the 3-sphere, but only the Clifford torus is embedded---all the others intersect themselves. The conjecture asks whether this is always the case, even for minimal tori outside Lawson's family.
 
 \subsection{Formal}
 \begin{conjecture}[Lawson, 1970]

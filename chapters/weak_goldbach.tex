@@ -1,4 +1,4 @@
-% Chapter 10: The Weak Goldbach Conjecture
+% Chapter 28: The Weak Goldbach Conjecture
 \let\LocalMacro\relax
 
 \chapter{Weak Goldbach Conjecture}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Pick any odd number bigger than five, like 31 or 999. Can you always write it as the sum of three prime numbers? For example, $31 = 11 + 13 + 7$. Goldbach guessed this was always possible back in 1742, and after nearly three centuries of effort, mathematicians finally proved him right in 2013. The even-number version of the same question, where you only get two primes, remains unsolved to this day.
+
+\textbf{Background.} A prime number is a whole number greater than 1 that cannot be divided evenly by any smaller whole number except 1 and itself. The first few primes are 2, 3, 5, 7, 11, and 13. A central question in number theory is whether every whole number can be built by adding primes together.
+
+\textbf{Given.} You are given any odd whole number greater than 5.
+
+\textbf{Goal.} Determine whether that number can always be written as the sum of exactly three prime numbers.
+
+\textbf{Constraints.} The three primes may be the same or different. The number 2, the only even prime, is allowed as one of the three. The result must hold for every odd number greater than 5, with no exceptions.
+
+\textbf{Example.} Take 31. We can write $31 = 11 + 13 + 7$. Take 999. We can write $999 = 331 + 337 + 331$. The question is whether this is always possible, no matter how large the odd number gets.
 
 \subsection{Formal}
 The weak Goldbach conjecture (also called the ternary Goldbach conjecture) states:

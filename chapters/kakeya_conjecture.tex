@@ -1,4 +1,4 @@
-% Chapter 27: The Kakeya Conjecture
+% Chapter 15: The Kakeya Conjecture
 \let\LocalMacro\relax
 
 \chapter{Kakeya Conjecture}
@@ -6,9 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine trying to rotate a needle through every possible direction inside a region of the plane. How small can that region be? In 1917, Soichi Kakeya asked this deceptively simple question.
 
-In 1919, Abram Besicovitch shocked mathematicians by showing the answer is \emph{infinitely small}: you can build a shape that contains a line segment pointing in \emph{every} direction yet occupies essentially zero area. Since area alone can't capture the size of such strange shapes, mathematicians turned to a more refined measure---the \emph{dimension} of the set---leading to a deep conjecture about how ``thick'' these sets must really be:
+\textbf{Background.} A line segment has a direction---think of it as an arrow pointing from one end to the other. A region in the plane is just a collection of points forming a shape. Some shapes are small in the sense of having little area, yet they can still be strangely structured.
+
+\textbf{Given.} You are allowed to draw a region in the plane that must contain at least one line segment pointing in every possible direction.
+
+\textbf{Goal.} What is the smallest possible dimension of a region that contains a line segment pointing in every direction?
+
+\textbf{Constraints.} The region must contain a line segment---not just a point---pointing in every direction from 0 to 180 degrees. The region can be disconnected and can have zero area. The question is about the intrinsic ``thickness'' of the set, measured by its dimension.
+
+\textbf{Example.} Take a small disk in the plane. It contains line segments pointing in many directions, but not all---segments near the boundary point in limited directions. A Kakeya set is a shape that contains a segment in every direction, yet (surprisingly) can have zero area. The conjecture says that even though the area can be zero, the set must still be ``thick'' in the sense of having the full dimension of the plane.
 
 \subsection{Formal}
 \begin{conjecture}[Kakeya Conjecture]
@@ -105,7 +112,7 @@ The Wang--Zahl result broke the long-standing ``2.5 dimension barrier'' in $\mat
 
 \subsection{Hong Wang and the Fields Medal}
 
-In 2026, Hong Wang was awarded the Fields Medal at the International Congress of Mathematicians in Philadelphia, becoming the third woman to receive the prize (after Maryam Mirzakhani in 2014 and Maryna Viazovska in 2022). Her work demonstrated that algebraic techniques are powerful enough to attack real-variable problems that had resisted Fourier-analytic methods for decades.
+In 2026, Hong Wang was awarded the Fields Medal at the International Congress of Mathematicians in Philadelphia, becoming the third woman to receive the prize (after Maryam Mirzakhani in 2014 and Maryna Viazovska in 2022). Her work demonstrated that algebraic techniques are powerful enough to attack real-variable problems that had resisted Fourier-analytic methods for decades. The polynomial method she and Zahl deployed has direct implications for the restriction conjecture in harmonic analysis and for bounding energy concentration during wave propagation---problems where Kakeya-type sets appear as obstruction geometry.
 
 \subsection{After the Proof}
 

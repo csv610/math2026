@@ -1,4 +1,4 @@
-% Chapter 21: The Erd\H{o}s Discrepancy Problem
+% Chapter 6: The Erd\H{o}s Discrepancy Problem
 \let\LocalMacro\relax
 
 \chapter{Erdős Discrepancy Problem}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine assigning either plus one or minus one to every counting number: 1, 2, 3, 4, and so on forever. Now look at every evenly-spaced pattern you can find---the even numbers, the multiples of 3, the multiples of 7, and so on---and add up the signs along each pattern. Can you assign the signs so that \emph{every} such sum stays small, no matter how far out you go?
+
+\textbf{Background.} A completely multiplicative function assigns $+1$ or $-1$ to every positive whole number in a way that respects multiplication: if you multiply two inputs, the output is the product of their individual outputs. For such a function, you can look at the sum of outputs along any evenly spaced subsequence---for example, just the even numbers, or just the multiples of 3.
+
+\textbf{Given.} You are given a completely multiplicative function that assigns $+1$ or $-1$ to every positive integer.
+
+\textbf{Goal.} Is there any way to assign these signs so that all partial sums along every arithmetic progression stay bounded?
+
+\textbf{Constraints.} The function must be completely multiplicative (the sign of a product equals the product of the signs). The bound must hold for every arithmetic progression simultaneously, and for all lengths of partial sums. The question is whether any assignment of signs can keep all these sums small.
+
+\textbf{Example.} Consider the function that assigns $+1$ to every number. The partial sums along the multiples of 1 are $1, 2, 3, 4, \ldots$, which grow without bound. So this assignment fails. The question is whether \emph{every} assignment of $+1$ and $-1$ must eventually produce a large sum along some arithmetic progression.
 
 \subsection{Formal}
 The Erd\H{o}s discrepancy problem asks:

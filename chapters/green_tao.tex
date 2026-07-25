@@ -1,4 +1,4 @@
-% Chapter 14: The Green--Tao Theorem
+% Chapter 11: The Green--Tao Theorem
 \let\LocalMacro\relax
 
 \chapter{Green--Tao Theorem}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-An arithmetic progression is simply a sequence of numbers where the gap between neighbors is always the same---like 5, 11, 17, 23. In 1939, it was proved that you can find infinitely many such sequences made up entirely of prime numbers, as long as they have just three terms. The big question was: can you find evenly-spaced prime sequences of any length you want? This stayed open for over 60 years because the primes are spread very thinly among the integers, making them hard to pin down.
+
+\textbf{Background.} An arithmetic progression is a sequence of numbers where the gap between consecutive terms is constant---for example, 5, 11, 17, 23 (gap of 6). Primes are numbers divisible only by 1 and themselves. The primes become increasingly sparse among the integers, so finding long arithmetic progressions made entirely of primes becomes harder as the progression grows.
+
+\textbf{Given.} You are given the set of all prime numbers: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, and so on.
+
+\textbf{Goal.} Determine whether, for any length $k$ you choose, you can find $k$ primes that form an arithmetic progression---that is, $k$ primes equally spaced along the number line.
+
+\textbf{Constraints.} All $k$ terms must be prime. The common difference can be any positive integer. The result must hold for every $k$, no matter how large. The primes in the progression do not need to be consecutive primes.
+
+\textbf{Example.} For $k = 3$: the primes 3, 5, 7 form an arithmetic progression with gap 2. For $k = 4$: the primes 5, 11, 17, 23 form an arithmetic progression with gap 6. For $k = 5$: the primes 5, 11, 17, 23, 29 work with gap 6. The question is whether this is always possible, even for $k = 100$ or $k = 1000$.
 
 \subsection{Formal}
 

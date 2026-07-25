@@ -1,4 +1,4 @@
-% Chapter 30: Jacob Tsimerman — Shimura Varieties and Arithmetic Geometry
+% Chapter 12: Jacob Tsimerman — Shimura Varieties and Arithmetic Geometry
 \let\LocalMacro\relax
 
 \chapter{Jacob Tsimerman: Shimura Varieties and Arithmetic Geometry}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Some geometric objects are built from deep symmetries that connect number theory and geometry in unexpected ways. These objects come in different shapes, and some points on them have extra symmetry---like an equilateral triangle among all triangles. A natural question arises: if you collect enough of these extra-symmetric points and they cluster densely in some region, does that region itself have to be defined by symmetry? This question, open since 1989, was settled in 2021 by Jacob Tsimerman and collaborators, bringing together three areas of mathematics that had developed largely on their own.
+
+\textbf{Background.} Shimura varieties are geometric objects that parametrize families of abelian varieties (higher-dimensional analogues of elliptic curves) with extra structure. They are central objects in modern number theory, connecting to the Langlands program and the distribution of prime numbers. Certain special points on Shimura varieties---called special or CM points---have extra symmetry, like an equilateral triangle among all triangles.
+
+\textbf{Given.} You are given a Shimura variety and a collection of special points on it that is dense in some subvariety (a smaller geometric piece living inside the Shimura variety).
+
+\textbf{Goal.} If densely packed special points fill up a smaller piece of the Shimura variety, must that piece itself be defined by special symmetry?
+
+\textbf{Constraints.} The Shimura variety can be of any dimension. The special points must be dense in the subvariety (every neighborhood of a point in the subvariety contains a special point). The result must hold for all Shimura varieties and all subvarieties, with no exceptions.
+
+\textbf{Example.} For modular curves (one-dimensional Shimura varieties), the special points are the $j$-invariants of elliptic complex multiplication. If a subvariety of the $j$-line contains infinitely many such points, it must be the entire line---there is no proper sub-curve that can contain them all. The conjecture asks whether this rigidity persists in higher dimensions.
 
 \subsection{Formal}
 

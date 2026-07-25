@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Number theorists have long tried to connect two very different ways of studying symmetry: one based on the shapes of geometric objects, the other based on the patterns of numbers. A master formula tries to translate between these two viewpoints, but it only works if a certain key identity holds true. That identity was guessed in 1981 and for decades nobody could prove it. In 2008, Ngo Bao Chau finally proved it using deep geometric ideas that nobody had thought to apply.
+
+\textbf{Background.} The Langlands program is a vast web of conjectures that connects number theory (the study of equations with whole-number solutions) to geometry (the study of shapes). A key tool in this program is a formula that translates between two viewpoints: one based on the symmetries of geometric objects, the other based on the patterns of numbers. This translation formula involves certain integrals called orbital integrals.
+
+\textbf{Given.} You are given a reductive group $G$ (a symmetric algebraic object) and one of its endoscopic groups $H$ (a smaller, closely related object). You have a test function on $G$ and its transfer to $H$.
+
+\textbf{Goal.} Verify a specific identity relating an orbital integral on $G$ to a sum of orbital integrals on $H$. This identity, if true, allows the Langlands program to translate between the geometric and number-theoretic sides.
+
+\textbf{Constraints.} The identity must hold for all reductive groups and their endoscopes, not just special cases. It must hold for all test functions, not just particular ones. The identity was conjectured without a proof for over 25 years.
+
+\textbf{Example.} For the simplest non-abelian case, $GL_2$ (the group of $2 \times 2$ invertible matrices), the identity was verified computationally and proved by Labesse and Langlands in 1988. The general case, proved by Ngo Bao Chau in 2009, required showing that the same identity holds for all groups, regardless of size or complexity.
 
 \subsection{Formal}
 The fundamental lemma of endoscopy is an identity relating orbital integrals on a reductive group $G$ to orbital integrals on its endoscopic groups $H$. For a stable orbital integral $\mathrm{SOI}_G(f)$ on $G$ and an endoscopic group $H$, the lemma asserts:

@@ -1,4 +1,4 @@
-% Chapter 20: Sunflowers, Thresholds, and the Erdős-Faber-Lovász Conjecture
+% Chapter 26: Sunflowers, Thresholds, and the Erdős-Faber-Lovász Conjecture
 \let\LocalMacro\relax
 
 \chapter{Sunflowers, Thresholds, and the Erd\H{o}s-Faber-Lov\'{a}sz Conjecture}
@@ -6,9 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-In 2022, three long-standing puzzles in mathematics were solved within months of each other using variations of the same clever idea. The most famous asks about sunflower patterns: imagine three groups of objects that all overlap in exactly the same common core, like petals of a flower sharing a center. The question is: how many groups do you need before a sunflower is guaranteed to appear?
 
-A related question asks when a complex system---like a network of connections---first becomes likely to have a certain property. A third asks about coloring the edges of a special kind of diagram. All three problems had resisted attack for decades.
+\textbf{Background.} A sunflower is a collection of groups of objects that all overlap in exactly the same common core, with each group contributing unique ``petals'' outside the core. For example, three groups $\{1,2,3\}$, $\{1,2,4\}$, and $\{1,2,5\}$ form a sunflower with core $\{1,2\}$ and petals $\{3\}$, $\{4\}$, $\{5\}$.
+
+\textbf{Given.} You are given a large collection of groups, each containing exactly $w$ objects, drawn from a shared pool of objects.
+
+\textbf{Goal.} Determine how many groups you need before a sunflower with a fixed number of petals is guaranteed to appear, regardless of how the groups are chosen.
+
+\textbf{Constraints.} Each group has exactly $w$ elements. The sunflower must have a common core (possibly empty) shared by all petals. The bound must hold for all possible collections, with no exceptions. The question is about the minimum number of groups needed to force a sunflower.
+
+\textbf{Example.} If each group has 3 elements and you want a sunflower with 3 petals, how many groups do you need? With 4 groups, you might avoid sunflowers. But if you have enough groups---the conjecture says a bound that is exponential in the number of petals---a sunflower must appear. The old bound grew factorially in $w$, and the 2022 breakthrough brought it much closer to exponential.
 
 \subsection{Formal}
 \begin{conjecture}[Erd\H{o}s-Rado, 1960]
@@ -103,9 +110,9 @@ The power of absorption is that it reduces a global problem to a local one: inst
 
 \subsection{The Big Idea}
 
-Imagine you are looking for a very specific pattern in a huge collection of sets: a ``sunflower,'' where three sets overlap in exactly the same core (like three flower petals sharing a center). If one element appears in almost every set---say, the number 7 shows up in 99\% of them---then that element is \emph{useless} for finding sunflowers. It would be in the core of every potential sunflower, contributing nothing to distinguishing sets. The real action happens among the ``fair'' elements---those that appear with roughly equal frequency.
+A single idea---\textbf{spread approximation}---resolved three major open problems in combinatorics in the same year. The principle is simple: in a huge collection of sets, some elements appear in almost every set and are useless for finding patterns. Throw away sets containing these over-represented elements, and what remains is a ``spread'' family where every element appears roughly uniformly. In such a family, no single element can block all sunflowers, and random sampling plus entropy arguments guarantee the pattern you seek. The cost of making a family spread is only a logarithmic factor, which replaced the old factorial bound with something much closer to exponential.
 
-This is the spread approximation principle: \emph{throw away sets containing over-represented elements}. What remains is a ``spread'' family where every element appears roughly uniformly. In such a family, random sampling works beautifully---no single element can block all sunflowers. The cost of making a family spread is only a logarithmic factor, which replaced the old factorial bound with something much closer to exponential.
+This spread approximation technique proved powerful enough to attack not just the sunflower problem but also the Kahn--Kalai expectation-threshold conjecture and the Erd\H{o}s--Faber--Lov\'{a}sz conjecture---three problems that had resisted all standard tools for decades.
 
 \subsection{What Was Stopping Progress}
 

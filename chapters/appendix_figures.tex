@@ -1,0 +1,339 @@
+\chapter*{Appendix: Figure Generation Prompts}
+\addcontentsline{toc}{chapter}{Appendix: Figure Generation Prompts}
+\markboth{Appendix: Figure Generation Prompts}{Appendix: Figure Generation Prompts}
+
+This appendix contains detailed prompts for generating the 28 figures planned for this book. Each prompt specifies the visual content, mathematical elements, labels, style, and placement within the corresponding chapter. Figures are generated as PDF files via Python/matplotlib and inserted into the \LaTeX{} source using \verb|\includegraphics|.
+
+\section*{Conventions}
+\begin{itemize}
+\item All figures use white background, clean academic style, minimal color.
+\item Color scheme: blue for ``known/reference'', red for ``key innovation'', green for ``results/conclusions''.
+\item Output directory: \texttt{figures/} at the repository root.
+\item Each figure is placed via \verb|\begin{figure}[htbp]| with \verb|\centering|, \verb|\includegraphics[width=0.8\textwidth]|, and a \verb|\caption|.
+\end{itemize}
+
+%% ========================================================================
+%% TIER 1: ESSENTIAL
+%% ========================================================================
+
+\section*{Tier 1: Essential Figures}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 1: FCC Sphere Packing}
+\textbf{File:} \texttt{fig\_kepler\_fcc.pdf} \\
+\textbf{Label:} \texttt{fig:kepler\_fcc} \\
+\textbf{Chapter:} Kepler Conjecture \\
+\textbf{Placement:} After ``Mathematical Theory'', before ``Solution''
+
+\begin{quote}
+Draw a 3D-style illustration of face-centered cubic (FCC) sphere packing. Show 3 horizontal layers of spheres: bottom layer (A) with 9 spheres in a hexagonal grid, middle layer (B) with 4 spheres nestled in the gaps of A, top layer (A') with 9 spheres aligned with A. Use light gray spheres with subtle shading for 3D effect. Highlight one Delaunay tetrahedron by drawing lines connecting 4 sphere centers (2 from layer A, 1 from B, 1 from A') forming a tetrahedron, with the tetrahedron edges in red and a semi-transparent red fill. Label the tetrahedron ``Delaunay cell'' with an arrow. In a sidebar, draw 3 small boxes: ``Simple cubic: 0.524'', ``BCC: 0.680'', ``FCC: 0.740'' with the FCC box highlighted in blue and labeled ``optimal''. The background is white. No axes. Clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 2: Ricci Flow Time-Lapse}
+\textbf{File:} \texttt{fig\_poincare\_ricci.pdf} \\
+\textbf{Label:} \texttt{fig:poincare\_ricci} \\
+\textbf{Chapter:} Poincaré Conjecture \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Draw a 4-panel time-lapse sequence (2$\times$2 grid, labeled $t{=}0$, $t{=}T_1$, $t{=}T_2$, $t{=}\text{final}$) showing Ricci flow on a genus-2 3-manifold. Panel 1 ($t{=}0$): a lumpy, wrinkled double-handled solid shape, with high-curvature regions highlighted in red. Panel 2 ($t{=}T_1$): the same shape but smoother overall, with two neck regions pinching (narrowing), curvature blowing up marked with red stars. Panel 3 ($t{=}T_2$): after surgery---the necks have been cut and capped, producing 3 separate simpler pieces (two genus-0 blobs and one genus-0 blob). Panel 4 (final): a single smooth sphere ($S^3$). Below the panels, draw a horizontal arrow labeled ``$W$-entropy'' with a monotone increasing curve above it, annotated ``never decreases''. White background, clean line art with minimal color (red for curvature, blue for surgery cuts).
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 3: Reduction Chain for Fermat's Last Theorem}
+\textbf{File:} \texttt{fig\_fermat\_chain.pdf} \\
+\textbf{Label:} \texttt{fig:fermat\_chain} \\
+\textbf{Chapter:} Fermat's Last Theorem and the Modularity Theorem \\
+\textbf{Placement:} In ``The Big Idea''
+
+\begin{quote}
+Draw a vertical flowchart (top to bottom) with 5 rectangular boxes connected by labeled arrows. Box 1 (top, red outline): ``Fermat's Last Theorem: $x^n + y^n = z^n$ has no solutions for $n \geq 3$''. Arrow down labeled ``Frey (1984): counterexample yields Frey curve''. Box 2 (orange outline): ``Frey curve: $y^2 = x(x{-}a^n)(x{+}b^n)$---too pathological to be modular''. Arrow down labeled ``Ribet (1986): Frey curve cannot be modular''. Box 3 (yellow outline): ``Ribet's Theorem: if modularity holds, FLT follows''. Arrow down labeled ``Taniyama--Shimura--Weil''. Box 4 (green outline): ``Modularity Conjecture: every elliptic curve over $\mathbb{Q}$ is modular''. Arrow down labeled ``Wiles (1995): deformation ring $R$ maps onto Hecke algebra $T$''. Box 5 (blue outline, bold): ``Wiles's Proof: $R = T$ via Taylor--Wiles patching''. At the bottom, a summary arrow: ``Therefore: FLT is true''. White background, clean academic style, boxes have rounded corners.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 4: Clifford Torus and Min-Max Sweepout}
+\textbf{File:} \texttt{fig\_willmore\_sweepout.pdf} \\
+\textbf{Label:} \texttt{fig:willmore\_sweepout} \\
+\textbf{Chapter:} Willmore Conjecture \\
+\textbf{Placement:} In ``The Big Idea''
+
+\begin{quote}
+Two-panel figure. Left panel: A 3D rendering of the Clifford torus---a perfectly symmetric torus (donut shape) with constant mean curvature, rendered in soft blue with shading. Label it ``Clifford torus: $\mathcal{W} = 2\pi^2$''. Show principal curvature arrows $k_1$ and $k_2$ at one point. Right panel: A plot with horizontal axis labeled ``one-parameter family of tori'' (parameter $\theta$ from 0 to 1) and vertical axis labeled ``Willmore energy $\mathcal{W}$''. Draw a smooth curve that starts high, dips to a minimum at $2\pi^2$ (marked with a horizontal dashed red line), then rises again. The minimum point is labeled ``Clifford torus''. Annotate the dashed line: ``min-max threshold: $2\pi^2$''. Add text: ``Every sweepout must cross this threshold''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 5: Cap Set Grid and Slice Rank Pipeline}
+\textbf{File:} \texttt{fig\_capset\_grid.pdf} \\
+\textbf{Label:} \texttt{fig:capset\_grid} \\
+\textbf{Chapter:} Cap Set Problem \\
+\textbf{Placement:} In ``The Big Idea''
+
+\begin{quote}
+Two-part figure. Top part: A $3 \times 3$ grid of dots representing $\mathbb{F}_3^2$ (9 points). Draw all 12 lines of the affine plane over $\mathbb{F}_3$ (each line connects 3 collinear points). Highlight 4 points in blue that form a cap set (no three on a line): for example, $(0,0)$, $(0,1)$, $(1,0)$, $(2,2)$. Circle the cap set points. Label: ``Maximum cap set in $\mathbb{F}_3^2$: 4 points, no 3 on a line''. Bottom part: A 3-step horizontal flowchart. Step 1: box labeled ``Cap set $A \subset \mathbb{F}_3^n$'' with arrow to ``Tensor $T|_{A \times A \times A}$ is diagonal''. Step 2: box labeled ``$|A| \leq \text{slice rank}(T)$'' with arrow to ``Count monomials of degree $< 2n/3$''. Step 3: box labeled ``$r_3(n) \leq 3 \cdot 2.756^n$'' with a comparison: ``Old bound: $3^n/n$''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 6: Besicovitch Kakeya Set and Polynomial Partitioning}
+\textbf{File:} \texttt{fig\_kakeya\_partitioning.pdf} \\
+\textbf{Label:} \texttt{fig:kakeya\_partitioning} \\
+\textbf{Chapter:} Kakeya Conjecture \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Two-panel figure. Top panel: The Besicovitch Kakeya set construction. Draw a large triangle, then show it being subdivided: the triangle is split into overlapping sub-triangles that share a common base but have their apexes shifted. Show 3 iterations, with the area decreasing while line segments in every direction are preserved. Label: ``Besicovitch set: zero volume, contains every direction''. Bottom panel: Polynomial partitioning in $\mathbb{R}^3$. Draw a cubic box representing $\mathbb{R}^3$. Inside, draw a wavy algebraic surface (degree-$d$ polynomial zero set) cutting the box into several cells. Inside each cell, draw a few sparse lines (Kakeya lines) with different orientations. Label the surface ``Zero set of polynomial $P$ of degree $d$'' and label cells ``$O(d^3)$ cells, each with few lines''. White background, clean line art.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 7: Erdős Distinct Distances---Grid vs.\ Polynomial Method}
+\textbf{File:} \texttt{fig\_erdos\_distances.pdf} \\
+\textbf{Label:} \texttt{fig:erdos\_distances} \\
+\textbf{Chapter:} Erdős Distinct Distances Problem \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Two-panel figure. Left panel: A $6 \times 6$ grid of 36 points. Draw a few colored line segments connecting pairs of points at the same distance: red segments for distance 1 (horizontal), blue for distance $\sqrt{2}$ (diagonal), green for distance 2 (two steps). Label: ``Grid: $\Theta(n/\sqrt{\log n})$ distinct distances''. Right panel: A set of $n$ scattered points with a wavy algebraic curve (polynomial zero set) cutting the plane into labeled cells. Draw 3 circles of the same radius $d$ passing through the cells, with intersection points of the circles and the curve marked as bold dots. Label these ``joints''. Add text: ``Each circle meets the curve in $\leq d$ points $\to$ too many circles = contradiction''. White background, clean academic style.
+\end{quote}
+
+%% ========================================================================
+%% TIER 2: HIGH VALUE
+%% ========================================================================
+
+\section*{Tier 2: High-Value Figures}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 8: Potential Automorphy Pipeline (Sato--Tate)}
+\textbf{File:} \texttt{fig\_satotate\_pipeline.pdf} \\
+\textbf{Label:} \texttt{fig:satotate\_pipeline} \\
+\textbf{Chapter:} Sato--Tate Conjecture \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+A horizontal pipeline diagram with 4 stages connected by arrows. Stage 1: ``Elliptic curve $E/\mathbb{Q}$'' with a small sketch of a cubic curve. Arrow labeled ``Galois representation $\rho_{E,\lambda}$''. Stage 2: ``Base change to totally real field $F$'' with a small field extension tower diagram. Arrow labeled ``potential automorphy''. Stage 3: ``Automorphic side'' with a sketch of the Sato--Tate semicircle density curve $(2/\pi)\sqrt{1{-}t^2}$ on $[-1,1]$. Arrow labeled ``spectral theorem $\to$ equidistribution''. Stage 4: ``Trace formula back to $\mathbb{Q}$'' with a downward arrow. Below the pipeline, draw the actual Sato--Tate density curve as a smooth arch from $(-1,0)$ to $(1,0)$ peaking at $(0, 2/\pi)$, with a histogram of sample $a_p$ values overlaid. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 9: Transference Principle (Green--Tao)}
+\textbf{File:} \texttt{fig\_greentao\_layers.pdf} \\
+\textbf{Label:} \texttt{fig:greentao\_layers} \\
+\textbf{Chapter:} Green--Tao Theorem \\
+\textbf{Placement:} In ``The Big Idea''
+
+\begin{quote}
+A 3-layer diagram showing the transference principle. Bottom layer: a number line from 1 to $N$ with dots at prime positions (2, 3, 5, 7, 11, \ldots), labeled ``Primes (density zero)''. Middle layer: a shaded gray region (a ``cloud'') enveloping the primes, labeled ``Pseudorandom set $\nu$ (positive density)''. Top layer: a dense set of dots, labeled ``Szemer\'{e}di's theorem applies here''. Three vertical arrows connect the layers: up-arrow labeled ``embed primes into cloud'', down-arrow labeled ``apply Szemer\'{e}di's theorem to cloud'', down-arrow labeled ``transfer result back to primes''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 10: Periodic Table of Finite Simple Groups}
+\textbf{File:} \texttt{fig\_classification\_table.pdf} \\
+\textbf{Label:} \texttt{fig:classification\_table} \\
+\textbf{Chapter:} Classification of Finite Simple Groups \\
+\textbf{Placement:} In ``The Families''
+
+\begin{quote}
+A ``periodic table'' layout of finite simple groups in 4 panels. Panel 1 (top-left): ``Cyclic groups $C_p$''---list primes 2, 3, 5, 7, 11, 13 as labeled circles. Panel 2 (top-right): ``Alternating groups $A_n$''---list $A_5, A_6, A_7, \ldots$ as labeled rectangles. Panel 3 (bottom-left, largest): ``Groups of Lie type''---a grid with rows for families ($\text{PSL}_n$, $\text{PSU}_n$, $\text{PSp}_{2n}$, $\text{P}\Omega$, exceptional $G_2$ $F_4$ $E_6$ $E_7$ $E_8$) and columns for $q = 2, 3, 4, 5, \ldots$\ Panel 4 (bottom-right): ``26 Sporadic groups''---list all 26 as small labeled circles, with the Monster ($\mathbb{M}$) as a large highlighted circle. Add text: ``Every finite simple group belongs to one of these families---no exceptions''. White background, clean academic style, color-coded panels.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 11: Langlands Dictionary (Geometric)}
+\textbf{File:} \texttt{fig\_glanglands\_dict.pdf} \\
+\textbf{Label:} \texttt{fig:glanglands\_dict} \\
+\textbf{Chapter:} Geometric Langlands Program \\
+\textbf{Placement:} In ``What Are These Objects?''
+
+\begin{quote}
+A two-column ``dictionary'' diagram. Left column (blue header: ``Automorphic side''): stack of $G$-bundles $\mathrm{Bun}_G$ $\to$ D-modules $\to$ Hecke eigensheaves. Right column (red header: ``Galois side''): stack of local systems $\mathrm{LocSys}_{^LG}$ $\to$ Coherent sheaves $\to$ representations of $\pi_1(X)$. A large double-headed arrow ``$\mathbb{L}$'' connects the two columns at the category level, labeled ``Langlands duality (theorem, 2024)''. Below, a smaller inset box: ``Local dictionary: Geometric Satake equivalence at each point of curve $X$'' with a small curve and a point marked. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 12: Hitchin Fibration (Fundamental Lemma)}
+\textbf{File:} \texttt{fig\_fundlemma\_hitchin.pdf} \\
+\textbf{Label:} \texttt{fig:fundlemma\_hitchin} \\
+\textbf{Chapter:} The Fundamental Lemma \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+A two-column diagram. Left column (blue): ``Analytic world''---box ``Orbital integral $O_\gamma(f)$ on $G$'' with equals sign to box ``Orbital integral $O_{\gamma_H}(f_H)$ on $H$''. Right column (red): ``Geometric world''---box ``Points on fiber of Hitchin fibration over $G$'' with equals sign to box ``Points on fiber over $H$''. A thick arrow connects left to right, labeled ``Ngo's reinterpretation''. Below both columns: a large arrow from ``Moduli space of Higgs bundles $\mathcal{M}$'' down to ``Affine base space $\mathcal{B}$'' (the Hitchin map), with 3 small fiber clusters drawn as dot groups. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 13: Macroscopic + Microscopic Eigenvalue Statistics}
+\textbf{File:} \texttt{fig\_random\_matrices\_zoom.pdf} \\
+\textbf{Label:} \texttt{fig:random\_matrices\_zoom} \\
+\textbf{Chapter:} Random Matrix Theory \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Two-panel figure with a ``zoom'' arrow. Top panel: Wigner's semicircle---a histogram of eigenvalue counts filling a semicircular envelope over $[-2, 2]$, labeled ``macroscopic: semicircle law''. Bottom panel: A zoomed-in view of eigenvalues at scale $O(1/N)$---individual dots on a horizontal line with spacing arrows between neighbors, overlaid with a smooth curve (the GUE sine-kernel distribution). Label: ``microscopic: universal spacing (only 4 moments matter)''. A large arrow labeled ``zoom in by factor $N$'' connects the top semicircle to the bottom detail. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 14: Kervaire Invariant Dimension Table}
+\textbf{File:} \texttt{fig\_kervaire\_dimensions.pdf} \\
+\textbf{Label:} \texttt{fig:kervaire\_dimensions} \\
+\textbf{Chapter:} Kervaire Invariant One Problem \\
+\textbf{Placement:} In ``The Big Idea''
+
+\begin{quote}
+A vertical number line showing dimensions of the form $2^k - 2$: 2, 6, 14, 30, 62, 126, 254, 510. Next to each: green checkmark ($\checkmark$) for 2, 6, 14, 30, 62 (Kervaire invariant one manifolds exist). Yellow question mark ($?$) for 126. Red cross ($\times$) for 254 and 510. Below, a triangular diagram with three vertices: ``TMF'' (top), ``Equivariant homotopy'' (bottom-left), ``Adams spectral sequence'' (bottom-right), with labeled edges: ``detect'' (TMF$\to$equivariant), ``constrain'' (equivariant$\to$Adams), ``compute'' (Adams$\to$TMF). White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 15: Prime Number Line with Gap Band}
+\textbf{File:} \texttt{fig\_boundedgaps\_line.pdf} \\
+\textbf{Label:} \texttt{fig:boundedgaps\_line} \\
+\textbf{Chapter:} Bounded Gaps Between Primes \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+A number line from, say, 100 to 200 with prime dots marked and labeled (101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199). Draw a horizontal band of height 246 above the line (or a bracket of width 246), with arrows pointing down to every pair of consecutive primes within the band. Label: ``gap $\leq 246$ occurs infinitely often''. In a small inset box: a vertical barrier diagram---a vertical line at $x^{1/2}$ labeled ``barrier'', an arrow from below reaching up to it labeled ``Bombieri--Vinogradov ($x^{1/2}$)'', and an arrow extending just past it labeled ``Zhang's smoothing ($x^{1/2+\varepsilon}$)''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 16: Sunflower Venn Diagram and Spread Frequencies}
+\textbf{File:} \texttt{fig\_sunflower\_venn.pdf} \\
+\textbf{Label:} \texttt{fig:sunflower\_venn} \\
+\textbf{Chapter:} Sunflowers, Thresholds, and EFL \\
+\textbf{Placement:} In ``Spread Families''
+
+\begin{quote}
+Two-part figure. Top part: A sunflower with 3 petals. Draw 3 overlapping ovals $A_1$, $A_2$, $A_3$ all sharing a central shaded region $C$ (the ``core''). The remaining parts of each oval ($A_1 \setminus C$, $A_2 \setminus C$, $A_3 \setminus C$) are disjoint and labeled ``petal''. Label elements inside each region. Below: a non-example---3 sets with different pairwise intersections (not a sunflower). Bottom part: Two bar charts side by side. Left chart: ``Non-spread family''---a few tall bars (dominant elements) and many short bars. Right chart: ``Spread family''---all bars roughly equal height. Arrow between them: ``spread approximation: discard over-represented elements''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 17: Matrix Paving and Interlacing Roots}
+\textbf{File:} \texttt{fig\_kadison\_matrix.pdf} \\
+\textbf{Label:} \texttt{fig:kadison\_matrix} \\
+\textbf{Chapter:} Kadison--Singer Problem \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Two-panel figure. Left panel: A large $n \times n$ matrix drawn as a square grid, representing an orthogonal projection $P$ with small diagonal entries. The matrix is partitioned into colored blocks along the diagonal: block $S_1$ (blue), block $S_2$ (green), etc. Each block is labeled with its operator norm bound: $\|\sum_{i \in S_j} v_i v_i^T\| \leq (1 + \sqrt{\varepsilon})^2 / 2$. Right panel: A horizontal number line showing interlacing roots. Draw two sequences of dots: ``known polynomial'' roots $a_1 < a_2 < a_3 < a_4$ and ``expected characteristic polynomial'' roots $b_1 < b_2 < b_3$ with $a_1 < b_1 < a_2 < b_2 < a_3 < b_3 < a_4$. The alternating pattern is highlighted. Label: ``Interlacing forces max root of every signing $\leq$ max root of expected polynomial''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 18: Signed Hypercube (Sensitivity Conjecture)}
+\textbf{File:} \texttt{fig\_sensitivity\_hypercube.pdf} \\
+\textbf{Label:} \texttt{fig:sensitivity\_hypercube} \\
+\textbf{Chapter:} Sensitivity Conjecture \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+A 3D drawing of the hypercube $Q_3$ with 8 vertices labeled as binary strings: 000, 001, 010, 011, 100, 101, 110, 111. Draw all 12 edges. Color the 4 vertices with odd weight (001, 010, 100, 111) in blue---these are $f^{-1}(1)$ for the parity function. Color the other 4 in gray. Color edges by the Hadamard signing that makes $A^2 = 3I$: flip the sign on edges in one direction. Label the spectral gap: ``$\lambda_1(A) = \sqrt{3}$''. Add text: ``Cauchy interlacing: induced subgraph on blue vertices has eigenvalue $\geq \sqrt{3} \to$ sensitivity $\geq \sqrt{3}$''. White background, clean academic style.
+\end{quote}
+
+%% ========================================================================
+%% TIER 3: HELPFUL
+%% ========================================================================
+
+\section*{Tier 3: Helpful Figures}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 19: Helfgott's Proof Strategy (Weak Goldbach)}
+\textbf{File:} \texttt{fig\_goldbach\_flowchart.pdf} \\
+\textbf{Label:} \texttt{fig:goldbach\_flowchart} \\
+\textbf{Chapter:} Weak Goldbach Conjecture \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+A vertical flowchart with 3 stages. Stage 1 (top): box ``Vinogradov (1937): every sufficiently large odd $n$ is sum of 3 primes'' with arrow ``make constants explicit''. Stage 2 (middle): box ``Helfgott: explicit bound $n \geq 10^{29}$'' with arrow ``Ramar\'{e}: reduce range via 7-to-1''. Stage 3 (bottom): box ``Computer verification: check $n < 10^{29}$'' with a laptop icon. Label the entire flow ``From qualitative to quantitative''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 20: Erdős Discrepancy Contradiction Chain}
+\textbf{File:} \texttt{fig\_erdos\_discrepancy.pdf} \\
+\textbf{Label:} \texttt{fig:erdos\_discrepancy} \\
+\textbf{Chapter:} Erdős Discrepancy Problem \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+A proof-by-contradiction flow diagram. Start: box ``Assume $D < \infty$ (bounded discrepancy)''. Arrow to ``Entropy decrement: average over larger and larger prime blocks'' (draw a funnel shape: wide messy $\pm 1$ sequence on left, narrow periodic pattern on right). Arrow to ``Sequence correlates with Dirichlet character $\chi$'' (draw periodic $+/-$ pattern). Arrow to ``Dirichlet characters have unbounded discrepancy'' (draw partial sums diverging). Arrow to red box ``CONTRADICTION''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 21: Earthquake Flow and WP Volume Recursion}
+\textbf{File:} \texttt{fig\_mirzakhani\_earthquake.pdf} \\
+\textbf{Label:} \texttt{fig:mirzakhani\_earthquake} \\
+\textbf{Chapter:} Mirzakhani's Work on Hyperbolic Surfaces \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Top panel: A genus-2 hyperbolic surface (a double torus) with a measured geodesic lamination drawn as a family of arcs. Show the earthquake shearing: arrows indicating left-right shearing along the lamination. Bottom panel: The same surface with a simple closed geodesic being pinched (arrow showing the curve shrinking to a node). Below: the surface degenerates into two lower-genus pieces (genus-1 with 2 boundary components $+$ genus-1 with 2 boundary components). Arrows connect this to the recursion: $V_{g,n} = \sum V_{g_1,i+1} \cdot V_{g_2,j+1}$. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 22: Knot Distortion and Symplectic Shadow}
+\textbf{File:} \texttt{fig\_pardon\_knot.pdf} \\
+\textbf{Label:} \texttt{fig:pardon\_knot} \\
+\textbf{Chapter:} John Pardon: Knot Distortion \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Two-panel figure. Left panel: A high-distortion knot drawn as a tangled closed curve in $\mathbb{R}^3$. Mark two points: point $A$ and point $B$ are close along the knot (short path along the curve, shown in blue) but far apart in ambient space (straight-line distance, shown in red). Label: ``intrinsic distance $\ll$ extrinsic distance''. Right panel: The symplectic translation---show the knot as a Legendrian curve on a contact 3-manifold (boundary of a tubular neighborhood). Label the asymptotic Conley--Zehnder capacity $c_{CZ}^{\text{asymp}}$ growing without bound. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 23: Perfectoid Dictionary Bridge}
+\textbf{File:} \texttt{fig\_perfectoid\_bridge.pdf} \\
+\textbf{Label:} \texttt{fig:perfectoid\_bridge} \\
+\textbf{Chapter:} Perfectoid Spaces \\
+\textbf{Placement:} In ``The Big Idea''
+
+\begin{quote}
+A two-world dictionary diagram. Left side (blue): ``Characteristic 0''---list objects: Tate algebras, rigid analytic spaces, Galois representations, $p$-adic Hodge theory. Right side (red): ``Characteristic $p$''---list objects: Frobenius, Cartier operator, \'etale cohomology, crystalline cohomology. A central bridge labeled ``Tilt functor $K \to K^\flat = \varprojlim_{x \mapsto x^p} K$'' connects the two sides. Below the bridge, three pillars: (1) ``Tilt equivalence at field level'', (2) ``Perfectoid spaces carry tilt globally'', (3) ``Pro-\'etale topology makes $\mathcal{O}_X^+$ acyclic''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 24: Number Line of Perfect Powers (Catalan)}
+\textbf{File:} \texttt{fig\_catalan\_numberline.pdf} \\
+\textbf{Label:} \texttt{fig:catalan\_numberline} \\
+\textbf{Chapter:} Catalan's Conjecture \\
+\textbf{Placement:} In ``The Problem''
+
+\begin{quote}
+A number line from 1 to 50. Mark perfect powers as colored dots: squares ($n^2$) in blue, cubes ($n^3$) in red, higher powers in green. The pair $8 = 2^3$ (red) and $9 = 3^2$ (blue) are highlighted with a bracket and labeled ``only consecutive perfect powers''. Show the gaps between consecutive perfect powers growing visibly larger as numbers increase. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 25: Clifford Torus vs.\ Lawson's Immersed Torus}
+\textbf{File:} \texttt{fig\_lawson\_torus.pdf} \\
+\textbf{Label:} \texttt{fig:lawson\_torus} \\
+\textbf{Chapter:} Lawson Conjecture \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Left panel: The Clifford torus---a perfectly symmetric embedded torus in $S^3$ (rendered as a standard donut in $\mathbb{R}^3$ via stereographic projection), labeled ``Clifford torus: minimal, $\mathcal{W} = 2\pi^2$''. Right panel: One of Lawson's immersed tori $\Sigma_\theta$ with visible self-intersection points, labeled ``Lawson's family: self-intersecting for $\theta > 0$''. Below both: a balance/scale diagram. Left pan: ``Curvature: $\int(|A|^2 - 2)$'' (positive). Right pan: ``Topological cost (0 for tori) + Waste ($\int|\nabla\varphi|^2 \geq 0$)''. Label: ``When topology forces cost $= 0$, curvature $\leq$ waste $\to$ bounded''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 26: 3-Manifold with Embedded Surface (Virtual Haken)}
+\textbf{File:} \texttt{fig\_virtualhaken\_surface.pdf} \\
+\textbf{Label:} \texttt{fig:virtualhaken\_surface} \\
+\textbf{Chapter:} Virtual Haken Conjecture \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Left panel: A 3-manifold rendered as a translucent solid (e.g., a handlebody). Inside, an incompressible surface (genus-2) is drawn as a colored surface cutting through the interior. Label: ``$S \hookrightarrow M$, $\pi_1(S) \to \pi_1(M)$ injective''. Right panel: Two-column proof architecture. Left column: ``Kahn--Markovic: geodesic flow $\to$ match pants $\to$ glue into surface $\to$ Surface Subgroup Conjecture''. Right column: ``Agol: CAT(0) cube complex $\to$ virtually special $\to$ virtual fibering $\to$ Virtual Haken Conjecture''. A joining arrow at the bottom: ``Together: complete resolution''. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 27: Primality Test Landscape (AKS)}
+\textbf{File:} \texttt{fig\_aks\_landscape.pdf} \\
+\textbf{Label:} \texttt{fig:aks\_landscape} \\
+\textbf{Chapter:} AKS Primality Test \\
+\textbf{Placement:} In ``Why It Matters''
+
+\begin{quote}
+A $2 \times 2$ grid with axes: horizontal ``Speed'' (slow $\to$ fast), vertical ``Certainty'' (probabilistic $\to$ deterministic). Place labeled bubbles: ``Trial division'' in (slow, deterministic)---bottom-left. ``Fermat / Miller--Rabin'' in (fast, probabilistic)---top-right. ``ECPP'' in (medium, deterministic*)---middle. ``AKS'' in (fast, deterministic)---top-right corner, circled in gold with label ``Holy grail''. Below the grid, a small diagram: polynomial ring $\mathbb{Z}_n[X]/(X^r - 1)$ shown as a circular cycle, with $(X+a)^n$ being computed and compared to $X^n + a$. A Carmichael number 561 shown with a red $\times$ failing AKS while passing Fermat. White background, clean academic style.
+\end{quote}
+
+%% ------------------------------------------------------------------
+\subsection*{Figure 28: Shimura Variety and Pila--Zannier Proof}
+\textbf{File:} \texttt{fig\_jacob\_shimura.pdf} \\
+\textbf{Label:} \texttt{fig:jacob\_shimura} \\
+\textbf{Chapter:} Jacob Tsimerman: Shimura Varieties \\
+\textbf{Placement:} In ``How It Works''
+
+\begin{quote}
+Top panel: A 2D surface representing a slice of a Shimura variety. Individual ``special points'' (CM points) are drawn as highlighted dots. ``Special subvarieties'' are drawn as curves passing through clusters of special points. A ``non-special subvariety $Z$'' is drawn as a separate curve that happens to pass through many special points---with a question mark: ``must $Z$ be special?'' (Andr\'{e}--Oort). Bottom panel: A proof-by-contradiction flowchart: (1) ``Assume $Z$ not special'' $\to$ (2) ``Generate special points via CM automorphisms'' $\to$ (3) ``Encode as rational points on definable set'' $\to$ (4) ``Pila--Wilkie: $O(T^\varepsilon)$ rational points'' $\to$ (5) ``Zilber's principle: transfer to algebraic setting'' $\to$ (6) red box ``CONTRADICTION: too many special points''. White background, clean academic style.
+\end{quote}

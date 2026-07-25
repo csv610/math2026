@@ -1,4 +1,4 @@
-% Chapter 23: Breakthroughs in Random Matrix Theory
+% Chapter 22: Breakthroughs in Random Matrix Theory
 \let\LocalMacro\relax
 
 \chapter{Breakthroughs in Random Matrix Theory}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Imagine filling a large square grid with random numbers and then asking: what pattern do the grid's special ``stretching directions'' follow? In the 1920s, statisticians noticed that as the grid grows larger, these stretching directions spread out in a remarkably uniform shape---a perfect semicircle, no matter what random process you used to fill the grid. The deeper question is whether the finer details---the tiny gaps between neighboring stretching directions---also follow the same universal pattern, regardless of the exact random recipe.
+
+\textbf{Background.} A random matrix is a square grid filled with random numbers. Each such matrix has special numbers called eigenvalues---they describe how the matrix stretches space along certain directions. The eigenvalues spread out along the real line in a pattern that depends on how the random numbers were chosen.
+
+\textbf{Given.} You are given a large square matrix whose entries are drawn independently from some probability distribution (for instance, each entry is $+1$ or $-1$ with equal probability).
+
+\textbf{Goal.} Determine whether the fine-scale spacing between neighboring eigenvalues follows the same universal pattern regardless of which probability distribution was used to fill the matrix.
+
+\textbf{Constraints.} The matrix must be large (the result becomes exact as the matrix size grows). The entries must be independent and identically distributed. The distribution can be any reasonable one---Gaussian, uniform, Bernoulli, or otherwise. The claim is about the limit as the matrix size goes to infinity.
+
+\textbf{Example.} Fill a $1000 \times 1000$ matrix with random $+1$ and $-1$ entries. Compute its eigenvalues and sort them. Look at the gaps between consecutive eigenvalues near the center of the spectrum. Now do the same with a matrix filled with Gaussian random numbers. The universality conjecture says that these gap distributions are identical in the limit, regardless of how the entries were chosen.
 
 \subsection{Formal}
 \begin{equation}
@@ -101,6 +110,8 @@ In 2022, these universality results were extended to cover general covariance ma
 \begin{highlightbox}
 The proof of universality established that eigenvalue repulsion and local spacing statistics are fundamental mathematical properties of large random systems, independent of the microscopic details of the entry distributions.
 \end{highlightbox}
+
+This universality result has deep implications beyond random matrix theory itself: it provides the mathematical foundation for the Montgomery--Dyson conjecture, which predicts that the local spacings of zeros of the Riemann zeta function follow the same GUE eigenvalue statistics---a striking bridge between prime number theory and quantum chaos.
 
 \subsection{After the Proof}
 

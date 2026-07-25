@@ -1,4 +1,4 @@
-% Chapter 6: Maryam Mirzakhani's Work on Hyperbolic Surfaces
+% Chapter 19: Maryam Mirzakhani's Work on Hyperbolic Surfaces
 \let\LocalMacro\relax
 
 \chapter{Maryam Mirzakhani's Work on Hyperbolic Surfaces}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-Some surfaces curve inward everywhere like the inside of a ball, and some curve outward everywhere like the outside of a sphere. But there is a third kind that curves inward in one direction and outward in another, like a saddle or a Pringle chip. These saddle-shaped surfaces come in infinitely many variations, and the mathematician Maryam Mirzakhani wanted to understand the complete landscape of all possible versions. She figured out how to measure the size of this landscape and discovered surprising formulas connecting loops drawn on the surface to its overall shape.
+
+\textbf{Background.} A hyperbolic surface is a 2-dimensional shape where every point curves inward like a saddle---opposite to the outward curvature of a sphere. Such surfaces come in infinitely many types, classified by their genus (number of holes) and the lengths of their boundaries. The moduli space of a given type is the collection of all possible hyperbolic surfaces of that type, treated as a single geometric object.
+
+\textbf{Given.} You are given a surface of genus $g$ with $n$ boundary components of specified lengths $L_1, \ldots, L_n$.
+
+\textbf{Goal.} Compute the volume of this landscape and discover whether it follows a simple polynomial pattern.
+
+\textbf{Constraints.} The surface must be hyperbolic (constant negative curvature). The boundary lengths are prescribed. The genus and number of boundaries are fixed. The volume is measured using the Weil--Petersson metric, which is the natural geometric structure on the moduli space.
+
+\textbf{Example.} For a once-punctured torus (genus 1, one boundary of length $L$), the moduli space volume is a simple polynomial in $L$. The question is whether this polynomial pattern persists for all genera and all boundary configurations, and whether a universal recursive formula exists to compute these volumes.
 
 \subsection{Formal}
 
@@ -122,6 +131,8 @@ This was revolutionary because it connected:
 \begin{highlightbox}
 Mirzakhani's recursive formula was unexpected because it connected the Weil--Petersson volumes to mirror symmetry in a way that had never been anticipated. Her methods combined techniques from hyperbolic geometry, Teichm\"uller theory, and algebraic geometry in a novel and powerful way.
 \end{highlightbox}
+
+\textbf{Why This Matters Beyond Surfaces.} The recursive formula has enabled explicit volume computations up to genus 50+, and the polynomial structure is now a testing ground for mirror symmetry predictions in string theory. Open questions include extending the recursion to higher Teichm\"uller theory for non-compact groups and understanding the deeper link between earthquake dynamics and quantum gravity path integrals.
 
 \subsection{After the Proof}
 

@@ -1,4 +1,4 @@
-% Chapter 8: Optimal Sphere Packing in Dimensions 8 and 24
+% Chapter 25: Optimal Sphere Packing in Dimensions 8 and 24
 \let\LocalMacro\relax
 
 \chapter{Optimal Sphere Packing in Dimensions 8 and 24}
@@ -6,7 +6,16 @@
 \section{The Problem}
 
 \subsection{Informal}
-We all know how to stack oranges at the grocery store: one layer sits in the gaps of the layer below. In our everyday three-dimensional world, this is close to the best you can do. But mathematicians asked the same question about imaginary spaces with many more directions than three---spaces we cannot picture but can describe with equations. In 2016, Maryna Viazovska proved that in two specific higher-dimensional spaces, a certain beautifully symmetric arrangement of spheres is the absolute best possible packing. Her proofs were strikingly short compared to the enormous calculations needed for the three-dimensional case.
+
+\textbf{Background.} In any dimension, you can pack identical spheres (all the same radius) into space without overlap. The density of a packing is the fraction of space filled by the spheres. In dimensions 1, 2, and 3, the optimal packings are known. The question extends to higher dimensions---spaces we cannot visualize but can describe mathematically.
+
+\textbf{Given.} You are given a high-dimensional space with $n$ independent directions (for $n = 8$ or $n = 24$), and you may arrange identical spheres anywhere in this space without overlap.
+
+\textbf{Goal.} Determine the densest possible packing of identical spheres in dimension 8 and in dimension 24.
+
+\textbf{Constraints.} All spheres must have the same radius. They cannot overlap. The arrangement can be completely irregular---it need not follow any repeating pattern. The density is measured over all of space. The result must hold for all packings, with no exceptions.
+
+\textbf{Example.} In dimension 8, the $E_8$ lattice is a highly symmetric arrangement of spheres. Its density is $\pi^4/384 \approx 0.2537$. Viazovska proved in 2016 that no packing in dimension 8 can beat this density. In dimension 24, the Leech lattice achieves an even more remarkable density, and Viazovska with collaborators proved it is optimal.
 
 \subsection{Formal}
 The problem is to determine the \emph{sphere packing constant} $\Delta_n$, the densest possible packing of unit spheres in $\mathbb{R}^n$. In dimension $n$, what is the maximum fraction of space that can be covered by non-overlapping spheres of equal radius?
