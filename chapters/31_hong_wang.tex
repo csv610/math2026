@@ -1,0 +1,106 @@
+% Chapter 31: Hong Wang — Taming the Kakeya Conjecture
+\let\LocalMacro\relax
+
+\chapter{Hong Wang: Taming the Kakeya Conjecture}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Harmonic analysis (Fourier transform, restriction operators)
+\item Geometric measure theory (Hausdorff dimension, Besicovitch sets)
+\item Basic algebraic geometry (polynomial methods) --- see Chapter 27
+\end{itemize}
+
+\section{Overview}
+Hong Wang (born 1992, China) was recognized for her work on the Kakeya conjecture, building on the progress described in Chapter 27. Her 2025 proof (with Joshua Zahl) that three-dimensional Kakeya sets must have Hausdorff dimension greater than 2.5 was a landmark in harmonic analysis.
+
+\begin{historicalbox}
+Nets Katz of Rice University called the Wang--Zahl result the solution of the ``holy grail'' problem in harmonic analysis. The full Kakeya conjecture---that Kakeya sets in $\mathbb{R}^n$ have Hausdorff dimension $n$---remains open for $n \geq 3$, but the gap between the best lower bound and the conjectured value has narrowed dramatically.
+\end{historicalbox}
+
+\section{The Collaboration}
+
+The Wang--Zahl collaboration is itself a remarkable story. Hong Wang (NYU) and Joshua Zahl (UBC) brought complementary expertise: Wang's deep understanding of polynomial partitioning and geometric measure theory combined with Zahl's experience in incidence geometry and harmonic analysis. Their work spanned several years and required new ideas at each stage.
+
+\subsection{The 3D Breakthrough}
+
+\begin{theorem}[Wang--Zahl, 2025 \cite{wangzahl2025}]
+Any Kakeya set $K \subset \mathbb{R}^3$ has Hausdorff dimension at least $2.5 + \epsilon$ for an absolute constant $\epsilon > 0$.
+\end{theorem}
+
+Their proof combined three major innovations:
+
+\begin{enumerate}
+\item \textbf{Polynomial partitioning}: A technique from algebraic geometry (introduced by Guth and Katz in 2010) that decomposes space using the zero sets of polynomials. The polynomial method had previously been used for the finite field Kakeya problem (Dvir's proof) and for the Erd\H{o}s distinct distances problem.
+\item \textbf{Linear programming bounds}: Optimizing over families of line configurations to extract dimensional lower bounds. This technique converts geometric statements about Kakeya sets into optimization problems that can be solved systematically.
+\item \textbf{New incidence geometry}: Novel bounds on the number of incidences between points and lines in three dimensions, extending the work of Guth and Katz.
+\end{enumerate}
+
+\subsection{The Role of Polynomial Methods}
+
+The polynomial method is the unifying thread in Wang's work. The key insight is that algebraic structure can control geometric sets:
+
+\begin{enumerate}
+\item Given a Kakeya set $K \subset \mathbb{R}^3$, construct a polynomial $P$ that vanishes on a carefully chosen subset of the lines in $K$.
+\item The zero set of $P$ decomposes space into cells, each containing relatively few lines.
+\item Count incidences between lines and cells to extract dimensional bounds.
+\end{enumerate}
+
+\begin{highlightbox}
+The polynomial method had been spectacularly successful for the finite field Kakeya problem (Dvir, 2008). Wang's work showed that the same algebraic techniques can break through barriers in the real setting, where they had previously failed.
+\end{highlightbox}
+
+\section{Implications}
+The 3D Kakeya result has far-reaching implications:
+
+\begin{itemize}
+\item \textbf{Restriction theory}: Bounds on Kakeya sets directly imply bounds on Fourier restriction operators---a central problem in harmonic analysis.
+\item \textbf{PDEs}: Kakeya sets control the size of singularity formation in wave equations. The Wang--Zahl bound limits how concentrated energy can become during wave propagation.
+\item \textbf{Geometric measure theory}: The polynomial method developed for Kakeya has been applied to Falconer's distance set problem and other classical questions.
+\item \textbf{Additive combinatorics}: The incidence geometry techniques have applications to sum-product estimates and other problems in additive combinatorics.
+\end{itemize}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{Harmonic analysis}: The Wang--Zahl bound is the best known lower dimension for Kakeya sets in $\mathbb{R}^3$, breaking a barrier that had stood for decades.
+\item \textbf{Polynomial methods}: Wang's work demonstrated that algebraic techniques are powerful enough to attack real-variable problems that had resisted Fourier-analytic methods.
+\item \textbf{Fields Medal}: Hong Wang became the third woman to receive the Fields Medal (after Maryam Mirzakhani in 2014 and Maryna Viazovska in 2022).
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Recall that a Kakeya set in $\mathbb{R}^n$ contains a unit line segment in every direction. Why is the Kakeya conjecture (Hausdorff dimension $= n$) much harder in three dimensions than in two?
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the polynomial partitioning technique at a high level: how does a polynomial decompose space into cells, and why does this help count incidences between lines and points?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+The Fourier restriction conjecture asks for bounds on the restriction operator $R$ from $L^p(\mathbb{R}^n)$ to $L^q(S^{n-1})$. Explain the connection between the Kakeya conjecture and the restriction conjecture.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1917 & Kakeya poses the needle turning problem \\
+1919 & Besicovitch constructs a Kakeya set of measure zero \\
+1971 & Córdoba proves the Kakeya maximal function conjecture for $n=2$ \\
+2003 & Wolff improves the lower bound on Kakeya dimension in $\mathbb{R}^3$ \\
+2008 & Dvir proves the finite field Kakeya conjecture using the polynomial method \\
+2023--2025 & Wang and Zahl break the 2.5-dimension barrier in $\mathbb{R}^3$ \\
+2026 & Hong Wang awarded the Fields Medal at ICM Philadelphia \\
+\bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Wang, H., \& Zahl, J. (2025). ``The Kakeya conjecture in three dimensions.'' arXiv:2502.17655.
+\item Dvir, Z. (2009). ``On the size of Kakeya sets in finite fields.'' Journal of the AMS, 23(4), 1107--1119.
+\item Guth, L., \& Katz, N. (2015). ``On the Erd\H{o}s distinct distances problem in the plane.'' Annals of Mathematics, 181(1), 155--190.
+\item Wolff, T. (2003). ``Recent work on the Kakeya problem.'' In Proceedings of the ICM, Beijing.
+\end{enumerate}

@@ -1,0 +1,99 @@
+% Chapter 28: Yu Deng — From Atoms to Fluids
+\let\LocalMacro\relax
+
+\chapter{Yu Deng: From Atoms to Fluids}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Partial differential equations (Euler, Navier--Stokes)
+\item Statistical mechanics (probability distributions, expectation values)
+\item Basic Newtonian mechanics (elastic collisions)
+\end{itemize}
+
+\section{The Problem}
+One of the oldest questions in mathematical physics is: \emph{Can the smooth, continuous equations of fluid mechanics be rigorously derived from the microscopic behavior of individual particles?}
+
+\begin{historicalbox}
+Hilbert's sixth problem, posed at the 1900 ICM in Paris, asked for the axiomatization of physics. Specifically, he challenged mathematicians to show that the macroscopic equations of fluid dynamics---which treat matter as a continuous medium---follow necessarily from the microscopic laws governing the jostling of individual molecules.
+\end{historicalbox}
+
+The microscopic picture treats a fluid as a vast collection of molecules---think of them as tiny billiard balls---colliding elastically according to Newton's laws. In the late 19th century, Ludwig Boltzmann wrote down an equation describing the statistical distribution of these molecules:
+
+\begin{equation}
+\frac{\partial f}{\partial t} + v \cdot \nabla_x f = Q(f, f)
+\end{equation}
+
+where $f(t, x, v)$ is the density of molecules at position $x$ with velocity $v$ at time $t$, and $Q(f,f)$ is the collision operator encoding binary collisions. In the macroscopic limit (as the number of particles $N \to \infty$ with the mean free path $\varepsilon \to 0$), the solutions of the Boltzmann equation should converge to solutions of the Euler or Navier--Stokes equations.
+
+The challenge is that this transition---from discrete particles to continuous fluid---had never been made rigorous for realistic molecular interactions. For decades, progress was limited to special cases: the Lorentz gas (dilute scatterers), linearized Boltzmann, or simplified kinetic models.
+
+\section{The Discovery}
+
+\subsection{Deng--Hani--Ma (2024--2025)}
+
+\begin{theorem}[Deng--Hani--Ma, 2024--2025 \cite{denghani2024}]
+For hard-sphere gases with sufficiently smooth initial data, the empirical measure of the $N$-particle system converges, in the limit $N \to \infty$ with mean free path $\varepsilon \to 0$, to the solution of the Boltzmann equation with quantitative error bounds.
+\end{theorem}
+
+Their proof introduced several new technical innovations:
+
+\begin{enumerate}
+\item \textbf{Stability estimates for the Boltzmann equation}: New a priori bounds that control the solution in norms adapted to the statistical structure of the problem. These estimates are ``bilinear''---they exploit the product structure of the collision operator rather than working with linear energy methods.
+\item \textbf{Dyson--Schwinger hierarchies}: A systematic expansion of the $N$-particle dynamics in terms of interaction chains, allowing precise tracking of correlations between molecules. Originally developed in quantum field theory, this technique was adapted to the classical setting.
+\item \textbf{Quantitative propagation of chaos}: Showing that after a finite number of collisions, different molecules become statistically independent with explicit error bounds. The key estimate shows that correlations decay exponentially in the number of collisions.
+\end{enumerate}
+
+\begin{highlightbox}
+The result also implies irreversibility: even though microscopic Newtonian mechanics is time-reversible, the macroscopic Boltzmann equation describes irreversible entropy growth. Deng's work provides the first rigorous bridge between these two seemingly contradictory pictures.
+\end{highlightbox}
+
+\subsection{Wave Kinetic Equations}
+
+In separate work, Deng also derived the \emph{wave kinetic equation} from nonlinear dispersive systems, showing how the kinetic theory of waves---originally developed for nonlinear optics and plasma physics---emerges from the fundamental wave equation. This extends the microscopic-to-macroscopic paradigm from particle physics to wave physics.
+
+\begin{theorem}[Deng, 2025]
+The wave kinetic equation describing the long-time evolution of nonlinear dispersive waves on a torus can be derived from the fundamental wave equation via a mean-field limit.
+\end{theorem}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{Mathematical physics}: Provides the first rigorous justification for using fluid equations as a macroscopic description of molecular gases.
+\item \textbf{Statistical mechanics}: The quantitative propagation of chaos gives explicit bounds on when ``molecular independence'' holds, a foundational assumption in kinetic theory.
+\item \textbf{Irreversibility}: The microscopic-to-macroscopic derivation explains how time-reversible particle dynamics produce irreversible macroscopic behavior---a philosophical question that has haunted physics since Boltzmann.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Explain the difference between the microscopic description of a fluid (Newton's laws for individual particles) and the macroscopic description (Euler/Navier--Stokes equations). Why is the transition between them mathematically challenging?
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+What is the physical meaning of the collision operator $Q(f,f)$ in Boltzmann's equation? How does it encode the assumption of elastic collisions?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+The propagation of chaos assumption states that after many collisions, distinct molecules become statistically independent. Explain why this assumption is necessary for deriving the Boltzmann equation, and why it is non-trivial to prove.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1872 & Boltzmann introduces the Boltzmann equation \\
+1900 & Hilbert poses his sixth problem (axiomatization of physics) at the ICM in Paris \\
+2024--2025 & Deng, Hani, and Ma prove rigorous derivation of Boltzmann from hard spheres \\
+2025 & Deng derives the wave kinetic equation from nonlinear dispersive systems \\
+2026 & Yu Deng awarded the Fields Medal at ICM Philadelphia \\
+\bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Deng, Y., Hani, Z., \& Ma, X. (2024). ``Rigorous derivation of the Boltzmann equation from hard-sphere dynamics.'' arXiv:2408.07818.
+\item Deng, Y. (2025). ``Derivation of the wave kinetic equation from nonlinear dispersive systems.'' (Preprint).
+\item Hilbert, D. (1900). ``Mathematische Probleme.'' Nachrichten von der K\"onigl. Gesellschaft der Wissenschaften zu G\"ottingen.
+\end{enumerate}

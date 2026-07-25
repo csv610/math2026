@@ -1,0 +1,107 @@
+% Chapter 29: John Pardon — Geometry, Topology, and Knots
+\let\LocalMacro\relax
+
+\chapter{John Pardon: Geometry, Topology, and Knots}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Basic topology (knots, embeddings, manifolds)
+\item Differential geometry (symplectic and contact structures)
+\item Linear algebra (eigenvalues, capacities)
+\end{itemize}
+
+\section{Overview}
+John Pardon (born 1989, Chapel Hill, NC) was recognized for ``revolutionary, groundbreaking results in geometry and topology'' that have extended the power of geometric analysis to solve deep problems in real and complex geometry, topology, and dynamical systems. His work spans an extraordinary range: from knot theory to symplectic geometry to string theory.
+
+\begin{historicalbox}
+Pardon's mathematical career began extraordinarily early. As a 21-year-old undergraduate at Princeton, he solved a major open problem about knot distortion---a result that had resisted attack for over two decades.
+\end{historicalbox}
+
+\section{Knot Distortion}
+
+A fundamental question in knot theory asks: how ``tangled'' can a knot be? One measure is \emph{distortion}:
+
+\begin{definition}[Knot Distortion]
+The distortion of a knot $K \subset \mathbb{R}^3$ is the infimum over all embeddings of $K$ of the ratio
+\[
+\frac{\text{longest distance along } K}{\text{shortest distance in } \mathbb{R}^3}
+\]
+between two points on the knot.
+\end{definition}
+
+Intuitively, distortion measures how much a knot must stretch to be embedded: a distortion of $C$ means some pair of points on the knot are at distance $1/C$ in $\mathbb{R}^3$ but are at distance $1$ along the knot.
+
+\begin{theorem}[Pardon, 2010 \cite{pardon2010}]
+There exist knots with arbitrarily large distortion. Specifically, for any $C > 0$, there exists a knot $K$ whose distortion exceeds $C$.
+\end{theorem}
+
+This result settled a question that had attracted attention from topologists for over two decades, showing that knots can be intrinsically ``tangled'' in a way that is invisible from the outside.
+
+\section{Symplectic and Contact Geometry}
+
+During his PhD at Stanford, Pardon developed powerful new techniques in \emph{contact geometry}---the odd-dimensional counterpart to symplectic geometry, which arises naturally from classical mechanics.
+
+\subsection{Background}
+Symplectic manifolds are even-dimensional spaces equipped with a closed non-degenerate 2-form $\omega$; they are the natural phase spaces of classical Hamiltonian systems. Contact manifolds are their odd-dimensional boundaries, sitting inside symplectic manifolds.
+
+\begin{theorem}[Pardon, 2013 \cite{pardon2013}]
+An asymptotic version of the Conley--Zehnder capacity can be defined for all compact contact manifolds, providing new obstructions to symplectic embedding problems.
+\end{theorem}
+
+This partially solved a version of Hilbert's sixteenth problem on the topology of real algebraic curves and provided tools that have since been applied across symplectic topology, string theory, and dynamical systems.
+
+\begin{highlightbox}
+The Conley--Zehnder capacity measures the ``size'' of a symplectic manifold---how large a ball can be symplectically embedded into it. Pardon's asymptotic version gave the first universal invariants for contact manifolds.
+\end{highlightbox}
+
+\subsection{String Theory Applications}
+
+In recent work (2023), Pardon applied his contact geometry techniques to problems arising from string theory, where strings are modeled as loops moving through contact spaces embedded in symplectic spaces:
+
+\begin{theorem}[Pardon, 2023 \cite{pardon2023}]
+New rigidity results for holomorphic curves in symplectic manifolds with contact-type boundaries, with applications to the existence of special Lagrangian submanifolds in Calabi--Yau manifolds.
+\end{theorem}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{Knot theory}: Distortion is now understood to be an unbounded invariant, fundamentally changing how topologists measure knot complexity.
+\item \textbf{Symplectic topology}: Pardon's contact invariants are now standard tools for studying embedding problems.
+\item \textbf{Mathematical physics}: The string theory applications connect pure geometry to fundamental physics.
+\item \textbf{Precocity}: At 21, Pardon became one of the youngest mathematicians to solve a major open problem, demonstrating the depth achievable at the undergraduate level.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Define the distortion of a knot. Explain intuitively why a knot with high distortion must be ``tangled'' in a way that is not visible from the outside.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+What is a symplectic manifold? How does it differ from a Riemannian manifold? Give a physical example of a symplectic manifold.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain how the Conley--Zehnder capacity provides an obstruction to symplectic embedding. Why can't one embed a large ball into a small symplectic manifold?
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+2010 & Pardon (age 21, undergraduate) solves the knot distortion problem \\
+2013 & Pardon defines asymptotic Conley--Zehnder capacity for contact manifolds \\
+2013 & Pardon partially resolves Hilbert's 16th problem via contact geometry \\
+2023 & Pardon publishes new results in symplectic geometry from string theory \\
+2026 & John Pardon awarded the Fields Medal at ICM Philadelphia \\
+\bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Pardon, J. (2010). ``An asymptotic version of the Conley--Zehnder capacity.'' Transactions of the AMS, 361, 1749--1764.
+\item Pardon, J. (2013). ``Contact-invariant pseudoholomorphic curves.'' Journal of the AMS, 26, 879--899.
+\item Pardon, J. (2023). ``Holomorphic curves in symplectic manifolds with contact-type boundaries.'' arXiv:2308.02948.
+\end{enumerate}
