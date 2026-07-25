@@ -5,6 +5,7 @@
 *.lot
 *.out
 *.pdf
+!diagrams/*.pdf
 *.synctex.gz
 *.fls
 *.fdb_latexmk
