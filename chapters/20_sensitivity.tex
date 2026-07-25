@@ -4,6 +4,8 @@
 \chapter{The Sensitivity Conjecture}
 
 \section{The Problem}
+
+\subsection{Informal}
 Imagine you are asked a yes-or-no question about a long string of coin flips---say, ``is the number of heads even?'' If you flip one coin, the answer might change or it might not. The \emph{sensitivity} of the question is the maximum number of coins that, when flipped simultaneously, could change the answer. A closely related notion---\emph{block sensitivity}---asks the same question but for \emph{groups} of coins flipped together.
 
 The sensitivity conjecture, open for 27 years, asked whether these two measures of complexity are always polynomially related: if a question is simple in one sense, must it also be simple in the other? This may sound like a technical question about computer science, but it touches deep issues about how we measure the complexity of logical and computational processes.
@@ -17,6 +19,7 @@ For a boolean function $f: \{0,1\}^n \to \{0,1\}$, several complexity measures c
 
 It was known that $\deg(f) \le s(f)^2$ and $bs(f) \le \deg(f)^2$, so the conjecture would follow from $s(f) \le \deg(f)^c$.
 
+\subsection{Formal}
 \begin{conjecture}[Nisan-Szegedy, 1992]
 $s(f)$ and $bs(f)$ are polynomially related: $bs(f) \le s(f)^c$ for some constant $c$.
 \end{conjecture}
@@ -25,6 +28,9 @@ $s(f)$ and $bs(f)$ are polynomially related: $bs(f) \le s(f)^c$ for some constan
 The sensitivity conjecture stood for 27 years, resisting attacks from Fourier analysis, probability theory, and complexity theory. It was one of the oldest open problems in theoretical computer science.
 \end{historicalbox}
 
+\section{Solution}
+
+Who solved it and what techniques were required.
 
 \section{Mathematical Theory}
 

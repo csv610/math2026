@@ -4,6 +4,8 @@
 \chapter{The AKS Primality Test}
 
 \section{The Problem}
+
+\subsection{Informal}
 For millennia, humans have asked: \emph{Is this number prime?} The question seems simple, but testing primality efficiently is surprisingly hard.
 
 For a number $n$, trial division takes $O(\sqrt{n})$ time -- exponential in the number of digits. Various probabilistic tests (Miller--Rabin, Solovay--Strassen) run in polynomial time but can give wrong answers (though with very small probability).
@@ -15,6 +17,13 @@ This was open for 40 years until 2002.
 \begin{historicalbox}
 The question was motivated by cryptography: RSA encryption relies on the difficulty of factoring, but key generation requires efficient primality testing. Before AKS, cryptographers relied on probabilistic tests.
 \end{historicalbox}
+
+\subsection{Formal}
+
+
+\section{Solution}
+
+Who solved it and what techniques were required.
 
 \section{Mathematical Theory}
 

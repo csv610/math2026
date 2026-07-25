@@ -4,6 +4,8 @@
 \chapter{The Erd\H{o}s Distinct Distances Problem}
 
 \section{The Problem}
+
+\subsection{Informal}
 In 1946, Paul Erd\H{o}s asked a deceptively simple question:
 
 \begin{quote}
@@ -12,6 +14,7 @@ Given $n$ points in the plane, what is the minimum number of distinct distances 
 
 If you place all $n$ points on a line, you get only $n-1$ distinct distances (1, 2, 3, ..., $n-1$). But those points are collinear. If you require the points to be in general position, you get more distances. Erd\H{o}s showed that placing points on a square grid gives about $n/\sqrt{\log n}$ distinct distances, and conjectured this is essentially optimal:
 
+\subsection{Formal}
 \begin{equation}
 f(n) \geq \frac{n}{\sqrt{\log n}}
 \end{equation}
@@ -21,6 +24,10 @@ for some constant $c$. This problem sat open for 64 years.
 \begin{historicalbox}
 Erd\H{o}s was one of the most prolific mathematicians in history, publishing over 1,500 papers. He offered prizes for open problems and could pose beautiful questions on any topic. The distinct distances problem was one of his favorites.
 \end{historicalbox}
+
+\section{Solution}
+
+Who solved it and what techniques were required.
 
 \section{Mathematical Theory}
 
