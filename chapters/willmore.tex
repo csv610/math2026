@@ -42,11 +42,15 @@ This chapter assumes familiarity with:
 \end{itemize}
 
 \subsection{The Willmore Functional and Conformal Invariance}
-The Willmore energy is conformally invariant in $\mathbb{R}^3$:
+The Willmore energy measures how ``bent'' a surface is. For a surface $\Sigma \subset \mathbb{R}^3$ with mean curvature $H$ and Gaussian curvature $K$:
 \[
-\mathcal{W}(\Sigma) = \int_\Sigma (H^2 - K) \, dA + \int_\Sigma K \, dA = \int_\Sigma (H^2 - K) \, dA + 2\pi\chi(\Sigma)
+\mathcal{W}(\Sigma) = \int_\Sigma H^2 \, dA.
 \]
-For a torus ($\chi=0$), $\mathcal{W}(\Sigma) = \int (H^2 - K) \, dA$. The integrand $H^2 - K = \frac{1}{4}(k_1 - k_2)^2 \ge 0$ is conformally invariant.
+This looks like it depends on the embedding, but a beautiful fact (Willmore, 1965) says $\mathcal{W}$ is \emph{conformally invariant}: stretching the surface conformally (like pulling rubber sheet without tearing) does not change $\mathcal{W}$. For a torus ($\chi=0$), this can be rewritten using the Gauss--Bonnet theorem ($\int_\Sigma K \, dA = 2\pi\chi(\Sigma) = 0$) as:
+\[
+\mathcal{W}(\Sigma) = \int_\Sigma (H^2 - K) \, dA.
+\]
+The integrand $H^2 - K = \frac{1}{4}(k_1 - k_2)^2 \ge 0$, where $k_1, k_2$ are the principal curvatures (the maximum and minimum bending rates at each point). This is always non-negative, and equals zero only for round spheres---so the Willmore energy is a measure of ``how far from a sphere'' the surface is.
 
 \subsection{The Clifford Torus}
 The Clifford torus in $S^3$ is

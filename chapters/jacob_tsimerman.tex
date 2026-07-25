@@ -100,9 +100,7 @@ If an algebraic structure is ``sufficiently saturated'' and has enough special p
 
 \subsection{The Big Idea}
 
-Imagine a city built on a grid, where ``special'' buildings (like cathedrals and town halls) have a very specific architectural style. You discover a neighborhood where special buildings are everywhere---densely packed. The Andr\'{e}--Oort question asks: must that neighborhood itself be designed in the special style? Or could a ``generic'' neighborhood somehow accumulate a dense cluster of special buildings by coincidence?
-
-The proof strategy is a proof by contradiction via a counting argument. Assume the neighborhood is \emph{not} special. Then use the symmetries of the Shimura variety to generate many special points on it. Encode these points as rational points on a definable set in $\mathbb{R}^n$. Now invoke the Pila--Wilkie theorem from model theory, which says definable sets have very few ``unexpected'' rational points. If there are too many special points for a non-special neighborhood, you get a contradiction. The key is that three different mathematical worlds---Diophantine geometry, model theory, and algebraic geometry---each contribute one essential piece: the logical framework, the counting engine, and the bridge between real and complex geometry.
+The André--Oort conjecture says: if a subvariety $Z$ of a Shimura variety has a dense set of special points (points where the corresponding abelian variety has extra endomorphisms), then $Z$ itself must be special. The proof uses the \textbf{Pila--Zannier method} by contradiction. Assume $Z$ is not special. Then $Z$ contains a special point $x_0$, and by translating $x_0$ by CM automorphisms, you generate many special points on $Z$. Encode these special points as rational points on a definable set in $\mathbb{R}^n$ (using the uniformization of the Shimura variety). Now invoke the \textbf{Pila--Wilkie theorem}: a definable set in an o-minimal structure has $O(T^\varepsilon)$ rational points of height $\leq T$---far fewer than the many special points you generated. If there are too many special points for a non-special $Z$, you get a contradiction. \textbf{Zilber's principle} bridges the gap: it ensures the o-minimal counting result (over $\mathbb{R}$) transfers to the algebraic setting (over $\mathbb{C}$). The three ingredients---Pila--Zannier (logical framework), Pila--Wilkie (counting engine), Zilber (bridge between real and complex)---each come from a different field and none alone suffices.
 
 \subsection{What Was Stopping Progress}
 
@@ -129,24 +127,6 @@ The novelty was not any single ingredient but the way they fit together. The Pil
 \begin{theorem}[Pila--Shankar--Tsimerman, 2021 \cite{pilatsimerman2021}]
 The Andr\'{e}--Oort conjecture holds for all Shimura varieties.
 \end{theorem}
-
-\begin{highlightbox}
-The proof of the Andr\'{e}--Oort conjecture was a tour de force that brought together model theory, Diophantine geometry, and the theory of Shimura varieties---three fields that had previously developed largely independently.
-\end{highlightbox}
-
-\subsection{The Proof}
-
-\begin{theorem}[Pila--Shankar--Tsimerman, 2021 \cite{pilatsimerman2021}]
-The Andr\'{e}--Oort conjecture holds for all Shimura varieties.
-\end{theorem}
-
-The proof combined three major ingredients:
-
-\begin{enumerate}
-\item \textbf{Pila--Zannier method}: An approach from Diophantine geometry that reduces algebraic statements to counting rational points on definable sets. The key idea is to show that a hypothetical counterexample would contain too many rational points.
-\item \textbf{O-minimality}: The theory of o-minimal structures (from model theory) controls the complexity of definable sets, enabling effective counting of rational points via the Pila--Wilkie theorem.
-\item \textbf{Zilber's principle}: A model-theoretic axiom asserting that sufficiently saturated geometric structures behave like algebraically closed fields. This allows one to transfer results from the o-minimal setting to the algebraic setting.
-\end{enumerate}
 
 \begin{highlightbox}
 The proof of the Andr\'{e}--Oort conjecture was a tour de force that brought together model theory, Diophantine geometry, and the theory of Shimura varieties---three fields that had previously developed largely independently.

@@ -57,19 +57,16 @@ Dvir's 2008 proof of the Kakeya conjecture over finite fields demonstrated the p
 
 The breakthrough of Croot, Lev, Pach, and Ellenberg--Gijswijt reformulates the cap set problem in terms of \emph{tensor rank}, a generalization of matrix rank.
 
-\begin{definition}[Tensor]
-A 3-tensor $T \in V_1 \otimes V_2 \otimes V_3$ over a field $\mathbb{F}$ is a multilinear map $T: V_1^* \times V_2^* \times V_3^* \to \mathbb{F}$.
-\end{definition}
+A \textbf{matrix} is a 2D array of numbers. Its rank measures how many independent rows (or columns) it has---a rank-1 matrix is just a column times a row. A \textbf{3-tensor} is a 3D array of numbers (think: a cube of entries). Its \emph{tensor rank} measures how many ``rank-1 tensors'' (outer products of three vectors) are needed to build it.
 
 \begin{definition}[Slice Rank]
-The \emph{slice rank} of a 3-tensor $T \in V_1 \otimes V_2 \otimes V_3$ is the minimum $r$ such that $T$ can be written as a sum of $r$ terms, each of which is a product of a vector in one factor with a bilinear form on the other two:
+The \emph{slice rank} of a 3-tensor $T$ is the minimum number of terms needed to express $T$ as a sum of pieces, where each piece is a product of a vector in one factor with a bilinear form on the other two. Concretely, for a 3-tensor $T(x,y,z)$:
 \[
-T = \sum_{i=1}^{r} v_i \otimes B_i
+T(x,y,z) = \sum_{i=1}^{r} v_i(x) \cdot B_i(y,z) \quad \text{or similar, with one variable factored out per term.}
 \]
-where each $v_i$ lives in one of $V_1, V_2, V_3$ and $B_i$ lives in the tensor product of the other two.
 \end{definition}
 
-Slice rank is always at most the tensor rank, and for diagonal tensors (those supported only on the ``diagonal'' $x = y = z$), slice rank equals the size of the diagonal support.
+\textbf{Concrete example.} Consider the $3 \times 3 \times 3$ tensor $T(x,y,z)$ over $\mathbb{F}_3$ defined by $T(x,y,z) = 1$ if $x + y + z \equiv 0 \pmod{3}$, and $0$ otherwise. This tensor has slice rank 3: you can write it as a sum of 3 terms, each factoring out one variable. But a diagonal tensor $D(x,y,z) = 1$ if $x = y = z$ and $0$ otherwise has slice rank equal to the size of its diagonal support (here, 3). The key fact: \emph{slice rank} $\leq$ \emph{tensor rank}, and for diagonal tensors they are equal. This means slice rank gives a lower bound on how many entries a diagonal tensor must have---and that lower bound is what caps the size of cap sets.
 
 \subsection{The Cap Set Tensor}
 

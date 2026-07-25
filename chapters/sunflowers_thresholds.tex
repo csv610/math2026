@@ -67,7 +67,7 @@ The key innovation of Alweiss--Lovett--Wu--Zhang is the notion of a \emph{spread
 A family $\mathcal{F}$ of subsets of $[w]$ is \emph{$s$-spread} if every element $i \in [w]$ appears in at most $|\mathcal{F}| / w^s$ sets of $\mathcal{F}$.
 \end{definition}
 
-The idea is that in a spread family, no element ``dominates''---every element appears with roughly equal frequency. Any family can be ``spread-approximated'' by partitioning it into subfamilies and discarding sets containing over-represented elements.
+\textbf{Concrete example.} Suppose $w = 100$ and $|\mathcal{F}| = 10{,}000$. If $\mathcal{F}$ is 1-spread, each element $i \in [100]$ appears in at most $10{,}000 / 100^1 = 100$ sets. If $\mathcal{F}$ is 2-spread, each element appears in at most $10{,}000 / 100^2 = 1$ set---so no element appears in more than one set at all. The parameter $s$ controls how ``uniform'' the distribution is: larger $s$ means more uniform. The power $w^s$ in the denominator means that in a spread family, no single element can appear in too many sets relative to the total---the ``frequency'' of each element is at most $|\mathcal{F}|/w^s$, which is small when $s$ is large. The idea is that in a spread family, no element ``dominates''---every element appears with roughly equal frequency. Any family can be ``spread-approximated'' by partitioning it into subfamilies and discarding sets containing over-represented elements.
 
 \subsection{Thresholds and the Kahn-Kalai Framework}
 

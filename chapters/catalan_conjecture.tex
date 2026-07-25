@@ -110,9 +110,9 @@ The only known double Wieferich pairs are $(2, 1093)$, $(3, 1093)$, and their sy
 
 \subsection{The Big Idea}
 
-Catalan's equation $x^a - y^b = 1$ asks: can two consecutive whole numbers both be perfect powers? The only example is $9 - 8 = 1$. The equation has four unknowns, but the real difficulty is the two \emph{exponents} $a$ and $b$. Think of the exponents as two dials on a combination lock. For 150 years, mathematicians could turn one dial at a time---fixing $a$ or $b$ and solving the resulting simpler equation---but nobody could turn both dials simultaneously.
+Catalan's equation $x^a - y^b = 1$ asks: can two consecutive whole numbers both be perfect powers? The only example is $9 - 8 = 1$. The equation has four unknowns, but the real difficulty is the two \emph{exponents} $a$ and $b$. For 150 years, mathematicians could fix one exponent at a time---Euler solved $x^2 - y^3 = 1$, Lebesgue handled $x^2 - y^n = 1$, Tijdeman (1976) showed both exponents must be bounded---but nobody could constrain both simultaneously.
 
-Mihăilescu's insight was that the two dials are not independent. He discovered a hidden \emph{arithmetic relationship} between $a$ and $b$---the double Wieferich condition---that acts like a secret handshake: only certain pairs of primes can perform it, and among those, none can arise from a Catalan solution. The lock had only one combination all along, and it had already been found: $3^2 - 2^3 = 1$.
+Mihăilescu's insight was to work inside \textbf{cyclotomic fields}. Any solution $x^a - y^b = 1$ forces $x^a = y^b + 1$, so $x^a$ splits as a product of cyclotomic factors $\Phi_d(y)$ for $d \mid a$. The cyclotomic units $\Phi_d(y)$ live in a highly structured abelian group, and Mihăilescu showed that two independent cyclotomic units must simultaneously satisfy \emph{cyclicity conditions}---each must be a perfect power in its own group. For $p$ and $q$ primes, this forces each to be a \textbf{Wieferich prime} relative to the other: $q^{p-1} \equiv 1 \pmod{p^2}$ and $p^{q-1} \equiv 1 \pmod{q^2}$. This is the double Wieferich condition---an arithmetic relationship between the two exponents that is so restrictive only finitely many prime pairs satisfy it, and none of them arise from a Catalan solution.
 
 \subsection{What Was Stopping Progress}
 

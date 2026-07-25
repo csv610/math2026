@@ -75,17 +75,7 @@ Green and Tao introduced the \textbf{transference principle}: embed the primes i
 
 \subsection{How It Works}
 
-Szemer\'edi's theorem (1975) guarantees arbitrarily long arithmetic progressions in any set of integers with positive upper density---but the primes have density zero. Van der Waerden's theorem handles colorings but not sparse sets. What was missing was any technique that could produce arithmetic progressions in a set so sparse that classical density methods are completely inapplicable. The gap was not just quantitative but structural: no framework existed for ``transferring'' density-based results to sets of zero density.
-
-The fundamental obstruction was that every known proof of Szemer\'edi's theorem---whether combinatorial (Szemer\'edi), Fourier-analytic (Gowers), or ergodic (Furstenberg)---required the set to have positive density somewhere. The primes thin out like $1/\log N$, so no interval of reasonable length contains a positive fraction of primes. Sieve methods can show the primes are ``almost random'' but cannot produce structured configurations like arithmetic progressions. The circle method (Hardy--Littlewood) handles short progressions but loses control for length $k \to \infty$. None of these approaches could bridge the density gap.
-
-Green and Tao introduced the \textbf{transference principle}: embed the primes inside a larger, pseudorandom set that \emph{does} have positive density, prove a relative version of Szemer\'edi's theorem for that set, and then transfer the result back. The key technical ingredients were: (1)~a \textbf{sparse Szemer\'edi theorem} extending Gowers's uniformity norms to pseudorandom settings; (2)~a \textbf{pseudorandom dominating measure} constructed via the Hardy--Littlewood circle method and controlled by the Bombieri--Vinogradov theorem; and (3)~a \textbf{relative Szemer\'edi theorem} showing that any subset of the dominating measure with positive relative density contains long progressions. The proof spans approximately 120 pages and synthesizes additive combinatorics, analytic number theory, and ergodic theory.
-
-\begin{theorem}[Green--Tao, 2004 \cite{greentao2008}]
-The prime numbers contain arbitrarily long arithmetic progressions. That is, for every $k \geq 1$, there exist primes $p, p+d, p+2d, \ldots, p+(k-1)d$.
-\end{theorem}
-
-Their proof has three main ingredients:
+The proof has three main ingredients:
 
 \begin{enumerate}
 \item \textbf{Sparse Szemer\'edi theorem}: They proved a version of Szemer\'edi's theorem that applies to subsets of pseudorandom sets of positive density. This required extending Gowers's uniformity norms to the sparse setting \cite{gowers2001}.

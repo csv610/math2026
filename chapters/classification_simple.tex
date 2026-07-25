@@ -53,19 +53,21 @@ The \emph{alternating group} $A_n$ is the group of even permutations of $n$ elem
 \end{definition}
 
 \begin{definition}[Groups of Lie Type]
-The \emph{groups of Lie type} are constructed from algebraic groups over finite fields. Major families include:
+The \emph{groups of Lie type} are the finite symmetry groups that arise from algebraic groups over finite fields. They are the ``regular'' infinite families---analogous to how the prime numbers are the regular building blocks of arithmetic. Each family comes from a different type of geometric symmetry:
 \begin{itemize}
-\item $PSL_n(q)$: Projective special linear groups
-\item $PSU_n(q)$: Projective special unitary groups
-\item $PSp_{2n}(q)$: Projective symplectic groups
-\item $P\Omega_{2n+1}(q)$ and $P\Omega_{2n}^{\pm}(q)$: Orthogonal groups
-\item Exceptional groups: $G_2(q)$, $^2F_4(q)$, $^3D_4(q)$, $E_6(q)$, $E_7(q)$, $E_8(q)$, $F_4(q)$
+\item $PSL_n(q)$: Groups of symmetries that preserve volume (``special linear'')---think of all the ways to rotate and stretch an $n$-dimensional space while keeping volume fixed, then reduce modulo a prime power $q$.
+\item $PSU_n(q)$: Like $PSL_n(q)$ but preserving a Hermitian form---a symmetry that mixes complex conjugation with linear algebra.
+\item $PSp_{2n}(q)$: Groups preserving a symplectic form---the kind of symmetry that appears in Hamiltonian mechanics (phase space).
+\item $P\Omega_{2n+1}(q)$ and $P\Omega_{2n}^{\pm}(q)$: Groups preserving quadratic forms---the symmetries of ellipsoids and hyperboloids, reduced mod $q$.
+\item Exceptional groups: $G_2(q)$, $^2F_4(q)$, $^3D_4(q)$, $E_6(q)$, $E_7(q)$, $E_8(q)$, $F_4(q)$---``exceptional'' because they do not fit into the infinite families above; they arise from exceptional Dynkin diagrams and have no analogue for arbitrary $n$.
 \end{itemize}
 \end{definition}
 
-The groups of Lie type are parametrized by a prime power $q = p^f$ and a Dynkin diagram type. They arise as the finite quotients of algebraic groups.
+The groups of Lie type are parametrized by a prime power $q = p^f$ and a Dynkin diagram type (a small graph encoding the algebraic structure). They arise as the fixed points of Frobenius maps on algebraic groups---roughly, you take a continuous symmetry group over the complex numbers and ``reduce it modulo $q$'' to get a finite group.
 
 \subsection{The Sporadic Groups}
+
+The 26 sporadic groups are the ``exceptions''---finite simple groups that do not fit into any of the infinite families above. They are called \emph{sporadic} because they appear ``out of nowhere'': there is no parameter $n$ or $q$ that generates them, and no obvious pattern connecting them. Think of them as the mathematical equivalent of exceptional particles in physics---they exist, they are necessary for completeness, but they do not obey the rules that govern the regular families.
 
 The 26 sporadic groups are \cite{conway1985}:
 
@@ -88,7 +90,7 @@ The largest sporadic group is the Monster $\mathbb{M}$, with order approximately
 \section{The Solution}
 
 \subsection{The Big Idea}
-The Classification of Finite Simple Groups is like building the periodic table of all possible finite symmetries. By the 1980s, most of the table was filled in: cyclic groups, alternating groups, and groups of Lie type formed predictable infinite families, and 26 sporadic groups (including the enormous Monster) were catalogued. But one row remained incomplete: the ``quasi-thin'' groups, whose internal structure is delicate and doesn't fit neatly into existing proof strategies. Aschbacher and Smith spent years closing this final gap, producing a 2,000-page argument that systematically checked every remaining possibility. The result: a complete periodic table for symmetry, spanning roughly 15,000 pages across 500+ journal articles, involving about 100 mathematicians over four decades.
+The classification works by induction on the \emph{involution structure} of the group: understanding how elements of order 2 behave lets you identify which family a group belongs to. If a group has an involution whose centralizer is ``thin'' (meaning it has very constrained 2-local structure), you can identify it as a known family---cyclic, alternating, or Lie type. The proof is organized as a tree: at each branch, you analyze the involution centralizer and either classify the group or reduce to a smaller case. By the 1980s, almost all branches were closed. The final gap was the \emph{quasi-thin} case: groups whose 2-local structure sits at the boundary between ``thin'' and ``not thin,'' where the centralizer has enough structure to resist existing classification methods but not enough to fall into known families. Aschbacher and Smith's 2,000-page argument systematically eliminated every remaining possibility in this borderline case by combining three threads: local analysis of 2-subgroups, permutation group methods, and representation-theoretic arguments. The result: every finite simple group belongs to one of the four known families, with no exceptions.
 
 \subsection{What Was Stopping Progress}
 The original classification proof spanned roughly 15,000 pages across 500+ papers. Individual pieces had been proved by many different groups, but the quasi-thin case---groups whose 2-local structure satisfies certain constraints---sat at the intersection of several technically demanding threads: local analysis of 2-subgroups, permutation group methods, and representation-theoretic arguments. Each thread had grown enormously in complexity over the decades, and no single team had the breadth of expertise to close the final gap without new ideas about how groups with small 2-local subgroups interact with the families already classified. It was like assembling a 10,000-piece puzzle where 9,990 pieces are in place but the last 10 require understanding how they connect to every other section of the picture.
