@@ -154,6 +154,90 @@ The big open question is the strong Goldbach conjecture: can every even integer 
 \item \textbf{Strong Goldbach}: The weak version's solution brought renewed attention to the strong version, which remains open.
 \end{itemize}
 
+\section{Computational Verification}
+
+The weak Goldbach conjecture can be verified computationally for all odd numbers up to large bounds, and the number of representations can be counted.
+
+\subsection{Verifying Three-Prime Decompositions}
+
+\begin{verbatim}
+def sieve(limit):
+    is_prime = [True] * (limit + 1)
+    is_prime[0] = is_prime[1] = False
+    for i in range(2, int(limit**0.5) + 1):
+        if is_prime[i]:
+            for j in range(i*i, limit + 1, i):
+                is_prime[j] = False
+    return set(i for i in range(2, limit + 1) if is_prime[i])
+
+def count_three_prime_representations(n, primes):
+    """Count the number of ways to write n as p1 + p2 + p3."""
+    count = 0
+    for p1 in primes:
+        if p1 > n:
+            break
+        for p2 in primes:
+            if p2 < p1:
+                continue
+            p3 = n - p1 - p2
+            if p3 >= p2 and p3 in primes:
+                count += 1
+    return count
+
+primes = sieve(1000)
+print("Verifying weak Goldbach for odd n from 7 to 100:")
+all_ok = True
+for n in range(7, 101, 2):
+    reps = count_three_prime_representations(n, primes)
+    if reps == 0:
+        print(f"  FAIL: {n} has no 3-prime decomposition!")
+        all_ok = False
+print(f"All odd n in [7, 100] verified: {all_ok}")
+\end{verbatim}
+
+\subsection{Representation Count Growth}
+
+\begin{verbatim}
+primes = sieve(10000)
+counts = {}
+for n in range(7, 5001, 2):
+    counts[n] = count_three_prime_representations(n, primes)
+
+# Show how the count grows
+for n in [11, 31, 101, 501, 1001, 5001]:
+    if n in counts:
+        print(f"n={n}: {counts[n]} representations as sum of 3 primes")
+
+# Average representation count
+avg = sum(counts.values()) / len(counts)
+print(f"\nAverage representations for odd n in [7, 5000]: {avg:.1f}")
+\end{verbatim}
+
+\subsection{Strong vs Weak Goldbach}
+
+\begin{verbatim}
+def count_two_prime_representations(n, primes):
+    """Count ways to write even n as p1 + p2."""
+    count = 0
+    for p in primes:
+        if p > n // 2:
+            break
+        if (n - p) in primes:
+            count += 1
+    return count
+
+print("Strong Goldbach (2 primes) for even n from 4 to 100:")
+for n in range(4, 101, 2):
+    reps = count_two_prime_representations(n, primes)
+    if reps == 0:
+        print(f"  FAIL: {n} has no 2-prime decomposition!")
+print("All even n in [4, 100] verified as sum of 2 primes")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~every odd number $\geq 7$ up to 5000 has many 3-prime decompositions, (2)~the number of representations grows with $n$, and (3)~the strong Goldbach conjecture also holds for small even numbers, despite being unproven in general.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

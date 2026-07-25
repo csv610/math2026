@@ -195,6 +195,130 @@ Several quantitative questions remain open. For sunflowers, the bound $(C \log w
 \item \textbf{Graph coloring}: The EFL result settles a 49-year-old conjecture about the chromatic number of structured hypergraph unions.
 \end{itemize}
 
+\section{Computational Verification}
+
+The sunflower problem and related threshold phenomena can be explored computationally by searching for sunflower-free families and verifying the spread approximation technique.
+
+\subsection{Finding Sunflower-Free Families}
+
+\begin{verbatim}
+from itertools import combinations
+
+def is_sunflower(sets, k=3):
+    """Check if any k sets form a sunflower."""
+    n = len(sets)
+    for combo in combinations(range(n), k):
+        # Check if sets[i] intersect in the same core
+        intersection = sets[combo[0]]
+        for s in combo[1:]:
+            intersection = intersection & s
+        # Check all pairwise intersections equal the core
+        is_sf = True
+        for i in range(k):
+            for j in range(i+1, k):
+                if sets[combo[i]] & sets[combo[j]] != intersection:
+                    is_sf = False
+                    break
+            if not is_sf:
+                break
+        if is_sf:
+            return True, combo, intersection
+    return False, None, None
+
+def find_sunflower_free(w, max_sets=200):
+    """Greedy search for sunflower-free family of w-element sets."""
+    from itertools import combinations as combs
+    universe = set(range(w))
+    family = []
+    for r in range(w, w + max_sets):
+        for s in combs(universe, r):
+            candidate = family + [set(s)]
+            sf, _, _ = is_sunflower(candidate)
+            if not sf:
+                family.append(set(s))
+                if len(family) >= max_sets:
+                    break
+    return family
+
+w = 5
+family = find_sunflower_free(w, 50)
+sf, combo, core = is_sunflower(family)
+print(f"Sunflower-free family of {w}-element sets: {len(family)} sets")
+print(f"Contains sunflower: {sf}")
+\end{verbatim}
+
+\subsection{Spread Approximation Demo}
+
+\begin{verbatim}
+def compute_element_frequencies(family, w):
+    """Count how often each element appears in the family."""
+    freq = [0] * w
+    for s in family:
+        for elem in s:
+            freq[elem] += 1
+    return freq
+
+def make_spread(family, w, s):
+    """Remove sets containing over-represented elements."""
+    n = len(family)
+    threshold = n / (w ** s)
+    spread_family = []
+    for s_set in family:
+        if all(compute_element_frequencies([s_set], w)[e] <= threshold
+               for e in s_set):
+            spread_family.append(s_set)
+    return spread_family
+
+w = 10
+family = find_sunflower_free(w, 30)
+freq = compute_element_frequencies(family, w)
+print(f"Element frequencies: {freq}")
+spread = make_spread(family, w, 0.5)
+print(f"After spread approximation: {len(spread)} sets remain")
+\end{verbatim}
+
+\subsection{Threshold Phenomena in Random Graphs}
+
+\begin{verbatim}
+import random
+
+def has_triangle(adj, n):
+    """Check if graph has a triangle."""
+    for i in range(n):
+        for j in range(i+1, n):
+            if adj[i][j]:
+                for k in range(j+1, n):
+                    if adj[i][k] and adj[j][k]:
+                        return True
+    return False
+
+def random_graph_threshold(n, trials=1000):
+    """Estimate the triangle-free threshold for G(n, p)."""
+    results = {}
+    for p_int in range(5, 95, 5):
+        p = p_int / 100
+        count = 0
+        for _ in range(trials):
+            adj = [[False]*n for _ in range(n)]
+            for i in range(n):
+                for j in range(i+1, n):
+                    if random.random() < p:
+                        adj[i][j] = adj[j][i] = True
+            if has_triangle(adj, n):
+                count += 1
+        results[p] = count / trials
+    return results
+
+results = random_graph_threshold(20, 500)
+for p, frac in sorted(results.items()):
+    if 0.2 < frac < 0.8:
+        print(f"p={p:.2f}: P(has triangle) = {frac:.2f}")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~sunflower-free families can be quite large, (2)~the spread approximation removes over-represented elements, and (3)~random graph thresholds exhibit sharp phase transitions.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

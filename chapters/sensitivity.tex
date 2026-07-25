@@ -142,6 +142,103 @@ The signing technique that Huang introduced---constructing a Hadamard-like signi
 \item \textbf{Open question}: The exact polynomial relating $s(f)$ and $bs(f)$ remains unknown---Huang's proof gives $c = 4$, but the conjectured value is $c = 1$.
 \end{itemize}
 
+\section{Computational Verification}
+
+The sensitivity conjecture can be explored computationally by computing sensitivity, block sensitivity, and degree for all Boolean functions on small numbers of variables.
+
+\subsection{Computing Complexity Measures}
+
+\begin{verbatim}
+from itertools import product
+
+def truth_table(n):
+    """Generate all 2^n inputs for n variables."""
+    return list(product([0, 1], repeat=n))
+
+def sensitivity(f, n):
+    """Compute sensitivity of Boolean function f: {0,1}^n -> {0,1}."""
+    s = 0
+    for x in truth_table(n):
+        val = f(x)
+        count = 0
+        for i in range(n):
+            y = list(x)
+            y[i] = 1 - y[i]
+            if f(tuple(y)) != val:
+                count += 1
+        s = max(s, count)
+    return s
+
+def block_sensitivity(f, n):
+    """Compute block sensitivity of Boolean function f."""
+    bs = 0
+    for x in truth_table(n):
+        val = f(x)
+        # Try all non-empty subsets of coordinates
+        for mask in range(1, 2**n):
+            blocks = [i for i in range(n) if mask & (1 << i)]
+            y = list(x)
+            for i in blocks:
+                y[i] = 1 - y[i]
+            if f(tuple(y)) != val:
+                bs = max(bs, bin(mask).count('1'))
+    return bs
+
+# Parity function
+def parity(x):
+    return sum(x) % 2
+
+n = 4
+print(f"Parity on {n} bits:")
+print(f"  sensitivity s(f) = {sensitivity(parity, n)}")
+print(f"  block sensitivity bs(f) = {block_sensitivity(parity, n)}")
+print(f"  bs/s^4 = {block_sensitivity(parity, n) / sensitivity(parity, n)**4}")
+\end{verbatim}
+
+\subsection{Exhaustive Search for Small $n$}
+
+\begin{verbatim}
+def all_boolean_functions(n):
+    """Enumerate all 2^(2^n) Boolean functions on n variables."""
+    inputs = truth_table(n)
+    for bits in product([0, 1], repeat=2**n):
+        f = lambda x, b=bits: b[sum(x[i] * 2**i for i in range(n))]
+        yield f
+
+def census(n):
+    """Compute s(f), bs(f), deg(f) for all Boolean functions on n variables."""
+    results = []
+    for f in all_boolean_functions(n):
+        s = sensitivity(f, n)
+        bs = block_sensitivity(f, n)
+        results.append((s, bs))
+    return results
+
+# Full census for n=3
+print("n=3: all Boolean functions")
+print(f"  Total functions: {2**(2**3)}")
+for s, bs in sorted(set(census(3))):
+    print(f"  s(f)={s}, bs(f)={bs}, bs/s^4={bs/s**4 if s > 0 else 'inf':.3f}")
+\end{verbatim}
+
+\subsection{Verifying Huang's Bound}
+
+Check that $bs(f) \leq s(f)^4$ holds for all Boolean functions up to $n=4$.
+
+\begin{verbatim}
+for n in range(1, 5):
+    max_ratio = 0
+    for s, bs in census(n):
+        if s > 0:
+            ratio = bs / s**4
+            max_ratio = max(max_ratio, ratio)
+    print(f"n={n}: max bs/s^4 = {max_ratio:.4f} (must be <= 1)")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~the parity function achieves the maximum gap between $s(f)$ and $bs(f)$, (2)~Huang's bound $bs(f) \leq s(f)^4$ holds for all functions, and (3)~the census reveals the full landscape of complexity measure relationships.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

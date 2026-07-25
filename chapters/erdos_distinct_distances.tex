@@ -134,6 +134,101 @@ Several related questions remain open. In three and higher dimensions, the probl
 \item \textbf{Interdisciplinary connections}: The techniques connect algebra, geometry, and combinatorics in new ways.
 \end{itemize}
 
+\section{Computational Verification}
+
+The distinct distances problem can be explored computationally by counting distances for various point configurations and comparing with the theoretical bounds.
+
+\subsection{Counting Distinct Distances}
+
+\begin{verbatim}
+import math
+from itertools import combinations
+
+def distinct_distances(points):
+    """Count the number of distinct distances determined by a set of points."""
+    distances = set()
+    for (x1, y1), (x2, y2) in combinations(points, 2):
+        d = math.sqrt((x1 - x2)**2 + (y1 - y2)**2)
+        distances.add(round(d, 10))  # round to avoid floating point issues
+    return len(distances)
+
+# Square grid: n = m^2 points
+def grid_points(m):
+    return [(i, j) for i in range(m) for j in range(m)]
+
+# Points on a line
+def line_points(n):
+    return [(i, 0) for i in range(n)]
+
+# Points on a circle
+def circle_points(n):
+    return [(math.cos(2*math.pi*k/n), math.sin(2*math.pi*k/n)) for k in range(n)]
+
+print("Configuration          | n   | distinct distances")
+print("-" * 50)
+for m in [3, 4, 5, 6, 7, 8]:
+    pts = grid_points(m)
+    n = len(pts)
+    dd = distinct_distances(pts)
+    print(f"  {m}x{m} grid            | {n:3d} | {dd}")
+
+for n in [5, 10, 20, 50]:
+    dd_line = distinct_distances(line_points(n))
+    dd_circle = distinct_distances(circle_points(n))
+    print(f"  {n} points on line    | {n:3d} | {dd_line}")
+    print(f"  {n} points on circle  | {n:3d} | {dd_circle}")
+\end{verbatim}
+
+\subsection{Comparing with Erdos's Bound}
+
+\begin{verbatim}
+def erdos_lower_bound(n):
+    """Erdos's lower bound: c * n / sqrt(log n)"""
+    if n <= 1:
+        return 0
+    return n / math.sqrt(math.log(n))
+
+def guth_katz_lower_bound(n):
+    """Guth-Katz lower bound: c * n / log n"""
+    if n <= 1:
+        return 0
+    return n / math.log(n)
+
+print("Grid: n vs actual, Erdos bound, Guth-Katz bound")
+for m in range(2, 11):
+    pts = grid_points(m)
+    n = len(pts)
+    dd = distinct_distances(pts)
+    eb = erdos_lower_bound(n)
+    gk = guth_katz_lower_bound(n)
+    print(f"  n={n:3d}: actual={dd:3d}, Erdos>={eb:.1f}, GK>={gk:.1f}")
+\end{verbatim}
+
+\subsection{Optimal Configurations}
+
+\begin{verbatim}
+# Hexagonal lattice subset
+def hex_points(m):
+    pts = []
+    for i in range(m):
+        for j in range(m):
+            x = i + 0.5 * (j % 2)
+            y = j * math.sqrt(3) / 2
+            pts.append((x, y))
+    return pts
+
+print("\nHexagonal lattice configurations:")
+for m in [3, 4, 5, 6]:
+    pts = hex_points(m)
+    n = len(pts)
+    dd = distinct_distances(pts)
+    print(f"  {m}x{m} hex lattice: n={n}, distinct distances={dd}")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~the square grid produces the fewest distinct distances, (2)~collinear points produce even fewer but don't contradict the theorem, and (3)~the Guth--Katz bound $cn/\log n$ is nearly tight for the grid.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

@@ -134,6 +134,89 @@ The main open question is whether the bound can be reduced below 246 uncondition
 As of 2025, the Twin Prime Conjecture remains unproven, but the gap between 1849 (when Alphonse de Polignac first proposed it) and 2013 (Zhang's proof) is 164 years. Zhang's proof represents the closest anyone has come to resolving it.
 \end{highlightbox}
 
+\section{Computational Verification}
+
+The bounded gaps result can be explored computationally by examining prime gaps, finding twin primes, and visualizing the distribution of gaps.
+
+\subsection{Prime Gap Histogram}
+
+\begin{verbatim}
+def sieve(limit):
+    is_prime = [True] * (limit + 1)
+    is_prime[0] = is_prime[1] = False
+    for i in range(2, int(limit**0.5) + 1):
+        if is_prime[i]:
+            for j in range(i*i, limit + 1, i):
+                is_prime[j] = False
+    return [i for i in range(2, limit + 1) if is_prime[i]]
+
+primes = sieve(1000000)
+gaps = [primes[i+1] - primes[i] for i in range(len(primes)-1)]
+
+# Count gaps by size
+from collections import Counter
+gap_counts = Counter(gaps)
+print("Gap size : frequency")
+for g in sorted(gap_counts.keys())[:20]:
+    print(f"  {g:3d}    : {gap_counts[g]}")
+
+print(f"\nGaps of 2 (twin primes) up to 10^6: {gap_counts[2]}")
+print(f"Gaps <= 10 up to 10^6: {sum(gap_counts[g] for g in range(1, 11))}")
+\end{verbatim}
+
+\subsection{Admissible $k$-tuples}
+
+\begin{verbatim}
+def is_admissible(tup, max_prime=100):
+    """Check if a k-tuple is admissible."""
+    from sympy import primerange
+    for p in primerange(2, max_prime + 1):
+        residues = set(h % p for h in tup)
+        if len(residues) == p:
+            return False
+    return True
+
+# Common admissible tuples
+tuples = [
+    [0, 2],       # twin primes
+    [0, 2, 6],    # prime triple
+    [0, 4, 6],    # prime triple
+    [0, 2, 6, 8], # prime quadruple
+    [0, 6, 12, 18, 24],  # 5-tuple
+]
+
+for tup in tuples:
+    adm = is_admissible(tup)
+    print(f"Tuple {tup}: admissible = {adm}")
+\end{verbatim}
+
+\subsection{Zhang's Bound: Finding Close Prime Pairs}
+
+\begin{verbatim}
+primes = sieve(1000000)
+prime_set = set(primes)
+
+# Find all gaps <= 246
+close_pairs = []
+for i in range(len(primes) - 1):
+    gap = primes[i+1] - primes[i]
+    if gap <= 246:
+        close_pairs.append((primes[i], primes[i+1], gap))
+
+print(f"Prime pairs with gap <= 246 up to 10^6: {len(close_pairs)}")
+print(f"Smallest gap: {min(p[2] for p in close_pairs)}")
+print(f"Most common gap: {Counter(p[2] for p in close_pairs).most_common(5)}")
+
+# Distribution of gaps <= 246
+gap_dist = Counter(p[2] for p in close_pairs)
+for g in sorted(gap_dist.keys())[:15]:
+    print(f"  gap {g:3d}: {gap_dist[g]} pairs")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~small gaps between primes are extremely common, (2)~twin primes (gap = 2) appear frequently even for large ranges, and (3)~the empirical data is consistent with the conjecture that gaps of 2 occur infinitely often.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

@@ -141,6 +141,103 @@ Several natural extensions remain open. What happens if you allow the sequence v
 \item \textbf{Erdős legacy}: Erdős's \$500 prize was finally claimed (Tao donated it to charity).
 \end{itemize}
 
+\section{Computational Verification}
+
+The Erd\H{o}s discrepancy problem can be explored computationally by searching for low-discrepancy sequences and verifying that discrepancy eventually grows.
+
+\subsection{Computing Discrepancy}
+
+\begin{verbatim}
+def discrepancy(sequence, max_d=None):
+    """
+    Compute the discrepancy of a completely multiplicative sequence.
+    D = max over d, x of |sum_{k=1}^{x} f(k*d)|
+    """
+    N = len(sequence)
+    if max_d is None:
+        max_d = N
+    D = 0
+    for d in range(1, max_d + 1):
+        s = 0
+        for k in range(1, N // d + 1):
+            s += sequence[k * d - 1]
+            D = max(D, abs(s))
+    return D
+
+# Example: constant sequence f(n) = 1
+seq = [1] * 1000
+print(f"Constant sequence, N=1000: discrepancy = {discrepancy(seq, 50)}")
+# Should be large (unbounded)
+\end{verbatim}
+
+\subsection{Searching for Low-Discrepancy Sequences}
+
+Computer searches found sequences of length 1124 with discrepancy 2, suggesting the growth rate might be slow.
+
+\begin{verbatim}
+import random
+
+def find_low_discrepancy(N, target_D=2, attempts=100000):
+    """Random search for completely multiplicative sequences with low discrepancy."""
+    best_seq = None
+    best_D = float('inf')
+
+    for _ in range(attempts):
+        # Random completely multiplicative: assign random +/-1 to primes
+        seq = [0] * N
+        primes = sieve_of_eratosthenes(N)
+        prime_vals = {p: random.choice([-1, 1]) for p in primes}
+        for i in range(1, N + 1):
+            val = 1
+            n = i
+            for p in primes:
+                if p * p > n:
+                    break
+                while n % p == 0:
+                    val *= prime_vals[p]
+                    n //= p
+            if n > 1 and n in prime_vals:
+                val *= prime_vals[n]
+            seq[i - 1] = val
+
+        D = discrepancy(seq, min(50, N))
+        if D < best_D:
+            best_D = D
+            best_seq = seq[:]
+
+    return best_seq, best_D
+\end{verbatim}
+
+\subsection{Liouville Function Discrepancy}
+
+The Liouville function $\lambda(n) = (-1)^{\Omega(n)}$ is a natural test case.
+
+\begin{verbatim}
+def liouville(n):
+    """Compute the Liouville function lambda(n)."""
+    if n == 1:
+        return 1
+    count = 0
+    d = 2
+    while d * d <= n:
+        while n % d == 0:
+            count += 1
+            n //= d
+        d += 1
+    if n > 1:
+        count += 1
+    return (-1) ** count
+
+N = 500
+seq = [liouville(n) for n in range(1, N + 1)]
+D = discrepancy(seq, 100)
+print(f"Liouville function, N={N}, discrepancy (d<=100) = {D}")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~the Liouville function has slowly growing discrepancy, (2)~random completely multiplicative sequences tend to have low discrepancy for small $N$, and (3)~the growth rate of discrepancy is much slower than the tower-of-exponentials bound from Tao's proof.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

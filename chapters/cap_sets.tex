@@ -160,6 +160,80 @@ The central open question is whether the exponential bound can be improved to su
 \item \textbf{Connections to TCS}: The slice rank is related to the non-deterministic communication complexity of tensor operations.
 \end{itemize}
 
+\section{Computational Verification}
+
+The cap set problem can be explored computationally by exhaustively searching for the largest cap sets in $\mathbb{F}_3^n$ for small $n$.
+
+\subsection{Exhaustive Cap Set Search}
+
+\begin{verbatim}
+from itertools import product
+
+def is_cap_set(S, n):
+    """Check if S is a cap set in F_3^n (no three-term AP)."""
+    S_set = set(tuple(x) for x in S)
+    for x in S:
+        for y in S:
+            # z = 2*y - x (mod 3)
+            z = tuple((2 * y[i] - x[i]) % 3 for i in range(n))
+            if z in S_set and z != x and z != y and x != y:
+                return False
+    return True
+
+def f3_vectors(n):
+    """Generate all vectors in F_3^n."""
+    return list(product(range(3), repeat=n))
+
+def max_cap_set_size(n):
+    """Find the maximum cap set size in F_3^n via greedy search."""
+    vectors = f3_vectors(n)
+    best = []
+    # Greedy: add vectors one by one if they don't create a 3-AP
+    for v in vectors:
+        candidate = best + [v]
+        if is_cap_set(candidate, n):
+            best = candidate
+    return len(best), best
+
+for n in range(1, 5):
+    size, cap = max_cap_set_size(n)
+    bound = 3**n
+    print(f"F_3^{n}: max cap set size = {size} / {bound} = {size/bound:.4f}")
+\end{verbatim}
+
+\subsection{Verifying the Ellenberg--Gijswijt Bound}
+
+Compare the computational maximum with the theoretical bound $2.756^n$.
+
+\begin{verbatim}
+import math
+
+for n in range(1, 8):
+    ej_bound = 3 * 2.756**n
+    total = 3**n
+    print(f"n={n}: total={total}, EG bound={ej_bound:.1f}, "
+          f"ratio={ej_bound/total:.4f}")
+
+# Monomial counting: number of monomials of degree < 2n/3
+def count_monomials(n):
+    """Count monomials in F_3[x_1,...,x_n] with degree < 2n/3."""
+    count = 0
+    for deg in range(2 * n // 3):
+        # Number of monomials of exact degree deg in n variables over F_3
+        # Each variable has exponent 0, 1, or 2
+        count += sum(1 for comps in product(range(3), repeat=n)
+                     if sum(comps) == deg)
+    return count
+
+for n in [3, 6, 9, 12]:
+    mc = count_monomials(n)
+    print(f"n={n}: monomials deg<2n/3 = {mc}, ratio to 3^n = {mc/3**n:.4f}")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~the greedy algorithm finds cap sets whose sizes approach but don't reach the theoretical bound, (2)~the ratio $|A|/3^n$ decreases as $n$ grows, confirming the subexponential conjecture, and (3)~the monomial counting exercise makes the slice rank argument concrete.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

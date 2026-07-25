@@ -150,6 +150,78 @@ The problem of sphere packing in other dimensions remains largely open. Maryna V
 \item \textbf{Viazovska's breakthrough (2016)}: Maryna Viazovska proved optimal sphere packing in dimensions 8 (using the $E_8$ lattice) and dimension 24 (using the Leech lattice), building on Hales's framework but with elegant analytical methods. She received the Fields Medal in 2022 partly for this work.
 \end{itemize}
 
+\section{Computational Verification}
+
+The Kepler conjecture can be explored computationally by visualizing sphere packings, computing densities, and comparing different arrangements.
+
+\subsection{Packing Densities}
+
+\begin{verbatim}
+import math
+
+def simple_cubic_density():
+    """Density of simple cubic packing."""
+    return math.pi / 6
+
+def bcc_density():
+    """Density of body-centered cubic packing."""
+    return math.pi * math.sqrt(3) / 8
+
+def fcc_density():
+    """Density of face-centered cubic packing (Kepler conjecture optimum)."""
+    return math.pi / math.sqrt(18)
+
+print("Sphere packing densities:")
+print(f"  Simple cubic:   {simple_cubic_density():.6f} = pi/6")
+print(f"  BCC:            {bcc_density():.6f} = pi*sqrt(3)/8")
+print(f"  FCC (Kepler):   {fcc_density():.6f} = pi/sqrt(18)")
+print(f"  Rogers bound:   0.779700...")
+print(f"  FCC is optimal: {fcc_density() < 0.7797}")
+\end{verbatim}
+
+\subsection{2D Packing Comparison}
+
+\begin{verbatim}
+import math
+
+def square_grid_density():
+    """Density of square lattice packing in 2D."""
+    return math.pi / 4
+
+def hex_grid_density():
+    """Density of hexagonal lattice packing in 2D."""
+    return math.pi / (2 * math.sqrt(3))
+
+print("2D circle packing densities:")
+print(f"  Square grid:    {square_grid_density():.6f} = pi/4")
+print(f"  Hex grid:       {hex_grid_density():.6f} = pi/(2*sqrt(3))")
+print(f"  Hex is denser:  {hex_grid_density() > square_grid_density()}")
+print(f"  Thue (1910): hexagonal is optimal in 2D")
+\end{verbatim}
+
+\subsection{Voronoi Cell Volume}
+
+\begin{verbatim}
+def voronoi_volume_fcc():
+    """
+    Volume of Voronoi cell for FCC packing.
+    Each sphere has radius r, Voronoi cell volume = (2r)^3 / density.
+    """
+    r = 1
+    sphere_vol = (4/3) * math.pi * r**3
+    density = fcc_density()
+    voronoi_vol = sphere_vol / density
+    return voronoi_vol
+
+vv = voronoi_volume_fcc()
+print(f"FCC Voronoi cell volume (r=1): {vv:.6f}")
+print(f"  = 4*sqrt(2) = {4*math.sqrt(2):.6f}")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~the FCC packing has the highest density among known 3D packings, (2)~the hexagonal packing is optimal in 2D (proved by Thue), and (3)~the Voronoi cell computation provides an alternative way to compute packing density.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

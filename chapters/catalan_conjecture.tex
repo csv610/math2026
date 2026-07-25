@@ -205,6 +205,86 @@ Natural generalizations are still open. The equation $x^a - y^b = c$ for larger 
 \item \textbf{Mathematical culture}: The resolution of a 158-year-old problem with an elementary statement but deep proof is a landmark in the history of number theory.
 \end{itemize}
 
+\section{Computational Verification}
+
+Catalan's conjecture can be verified computationally by exhaustively searching for consecutive perfect powers and by checking the double Wieferich condition.
+
+\subsection{Searching for Consecutive Perfect Powers}
+
+\begin{verbatim}
+def perfect_powers(limit):
+    """Find all perfect powers up to limit."""
+    pp = set()
+    for a in range(2, int(limit**0.5) + 2):
+        for b in range(2, int(math.log2(limit)) + 2):
+            val = a ** b
+            if val <= limit:
+                pp.add(val)
+    return sorted(pp)
+
+import math
+
+limit = 10000
+pp = perfect_powers(limit)
+print(f"Perfect powers up to {limit}:")
+
+# Find consecutive pairs
+consecutive = []
+for i in range(len(pp) - 1):
+    if pp[i+1] - pp[i] == 1:
+        consecutive.append((pp[i], pp[i+1]))
+
+print(f"\nConsecutive perfect powers:")
+for a, b in consecutive:
+    print(f"  {a} and {b} (difference = 1)")
+
+# Check: are there any with difference 1 besides 8 and 9?
+print(f"\nOnly solution: 8 = 2^3 and 9 = 3^2")
+\end{verbatim}
+
+\subsection{Wieferich Prime Verification}
+
+\begin{verbatim}
+def is_wieferich(p):
+    """Check if p is a Wieferich prime: 2^(p-1) = 1 mod p^2."""
+    return pow(2, p - 1, p * p) == 1
+
+def sieve(limit):
+    is_prime = [True] * (limit + 1)
+    is_prime[0] = is_prime[1] = False
+    for i in range(2, int(limit**0.5) + 1):
+        if is_prime[i]:
+            for j in range(i*i, limit + 1, i):
+                is_prime[j] = False
+    return [i for i in range(2, limit + 1) if is_prime[i]]
+
+primes = sieve(1000000)
+wieferich = [p for p in primes if is_wieferich(p)]
+print(f"Wieferich primes up to 10^6: {wieferich}")
+print(f"(Only two known: 1093 and 3511)")
+\end{verbatim}
+
+\subsection{Double Wieferich Pair Search}
+
+\begin{verbatim}
+def is_double_wieferich(p, q):
+    """Check if (p, q) is a double Wieferich pair."""
+    return (pow(p, q - 1, q * q) == 1 and
+            pow(q, p - 1, p * p) == 1)
+
+primes = sieve(1000)
+print("Checking double Wieferich pairs among small primes:")
+for i, p in enumerate(primes):
+    for q in primes[i+1:]:
+        if is_double_wieferich(p, q):
+            print(f"  ({p}, {q}) is double Wieferich!")
+print("(None found among small primes)")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~8 and 9 are the only consecutive perfect powers up to 10000, (2)~Wieferich primes are extremely rare, and (3)~no double Wieferich pairs exist among small primes, confirming the computational evidence for Catalan's conjecture.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

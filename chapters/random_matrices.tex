@@ -115,6 +115,98 @@ Several important directions remain open. Universality for non-Hermitian random 
 \item \textbf{Machine Learning}: Used to study the loss surfaces and training dynamics of deep neural networks in the high-dimensional limit.
 \end{itemize}
 
+\section{Computational Verification}
+
+Random matrix universality can be explored computationally by simulating eigenvalue distributions, computing spacing statistics, and comparing different entry distributions.
+
+\subsection{Wigner's Semicircle Law}
+
+\begin{verbatim}
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # non-interactive backend
+import matplotlib.pyplot as plt
+
+def random_symmetric_matrix(n):
+    """Generate a random symmetric matrix with Gaussian entries."""
+    A = np.random.randn(n, n)
+    return (A + A.T) / np.sqrt(2 * n)
+
+def semicircle_pdf(x):
+    """Wigner's semicircle density."""
+    return np.sqrt(np.maximum(4 - x**2, 0)) / (2 * np.pi)
+
+N = 1000
+H = random_symmetric_matrix(N)
+eigenvalues = np.sort(np.linalg.eigvalsh(H))
+
+# Plot histogram
+plt.figure(figsize=(8, 5))
+plt.hist(eigenvalues, bins=80, density=True, alpha=0.7, label='Eigenvalues')
+x = np.linspace(-2.1, 2.1, 1000)
+plt.plot(x, semicircle_pdf(x), 'r-', linewidth=2, label='Semicircle law')
+plt.xlabel('Eigenvalue')
+plt.ylabel('Density')
+plt.legend()
+plt.title(f"Wigner's Semicircle Law (N={N})")
+plt.savefig('semicircle.png', dpi=100)
+print(f"Saved semicircle.png")
+\end{verbatim}
+
+\subsection{Eigenvalue Spacing Statistics}
+
+\begin{verbatim}
+def compute_spacings(eigenvalues):
+    """Compute normalized spacings between adjacent eigenvalues."""
+    spacings = np.diff(eigenvalues)
+    mean_spacing = np.mean(spacings)
+    return spacings / mean_spacing
+
+def wigner_surmise(s):
+    """Wigner surmise for GOE spacing distribution."""
+    return (np.pi / 2) * s * np.exp(-np.pi * s**2 / 4)
+
+N = 500
+trials = 100
+all_spacings = []
+for _ in range(trials):
+    H = random_symmetric_matrix(N)
+    evals = np.sort(np.linalg.eigvalsh(H))
+    all_spacings.extend(compute_spacings(evals))
+
+all_spacings = np.array(all_spacings)
+print(f"Spacing statistics (N={N}, {trials} trials):")
+print(f"  Mean spacing: {np.mean(all_spacings):.4f} (should be ~1)")
+print(f"  P(spacing < 0.1): {np.mean(all_spacings < 0.1):.4f}")
+print(f"  (Eigenvalue repulsion: small spacings are rare)")
+\end{verbatim}
+
+\subsection{Universality: Different Entry Distributions}
+
+\begin{verbatim}
+def random_matrix(entries='gaussian', n=500):
+    """Generate random symmetric matrix with different entry distributions."""
+    if entries == 'gaussian':
+        A = np.random.randn(n, n)
+    elif entries == 'uniform':
+        A = np.random.uniform(-1, 1, (n, n))
+    elif entries == 'bernoulli':
+        A = np.random.choice([-1, 1], (n, n))
+    return (A + A.T) / np.sqrt(2 * n)
+
+print("Comparing eigenvalue distributions for different entries:")
+for dist in ['gaussian', 'uniform', 'bernoulli']:
+    H = random_matrix(dist, 500)
+    evals = np.linalg.eigvalsh(H)
+    print(f"  {dist:10s}: mean={np.mean(evals):.4f}, "
+          f"std={np.std(evals):.4f}, "
+          f"range=[{np.min(evals):.3f}, {np.max(evals):.3f}]")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~the semicircle law emerges for large $N$, (2)~eigenvalue repulsion means small spacings are rare (unlike Poisson), and (3)~the macroscopic distribution is the same for different entry distributions (universality).
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

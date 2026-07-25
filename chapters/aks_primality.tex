@@ -166,6 +166,94 @@ On the quantitative side, room for improvement remains. The original AKS algorit
 \item \textbf{Mathematical techniques}: The proof introduced novel use of cyclotomic polynomials and order arguments that have influenced other areas.
 \end{itemize}
 
+\section{Computational Verification}
+
+The AKS primality test can be implemented and verified computationally. The following Python code demonstrates the core ideas.
+
+\subsection{The AKS Criterion in Python}
+
+The simplest version of the AKS test checks whether $(X+a)^n \equiv X^n + a \pmod{n}$ as polynomials.
+
+\begin{verbatim}
+def aks_criterion(n, a=2):
+    """Check if n passes the AKS polynomial test for base a."""
+    # Expand (X + a)^n mod n as a polynomial
+    # Use the binomial theorem: coefficient of X^k is C(n,k) * a^(n-k)
+    coeffs = []
+    binom = 1  # C(n, 0) = 1
+    for k in range(n + 1):
+        coeff = (binom * pow(a, n - k, n)) % n
+        coeffs.append(coeff)
+        # Update binomial coefficient: C(n, k+1) = C(n, k) * (n - k) / (k + 1)
+        binom = (binom * (n - k) // (k + 1)) if k < n else 0
+
+    # Check: should equal X^n + a, i.e., coeff[0] = a mod n,
+    # coeff[n] = 1 mod n, all others = 0 mod n
+    for k in range(1, n):
+        if coeffs[k] % n != 0:
+            return False  # composite
+    return coeffs[0] % n == a % n and coeffs[n] % n == 1
+
+# Test on small numbers
+for n in range(2, 50):
+    if aks_criterion(n):
+        assert all(n % p != 0 for p in range(2, int(n**0.5)+1) or n == p)
+        print(f"{n}: prime (AKS confirms)")
+    else:
+        print(f"{n}: composite")
+\end{verbatim}
+
+\subsection{Carmichael Numbers: Fermat Test Fails}
+
+Carmichael numbers pass the Fermat test for every base coprime to $n$, but fail the AKS test.
+
+\begin{verbatim}
+def fermat_test(n, a):
+    """Fermat primality test: does a^(n-1) = 1 mod n?"""
+    return pow(a, n - 1, n) == 1
+
+carmichael = [561, 1105, 1729, 2465, 2821, 6601]
+for n in carmichael:
+    # Fermat test passes for all coprime bases
+    fermat_results = [fermat_test(n, a) for a in range(2, n) if gcd(a, n) == 1]
+    all_pass = all(fermat_results)
+    # AKS test correctly identifies composite
+    aks_result = aks_criterion(n)
+    print(f"{n}: Fermat all-pass={all_pass}, AKS prime={aks_result}")
+\end{verbatim}
+
+\subsection{Timing Comparison}
+
+Compare AKS with trial division and Miller--Rabin on small inputs.
+
+\begin{verbatim}
+import time
+
+def trial_division(n):
+    if n < 2: return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0: return False
+    return True
+
+# Time on a moderately large prime
+n = 104729  # 10000th prime
+start = time.time()
+aks_criterion(n)
+aks_time = time.time() - start
+
+start = time.time()
+trial_division(n)
+td_time = time.time() - start
+
+print(f"n = {n}")
+print(f"AKS time:              {aks_time:.4f}s")
+print(f"Trial division time:   {td_time:.4f}s")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should experiment with these scripts to observe: (1)~how Carmichael numbers fool the Fermat test but not AKS, (2)~how AKS scales compared to trial division, and (3)~the effect of choosing different values of $r$ in the full AKS algorithm.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]

@@ -123,6 +123,90 @@ Several quantitative and structural questions remain open. The explicit bounds i
 \item \textbf{Computer science}: The techniques have applications in theoretical computer science, particularly in property testing and pseudorandomness.
 \end{itemize}
 
+\section{Computational Verification}
+
+The Green--Tao theorem guarantees arbitrarily long arithmetic progressions of primes, but the explicit bounds are enormous. Computationally, we can search for long progressions and verify known results.
+
+\subsection{Finding Long APs of Primes}
+
+\begin{verbatim}
+def sieve_of_eratosthenes(limit):
+    """Return all primes up to limit."""
+    is_prime = [True] * (limit + 1)
+    is_prime[0] = is_prime[1] = False
+    for i in range(2, int(limit**0.5) + 1):
+        if is_prime[i]:
+            for j in range(i*i, limit + 1, i):
+                is_prime[j] = False
+    return [i for i in range(2, limit + 1) if is_prime[i]]
+
+def longest_ap_of_primes(primes, max_len=None):
+    """Find the longest arithmetic progression of primes."""
+    prime_set = set(primes)
+    best = []
+    for i, p in enumerate(primes):
+        for j, q in enumerate(primes):
+            if j <= i:
+                continue
+            d = q - p
+            if max_len and len(best) >= max_len:
+                break
+            # Extend the AP
+            ap = [p, q]
+            while ap[-1] + d in prime_set:
+                ap.append(ap[-1] + d)
+            if len(ap) > len(best):
+                best = ap
+    return best
+
+primes = sieve_of_eratosthenes(100000)
+ap = longest_ap_of_primes(primes)
+print(f"Longest AP of primes up to 100000:")
+print(f"  Length: {len(ap)}")
+print(f"  Common difference: {ap[1] - ap[0]}")
+print(f"  First few terms: {ap[:6]}")
+\end{verbatim}
+
+\subsection{Known Long APs of Primes}
+
+\begin{verbatim}
+# Known records (from OEIS A005115)
+known_records = {
+    3: (3, 2),           # 3, 5, 7
+    4: (5, 6),           # 5, 11, 17, 23
+    5: (5, 6),           # 5, 11, 17, 23, 29
+    6: (7, 30),          # 7, 37, 67, 97, 127, 157
+    7: (7, 150),         # 7, 157, 307, ...
+    8: (199, 210),       # 199, 409, ...
+    9: (199, 210),
+    10: (199, 210),
+}
+
+for k, (first, d) in known_records.items():
+    terms = [first + i * d for i in range(k)]
+    all_prime = all(is_prime(n) for n in terms)
+    print(f"k={k}: {terms[:4]}... (d={d}, all prime: {all_prime})")
+\end{verbatim}
+
+\subsection{Prime Gap Statistics}
+
+\begin{verbatim}
+primes = sieve_of_eratosthenes(1000000)
+gaps = [primes[i+1] - primes[i] for i in range(len(primes)-1)]
+
+print(f"Prime gap statistics (primes up to 10^6):")
+print(f"  Number of gaps: {len(gaps)}")
+print(f"  Mean gap: {sum(gaps)/len(gaps):.2f}")
+print(f"  Min gap: {min(gaps)} (twin primes)")
+print(f"  Max gap: {max(gaps)}")
+print(f"  Gaps <= 6: {sum(1 for g in gaps if g <= 6)}")
+print(f"  Gaps <= 246: {sum(1 for g in gaps if g <= 246)}")
+\end{verbatim}
+
+\begin{highlightbox}
+Students should run these scripts to observe: (1)~long APs of primes exist but are rare, (2)~the known records grow slowly, and (3)~prime gap statistics provide empirical evidence for the twin prime conjecture.
+\end{highlightbox}
+
 \section{Exercises}
 
 \begin{exercise}[Basic]
