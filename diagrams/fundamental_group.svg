@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="600" height="400" fill="#1a1a2e" rx="8"/>
+  <text x="300" y="35" text-anchor="middle" fill="#e0e0e0" font-size="18" font-weight="bold">Fundamental Group: Simply Connected Spaces</text>
+  
+  <!-- Sphere S² - simply connected -->
+  <circle cx="150" cy="170" r="60" fill="none" stroke="#16c79a" stroke-width="2.5"/>
+  <!-- Loop 1 shrinking -->
+  <path d="M120 150 Q130 135 145 140 Q155 145 150 160 Q140 170 125 165 Q115 155 120 150 Z" fill="none" stroke="#e94560" stroke-width="1.5"/>
+  <path d="M130 155 Q135 148 142 150 Q147 153 145 160 Q140 165 133 162 Q128 158 130 155 Z" fill="none" stroke="#53a8b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <path d="M136 157 Q139 153 143 155" fill="none" stroke="#53a8b9" stroke-width="1.5" marker-end="url(#ah)"/>
+  <defs><marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#53a8b9"/></marker></defs>
+  <text x="150" y="260" text-anchor="middle" fill="#16c79a" font-size="13" font-weight="bold">S²</text>
+  <text x="150" y="278" text-anchor="middle" fill="#aaa" font-size="10">Simply Connected</text>
+  <text x="150" y="293" text-anchor="middle" fill="#aaa" font-size="10">π₁(S²) = 0</text>
+  
+  <!-- Torus T² - NOT simply connected -->
+  <ellipse cx="450" cy="170" rx="55" ry="40" fill="none" stroke="#e94560" stroke-width="2.5"/>
+  <ellipse cx="450" cy="170" rx="25" ry="18" fill="none" stroke="#e94560" stroke-width="1.5"/>
+  <!-- Essential loop around torus -->
+  <path d="M450 130 Q480 130 480 170 Q480 210 450 210 Q420 210 420 170 Q420 130 450 130" fill="none" stroke="#f0a500" stroke-width="2"/>
+  <path d="M445 130 Q450 125 455 130" fill="none" stroke="#f0a500" stroke-width="2" marker-end="url(#ah2)"/>
+  <defs><marker id="ah2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#f0a500"/></marker></defs>
+  <text x="450" y="260" text-anchor="middle" fill="#e94560" font-size="13" font-weight="bold">T²</text>
+  <text x="450" y="278" text-anchor="middle" fill="#aaa" font-size="10">NOT Simply Connected</text>
+  <text x="450" y="293" text-anchor="middle" fill="#aaa" font-size="10">π₁(T²) = ℤ × ℤ</text>
+  
+  <!-- Comparison arrow -->
+  <line x1="220" y1="170" x2="380" y2="170" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="300" y="160" text-anchor="middle" fill="#888" font-size="10">vs.</text>
+  
+  <!-- Key insight box -->
+  <rect x="100" y="315" width="400" height="60" fill="#16213e" stroke="#0f3460" stroke-width="1.5" rx="5"/>
+  <text x="300" y="335" text-anchor="middle" fill="#e0e0e0" font-size="12" font-weight="bold">Key Insight</text>
+  <text x="300" y="353" text-anchor="middle" fill="#53a8b9" font-size="11">On S², every loop can be continuously shrunk to a point.</text>
+  <text x="300" y="368" text-anchor="middle" fill="#53a8b9" font-size="11">On T², loops going around the hole cannot be shrunk.</text>
+  <text x="300" y="383" text-anchor="middle" fill="#16c79a" font-size="11">The Poincaré Conjecture: S³ is the only 3-manifold with this property!</text>
+</svg>

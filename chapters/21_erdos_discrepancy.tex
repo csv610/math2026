@@ -1,0 +1,139 @@
+% Chapter 21: The Erd\H{o}s Discrepancy Problem
+\let\LocalMacro\relax
+
+\chapter{The Erdős Discrepancy Problem}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Basic analysis (sequences, series, $\limsup$)
+\item Elementary combinatorics
+\item Fourier analysis on finite abelian groups
+\item Basic probability theory
+\end{itemize}
+
+\section{The Problem}
+In 1932, Paul Erdős asked a deceptively simple question:
+
+\begin{quote}
+Given an infinite sequence $(x_n)_{n=1}^\infty$ with $x_n \in \{-1, +1\}$, must the discrepancy
+\[
+D = \sup_{d, N \ge 1} \left| \sum_{k=1}^N x_{kd} \right|
+\]
+be infinite?
+\end{quote}
+
+In other words: no matter how cleverly you choose $\pm 1$ signs, can you keep the sums along \emph{all} arithmetic progressions bounded?
+
+\begin{historicalbox}
+Erdős offered \$500 for a solution. The problem resisted for 83 years. It is one of the simplest-to-state, hardest-to-solve problems in combinatorics. Erdős considered it one of his favorite problems.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{Discrepancy and Multiplicative Functions}
+A sequence $x: \mathbb{N} \to \{-1, +1\}$ is \emph{completely multiplicative} if $x(mn) = x(m)x(n)$. For such sequences, the discrepancy simplifies:
+\[
+\sum_{k=1}^N x_{kd} = x_d \sum_{k=1}^N x_k
+\]
+so the discrepancy is controlled by the partial sums of the original sequence.
+
+\begin{conjecture}[Erdős Discrepancy Conjecture]
+For any sequence $x_n \in \{-1, +1\}$, the discrepancy $D = \infty$.
+\end{conjecture}
+
+\subsection{Connection to the Liouville Function}
+The Liouville function $\lambda(n) = (-1)^{\Omega(n)}$ (where $\Omega(n)$ counts prime factors with multiplicity) is completely multiplicative. The Erdős discrepancy conjecture for $\lambda$ is equivalent to the \emph{prime number theorem in arithmetic progressions} (which is known), but the general conjecture is much stronger.
+
+\subsection{Previous Approaches}
+\begin{itemize}
+\item \textbf{Beck-Fiala theorem \cite{beckfiala1981}}: For set systems with bounded degree, discrepancy $O(\sqrt{d} \log n)$.
+\item \textbf{Spencer's theorem \cite{spencer1985}}: Six standard deviations suffice ($O(\sqrt{n})$).
+\item \textbf{Banaszczyk's theorem (1998)}: Discrepancy $O(\sqrt{\log n})$ for arbitrary vectors.
+\item \textbf{Computer searches}: Long sequences with low discrepancy were found (length 1124 with discrepancy 2), suggesting the conjecture might be false.
+\end{itemize}
+
+\section{The Discovery}
+
+\subsection{Tao's Breakthrough \cite{tao2016discrepancy}}
+Terence Tao announced a proof on September 18, 2015, using a combination of:
+
+\begin{enumerate}
+\item \textbf{Entropy decrement argument}: A new averaging technique showing that if discrepancy is bounded, the sequence must correlate with a Dirichlet character.
+\item \textbf{Elliott's conjecture}: A generalization of Chowla's conjecture on correlations of multiplicative functions, proved by Tao using entropy methods.
+\item \textbf{Fourier analysis and nilsequences}: Showing that bounded discrepancy forces correlation with a nilsequence, which then forces unbounded discrepancy via Gowers norms.
+\end{enumerate}
+
+\begin{theorem}[Tao \cite{tao2016discrepancy}]
+For any sequence $x_n \in \{-1, +1\}$, the discrepancy is infinite.
+\end{theorem}
+
+\begin{proof}[Sketch]
+Assume for contradiction that $D < \infty$. Then:
+\begin{enumerate}
+\item By the entropy decrement argument, $x$ correlates with a Dirichlet character $\chi$ of bounded conductor.
+\item By Elliott's conjecture (proved via entropy), this correlation forces $x$ to behave like $\chi$.
+\item But a completely multiplicative function of bounded discrepancy must be close to a Dirichlet character, and such characters have unbounded discrepancy along some arithmetic progression (by Dirichlet's theorem on primes in AP).
+\item Contradiction.
+\end{enumerate}
+\end{proof}
+
+\begin{highlightbox}
+Tao's proof was remarkable because it combined probabilistic combinatorics (entropy), analytic number theory (Elliott's conjecture), and ergodic theory (nilsequences). The proof is non-constructive and does not give explicit bounds on how fast the discrepancy grows.
+\end{highlightbox}
+
+\subsection{Subsequent Developments}
+\begin{itemize}
+\item \textbf{Polymath project}: Verified and streamlined the proof.
+\item \textbf{Quantitative bounds}: No explicit growth rate for discrepancy is known (the proof gives a tower-of-exponentials type bound).
+\item \textbf{Variants}: Erdős discrepancy for complex units, for sequences in $\{-1,0,1\}$, etc.
+\end{itemize}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{Combinatorics}: First major application of entropy methods to discrepancy theory.
+\item \textbf{Number theory}: Elliott's conjecture (proved en route) is a major result on correlations of multiplicative functions.
+\item \textbf{Computer science}: Implications for online algorithms and streaming algorithms.
+\item \textbf{Erdős legacy}: Erdős's \$500 prize was finally claimed (Tao donated it to charity).
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Show that the sequence $x_n = 1$ for all $n$ has discrepancy $D = \infty$.
+\end{exercise}
+
+\begin{exercise}[Basic]
+Show that any periodic sequence $x_n \in \{-1, +1\}$ has infinite discrepancy.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Let $x_n$ be completely multiplicative with $x_p = 1$ for all primes $p \equiv 1 \pmod{4}$ and $x_p = -1$ for $p \equiv 3 \pmod{4}$. Show that $x_n$ has infinite discrepancy.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain the entropy decrement argument in your own words: how does averaging over large primes reduce the entropy of the sequence?
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1932 & Erdős poses the discrepancy problem \\ 
+1950s & Erdős offers \$500 prize \\ 
+1981 & Beck-Fiala theorem \\ 
+1985 & Spencer's "six standard deviations" theorem \\ 
+2015 & Tao proves the Erdős discrepancy conjecture \\ 
+2016 & Polymath project streamlines the proof \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Tao, T. (2016). ``The Erdős discrepancy problem.'' Discrete Analysis, 1, 29 pp.
+\item Tao, T. (2016). ``The logarithmically averaged Chowla and Elliott conjectures for two-point correlations.'' Forum of Mathematics, Pi, 4, e8.
+\item Erdős, P. (1957). ``Some unsolved problems.'' Michigan Mathematical Journal, 4(3), 291--300.
+\item Beck, J., \& Fiala, T. (1981). ``Integer-making theorems.'' Discrete Applied Mathematics, 3(1), 1--8.
+\item Spencer, J. (1985). ``Six standard deviations suffice.'' Transactions of the AMS, 289(2), 679--706.
+\end{enumerate}

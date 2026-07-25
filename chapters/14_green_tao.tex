@@ -1,0 +1,144 @@
+% Chapter 14: The Green--Tao Theorem
+\let\LocalMacro\relax
+
+\chapter{The Green--Tao Theorem}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Elementary number theory (primes, arithmetic progressions)
+\item Combinatorics (Szemer\'edi's theorem intuition)
+\item Fourier analysis (discrete Fourier transform)
+\item Ergodic theory (measure-preserving transformations)
+\end{itemize}
+
+\section{The Problem}
+The question of arithmetic progressions in the primes dates back to van der Corput (1939), who proved that there are infinitely many 3-term arithmetic progressions of primes \cite{vdC1939}. The natural generalization:
+
+\begin{quote}
+For any $k \geq 1$, do the primes contain arbitrarily long arithmetic progressions?
+\end{quote}
+
+This was open for 60 years. The primes have density zero in the integers, so they are too sparse for standard tools.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{green_tao_transference.pdf}
+\caption{The Green--Tao transference principle: the primes are dominated by a pseudorandom measure, allowing Szemer\'edi's theorem to transfer from dense sets to the primes.}
+\label{fig:green_tao}
+\end{figure}
+
+\begin{historicalbox}
+Van der Waerden's theorem (1927) states that any partition of $\mathbb{N}$ into finitely many parts contains arbitrarily long monochromatic arithmetic progressions. Szemer\'edi's theorem (1975) strengthened this: any subset of $\mathbb{N}$ with positive density contains arbitrarily long APs. But the primes have density zero, so Szemer\'edi's theorem does not apply \cite{vdW1927, szemeredi1975}.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{Szemer\'edi's Theorem}
+
+\begin{theorem}[Szemer\'edi, 1975 \cite{szemeredi1975}]
+Any subset $A \subset \{1, 2, \ldots, N\}$ with $|A| \geq \delta N$ (for fixed $\delta > 0$) contains an arithmetic progression of length $k$, provided $N$ is sufficiently large.
+\end{theorem}
+
+The original proof used combinatorial methods. Gowers (2001) gave a quantitative proof using Fourier analysis, introducing the concept of \emph{uniformity norms} \cite{gowers2001}.
+
+\subsection{Transferring Szemer\'edi's Theorem}
+
+The key insight of Green and Tao was to develop a \emph{transference principle}: if the primes (or a set that behaves like the primes) can be dominated by a \emph{sparse pseudorandom set} that has positive density, then Szemer\'edi's theorem transfers \cite{greentao2008}.
+
+\begin{definition}[Pseudorandom Dominating Measure]
+A measure $\nu: \{1, \ldots, N\} \to [0, \infty)$ \emph{dominates} a set $R \subset \{1, \ldots, N\}$ if $\nu(x) \geq 1_R(x)$ for all $x$, and $\nu$ satisfies certain pseudorandomness conditions (its Fourier transform is close to that of a constant).
+\end{definition}
+
+\subsection{The Hardy--Littlewood Circle Method}
+
+Green and Tao adapted the Hardy--Littlewood circle method to show that the primes are dominated by a pseudorandom measure. The key was using the \emph{Bombieri--Vinogradov theorem} to control the distribution of primes in arithmetic progressions \cite{bombieri1965}.
+
+\section{The Discovery}
+
+\begin{theorem}[Green--Tao, 2004 \cite{greentao2008}]
+The prime numbers contain arbitrarily long arithmetic progressions. That is, for every $k \geq 1$, there exist primes $p, p+d, p+2d, \ldots, p+(k-1)d$.
+\end{theorem}
+
+Their proof has three main ingredients:
+
+\begin{enumerate}
+\item \textbf{Sparse Szemer\'edi theorem}: They proved a version of Szemer\'edi's theorem that applies to subsets of pseudorandom sets of positive density. This required extending Gowers's uniformity norms to the sparse setting \cite{gowers2001}.
+\item \textbf{Pseudorandom domination}: They constructed a pseudorandom measure $\nu$ that dominates the primes (more precisely, the weighted primes $\Lambda(n)$) and satisfies the necessary pseudorandomness conditions \cite{greentao2008}.
+\item \textbf{Relative Szemer\'edi theorem}: They proved that any subset of the primes with positive relative density contains arbitrarily long arithmetic progressions.
+\end{enumerate}
+
+\begin{highlightbox}
+The Green--Tao theorem was a landmark achievement because it combined tools from additive combinatorics, analytic number theory, and ergodic theory in a novel way. The proof spans approximately 120 pages.
+\end{highlightbox}
+
+\subsection{Subsequent Developments}
+
+\begin{itemize}
+\item \textbf{Quantitative bounds}: Tao and Ziegler (2016) proved that the constants in the Green--Tao theorem can be made explicit, though they are extremely large \cite{tao2016}.
+\item \textbf{Consecutive primes}: Green and Tao (2017) proved that the gaps between consecutive primes can be arbitrarily large relative to the average gap \cite{greentao2017}.
+\item \textbf{Nilsequences}: Host and Kra (2005) and Green and Tao (2012) developed the theory of nilsequences, which plays a central role in understanding correlations of the Mobius function and primes \cite{host2005, greentao2012}.
+\item \textbf{Polynomial progressions}: Tao and Ziegler (2016) extended the result to polynomial progressions \cite{tao2016}.
+\end{itemize}
+
+\section{Impact}
+
+\begin{itemize}
+\item \textbf{Additive combinatorics}: The transference principle has become a standard tool, applied to other sparse sets (smooth numbers, almost-primes).
+\item \textbf{Number theory}: The proof introduced new techniques connecting sieve theory, Fourier analysis, and ergodic theory.
+\item \textbf{Ergodic theory}: The Furstenberg--Szemer\'edi correspondence (used implicitly) has been extended to understand multiple ergodic averages \cite{furstenberg1977}.
+\item \textbf{Computer science}: The techniques have applications in theoretical computer science, particularly in property testing and pseudorandomness.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Find a 5-term arithmetic progression of primes. How many such progressions exist with largest term less than 1000?
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain why the primes having density zero makes Szemer\'edi's theorem inapplicable directly. What does ``positive relative density'' mean?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+The Bombieri--Vinogradov theorem states that the primes are well-distributed in arithmetic progressions on average \cite{bombieri1965}. Explain why this is essential for the Green--Tao proof.
+\end{exercise}
+
+\begin{exercise}
+What is the shortest arithmetic progression of primes of length 10? (Hint: Look up the OEIS sequence A031626.)
+\end{exercise}
+
+
+\begin{exercise}[Computational]
+Write a Python/SageMath script to explore a concept from this chapter. See the appendix for starter code.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1927 & Van der Waerden proves his theorem on APs in partitions \cite{vdW1927} \\ 
+1943 & Selberg proves infinitely many 3-term APs of primes \cite{selberg1943} \\ 
+1975 & Szemer\'edi proves his density theorem \cite{szemeredi1975} \\ 
+1998 & Gowers gives quantitative bounds for Szemer\'edi's theorem \cite{gowers2001} \\ 
+2004 & Green and Tao announce the theorem \cite{greentao2008} \\ 
+2008 & Green and Tao's paper published in Annals of Mathematics \\ 
+2016 & Tao and Ziegler make constants explicit \cite{tao2016} \\ 
+2025 & Open: explicit bounds remain extremely large \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Green, B., \& Tao, T. (2008). ``The primes contain arbitrarily long arithmetic progressions.'' Annals of Mathematics, 167(2), 481--547.
+\item Gowers, W. T. (2001). ``A new proof of Szemer\'edi's theorem.'' Geometric \& Functional Analysis, 11(3), 465--588.
+\item Tao, T., \& Ziegler, K. (2016). ``The primes contain arbitrarily long polynomial progressions.'' Acta Mathematica, 218(1), 211--370.
+\item Van der Waerden, B. L. (1927). ``Beweis einer Baudetschen Vermutung.'' Nieuw Archief voor Wiskunde, 15, 212--216.
+\item Szemer\'edi, E. (1975). ``On sets of integers containing no $k$ elements in arithmetic progression.'' Acta Arithmetica, 27, 199--245.
+\item Selberg, A. (1943). ``On the normal density of primes in small intervals.'' Duke Mathematical Journal, 10(3), 489--504.
+\item Bombieri, E., \& Vinogradov, A. I. (1965). ``On the distribution of primes in arithmetic progressions.'' Acta Arithmetica, 11, 1--20.
+\item Host, B., \& Kra, B. (2005). ``Nonconventional ergodic averages and nilmanifolds.'' Annals of Mathematics, 161(1), 581--617.
+\item Green, B., \& Tao, T. (2012). ``The quantitative behaviour of polynomial orbits on nilmanifolds.'' Annals of Mathematics, 175(2), 465--530.
+\item Furstenberg, H. (1977). ``Ergodic behavior of diagonal measures and a theorem of Szemer\'edi on arithmetic progressions.'' Journal d'Analyse Mathematique, 31, 204--256.
+\end{enumerate}

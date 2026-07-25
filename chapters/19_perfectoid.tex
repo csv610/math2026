@@ -1,0 +1,157 @@
+% Chapter 19: Perfectoid Spaces and the Revolution in p-adic Geometry
+\let\LocalMacro\relax
+
+\chapter{Perfectoid Spaces and the Revolution in p-adic Geometry}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Algebraic number theory (local fields, ramification)
+\item Rigid analytic geometry (Tate algebras, affinoid spaces)
+\item \'Etale cohomology and Galois representations
+\item Basic category theory (limits, adjoint functors)
+\end{itemize}
+
+\section{The Problem}
+For decades, p-adic geometry suffered from a fundamental limitation: the category of rigid analytic spaces (Tate's theory) was well-behaved but too rigid to capture phenomena like the \emph{p-adic local Langlands correspondence} or the \emph{weight-monodromy conjecture}. In particular:
+
+\begin{quote}
+How can we do p-adic Hodge theory in families? How can we construct p-adic period maps that vary analytically with the data?
+\end{quote}
+
+The classical period rings of Fontaine ($\mathbf{B}_{\text{dR}}$, $\mathbf{B}_{\text{cris}}$, $\mathbf{B}_{\text{st}}$) worked beautifully for individual Galois representations, but there was no geometric framework to vary them in families.
+
+\begin{historicalbox}
+Peter Scholze, then a PhD student at Bonn under Michael Rapoport, introduced perfectoid spaces in his 2011 thesis. He was 23 years old. The work earned him the 2018 Fields Medal and has become the foundational language of modern p-adic geometry.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{Perfectoid Fields}
+The key insight: many problems in p-adic geometry become trivial in the limit of \emph{perfect} fields.
+
+\begin{definition}[Perfectoid Field]
+A complete non-archimedean field $K$ of characteristic $0$ with residue characteristic $p>0$ is \emph{perfectoid} if:
+\begin{enumerate}
+\item The value group $|K^\times|$ is dense in $\mathbb{R}_{>0}$.
+\item The Frobenius map $\mathcal{O}_K/p \to \mathcal{O}_K/p$ is surjective.
+\end{enumerate}
+\end{definition}
+
+\begin{exercise}[Basic]
+Show that $\mathbb{C}_p$ is perfectoid. Why is $\mathbb{Q}_p$ not perfectoid?
+\end{exercise}
+
+\subsection{The Tilt Equivalence}
+Scholze's fundamental construction: to any perfectoid field $K$ of characteristic $0$, associate a perfectoid field $K^\flat$ of characteristic $p$.
+
+\begin{definition}[Tilt]
+$K^\flat = \varprojlim_{x \mapsto x^p} K$, with valuation $|(x^{(n)})| = |x^{(0)}|$.
+\end{definition}
+
+\begin{theorem}[Fontaine-Wintenberger / Scholze]
+There is an equivalence of categories:
+\[
+\{\text{finite extensions of } K\} \simeq \{\text{finite extensions of } K^\flat\}
+\]
+preserving Galois groups and ramification.
+\end{theorem}
+
+This is the \emph{tilt equivalence}: it transfers problems from mixed characteristic $(0,p)$ to equal characteristic $p$, where powerful tools (Frobenius, Cartier operator) are available.
+
+\subsection{Perfectoid Spaces}
+\begin{definition}[Perfectoid Space]
+A locally ringed space $(X, \mathcal{O}_X)$ that is locally isomorphic to $\text{Spa}(R, R^+)$ for a perfectoid Tate-Huber pair $(R, R^+)$.
+\end{definition}
+
+Key properties:
+\begin{itemize}
+\item The category of perfectoid spaces contains all rigid analytic spaces over $\mathbb{Q}_p$ and $\mathbb{F}_p((t))$.
+\item There is a \emph{tilt functor} $(-)^{\flat}$ from char $0$ to char $p$ perfectoid spaces.
+\item \emph{Pro-\'etale site}: Scholze constructed a Grothendieck topology where $\mathcal{O}_X^+$ is acyclic, enabling p-adic Hodge theory in families.
+\end{itemize}
+
+\section{The Discovery}
+
+\subsection{Scholze's Thesis (2011) and Annals Papers (2012-2013)}
+
+\begin{theorem}[Scholze \cite{scholze2012} -- Local Langlands for $\text{GL}_n$]
+The local Langlands correspondence for $\text{GL}_n$ over a p-adic field can be realized geometrically in the \'etale cohomology of \emph{Lubin-Tate perfectoid spaces}.
+\end{theorem}
+
+\begin{theorem}[Scholze \cite{scholze2013} -- p-adic Hodge Theory for Rigid Spaces]
+For a smooth proper rigid space $X$ over a p-adic field, there is a natural comparison isomorphism:
+\[
+H^i_{\text{\'et}}(X_{\mathbb{C}_p}, \mathbb{Z}_p) \otimes_{\mathbb{Z}_p} \mathbf{B}_{\text{dR}} \cong H^i_{\text{dR}}(X) \otimes_K \mathbf{B}_{\text{dR}}
+\]
+compatible with filtrations and Galois actions. This extends Fontaine's theory to families.
+\end{theorem}
+
+\begin{highlightbox}
+The perfectoid approach turned the \emph{weight-monodromy conjecture} (a major open problem in p-adic Hodge theory) into a geometric statement about the \'etale cohomology of perfectoid spaces, which was subsequently proved by Bhatt, Morrow, and Scholze (2016) using the \emph{pro-\'etale topology}.
+\end{highlightbox}
+
+\subsection{Subsequent Developments (2014--2025)}
+\begin{itemize}
+\item \textbf{Bhatt-Morrow-Scholze (2016)}: Integral p-adic Hodge theory via $A_{\text{inf}}$-cohomology.
+\item \textbf{Scholze-Weinstein (2016)}: Moduli of p-divisible groups and the Rapoport-Zink space as a perfectoid space.
+\item \textbf{Fargues-Fontaine curve (2018)}: A geometric object classifying vector bundles on perfectoid spaces; central to the \emph{Fargues-Fontaine conjecture} (geometric Langlands for p-adic fields).
+\item \textbf{Bhatt-Scholze (2019)}: Prismatic cohomology -- a unified cohomology theory for p-adic formal schemes.
+\item \textbf{Scholze (2020+)}: Condensed mathematics -- extending perfectoid ideas to all of topology/algebra.
+\end{itemize}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{p-adic Langlands}: Perfectoid spaces provided the geometric framework for the p-adic local Langlands correspondence beyond $\text{GL}_2(\mathbb{Q}_p)$.
+\item \textbf{Arithmetic geometry}: Prismatic cohomology unifies crystalline, de Rham, and \'etale cohomology.
+\item \textbf{Arithmetic topology}: Condensed mathematics (Scholze, 2020) extends perfectoid ideas to all of homotopy theory.
+\item \textbf{Computational}: Perfectoid methods give explicit algorithms for computing Galois representations.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Show that $\mathbb{C}_p$ is perfectoid. Why is $\mathbb{Q}_p$ not perfectoid?
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the tilt equivalence: how does $K^\flat = \varprojlim_{x \mapsto x^p} K$ produce a field of characteristic $p$ from a field of characteristic $0$?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain how the pro-\'etale topology solves the problem of doing p-adic Hodge theory in families. Why does the usual \'etale topology fail?
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+2011 & Scholze's PhD thesis introduces perfectoid spaces \\ 
+2012 & Scholze proves local Langlands for $\text{GL}_n$ using Lubin-Tate perfectoid spaces \\
+
+2013 & Scholze extends Fontaine's p-adic Hodge theory to rigid spaces \\
+2016 & Bhatt-Morrow-Scholze develop $A_{\text{inf}}$-cohomology \\
+
+2016 & Scholze-Weinstein: moduli of p-divisible groups as perfectoid spaces \\
+
+2018 & Fargues-Fontaine curve; Fargues-Fontaine conjecture \\
+
+2019 & Bhatt-Scholze: Prismatic cohomology \\
+
+2018 & Scholze awarded Fields Medal \\
+
+2020+ & Condensed mathematics extends perfectoid ideas to topology \\
+\bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Scholze, P. (2012). ``Perfectoid spaces.'' Publications Mathématiques de l'IHÉS, 116(1), 245--313.
+\item Scholze, P. (2013). ``p-adic Hodge theory for rigid-analytic varieties.'' Forum of Mathematics, Pi, 1, e1.
+\item Bhatt, B., Morrow, M., \& Scholze, P. (2016). ``Integral p-adic Hodge theory.'' Publications Mathématiques de l'IHÉS, 128(1), 219--397.
+\item Scholze, P., \& Weinstein, J. (2016). ``Moduli of p-divisible groups.'' Cambridge Journal of Mathematics, 4(2), 145--211.
+\item Fargues, L., \& Fontaine, J.-M. (2018). ``Courbes et fibrés vectoriels en théorie de Hodge p-adique.'' Astérisque, 406.
+\item Bhatt, B., \& Scholze, P. (2019). ``Prisms and prismatic cohomology.'' arXiv:1905.08229.
+\end{enumerate}

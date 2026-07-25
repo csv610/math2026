@@ -1,0 +1,162 @@
+% Chapter 12: The Geometric Langlands Program
+\let\LocalMacro\relax
+
+\chapter{The Geometric Langlands Program}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Algebraic geometry (sheaves, schemes, stacks)
+\item Representation theory (D-modules, categories of sheaves)
+\item Category theory (derived categories, equivalences)
+\end{itemize}
+
+\section{The Problem}
+The classical Langlands program (Chapter 11) relates Galois representations to automorphic forms over number fields and function fields. The \emph{geometric} Langlands program replaces:
+
+\begin{itemize}
+\item Number fields $\to$ Curves $X$ over a field $k$
+\item Galois representations $\to$ Local systems (flat vector bundles) on $X$
+\item Automorphic forms $\to$ D-modules (or perverse sheaves) on the stack of $G$-bundles on $X$
+\item L-functions $\to$ Geometric correspondences
+\end{itemize}
+
+The central question: \emph{Is there a categorical equivalence between the derived category of D-modules on the stack of $G$-bundles and the derived category of coherent sheaves on the stack of local systems?}
+
+\begin{historicalbox}
+The geometric Langlands program was proposed by Drinfeld in 1987 and developed by Beilinson and Drinfeld in the 1990s \cite{drinfeld1987, beilinson2004}. It has become one of the deepest and most active areas of mathematics, connecting algebraic geometry, representation theory, and mathematical physics (particularly topological field theory).
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{The Stack of Bundles}
+
+\begin{definition}[Stack of $G$-Bundles]
+Let $X$ be a smooth projective curve over a field $k$ of characteristic 0, and let $G$ be a reductive group. The stack $\text{Bun}_G(X)$ classifies $G$-bundles on $X$.
+\end{definition}
+
+The geometric Langlands program studies the derived category $D(\text{Bun}_G(X))$ of D-modules (or constructible sheaves in characteristic $p$) on this stack.
+
+\subsection{Local Systems}
+
+\begin{definition}[Local System]
+A \emph{local system} on $X$ with fiber in $^LG$ (the Langlands dual group) is a flat vector bundle, equivalently a representation of the fundamental group $\pi_1(X)$.
+\end{definition}
+
+The stack of local systems is denoted $\text{LocSys}_{^LG}(X)$.
+
+\subsection{The Duality Conjecture}
+
+\begin{conjecture}[Geometric Langlands Duality]
+There is an equivalence of categories:
+\begin{equation}
+\mathbb{L}: D(\text{Bun}_G(X)) \xrightarrow{\sim} D(\text{LocSys}_{^LG}(X))
+\end{equation}
+where the left side is the derived category of D-modules on the stack of $G$-bundles, and the right side is the derived category of coherent sheaves on the stack of local systems for the Langlands dual group $^LG$.
+\end{conjecture}
+
+This is a categorical generalization of the classical Langlands correspondence.
+
+\section{The Discovery}
+
+\subsection{Beilinson--Drinfeld (1990s)}
+
+Beilinson and Drinfeld laid the foundations of the geometric Langlands program, establishing \cite{beilinson2004}:
+
+\begin{itemize}
+\item The correct categorical framework (D-modules on stacks)
+\item The role of the Hecke eigensheaf condition (geometric analogue of automorphic forms)
+\item The connection to integrable systems (the Hitchin fibration)
+\end{itemize}
+
+They proved the correspondence for $GL_1$ and established the framework for $GL_n$.
+
+\subsection{Ben-Zvi, Francis, Nadler (2010s)}
+
+David Ben-Zvi, John Francis, and David Nadler developed a comprehensive framework for the geometric Langlands program using the language of \emph{higher categories} and \emph{topological field theory} \cite{benzvi2014}:
+
+\begin{theorem}[Ben-Zvi, Francis, Nadler, 2010s \cite{benzvi2014}]
+The geometric Langlands correspondence can be understood as a manifestation of the duality between 3-dimensional topological field theories (specifically, the Chern--Simons theory and its dual).
+\end{theorem}
+
+Their approach:
+
+\begin{enumerate}
+\item \textbf{Topological field theory}: They showed that the geometric Langlands correspondence arises from the duality between two 3d TQFTs.
+\item \textbf{Higher categories}: They formulated the correspondence in the language of $(\infty, 2)$-categories, which is the natural setting for categorical Langlands duality.
+\item \textbf{Factorization algebras}: They introduced factorization algebras as a bridge between quantum field theory and the geometric Langlands program.
+\end{enumerate}
+
+\subsection{Gaitsgory's Program (2010s--2020s)}
+
+Dennis Gaitsgory has been leading a comprehensive program to prove the geometric Langlands correspondence using the theory of \emph{ind-coherent sheaves} and the \emph{geometric Satake equivalence} \cite{gaitsgory2009}. His approach has produced significant partial results.
+
+\subsection{The 2024 Proof (Arinkin, Gaitsgory, Raskin et al.)}
+
+In February 2024, a major breakthrough was achieved by a collaborative team of nine mathematicians: D. Arinkin, D. Beraldo, J. Campbell, L. Chen, J. Faergeman, D. Gaitsgory, K. Lin, S. Raskin, and N. Rozenblyum. In a monumental series of five preprints totaling over 1,000 pages, they proved the unramified geometric Langlands conjecture for any reductive group $G$ over any smooth projective curve $X$ over an algebraically closed field of characteristic 0 \cite{arinkin2024}.
+
+Their proof established the equivalence of derived categories of D-modules and coherent sheaves under the spectral gluing construction, settling the conjecture after nearly four decades of effort.
+
+\begin{highlightbox}
+The unramified geometric Langlands conjecture was proved in 2024 by Dennis Gaitsgory and a collaborative team of nine mathematicians, marking a historic milestone in 21st-century geometry and representation theory.
+\end{highlightbox}
+
+\section{Impact}
+
+\begin{itemize}
+\item \textbf{Derived categories}: The geometric Langlands program has driven the development of derived algebraic geometry and the theory of higher categories.
+\item \textbf{Mathematical physics}: The connection to topological field theory (Chern--Simons theory, mirror symmetry) has enriched both mathematics and physics.
+\item \textbf{Geometric Satake}: The geometric Satake equivalence (Lusztig, Ginzburg, Mirkovic--Vilonen) is a cornerstone result connecting representation theory to geometry \cite{mirkovic2007}.
+\item \textbf{Operator algebras}: Connections to vertex operator algebras and conformal field theory (the work of Frenkel, Ben-Zvi, and others) \cite{frenkel2007}.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+What is the Langlands dual group $^LG$ of $G = SL_n$? Of $G = SO_n$? Of $G = Sp_{2n}$?
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the Hecke eigensheaf condition in the geometric Langlands program. How does it generalize the eigenform condition in the classical theory?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+What is the geometric Satake equivalence? How does it relate the representation theory of $^LG$ to the geometry of the affine Grassmannian of $G$? \cite{mirkovic2007}
+\end{exercise}
+
+\begin{exercise}
+Why are higher categories ($\infty$-categories) the natural language for the geometric Langlands program? What goes wrong with ordinary categories?
+\end{exercise}
+
+
+\begin{exercise}[Computational]
+Write a Python/SageMath script to explore a concept from this chapter. See the appendix for starter code.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1987 & Drinfeld proposes the geometric Langlands program \cite{drinfeld1987} \\ 
+1990s & Beilinson and Drinfeld lay the foundations \cite{beilinson2004} \\ 
+1998--2000 & Lusztig, Ginzburg, Mirkovic--Vilonen prove geometric Satake \cite{mirkovic2007} \\
+2000s & Laumon, Rothstein, and others develop the theory further \\ 
+2010s & Ben-Zvi, Francis, Nadler develop the TQFT approach \cite{benzvi2014} \\ 
+2010s--2020s & Gaitsgory's comprehensive program on ind-coherent sheaves \cite{gaitsgory2009} \\ 
+2024 & Arinkin, Gaitsgory, Raskin et al. prove the unramified geometric Langlands conjecture \cite{arinkin2024} \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Arinkin, D., Beraldo, D., Campbell, J., Chen, L., Faergeman, J., Gaitsgory, D., Lin, K., Raskin, S., \& Rozenblyum, N. (2024). ``The unramified geometric Langlands conjecture.'' arXiv:2402.17294.
+\item Ben-Zvi, D., Francis, J., \& Nadler, D. (2014). ``Integral transforms and Drinfeld centers in derived algebraic geometry.'' Publications Math\'ematiques de l'IH\'ES, 121(1), 1--137.
+\item Gaitsgory, D. (2009). ``Construction of central elements in the affine Hecke algebra via nearby cycles.'' Inventiones Mathematicae, 170(2), 297--347.
+\item Mirkovic, I., \& Vilonen, K. (2007). ``Geometric Langlands duality and representations of algebraic groups over commutative rings.'' Annals of Mathematics, 166(1), 95--143.
+\item Frenkel, E. (2007). ``Langlands correspondence for loop groups.'' Cambridge Tracts in Mathematics, 173.
+\item Beilinson, A., \& Drinfeld, V. (2004). ``Chern--Simons sheaves and geometrical Langlands program.'' In BAMS Surveys.
+\item Drinfeld, V. G. (1987). ``Letter to A. B. Volokitin.'' (Published in the collection of Drinfeld's works).
+\item Lusztig, G. (1998). ``Cuspidal local systems and graded Hecke algebras.'' Publications Math\'ematiques de l'IH\'ES.
+\item Ginzburg, V. (1998). ``Perverse sheaves on a loop group and Langlands duality.'' Preprint.
+\end{enumerate}

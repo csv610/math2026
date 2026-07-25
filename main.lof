@@ -1,0 +1,30 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Visualizing the fundamental group: on $S^2$ every loop contracts to a point, but on the torus $T^2$ loops around the hole cannot be shrunk. The Poincar\'e Conjecture states $S^3$ is the only 3-manifold with this property.}}{2}{figure.caption.6}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Ricci flow evolves a rough manifold toward a spherical shape. The equation $\partial g/\partial t = -2R$ drives the smoothing, and Perelman's entropy functionals control the process through singularities.}}{3}{figure.caption.7}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The recursive structure of Weil--Petersson volumes: each volume $V_{g,n}$ can be expressed as a sum of products of lower-dimensional volumes.}}{33}{figure.caption.8}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Sphere packing densities across dimensions. Viazovska (2016) proved optimality for dimensions 8 and 24 using modular forms, building on the Cohn--Kumar linear programming framework.}}{44}{figure.caption.9}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {14.1}{\ignorespaces The Green--Tao transference principle: the primes are dominated by a pseudorandom measure, allowing Szemer\'edi's theorem to transfer from dense sets to the primes.}}{72}{figure.caption.10}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {15.1}{\ignorespaces The AKS test checks whether $(X+a)^n \equiv X^n + a \pmod {n}$ as polynomials. For prime $n$, all binomial coefficients $\binom {n}{k}$ are divisible by $n$; for composite $n$, some are not.}}{78}{figure.caption.11}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

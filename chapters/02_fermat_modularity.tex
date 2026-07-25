@@ -1,0 +1,166 @@
+% Chapter 2: Fermat's Last Theorem and the Modularity Theorem
+\let\LocalMacro\relax
+
+\chapter{Fermat's Last Theorem and the Modularity Theorem}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Elementary number theory (congruences, factorization)
+\item Basic algebraic geometry (elliptic curves)
+\item Complex analysis (modular forms basics)
+\end{itemize}
+
+\section{The Problem}
+In 1637, Pierre Fermat wrote in the margin of his copy of Diophantus's \emph{Arithmetica}:
+
+\begin{quote}
+It is impossible to separate a cube into two cubes, or a fourth power into two fourth powers, or in general any power higher than the second into powers of the same degree.
+\end{quote}
+
+This became known as Fermat's Last Theorem:
+
+\begin{equation}
+x^n + y^n = z^n
+\end{equation}
+
+has no nonzero integer solutions for $n > 2$.
+
+Fermat claimed he had a ``truly marvelous proof'' that the margin was too narrow to contain. He proved the case $n = 4$ using infinite descent \cite{euler1783}. Euler proved $n = 3$ \cite{euler1783}. Dirichlet and Legendre proved $n = 5$ (1825). Lam\'e proved $n = 7$ (1839). But the general case resisted all attempts for 358 years.
+
+\begin{historicalbox}
+Fermat's marginal note became one of the most famous unsolved problems in mathematics. Generations of mathematicians tried and failed. Many claimed proofs, all were wrong. The problem inspired the development of algebraic number theory.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{Elliptic Curves}
+
+An elliptic curve is a smooth projective curve of genus 1 with a rational point. In Weierstrass form:
+
+\begin{equation}
+y^2 = x^3 + ax + b
+\end{equation}
+
+where $4a^3 + 27b^2 \neq 0$. Elliptic curves form an abelian group under a geometric addition law.
+
+\subsection{Modular Forms}
+
+A modular form is a holomorphic function on the upper half-plane satisfying a transformation law under $SL_2(\mathbb{Z})$:
+
+\begin{equation}
+f\left(\frac{az+b}{cz+d}\right) = (cz+d)^k f(z)
+\end{equation}
+
+for integers $a,b,c,d$ with $ad-bc = 1$. The Fourier expansion of a modular form encodes deep arithmetic information.
+
+\subsection{The Taniyama--Shimura--Weil Conjecture}
+
+\begin{conjecture}[Modularity Conjecture]
+Every elliptic curve over $\mathbb{Q}$ is modular, meaning its L-function arises from a modular form.
+\end{conjecture}
+
+This conjecture connected two seemingly unrelated areas: elliptic curves (geometry) and modular forms (analysis).
+
+\subsection{The Frey Curve and Ribet's Theorem}
+
+In 1984, Gerhard Frey observed that if Fermat's Last Theorem were false, one could construct an elliptic curve (now called the Frey curve) with bizarre properties \cite{frey1984}:
+
+\begin{equation}
+y^2 = x(x - a^n)(x + b^n)
+\end{equation}
+
+where $a^n + b^n = c^n$. This curve would be so unusual that it could not possibly be modular.
+
+\begin{theorem}[Ribet, 1986 \cite{ribet1990}]
+If the Modularity Conjecture is true, then Fermat's Last Theorem is true.
+\end{theorem}
+
+This was the crucial link: proving modularity for all elliptic curves would settle Fermat's Last Theorem.
+
+\section{The Discovery}
+
+\subsection{Wiles's Proof (1993--1995)}
+
+Andrew Wiles, a British mathematician at Princeton, announced a proof of the Modularity Conjecture for semistable elliptic curves in 1993 \cite{wiles1995}. This immediately implied Fermat's Last Theorem.
+
+The proof used:
+
+\begin{enumerate}
+\item \textbf{Galois representations}: Associating Galois representations to elliptic curves and modular forms.
+\item \textbf{Deformation theory}: Studying how Galois representations vary in families.
+\item \textbf{Iwasawa theory}: Deep results about the arithmetic of elliptic curves over $\mathbb{Z}_p$-extensions.
+\item \textbf{Kolyvagin--Flach Euler systems}: New tools for bounding Selmer groups.
+\end{enumerate}
+
+\begin{highlightbox}
+Wiles worked in secret for seven years on this proof. He told no one except his wife. On June 21, 1993, he gave a three-hour lecture at the Isaac Newton Institute in Cambridge, England, revealing the proof. The audience sat in stunned silence when he finished.
+\end{highlightbox}
+
+\subsection{The Flaw and the Fix}
+
+After peer review, a gap was found in the proof. Wiles and his former student Richard Taylor spent nearly a year trying to fix it. In September 1994, they realized that combining two different approaches to the deformation theory would work. The corrected proof was published in 1995 in two papers:
+
+\begin{itemize}
+\item Wiles (1995): ``Modular elliptic curves and Fermat's Last Theorem'' \cite{wiles1995}
+\item Taylor \& Wiles (1995): ``Ring-theoretic properties of certain Hecke algebras'' \cite{taylorwiles1995}
+\end{itemize}
+
+\subsection{The Complete Proof}
+
+Breuil, Conrad, Diamond, and Taylor (2001) extended Wiles's methods to prove the full Modularity Conjecture for all elliptic curves over $\mathbb{Q}$ \cite{bcdt2001}, completing the proof of Fermat's Last Theorem.
+
+\section{Impact}
+
+\begin{itemize}
+\item \textbf{Number theory}: Wiles's methods revolutionized the study of Galois representations and deformation theory.
+\item \textbf{Langlands program}: The proof confirmed deep connections between different areas of mathematics predicted by the Langlands program.
+\item \textbf{Mathematical culture}: Wiles's story captured the public imagination and demonstrated the power of sustained dedication to a single problem.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Prove that $x^4 + y^4 = z^4$ has no nonzero integer solutions using Fermat's method of infinite descent. \emph{Hint: If $x^4 + y^4 = z^4$, then $(x^2)^2 + (y^2)^2 = (z^2)^2$, giving a Pythagorean triple.}
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Show that the elliptic curve $y^2 = x^3 + ax + b$ is nonsingular if and only if $4a^3 + 27b^2 \neq 0$. \emph{Hint: Compute the partial derivatives and find where they simultaneously vanish.}
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain why Ribet's theorem implies that proving modularity for semistable elliptic curves implies Fermat's Last Theorem. \emph{Hint: A Frey curve from a Fermat counterexample would be semistable.}
+\end{exercise}
+
+
+\begin{exercise}[Computational]
+Write a Python/SageMath script to explore a concept from this chapter. See the appendix for starter code.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1637 & Fermat writes his marginal note \\ 
+1753 & Euler proves $n = 3$ \cite{euler1783} \\ 
+1825 & Dirichlet and Legendre prove $n = 5$ \\ 
+1839 & Lam\'e proves $n = 7$ \\ 
+1984 & Frey observes the connection to elliptic curves \cite{frey1984} \\ 
+1986 & Ribet proves the connection to modularity \cite{ribet1990} \\ 
+1993 & Wiles announces the proof \cite{wiles1995} \\ 
+1994 & Wiles and Taylor fix the gap \cite{taylorwiles1995} \\ 
+1995 & The complete proof is published \cite{wiles1995,taylorwiles1995} \\ 
+2001 & Breuil--Conrad--Diamond--Taylor prove full modularity \cite{bcdt2001} \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Wiles, A. (1995). ``Modular elliptic curves and Fermat's Last Theorem.'' Annals of Mathematics, 141(3), 443--551.
+\item Taylor, R., \& Wiles, A. (1995). ``Ring-theoretic properties of certain Hecke algebras.'' Annals of Mathematics, 141(3), 553--572.
+\item Breuil, C., Conrad, B., Diamond, F., \& Taylor, R. (2001). ``On the modularity of elliptic curves over $\mathbb{Q}$.'' Inventiones Mathematicae, 145(3), 493--541.
+\item Ribet, K. (1990). ``On modular representations of $Gal(\overline{\mathbb{Q}}/\mathbb{Q})$ arising from modular forms.'' Inventiones Mathematicae, 100(1), 43--103.
+\item Frey, G. (1984). ``Links between stable elliptic curves and certain Diophantine equations.'' Annales Universitatis Saraviensis.
+\item Euler, L. (1783). ``De resolutione formulae arithmeticae.'' Novi Commentarii Academiae Scientiarum Petropolitanae.
+\end{enumerate}

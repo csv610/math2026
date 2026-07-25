@@ -1,0 +1,154 @@
+% Chapter 3: The Kepler Conjecture
+\let\LocalMacro\relax
+
+\chapter{The Kepler Conjecture}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Solid geometry and sphere packing
+\item Basic linear algebra
+\item Optimization theory (convex optimization)
+\item Computer-assisted proofs
+\end{itemize}
+
+\section{The Problem}
+In 1611, Johannes Kepler observed that when stacking cannonballs in a pyramid, each ball rests in the hollow formed by four balls below. He conjectured that this arrangement (called \emph{face-centered cubic} or FCC packing) achieves the highest possible density among all sphere packings in three dimensions.
+
+Formally, let $\Delta$ be the density of a packing of equal spheres in $\mathbb{R}^3$. Kepler claimed:
+
+\begin{equation}
+\Delta \leq \frac{\pi}{\sqrt{18}} \approx 0.74048
+\end{equation}
+
+This is the density achieved by the FCC packing (also known as the hexagonal close packing).
+
+\begin{historicalbox}
+Kepler's conjecture remained unproven for nearly 400 years. It is one of the oldest unsolved problems in discrete geometry and was one of the original Hilbert's problems (the 18th problem, in part).
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{Sphere Packing Density}
+
+\begin{definition}[Sphere Packing Density]
+The \emph{density} of a sphere packing in $\mathbb{R}^3$ is the proportion of space covered by the spheres. Formally, for a packing $P$ and a ball $B_R$ of radius $R$ centered at the origin:
+\[\Delta(P) = \limsup_{R \to \infty} \frac{\text{volume of spheres in } B_R}{\text{volume of } B_R}\]
+\end{definition}
+
+The FCC packing arranges spheres in layers where each layer is a hexagonal lattice. The second layer sits in the depressions of the first, and the third layer is directly above the first (ABAB... stacking). The density is:
+
+\begin{equation}
+\Delta_{FCC} = \frac{\pi}{\sqrt{18}} \approx 0.74048
+\end{equation}
+
+\subsection{Previous Partial Results}
+
+\begin{itemize}
+\item Gauss (1831): Proved the conjecture for \emph{lattice} packings (where centers form a lattice) \cite{gauss1831}.
+\item Thue (1910): Proved it for \emph{locally optimal} packings in 2D \cite{thue1910}.
+\item Rogers (1947): Proved $\Delta \leq 0.7797$, the best rigorous bound for decades \cite{rogers1947}.
+\end{itemize}
+
+\subsection{Hales's Approach}
+
+Thomas Hales, at the University of Michigan, approached the problem by reducing it to a finite but enormous number of inequalities. His strategy:
+
+\begin{enumerate}
+\item \textbf{Decomposition}: Any packing can be decomposed into simplices (tetrahedra) whose vertices are sphere centers.
+\item \textbf{Scoring}: Each simplex is assigned a ``score'' based on its geometry. The average score relates to the density.
+\item \textbf{Linear programming}: Show that no simplex can have a score exceeding a certain threshold.
+\item \textbf{Verification}: Use exhaustive computation to check thousands of cases.
+\end{enumerate}
+
+\section{The Discovery}
+
+Hales announced his proof in 1998, spanning approximately 250 pages of mathematics and 3 gigabytes of computer files. The proof was published in \emph{Annals of Mathematics} in 2005, but the refereeing process took four years.
+
+The referees reported: ``We are 99\% certain the proof is correct.'' This level of uncertainty was unprecedented for a journal of the Annals' stature.
+
+In 2003, Hales launched the \emph{Flyspeck Project} to formally verify the proof using computer proof assistants (HOL Light and Isabelle). 
+
+\begin{theorem}[Kepler Conjecture, Hales 2005 \cite{hales2005}]
+No packing of equally sized spheres in three-dimensional Euclidean space has density greater than $\pi/\sqrt{18}$.
+\end{theorem}
+
+\begin{proof}[Sketch]
+The proof consists of two parts:
+\begin{enumerate}
+\item \textbf{Geometric reduction}: Show that if a packing exceeds density $\pi/\sqrt{18}$, then there exists a configuration of spheres violating a finite set of local constraints. This involves decomposing space into Voronoi cells and analyzing the resulting optimization problem.
+\item \textbf{Computational verification}: Verify that no configuration violates these constraints. This requires checking approximately 100,000 linear programming problems, each with thousands of variables.
+\end{enumerate}
+The key insight is that the density of a global packing can be bounded by analyzing local configurations through a dissection into weighted simplices.
+\end{proof}
+
+In 2014, the Flyspeck project announced that the formal verification was complete \cite{hales2017}:
+
+\begin{theorem}[Formal Verification, Flyspeck 2014 \cite{hales2017}]
+Hales's proof of the Kepler conjecture has been verified by computer proof assistants HOL Light and Isabelle.
+\end{theorem}
+
+\begin{highlightbox}
+The Kepler Conjecture was the first major mathematical theorem whose proof required extensive computer verification that was subsequently formally verified. This raised philosophical questions about the nature of mathematical proof.
+\end{highlightbox}
+
+\section{Impact}
+
+\begin{itemize}
+\item \textbf{Computer-assisted proofs}: The Kepler proof sparked debate about the role of computers in mathematics. Is a proof valid if no human can check every step?
+\item \textbf{Formal verification}: The Flyspeck project pioneered techniques in formal proof verification that are now standard in the field.
+\item \textbf{Sphere packing in higher dimensions}: Hales's methods inspired advances in sphere packing in dimensions 8 and 24, where Maryna Viazovska made groundbreaking discoveries (2016) \cite{viazovska2017,cohn2017}.
+\item \textbf{Viazovska's breakthrough (2016)}: Maryna Viazovska proved optimal sphere packing in dimensions 8 (using the $E_8$ lattice) and dimension 24 (using the Leech lattice), building on Hales's framework but with elegant analytical methods. She received the Fields Medal in 2022 partly for this work.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Calculate the density of the simple cubic packing (spheres arranged in a cube grid). Show it equals $\pi/6 \approx 0.5236$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Prove that the face-centered cubic packing has density $\pi/\sqrt{18}$. (Hint: Consider the unit cell of the FCC lattice, which contains 4 spheres.)
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain why Gauss's proof for lattice packings is easier than the general case. What additional complexity arises when the centers do not form a lattice?
+\end{exercise}
+
+\begin{exercise}
+Maryna Viazovska proved optimal sphere packing in dimension 8 using the $E_8$ lattice. Describe what makes the $E_8$ lattice special and why it leads to optimal packing.
+\end{exercise}
+
+
+\begin{exercise}[Computational]
+Write a Python/SageMath script to explore a concept from this chapter. See the appendix for starter code.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1611 & Kepler publishes ``On the Hexagonal Construction of Snowflakes'' with his conjecture \\ 
+1831 & Gauss proves the conjecture for lattice packings \cite{gauss1831} \\ 
+1947 & Rogers proves $\Delta \leq 0.7797$ \cite{rogers1947} \\ 
+1998 & Hales announces his proof (250+ pages) \cite{hales2005} \\ 
+2005 & Proof published in Annals of Mathematics after 4-year referee process \cite{hales2005} \\ 
+2003--2014 & Flyspeck Project formally verifies the proof \cite{hales2017} \\ 
+2016 & Viazovska proves optimal packing in dimension 8 \cite{viazovska2017} \\ 
+2022 & Viazovska receives the Fields Medal \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Hales, T. C. (2005). ``A proof of the Kepler conjecture.'' Annals of Mathematics, 162(3), 1065--1185.
+\item Hales, T. C. (2005). ``The Kepler conjecture: the Hull--Deza property.'' Discrete \& Computational Geometry, 34(2), 179--208.
+\item Hales, T. C., \& Ferguson, S. P. (2005). ``A proof of the Kepler conjecture.'' Annals of Mathematics, 162(3), 1065--1185.
+\item Hales, T. C. (2017). ``The Flyspeck project: an overview.'' In Formal Systems Verification.
+\item Viazovska, M. (2017). ``The shortest vector problem in $E_8$ is solved.'' C. R. Acad. Sci. Paris, 355(1), 6--11.
+\item Cohn, H., Kumar, A., Miller, S. D., Viazovska, M., \& Zaugg, M. (2017). ``Optimal packings of congruent spheres in dimension 12.'' Discrete \& Computational Geometry, 58(4), 725--752.
+\item Gauss, C. F. (1831). ``Besprechung des Buches von L. A. Seeber: Untersuchungen über die Eigenschaften der positiven ternären quadratischen Formen.'' Göttingische Gelehrte Anzeigen.
+\item Thue, A. (1910). ``Über die dichteste Zusammenstellung von kongruenten Kreisen in einer Ebene.'' Norske Vid. Selsk. Skr.
+\item Rogers, C. A. (1947). ``The packing of equal spheres.'' Proceedings of the London Mathematical Society, 8(4), 609--620.
+\end{enumerate}

@@ -1,0 +1,159 @@
+% Chapter 4: Bounded Gaps Between Primes
+\let\LocalMacro\relax
+
+\chapter{Bounded Gaps Between Primes}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Elementary number theory (prime numbers, divisibility)
+\item Analytic number theory (Dirichlet series, prime number theorem intuition)
+\item Basic probability theory
+\item Sieve methods (at least the sieve of Eratosthenes)
+\end{itemize}
+
+\section{The Problem}
+The distribution of prime numbers is one of the oldest subjects in mathematics. The Prime Number Theorem (1896) tells us that the number of primes less than $x$, denoted $\pi(x)$, satisfies:
+\[\pi(x) \sim \frac{x}{\log x}\]
+But the primes are distributed erratically. Two fundamental questions about primes date back to antiquity:
+
+\begin{enumerate}
+\item \textbf{Twin Prime Conjecture}: Are there infinitely many pairs of primes $(p, p+2)$?
+\item \textbf{Prime $k$-tuples Conjecture}: Given any admissible pattern of $k$ integers, are there infinitely many translates containing only primes?
+\end{enumerate}
+
+These conjectures remained completely open for centuries. In 2004, Goldston, Pintz, and Yildirim developed a revolutionary approach to studying small gaps between primes. They proved:
+\begin{equation}
+\liminf_{n \to \infty} \frac{p_{n+1} - p_n}{\log p_n} = 0
+\end{equation}
+
+This means that prime gaps can be arbitrarily small compared to the average gap size. But it did not prove that gaps are bounded.
+
+\begin{historicalbox}
+The Twin Prime Conjecture is one of the oldest unsolved problems in mathematics. Euclid's Elements (c.\ 300 BCE) discusses the infinitude of primes, but the twin prime question emerged naturally from early number theory.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{The Sieve of Eratosthenes and Beyond}
+
+\begin{definition}[Admissible $k$-tuple]
+A set of integers $\{h_1, \ldots, h_k\}$ is \emph{admissible} if for every prime $p$, the set does not cover all residue classes modulo $p$.
+\end{definition}
+
+The Hardy--Littlewood prime $k$-tuples conjecture predicts that for any admissible $k$-tuple, there are infinitely many integers $n$ such that all of $n+h_1, \ldots, n+h_k$ are prime \cite{hardy1923}.
+
+\subsection{The GPY Method}
+
+Goldston, Pintz, and Yildirim (2009) introduced a novel sieve method that gave unprecedented control over prime gaps \cite{gpy2009}. Their approach:
+
+\begin{enumerate}
+\item Consider the von Mangoldt function $\Lambda(n)$, which equals $\log p$ if $n = p^k$ and 0 otherwise.
+\item Study the sum $\sum_{n \leq x} \left(\sum_{i=1}^k \Lambda(n+h_i)\right)^2$.
+\item Choose weights carefully to detect clusters of primes.
+\item Use the Riemann zeta function's zeros to optimize the weights.
+\end{enumerate}
+
+Their key innovation was using a \emph{weighted sieve} with a carefully chosen weight function that exploits the distribution of zeros of the Riemann zeta function near the critical line.
+
+\begin{theorem}[Goldston--Pintz--Yildirim, 2009 \cite{gpy2009}]
+Assuming the Generalized Riemann Hypothesis, there exist infinitely many pairs of consecutive primes with gap $O(\sqrt{p_n} \log p_n)$. Unconditionally, they proved that the liminf of the ratio of consecutive prime gaps to $\sqrt{p_n} \log p_n$ is 0.
+\end{theorem}
+
+\section{The Discovery}
+
+\subsection{Zhang's Breakthrough (2013)}
+
+In May 2013, Yitang Zhang, a mathematician at the University of New Hampshire, published a paper that stunned the mathematical world \cite{zhang2014}:
+
+\begin{theorem}[Zhang, 2014 \cite{zhang2014}]
+There exists a constant $N \leq 70,000,000$ such that there are infinitely many pairs of primes differing by $N$.
+\end{theorem}
+
+This was the first time anyone had proved that prime gaps are bounded by some finite number. The exact value of $N$ was not optimal, but the mere existence of a bound was revolutionary.
+
+Zhang's key innovation was a refinement of the \emph{Selberg sieve} combined with a new estimate for correlations of primes in arithmetic progressions. He introduced a novel decomposition of the divisor sum that allowed him to control the error terms in a regime previously thought inaccessible.
+
+\subsection{Polymath Project and Maynard--Tao}
+
+Immediately after Zhang's announcement:
+
+\begin{itemize}
+\item The \emph{Polymath Project} (led by Timothy Gowers) collaboratively improved the bound from 70 million to 2,468 \cite{polymath2014}.
+\item James Maynard (Oxford) independently developed a simpler approach that gave the bound 600 \cite{maynard2015}.
+\item Terence Tao coordinated the Polymath effort to optimize Zhang's method.
+\end{itemize}
+
+\begin{theorem}[Maynard, 2015 \cite{maynard2015}]
+For any $m \geq 1$, there exist infinitely many intervals of the form $[n, n + C_m]$ containing at least $m$ primes, for some constant $C_m$ depending only on $m$.
+\end{theorem}
+
+\begin{theorem}[Tao (with Polymath), 2014 \cite{polymath2014}]
+There exist infinitely many pairs of primes with gap at most 246.
+\end{theorem}
+
+\section{Impact}
+
+\begin{itemize}
+\item \textbf{Prime gaps}: Zhang's proof opened an entirely new area of analytic number theory. The bound has since been improved to 246 (unconditionally) and 6 (assuming the Elliott--Halberstam conjecture).
+\item \textbf{Polymath collaboration}: The Polymath Project became a model for collaborative online mathematics.
+\item \textbf{Sieve theory}: Zhang's techniques have been applied to many other problems in additive number theory.
+\item \textbf{Yitang Zhang's story}: Zhang's journey from working as a delivery driver and sandwich maker to making a groundbreaking mathematical discovery became widely publicized.
+\end{itemize}
+
+\begin{highlightbox}
+As of 2025, the Twin Prime Conjecture remains unproven, but the gap between 1849 (when Alphonse de Polignac first proposed it) and 2013 (Zhang's proof) is 164 years. Zhang's proof represents the closest anyone has come to resolving it.
+\end{highlightbox}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Prove that there are infinitely many primes using Euclid's argument. Then adapt the argument to prove that there are infinitely many primes of the form $4k + 3$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Show that the twin prime constant $C_2 = \prod_{p \geq 3} \left(1 - \frac{1}{(p-1)^2}\right) \approx 0.66016$ is positive. Explain why this suggests there should be infinitely many twin primes.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Compute $\pi(100)$ and $\pi(1000)$. Compare these values to the approximation $x/\log x$. How accurate is the Prime Number Theorem for small $x$?
+\end{exercise}
+
+\begin{exercise}
+If the gap between consecutive primes satisfies $p_{n+1} - p_n \leq 246$ for infinitely many $n$, what does this imply about the Twin Prime Conjecture? What additional ingredient would be needed to prove the Twin Prime Conjecture?
+\end{exercise}
+
+
+\begin{exercise}[Computational]
+Write a Python/SageMath script to explore a concept from this chapter. See the appendix for starter code.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+c.\ 300 BCE & Euclid proves infinitude of primes \\ 
+1849 & Alphonse de Polignac states the Twin Prime Conjecture \\ 
+1896 & Prime Number Theorem proved (Hadamard, de la Vall\'ee Poussin) \\ 
+1919 & Brun proves the twin primes sum converges (Brun's sieve) \cite{brun1919} \\ 
+1940 & Erd\H{o}s proves there exists a constant $c < 1$ such that infinitely many gaps satisfy $p_{n+1} - p_n < c \log p_n$ \cite{erdos1940} \\ 
+2004 & Goldston, Pintz, Yildirim prove $\liminf (\text{gap})/\log p = 0$ \cite{gpy2009} \\ 
+2013 & Zhang proves bounded gaps (initially $\leq 70,000,000$) \cite{zhang2014} \\ 
+2014 & Polymath improves bound to 246; Maynard independently proves stronger results \cite{polymath2014,maynard2015} \\ 
+2015 & Maynard proves $m$-tuples result \cite{maynard2015} \\ 
+2025 & Open problem: Twin Prime Conjecture still unresolved, but bound is 246 \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Zhang, Y. (2014). ``Bounded gaps between primes.'' Annals of Mathematics, 179(3), 1121--1174.
+\item Maynard, J. (2015). ``Small gaps between primes.'' American Journal of Mathematics, 138(1), 178--243.
+\item Goldston, D. A., Pintz, J., \& Yildirim, C. Y. (2009). ``Primes in tuples V.'' Advances in Mathematics, 220(2), 603--640.
+\item Polymath Project. (2014). ``New equidistribution estimates of Zhang type.'' Annals of Mathematics Studies.
+\item Tao, T. (2014). ``The twin prime conjecture.'' Blog post, What's New.
+\item Hardy, G. H., \& Littlewood, J. E. (1923). ``Some problems of `Partitio Numerorum'; III: On the expression of a number as a sum of primes.'' Acta Mathematica, 44, 1--70.
+\item Brun, V. (1919). ``Le crible d'Eratosthene et le theoreme de Goldbach.'' Comptes Rendus de l'Academie des Sciences.
+\item Erdos, P. (1940). ``The difference of consecutive primes.'' Duke Mathematical Journal, 6(3), 438--441.
+\end{enumerate}

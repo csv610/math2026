@@ -1,0 +1,145 @@
+% Chapter 15: The AKS Primality Test
+\let\LocalMacro\relax
+
+\chapter{The AKS Primality Test}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Basic modular arithmetic
+\item Polynomial arithmetic over finite fields
+\item Complexity theory (P, NP, polynomial time)
+\end{itemize}
+
+\section{The Problem}
+For millennia, humans have asked: \emph{Is this number prime?} The question seems simple, but testing primality efficiently is surprisingly hard.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{aks_primality.pdf}
+\caption{The AKS test checks whether $(X+a)^n \equiv X^n + a \pmod{n}$ as polynomials. For prime $n$, all binomial coefficients $\binom{n}{k}$ are divisible by $n$; for composite $n$, some are not.}
+\label{fig:aks}
+\end{figure}
+
+For a number $n$, trial division takes $O(\sqrt{n})$ time -- exponential in the number of digits. Various probabilistic tests (Miller--Rabin, Solovay--Strassen) run in polynomial time but can give wrong answers (though with very small probability).
+
+The fundamental question: \emph{Is primality testing in P? That is, can we determine whether $n$ is prime using a deterministic algorithm whose running time is polynomial in $\log n$?}
+
+This was open for 40 years until 2002.
+
+\begin{historicalbox}
+The question was motivated by cryptography: RSA encryption relies on the difficulty of factoring, but key generation requires efficient primality testing. Before AKS, cryptographers relied on probabilistic tests.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{The Key Observation}
+
+Fermat's Little Theorem states that if $p$ is prime and $a \not\equiv 0 \pmod{p}$, then:
+\begin{equation}
+a^{p-1} \equiv 1 \pmod{p}
+\end{equation}
+
+This gives a primality test: check if $a^{n-1} \equiv 1 \pmod{n}$. But Carmichael numbers (like 561) fool this test for all bases coprime to $n$.
+
+The AKS insight was to lift this to \emph{polynomials}:
+
+\begin{theorem}[AKS Criterion]
+Let $n > 1$ be an integer and $a$ coprime to $n$. Then $n$ is prime if and only if:
+\begin{equation}
+(X + a)^n \equiv X^n + a \pmod{n}
+\end{equation}
+as polynomials in $\mathbb{Z}/n\mathbb{Z}[X]$.
+\end{theorem}
+
+This is equivalent to checking that the binomial coefficients $\binom{n}{k}$ are all divisible by $n$ for $1 \leq k \leq n-1$.
+
+\subsection{The Algorithm}
+
+The AKS algorithm (Agrawal, Kayal, Saxena, 2002) proceeds in several steps:
+
+\begin{enumerate}
+\item \textbf{Perfect power check}: Is $n = a^b$ for integers $a, b > 1$? If so, composite.
+\item \textbf{Find small factor}: Check if $\gcd(a, n) > 1$ for small $a$.
+\item \textbf{Size check}: If $n \leq r$, declare prime (where $r$ is a carefully chosen bound).
+\item \textbf{Polynomial congruence}: Check $(X + a)^n \equiv X^n + a \pmod{X^r - 1, n}$ for a range of values of $a$.
+\end{enumerate}
+
+The key innovation was showing that a \emph{small} value of $r$ suffices, making the algorithm polynomial time.
+
+\section{The Discovery}
+
+\begin{theorem}[AKS Primality Test, 2002 \cite{agrawal2004}]
+There exists a deterministic algorithm that decides whether $n$ is prime in time $\tilde{O}((\log n)^6)$.
+\end{theorem}
+
+The original AKS paper ran in $\tilde{O}((\log n)^{12})$. Subsequent improvements:
+
+\begin{itemize}
+\item Lenstra and Pomerance (2011): $\tilde{O}((\log n)^3)$ \cite{lenstra2011}
+\item Cohen and Lenstra (2003): various optimizations \cite{bernstein2006}
+\end{itemize}
+
+The algorithm's correctness relies on deep algebraic number theory:
+
+\begin{enumerate}
+\item \textbf{Cyclotomic fields}: The proof uses properties of the $r$-th cyclotomic field $\mathbb{Q}(\zeta_r)$.
+\item \textbf{Order of $q$ modulo $r$}: The algorithm chooses $r$ such that the multiplicative order of $n$ modulo $r$ is large.
+\item \textbf{Irreducibility}: The proof shows that if $n$ is composite but passes all tests, then a certain polynomial must be irreducible, leading to a contradiction.
+\end{enumerate}
+
+\begin{highlightbox}
+The AKS algorithm was the first \emph{general} deterministic polynomial-time primality test. It settled a decades-old open problem and proved that PRIMES $\in$ P. While not the fastest in practice (probabilistic tests are faster), it is theoretically fundamental.
+\end{highlightbox}
+
+\section{Impact}
+
+\begin{itemize}
+\item \textbf{Complexity theory}: Proved that PRIMES $\in$ P, resolving a major open problem.
+\item \textbf{Cryptography}: While not used in practice due to slower performance, it provides a theoretical foundation for primality testing.
+\item \textbf{Mathematical techniques}: The proof introduced novel use of cyclotomic polynomials and order arguments that have influenced other areas.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Verify that $(X + a)^5 \equiv X^5 + a \pmod{5}$ for any integer $a$. Check that the binomial coefficients $\binom{5}{1}, \binom{5}{2}, \binom{5}{3}, \binom{5}{4}$ are all divisible by 5.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Show that 561 = 3 $\cdot$ 11 $\cdot$ 17 is a Carmichael number: $a^{560} \equiv 1 \pmod{561}$ for all $a$ coprime to 561.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain why the polynomial congruence $(X+a)^n \equiv X^n + a \pmod{n}$ is a valid primality test. Why doesn't this work directly as a fast algorithm?
+\end{exercise}
+
+\begin{exercise}
+The AKS algorithm runs in $\tilde{O}((\log n)^6)$. If $n$ has $d$ digits, how does this compare to trial division? What is the practical implication?
+\end{exercise}
+
+
+\begin{exercise}[Computational]
+Write a Python/SageMath script to explore a concept from this chapter. See the appendix for starter code.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1976 & Miller proposes a deterministic primality test (conditional on GRH) \\ 
+1976 & Rabin develops the Miller--Rabin probabilistic test \\ 
+1980s & Various probabilistic tests (Solovay--Strassen, Fermat test) \\ 
+2002 & Agrawal, Kayal, Saxena publish the AKS algorithm \cite{agrawal2004} \\ 
+2003 & Cohen and Lenstra optimize the algorithm \cite{bernstein2006} \\ 
+2011 & Lenstra and Pomerance achieve $\tilde{O}((\log n)^3)$ \cite{lenstra2011} \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Agrawal, M., Kayal, N., \& Saxena, N. (2004). ``PRIMES is in P.'' Annals of Mathematics, 160(2), 781--793.
+\item Lenstra, H. W., \& Pomerance, C. (2011). ``Highly robust error-correcting polynomial primality testing.'' Journal of the ACM, 58(1), Article 6.
+\item Bernstein, D. J. (2006). ``Speeding up the AKS primality test.'' In Algorithmic Number Theory.
+\end{enumerate}

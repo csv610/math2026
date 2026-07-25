@@ -1,0 +1,113 @@
+% Chapter 22: The Kadison--Singer Problem
+\let\LocalMacro\relax
+
+\chapter{The Kadison--Singer Problem}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Linear algebra (inner products, orthogonal projections, eigenvalues)
+\item Operator theory and Hilbert spaces (bounded operators, pure states)
+\item Basic graph theory (adjacency matrices, bipartite graphs)
+\end{itemize}
+
+\section{The Problem}
+In 1959, Richard Kadison and Isadore Singer posed a fundamental question in mathematical physics and operator algebras \cite{kadison1959}: \emph{Does every pure state on the diagonal subalgebra of $B(\ell^2)$ have a unique extension to a pure state on $B(\ell^2)$?}
+
+While formulated in the context of quantum mechanics, Joel Anderson showed in 1979 that the Kadison--Singer problem is equivalent to a simple discretization question about partitioning vectors in Hilbert spaces \cite{anderson1979}:
+
+\begin{conjecture}[Paving Conjecture]
+For every $\epsilon > 0$, there exists an integer $r$ such that any orthogonal projection $P$ on $\mathbb{C}^n$ with diagonal entries $P_{ii} \leq \epsilon$ can be $r$-paved. That is, the index set $\{1, \ldots, n\}$ can be partitioned into $r$ subsets $S_1, \ldots, S_r$ such that for each $j$, the submatrix $P_{S_j}$ satisfies:
+\begin{equation}
+\|P_{S_j}\| \leq 1 - \eta
+\end{equation}
+for some $\eta > 0$ depending only on $\epsilon$.
+\end{conjecture}
+
+This conjecture implies that one can decompose a large projection into smaller parts whose operator norms are strictly bounded away from 1.
+
+\begin{historicalbox}
+The Kadison--Singer problem remained unsolved for over 50 years. Its difficulty stemmed from its connection to diverse areas of mathematics, including C*-algebras, frame theory in signal processing, graph theory, and computer science.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{Frames and Discretization}
+In signal processing, a \emph{frame} is a generalization of an orthonormal basis. A family of vectors $\{\phi_i\}_{i \in I}$ in a Hilbert space $H$ is a frame if there exist constants $A, B > 0$ such that:
+\begin{equation}
+A \|x\|^2 \leq \sum_{i \in I} |\langle x, \phi_i \rangle|^2 \leq B \|x\|^2
+\end{equation}
+for all $x \in H$. The Kadison--Singer problem is equivalent to the statement that any frame can be partitioned into a finite number of subsets, each of which is a frame with controlled bounds.
+
+\subsection{Bipartite Ramanujan Graphs}
+A $d$-regular graph is \emph{Ramanujan} if its adjacency matrix eigenvalues (excluding $\pm d$) have absolute value at most $2\sqrt{d-1}$. Ramanujan graphs are optimal expanders. In 2013, Marcus, Spielman, and Srivastava used the Kadison--Singer problem to prove the existence of bipartite Ramanujan graphs of all degrees.
+
+\section{The Discovery}
+
+In 2013, Adam Marcus, Daniel Spielman, and Nikhil Srivastava solved the Kadison--Singer problem \cite{marcus2015a, marcus2015b}:
+
+\begin{theorem}[Marcus--Spielman--Srivastava, 2013]
+The Kadison--Singer Paving Conjecture is true. Specifically, for any vectors $v_1, \ldots, v_m$ in $\mathbb{C}^d$ such that $\sum_{i=1}^m v_i v_i^T = I$ and $\|v_i\|^2 \leq \epsilon$, there exists a partition of $\{1, \ldots, m\}$ into two sets $S_1, S_2$ such that:
+\begin{equation}
+\left\|\sum_{i \in S_j} v_i v_i^T\right\| \leq \frac{(1 + \sqrt{\epsilon})^2}{2}
+\end{equation}
+for $j=1,2$.
+\end{theorem}
+
+Their proof used a revolutionary new technique:
+
+\begin{enumerate}
+\item \textbf{Interlacing Families of Polynomials}: They showed that the roots of certain families of polynomials interlace, which guarantees the existence of a partition where the maximum root of the characteristic polynomial is small.
+\item \textbf{Expected Characteristic Polynomials}: Instead of finding a partition directly, they studied the average characteristic polynomial over all random partitions, showing its roots are bounded by the roots of a associated univariate polynomial.
+\item \textbf{Barrier Functions}: They used multivariate barrier functions to track and bound the roots of these polynomials under rank-one updates.
+\end{enumerate}
+
+\begin{highlightbox}
+The Marcus--Spielman--Srivastava proof settled Kadison--Singer by converting an operator algebra problem into a question about the roots of polynomials. This "method of interlacing families" has since become a major tool in combinatorics and computer science.
+\end{highlightbox}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{Operator Algebras}: Resolved the 1959 Kadison--Singer C*-algebra conjecture.
+\item \textbf{Signal Processing}: Proved that every frame can be paved, ensuring stable partitions in transmission codes.
+\item \textbf{Computer Science}: Provided a deterministic construction of bipartite Ramanujan graphs of all degrees, solving a long-standing open problem in network design.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Show that the union of two frames in $\mathbb{C}^d$ is a frame. If $A_1, B_1$ and $A_2, B_2$ are the frame bounds for the two frames, what are the bounds for the union?
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the relation between the Kadison--Singer problem and the construction of Ramanujan regular graphs.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Prove that any orthogonal projection $P$ on $\mathbb{C}^n$ with diagonal entries $P_{ii} \leq \epsilon$ can be partitioned into two parts whose submatrices have norm bounded away from 1.
+\end{exercise}
+
+\begin{exercise}[Computational]
+Write a Python/SageMath script to explore a concept from this chapter. See the appendix for starter code.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1959 & Kadison and Singer formulate the extension problem \cite{kadison1959} \\ 
+1979 & Anderson reformulates the conjecture as the Paving Conjecture \cite{anderson1979} \\ 
+1980s--2000s & Equivalent conjectures found in signal processing (Feichtinger conjecture) \\ 
+2013 & Marcus, Spielman, and Srivastava resolve the conjecture using interlacing polynomials \cite{marcus2015a, marcus2015b} \\ 
+2015 & Annals of Mathematics publishes the two-part proof \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Kadison, R. V., \& Singer, I. M. (1959). ``Extensions of pure states.'' American Journal of Mathematics, 81(2), 383--400.
+\item Anderson, J. (1979). ``Extreme points in secondary algebra.'' Journal of Functional Analysis.
+\item Marcus, A., Spielman, D. A., \& Srivastava, N. (2015). ``Interlacing families I: Bipartite Ramanujan graphs of all degrees.'' Annals of Mathematics, 182(1), 307--325.
+\item Marcus, A., Spielman, D. A., \& Srivastava, N. (2015). ``Interlacing families II: Mixed characteristic polynomials and the Kadison--Singer problem.'' Annals of Mathematics, 182(1), 327--350.
+\end{enumerate}

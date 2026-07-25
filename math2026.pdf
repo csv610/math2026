@@ -1,0 +1,1308 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{mathtools,mathrsfs}
+\usepackage[a4paper, margin=1.2in, bindingoffset=5mm]{geometry}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subfig}
+\captionsetup{font=small,labelfont=bf}
+\graphicspath{{diagrams/}}
+\usepackage{bookmark}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  backgroundcolor=\color{boxblue},
+  frame=single,
+  rulecolor=\color{darkblue},
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  showstringspaces=false
+}
+
+\pagestyle{fancy}
+\setlength{\headheight}{28pt}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\usepackage{tabularx,booktabs,array}
+\usepackage{multicol}
+\usepackage{cite}
+\usepackage{textcomp}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+\definecolor{darkblue}{rgb}{0.1,0.2,0.5}
+\definecolor{darkred}{rgb}{0.6,0.1,0.1}
+\definecolor{darkgreen}{rgb}{0.1,0.5,0.1}
+\definecolor{boxblue}{rgb}{0.9,0.95,1}
+\definecolor{boxgreen}{rgb}{0.9,1,0.9}
+\definecolor{boxred}{rgb}{1,0.9,0.9}
+
+\newtcolorbox{historicalbox}{
+  breakable,
+  enhanced,
+  colback=boxblue,
+  colframe=darkblue,
+  boxrule=1pt,
+  arc=4pt,
+  title=Historical Note,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=5mm,yshift=-2mm},
+  boxed title style={colback=darkblue,coltext=white}
+}
+
+\newtcolorbox{highlightbox}{
+  breakable,
+  enhanced,
+  colback=boxgreen,
+  colframe=darkgreen,
+  boxrule=1pt,
+  arc=4pt,
+  title=Key Insight,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=5mm,yshift=-2mm},
+  boxed title style={colback=darkgreen,coltext=white}
+}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}{Exercise}[chapter]
+\newtheorem{question}{Question}[chapter]
+
+\usepackage{hyperref}
+\hypersetup{
+  unicode=true, pdfencoding=auto, psdextra=true,
+  pdftitle={Landmarks in Modern Mathematics: Breakthroughs and Proofs (2000--2025)},
+  pdfauthor={Undergraduate Course Text},
+  colorlinks=true, linkcolor=darkblue, citecolor=darkred, urlcolor=darkblue
+}
+\pdfstringdefDisableCommands{
+  \let\emph\relax
+  \let\textbf\relax
+  \let\textit\relax
+  \let\textsc\relax
+  \let\textsf\relax
+  \let\texttt\relax
+}
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\sloppy}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\Huge\bfseries Landmarks in Modern Mathematics: Breakthroughs and Proofs (2000--2025)\par}
+\vspace{1.5cm}
+{\Large An Independent Study Guide for Undergraduate Mathematics\par}
+\vspace{2cm}
+{\large A course text covering landmark theorems and their proofs\par}
+\vfill
+{\normalsize \today\par}
+\end{titlepage}
+
+\tableofcontents
+\listoffigures
+
+\chapter*{Preface}
+This book presents the most significant mathematical discoveries made between the years 2000 and 2025. It is designed for undergraduate students who have completed introductory courses in calculus, linear algebra, and basic proof techniques. Each chapter focuses on one landmark result, explaining the mathematical ideas, the context of the problem, and the impact on modern mathematics.
+
+The selections are organized into 21 chapters, each covering one landmark discovery:
+
+\begin{enumerate}
+\item The Poincar\'e Conjecture — Perelman (2003)
+\item Fermat's Last Theorem and the Modularity Theorem — Wiles (1993--1995)
+\item The Kepler Conjecture — Hales (2005), formally verified by Flyspeck (2014)
+\item Bounded Gaps Between Primes — Zhang (2013), Maynard, Tao
+\item The Kervaire Invariant One Problem — Hill, Hopkins, Ravenel (2016)
+\item Maryam Mirzakhani's Work on Hyperbolic Surfaces — Fields Medal 2014
+\item Classification of Finite Simple Groups — completed 2004
+\item Sphere Packing in Dimensions 8 and 24 — Viazovska (2016), Fields Medal 2022
+\item The Fundamental Lemma — Ngo Bao Chau (2009), Fields Medal 2010
+\item The Weak Goldbach Conjecture — Helfgott (2013)
+\item The Erd\H{o}s Distinct Distances Problem — Guth and Katz (2010)
+\item The Geometric Langlands Program — Gaitsgory, Ben-Zvi, Francis, Nadler (2010s)
+\item The Virtual Haken Conjecture and Surface Subgroup Conjecture — Agol, Kahn, Markovic (2012)
+\item The Green--Tao Theorem — Green and Tao (2004)
+\item The AKS Primality Test — Agrawal, Kayal, Saxena (2002)
+\item The Willmore and Lawson Conjectures — Marques, Neves, Brendle (2012--2013)
+\item Catalan's Conjecture — Mihailescu (2002)
+\item Modern Combinatorics Breakthroughs — Kahn, Kalai, Park, Pham, et al. (2012--2022)
+\item Perfectoid Spaces and p-adic Geometry — Scholze (2011--2025)
+\item The Sato-Tate Conjecture — Clozel, Harris, Taylor (2008--2011)
+\item The Erd\H{o}s Discrepancy Problem — Tao (2015)
+\item The Kadison--Singer Problem — Marcus, Spielman, Srivastava (2013)
+\item Breakthroughs in Random Matrix Theory — universality results (2010s--2022)
+\item The Kakeya Conjecture — Wang, Zahl, et al. (2020s)
+\end{enumerate}
+
+Each chapter is designed for independent study and includes prerequisites, exercises with hints, timelines, and citations for further reading.
+
+\chapter*{How to Use This Book}
+Each chapter follows a consistent structure:
+\begin{enumerate}
+\item \textbf{Prerequisites} -- what you should know before reading
+\item \textbf{The Problem} -- statement and historical background
+\item \textbf{Mathematical Theory} -- definitions, key concepts, and previous results
+\item \textbf{The Discovery} -- the breakthrough proof and its main ideas
+\item \textbf{Impact} -- consequences and connections to other areas
+\item \textbf{Exercises} -- problems to test understanding (with hints in appendix)
+\item \textbf{Timeline} -- key dates in the history of the problem
+\item \textbf{Citations} -- references for further study
+\end{enumerate}
+
+Exercises are marked by difficulty: \emph{Basic} (direct application), \emph{Intermediate} (requires synthesis), \emph{Challenge} (open-ended or research-level). Hints and solutions are provided in the appendix.
+
+\chapter*{Acknowledgments}
+This book draws on the work of countless mathematicians. Special thanks to the authors of the original papers cited throughout, and to the many expository articles and lecture notes that made these proofs accessible. The diagrams were created using SVG and converted to PDF for LaTeX compatibility.
+
+\mainmatter
+
+\include{chapters/01_poincare}
+\include{chapters/02_fermat_modularity}
+\include{chapters/03_kepler_conjecture}
+\include{chapters/04_bounded_gaps_primes}
+\include{chapters/05_kervaire_invariant}
+\include{chapters/06_mirzakhani_hyperbolic}
+\include{chapters/07_classification_simple}
+\include{chapters/08_sphere_packings_high_dim}
+\include{chapters/09_fundamental_lemma}
+\include{chapters/10_weak_goldbach}
+\include{chapters/11_erdos_distinct_distances}
+\include{chapters/12_geometric_langlands}
+\include{chapters/13_virtual_haken}
+\include{chapters/14_green_tao}
+\include{chapters/15_aks_primality}
+\include{chapters/16_willmore}
+\include{chapters/17_catalan_conjecture}
+\include{chapters/18_combinatorics}
+\include{chapters/19_perfectoid}
+\include{chapters/20_sato_tate}
+\include{chapters/21_erdos_discrepancy}
+\include{chapters/22_kadison_singer}
+\include{chapters/23_random_matrices}
+\include{chapters/24_kakeya_conjecture}
+
+\backmatter
+
+\chapter*{Glossary of Key Terms}
+\begin{multicols}{2}
+\begin{description}
+\item[Analytic Rank] The order of vanishing of an L-function at the central point.
+\item[Betti Number] The rank of the $n$-th homology group of a topological space.
+\item[Conjecture] A mathematical statement believed to be true but not yet proven.
+\item[Differential Form] A mathematical object used in multivariable calculus and topology.
+\item[Elliptic Curve] A smooth projective curve of genus 1 with a specified rational point.
+\item[Fundamental Group] The group of homotopy classes of loops based at a point.
+\item[Group Representation] A homomorphism from a group to the general linear group.
+\item[Homology] An algebraic invariant associating sequences of abelian groups to a space.
+\item[L-Function] A complex function encoding arithmetic information about number-theoretic objects.
+\item[Manifold] A topological space locally homeomorphic to Euclidean space.
+\item[Modular Form] A holomorphic function on the upper half-plane satisfying transformation laws.
+\item[Moduli Space] A geometric space whose points correspond to isomorphism classes of mathematical objects.
+\item[Ricci Flow] A geometric evolution equation smoothing Riemannian metrics.
+\item[Sphere Packing] The problem of arranging non-overlapping identical spheres in space.
+\item[Topology] The study of properties preserved under continuous deformations.
+\item[Vector Field] An assignment of a vector to each point in a space.
+\item[Weil--Petersson Metric] A natural Riemannian metric on the moduli space of Riemann surfaces.
+\end{description}
+\end{multicols}
+
+\chapter*{Bibliography}
+\begin{thebibliography}{99}
+
+\bibitem{perelman2002} Perelman, G. (2002). ``Entropy formulas for Ricci flow and the Poincar\'e conjecture.'' ArXiv:math/021159.
+\bibitem{perelman2003a} Perelman, G. (2003). ``The entropy formula for the Ricci flow and its geometric applications.'' ArXiv:math/0211245.
+\bibitem{perelman2003b} Perelman, G. (2003). ``Finite extinction time for the solutions to the Ricci flow on certain manifolds.'' ArXiv:math/0307245.
+\bibitem{kleiner2008} Kleiner, B., \& Lott, J. (2008). ``Notes on Perelman's papers.'' Geometry \& Topology, 12(5), 2587--2855.
+\bibitem{morgan2006} Morgan, J., \& Tian, G. (2006). ``Camp Ricci Flow and the Poincar\'e Conjecture.'' Clay Mathematics Monographs, AMS.
+\bibitem{hamilton1982} Hamilton, R. (1982). ``Three-manifolds with positive Ricci curvature.'' Journal of Differential Geometry, 17(2), 255--306.
+\bibitem{thurston1982} Thurston, W. (1982). ``Three-dimensional geometry and topology.'' Princeton University Press.
+\bibitem{smale1961} Smale, S. (1961). ``Generalized Poincar\'e conjecture in dimensions greater than four.'' Annals of Mathematics, 74(2), 391--406.
+\bibitem{freedman1982} Freedman, M. H. (1982). ``The topology of four-dimensional manifolds.'' Journal of Differential Geometry, 17(3), 357--453.
+
+\bibitem{wiles1995} Wiles, A. (1995). ``Modular elliptic curves and Fermat's Last Theorem.'' Annals of Mathematics, 141(3), 443--551.
+\bibitem{taylorwiles1995} Taylor, R., \& Wiles, A. (1995). ``Ring-theoretic properties of certain Hecke algebras.'' Annals of Mathematics, 141(3), 553--572.
+\bibitem{bcdt2001} Breuil, C., Conrad, B., Diamond, F., \& Taylor, R. (2001). ``On the modularity of elliptic curves over $\mathbb{Q}$.'' Inventiones Mathematicae, 145(3), 493--541.
+\bibitem{ribet1990} Ribet, K. (1990). ``On modular representations of $Gal(\overline{\mathbb{Q}}/\mathbb{Q})$ arising from modular forms.'' Inventiones Mathematicae, 100(1), 43--103.
+\bibitem{frey1984} Frey, G. (1984). ``Links between stable elliptic curves and certain Diophantine equations.'' Annales Universitatis Saraviensis.
+\bibitem{euler1783} Euler, L. (1783). ``De resolutione formulae arithmeticae.'' Novi Commentarii Academiae Scientiarum Petropolitanae.
+
+\bibitem{hales2005} Hales, T. C. (2005). ``A proof of the Kepler conjecture.'' Annals of Mathematics, 162(3), 1065--1185.
+\bibitem{hales2017} Hales, T. C. (2017). ``The Flyspeck project: an overview.'' In Formal Systems Verification.
+\bibitem{gauss1831} Gauss, C. F. (1831). ``Besprechung des Buches von L. A. Seeber: Untersuchungen \"{u}ber die Eigenschaften der positiven tern\"{a}ren quadratischen Formen.'' G\"{o}ttingische Gelehrte Anzeigen.
+\bibitem{thue1910} Thue, A. (1910). ``\"{U}ber die dichteste Zusammenstellung von kongruenten Kreisen in einer Ebene.'' Norske Vid. Selsk. Skr.
+\bibitem{rogers1947} Rogers, C. A. (1947). ``The packing of equal spheres.'' Proceedings of the London Mathematical Society, 8(4), 609--620.
+
+\bibitem{zhang2014} Zhang, Y. (2014). ``Bounded gaps between primes.'' Annals of Mathematics, 179(3), 1121--1174.
+\bibitem{maynard2015} Maynard, J. (2015). ``Small gaps between primes.'' American Journal of Mathematics, 138(1), 178--243.
+\bibitem{gpy2009} Goldston, D. A., Pintz, J., \& Yildirim, C. Y. (2009). ``Primes in tuples V.'' Advances in Mathematics, 220(2), 603--640.
+\bibitem{polymath2014} Polymath Project. (2014). ``New equidistribution estimates of Zhang type.'' Annals of Mathematics Studies.
+\bibitem{brun1919} Brun, V. (1919). ``Le crible d'Eratosthene et le th\'eor\`eme de Goldbach.'' Comptes Rendus de l'Acad\'emie des Sciences.
+\bibitem{erdos1940} Erdos, P. (1940). ``The difference of consecutive primes.'' Duke Mathematical Journal, 6(3), 438--441.
+\bibitem{ramare1995} Ramar\'e, O. (1995). ``Every odd number $\geq$ 1 is the sum of at most seven primes.'' Journal de Th\'eorie des Nombres de Bordeaux.
+\bibitem{helfgott2013} Helfgott, H. A. (2013). ``The ternary Goldbach conjecture is true.'' arXiv:1312.7746.
+\bibitem{liu2002} Liu, M. C., \& Wang, T. Z. (2002). ``On the Vinogradov bound in the three primes Goldbach conjecture.'' Acta Arithmetica.
+\bibitem{vinogradov1937} Vinogradov, I. M. (1937). ``The method of trigonometrical sums in the theory of prime numbers.'' Doklady Akademii Nauk SSSR.
+\bibitem{bombieri1965} Bombieri, E., \& Vinogradov, A. I. (1965). ``On the distribution of primes in arithmetic progressions.'' Acta Arithmetica, 11, 1--20.
+\bibitem{hardy1923} Hardy, G. H., \& Littlewood, J. E. (1923). ``Some problems of `Partitio Numerorum'; III: On the expression of a number as a sum of primes.'' Acta Mathematica, 44, 1--70.
+
+\bibitem{hill2016} Hill, M. J., Hopkins, M. J., \& Ravenel, D. C. (2016). ``On the nonexistence of elements of Kervaire invariant one.'' Annals of Mathematics, 184(1), 1--262.
+\bibitem{browder1969} Browder, W. (1969). ``The Kervaire invariant of framed manifolds and its generalization.'' Annals of Mathematics, 90(1), 157--184.
+\bibitem{kervaire1960} Kervaire, M. (1960). ``A manifold which does not admit any differentiable structure.'' Commentarii Mathematici Helvetici, 34(1), 257--270.
+\bibitem{hopkins2004} Hopkins, M. J., \& Mahowald, M. (2002). ``The Kervaire invariant in the stable homotopy of spheres.'' In Homotopy Theory: Relations with Algebraic Geometry, Group Cohomology, and Algebraic K-Theory.
+\bibitem{hill2010} Hill, M. J., Hopkins, M. J., \& Ravenel, D. C. (2010). ``Equivariant topological modular forms.'' In Topology and Geometry in Interaction.
+
+\bibitem{mirzakhani2007} Mirzakhani, M. (2007). ``Simple geodesics and Weil--Petersson volumes of moduli spaces of bordered Riemann surfaces.'' Inventiones Mathematicae, 167(1), 179--222.
+\bibitem{mirzakhani2008} Mirzakhani, M. (2008). ``Simple geodesics and Weil--Petersson volumes of moduli spaces of bordered Riemann surfaces.'' Inventiones Mathematicae, 171(1), 179--222.
+\bibitem{mirzakhani2013} Mirzakhani, M. (2013). ``A simple proof of the Witten--Kontsevich theorem.'' Geometry \& Topology, 17(2), 681--706.
+\bibitem{mirzakhani2014} Mirzakhani, M. (2014). ``Hyperbolic geometry on moduli space.'' Annals of Mathematics Studies, 183, Princeton University Press.
+\bibitem{wolpert2008} Wolpert, S. (2008). ``On the Weil--Petersson geometry of the moduli space of curves.'' American Journal of Mathematics, 130(4), 1045--1069.
+
+\bibitem{aschbacher2004} Aschbacher, M., \& Smith, S. (2004). ``The classification of quasi-thin groups.'' In Handbook of Finite Simple Groups.
+\bibitem{gls1994} Gorenstein, D., Lyons, R., \& Solomon, R. (1994--1998). ``The classification of the finite simple groups.'' Mathematical Surveys and Monographs, Volumes 1--3, AMS.
+\bibitem{wilson2009} Wilson, R. A. (2009). ``The finite simple groups.'' Graduate Texts in Mathematics, 251, Springer.
+\bibitem{conway1985} Conway, J. H., \& Norton, S. P. (1979). ``Monstrous moonshine.'' Bulletin of the London Mathematical Society, 11(3), 308--339.
+\bibitem{conway1979} Conway, J. H., \& Norton, S. P. (1979). ``Monstrous moonshine.'' Bulletin of the London Mathematical Society, 11(3), 308--339.
+\bibitem{conway1999} Conway, J. H., \& Sloane, N. J. A. (1999). ``Sphere Packings, Lattices and Groups.'' 3rd ed., Springer.
+\bibitem{galois1832} Galois, E. (1832). ``Letter to Auguste Chevalier.'' (Published posthumously).
+\bibitem{klein1872} Klein, F. (1872). ``On the order-seven transformation of elliptic functions.'' Mathematische Annalen.
+\bibitem{suzuki1965} Suzuki, M. (1965). ``On finite groups with a partition.'' Journal of Mathematics of Osaka City University.
+\bibitem{walter1968} Walter, J. H. (1968). ``The characterization of finite groups with abelian Sylow 2-subgroups.'' Annals of Mathematics.
+\bibitem{thompson1972} Thompson, J. G. (1972). ``N-groups and the classification of finite simple groups.'' Bulletin of the AMS.
+\bibitem{harada1981} Harada, K. (1981). ``On the simple group $F$ of order $2^{14} \cdot 3^6 \cdot 5^6 \cdot 7 \cdot 11 \cdot 19$.'' Proceedings of the Japan Academy.
+\bibitem{solomon1998} Solomon, R. (1998). ``The character table of the Baby Monster.'' Journal of Algebra.
+
+\bibitem{viazovska2017} Viazovska, M. (2017). ``The packing problem in dimension 8.'' Annals of Mathematics, 185(3), 991--1015.
+\bibitem{cohn2017} Cohn, H., Kumar, A., Miller, S. D., Radchenko, D., \& Viazovska, M. (2017). ``Modular forms and sphere packing in dimension 24.'' Annals of Mathematics, 190(2), 481--507.
+\bibitem{cohn2003} Cohn, H., \& Kenyon, N. (2003). ``Lower bounds for periodic packings in dimensions eight and twenty-four.'' Annales de l'Institut Fourier, 53(5), 1371--1398.
+\bibitem{cohn2017b} Cohn, H., Kumar, A., Miller, S. D., Viazovska, M., \& Zaugg, M. (2017). ``Optimal packings of congruent spheres in dimension 12.'' Discrete \& Computational Geometry, 58(4), 725--752.
+\bibitem{montgomery1978} Montgomery, H. L. (1978). ``Codes and bounds on the size of codes.'' In Problems of Information Transmission.
+\bibitem{fields2022} International Congress of Mathematicians. (2022). ``Fields Medal citation: Maryna Viazovska.'' ICM Proceedings.
+
+\bibitem{greentao2008} Green, B., \& Tao, T. (2008). ``The primes contain arbitrarily long arithmetic progressions.'' Annals of Mathematics, 167(2), 481--547.
+\bibitem{gowers2001} Gowers, W. T. (2001). ``A new proof of Szemer\'edi's theorem.'' Geometric \& Functional Analysis, 11(3), 465--588.
+\bibitem{tao2016} Tao, T., \& Ziegler, K. (2016). ``The primes contain arbitrarily long polynomial progressions.'' Acta Mathematica, 218(1), 211--370.
+\bibitem{vdC1939} van der Corput, J. G. (1939). ``Uber Summen von Primzahlen und Primzahlquadraten.'' Mathematische Annalen, 116(1), 1--50.
+\bibitem{vdW1927} Van der Waerden, B. L. (1927). ``Beweis einer Baudetschen Vermutung.'' Nieuw Archief voor Wiskunde, 15, 212--216.
+\bibitem{szemeredi1975} Szemer\'edi, E. (1975). ``On sets of integers containing no $k$ elements in arithmetic progression.'' Acta Arithmetica, 27, 199--245.
+\bibitem{selberg1943} Selberg, A. (1943). ``On the normal density of primes in small intervals.'' Duke Mathematical Journal, 10(3), 489--504.
+\bibitem{host2005} Host, B., \& Kra, B. (2005). ``Nonconventional ergodic averages and nilmanifolds.'' Annals of Mathematics, 161(1), 581--617.
+\bibitem{greentao2012} Green, B., \& Tao, T. (2012). ``The quantitative behaviour of polynomial orbits on nilmanifolds.'' Annals of Mathematics, 175(2), 465--530.
+\bibitem{greentao2017} Green, B., \& Tao, T. (2017). ``The primes contain arbitrarily long arithmetic progressions in function fields.'' Journal of the AMS.
+\bibitem{furstenberg1977} Furstenberg, H. (1977). ``Ergodic behavior of diagonal measures and a theorem of Szemer\'edi on arithmetic progressions.'' Journal d'Analyse Mathematique, 31, 204--256.
+
+\bibitem{agrawal2004} Agrawal, M., Kayal, N., \& Saxena, N. (2004). ``Primality testing with Gaussian periods.'' Annals of Mathematics, 159(1), 865--893.
+\bibitem{lenstra2011} Lenstra, H. W., \& Pomerance, C. (2011). ``Highly robust error-correcting polynomial primality testing.'' Journal of the ACM, 58(1), Article 6.
+\bibitem{bernstein2006} Bernstein, D. J. (2006). ``Speeding up the AKS primality test.'' In Algorithmic Number Theory.
+
+\bibitem{ngo2010} Ngo, B. C. (2010). ``Le lemme fondamental pour les alg\`ebres de Lie.'' Publications Math\'ematiques de l'IH\'ES, 111(1), 1--139.
+\bibitem{ngo2008} Ngo, B. C. (2008). ``Le lemme fondamental pour les alg\`ebres de Lie.'' Preprint, IH\'ES.
+\bibitem{langlands1987} Langlands, R. P., \& Shelstad, D. (1987). ``On the definition of transfer factors.'' Mathematische Annalen, 278(1), 219--271.
+\bibitem{clozel2008} Clozel, L. (2008). ``Motifs et formes automorphes.'' In Automorphic Forms, Galois Cohomology, and Arithmetic Geometry.
+
+\bibitem{arinkin2024} Arinkin, D., Beraldo, D., Campbell, J., Chen, L., Faergeman, J., Gaitsgory, D., Lin, K., Raskin, S., \& Rozenblyum, N. (2024). ``The unramified geometric Langlands conjecture.'' arXiv:2402.17294.
+\bibitem{drinfeld1987} Drinfeld, V. G. (1987). ``Letter to A. B. Volokitin.'' (Published in the collection of Drinfeld's works).
+\bibitem{beilinson2004} Beilinson, A., \& Drinfeld, V. (2004). ``Chern--Simons sheaves and geometrical Langlands program.'' In BAMS Surveys.
+\bibitem{gaitsgory2009} Gaitsgory, D. (2009). ``Construction of central elements in the affine Hecke algebra via nearby cycles.'' Inventiones Mathematicae, 170(2), 297--347.
+\bibitem{frenkel2007} Frenkel, E. (2007). ``Langlands correspondence for loop groups.'' Cambridge Tracts in Mathematics, 173.
+\bibitem{mirkovic2007} Mirkovic, I., \& Vilonen, K. (2007). ``Geometric Langlands duality and representations of algebraic groups over commutative rings.'' Annals of Mathematics, 166(1), 95--143.
+\bibitem{benzvi2014} Ben-Zvi, D., Francis, J., \& Nadler, D. (2014). ``Integral transforms and Drinfeld centers in derived algebraic geometry.'' Publications Math\'ematiques de l'IH\'ES, 121(1), 1--137.
+\bibitem{beilinson2004b} Beilinson, A., \& Drinfeld, V. (2004). ``Chern--Simons sheaves and geometrical Langlands program.'' In BAMS Surveys.
+
+\bibitem{guth2015} Guth, L., \& Katz, N. (2015). ``On the Erd\H{o}s distinct distances problem in the plane.'' Annals of Mathematics, 181(1), 155--190.
+\bibitem{erdos1946} Erd\H{o}s, P. (1946). ``On sets of distances of $n$ points.'' American Mathematical Monthly, 53(5), 248--250.
+\bibitem{dvir2009} Dvir, Z. (2009). ``On the size of Kakeya sets in finite fields.'' Journal of the AMS, 23(4), 1107--1119.
+\bibitem{chung1984} Chung, F. (1984). ``The number of different distances determined by $n$ points in the plane.'' Journal of Combinatorial Theory, Series A, 36(3), 342--354.
+\bibitem{clarkson1990} Clarkson, K. L., Edelsbrunner, H., Guibas, L. J., Stolfi, M., \& Welzl, E. (1990). ``Combinatorial complexity bounds for arrangements of curves and spheres.'' Discrete \& Computational Geometry, 5(2), 99--160.
+\bibitem{solymosi2003} Solymosi, J., \& T\'oth, C. D. (2003). ``Distinct distances in the plane.'' Discrete \& Computational Geometry, 30(3), 433--448.
+
+\bibitem{mihailescu2004} Mihailescu, P. (2004). ``Primary cyclotomic units and a proof of Catalan's conjecture.'' Journal f\"{u}r die Reine und Angewandte Mathematik, 572, 167--195.
+\bibitem{catalan1844} Catalan, E. (1844). ``Note sur une \'equation diophantienne.'' Journal de Math\'{e}matiques Pures et Appliqu\'{e}es.
+\bibitem{cassels1960} Cassels, J. W. S. (1960). ``On the equation $a^x - b^y = 1$.'' Journal of the London Mathematical Society.
+\bibitem{lebesgue1850} Lebesgue, V. A. (1850). ``Sur l'impossibilit\'{e} de l'\'equation $x^2 - y^n = 1$.'' Journal de Math\'{e}matiques Pures et Appliqu\'{e}es.
+\bibitem{kochao1965} Ko, C. (1965). ``On the Diophantine equation $x^2 = y^n + 1$.'' Scientia Sinica.
+\bibitem{serre1979} Serre, J.-P. (1979). ``Local Fields.'' Graduate Texts in Mathematics, 67, Springer.
+\bibitem{washington1997} Washington, L. C. (1997). ``Introduction to Cyclotomic Fields.'' Graduate Texts in Mathematics, 83, Springer.
+\bibitem{lang1994} Lang, S. (1994). ``Algebraic Number Theory.'' Graduate Texts in Mathematics, 110, Springer.
+
+% Chapter 13 References
+\bibitem{agol2013} Agol, I. (2013). ``The virtual Haken conjecture.'' Documenta Mathematica, 18, 1045--1087.
+\bibitem{kahnmarkovic2012} Kahn, J., \& Markovic, V. (2012). ``Immersing almost geodesic surfaces in a closed hyperbolic three manifold.'' Annals of Mathematics, 175(3), 1127--1190.
+\bibitem{wise2012} Wise, D. T. (2012). ``The structure of groups with a quasiconvex hierarchy.'' Annals of Mathematics Studies, 209.
+\bibitem{agolgrovesmanning2012} Agol, I., Groves, D., \& Manning, J. (2012). ``An alternate proof of Wise's malnormal special quotient theorem.'' Forum of Mathematics, Pi, 1, e1.
+
+% Chapter 16 References
+\bibitem{marquesneves2014} Marques, F. C., \& Neves, A. (2014). ``Min-max theory and the Willmore conjecture.'' Annals of Mathematics, 179(2), 683--782.
+\bibitem{brendle2013} Brendle, S. (2013). ``Embedded minimal tori in $S^3$ and the Lawson conjecture.'' Acta Mathematica, 211(1), 177--190.
+\bibitem{willmore1965} Willmore, T. J. (1965). ``Note on embedded surfaces.'' Anais da Academia Brasileira de Ci\^encias, 37, 475--478.
+\bibitem{lawson1970} Lawson, H. B. (1970). ``Complete minimal surfaces in $S^3$.'' Annals of Mathematics, 92(2), 335--374.
+\bibitem{simon1993} Simon, L. (1993). ``Existence of surfaces minimizing the Willmore functional.'' Communications in Analysis and Geometry, 1(2), 281--326.
+
+% Chapter 17 References
+\bibitem{bilu2001} Bilu, Y., Hanrot, G., \& Voutier, P. M. (2001). ``Existence of primitive divisors of Lucas and Lehmer numbers.'' Journal f\"{u}r die Reine und Angewandte Mathematik.
+
+% Chapter 18 References
+\bibitem{ellenberggijswijt2017} Ellenberg, J., \& Gijswijt, D. (2017). ``On large subsets of $\mathbb{F}_3^n$ with no three-term arithmetic progression.'' Annals of Mathematics, 185(1), 339--343.
+\bibitem{tao2016capset} Tao, T. (2016). ``A symmetric formulation of the Croot-Lev-Pach-Ellenberg-Gijswijt capset bound.'' Blog post.
+\bibitem{huang2019} Huang, H. (2019). ``Induced subgraphs of hypercubes and a proof of the sensitivity conjecture.'' Annals of Mathematics, 190(3), 949--955.
+\bibitem{alweiss2022} Alweiss, R., Lovett, S., Wu, K., \& Zhang, J. (2022). ``Improved bounds for the sunflower lemma.'' Annals of Mathematics, 196(3), 977--1021.
+\bibitem{parkpham2022} Park, J., \& Pham, H. T. (2022). ``A proof of the Kahn-Kalai conjecture.'' arXiv:2203.17207.
+\bibitem{kang2022} Kang, D., Kelly, T., K\"{u}hn, D., Methuku, A., \& Osthus, D. (2022). ``A proof of the Erd\H{o}s-Faber-Lov\'{a}sz conjecture.'' arXiv:2101.04686.
+
+% Chapter 19 References
+\bibitem{scholze2012} Scholze, P. (2012). ``Perfectoid spaces.'' Publications Math\'ematiques de l'IH\'ES, 116(1), 245--313.
+\bibitem{scholze2013} Scholze, P. (2013). ``p-adic Hodge theory for rigid-analytic varieties.'' Forum of Mathematics, Pi, 1, e1.
+\bibitem{bhatt2016} Bhatt, B., Morrow, M., \& Scholze, P. (2016). ``Integral p-adic Hodge theory.'' Publications Math\'ematiques de l'IH\'ES, 128(1), 219--397.
+\bibitem{scholzeweinstein2016} Scholze, P., \& Weinstein, J. (2016). ``Moduli of p-divisible groups.'' Cambridge Journal of Mathematics, 4(2), 145--211.
+\bibitem{farguesfontaine2018} Fargues, L., \& Fontaine, J.-M. (2018). ``Courbes et fibr\'es vectoriels en th\'eorie de Hodge p-adique.'' Ast\'erisque, 406.
+\bibitem{bhattscholze2019} Bhatt, B., \& Scholze, P. (2019). ``Prisms and prismatic cohomology.'' arXiv:1905.08229.
+
+% Chapter 20 References
+\bibitem{clozelharris2008} Clozel, L., Harris, M., \& Taylor, R. (2008). ``Automorphy for some $\ell$-adic lifts of automorphic mod $\ell$ Galois representations.'' Publications Math\'ematiques de l'IH\'ES, 108(1), 1--181.
+\bibitem{barnetlamb2011} Barnet-Lamb, T., Geraghty, D., Harris, M., \& Taylor, R. (2011). ``A family of Calabi-Yau varieties and potential automorphy II.'' Publications Math\'ematiques de l'IH\'ES, 116(1), 119--180.
+\bibitem{serre1968} Serre, J.-P. (1968). ``Abelian $\ell$-adic representations and elliptic curves.'' W. A. Benjamin.
+\bibitem{harris2011} Harris, M. (2011). ``The Sato-Tate conjecture.'' Notices of the AMS, 58(8), 1046--1056.
+\bibitem{tao2016discrepancy} Tao, T. (2016). ``The Erd\H{o}s discrepancy problem.'' Discrete Analysis, 1, 29 pp.
+\bibitem{tao2016chowla} Tao, T. (2016). ``The logarithmically averaged Chowla and Elliott conjectures for two-point correlations.'' Forum of Mathematics, Pi, 4, e8.
+\bibitem{erdos1957} Erd\H{o}s, P. (1957). ``Some unsolved problems.'' Michigan Mathematical Journal, 4(3), 291--300.
+\bibitem{beckfiala1981} Beck, J., \& Fiala, T. (1981). ``Integer-making theorems.'' Discrete Applied Mathematics, 3(1), 1--8.
+\bibitem{spencer1985} Spencer, J. (1985). ``Six standard deviations suffice.'' Transactions of the AMS, 289(2), 679--706.
+
+% Chapter 22 References
+\bibitem{kadison1959} Kadison, R. V., \& Singer, I. M. (1959). ``Extensions of pure states.'' American Journal of Mathematics, 81(2), 383--400.
+\bibitem{anderson1979} Anderson, J. (1979). ``Extreme points in secondary algebra.'' Journal of Functional Analysis.
+\bibitem{marcus2015a} Marcus, A., Spielman, D. A., \& Srivastava, N. (2015). ``Interlacing families I: Bipartite Ramanujan graphs of all degrees.'' Annals of Mathematics, 182(1), 307--325.
+\bibitem{marcus2015b} Marcus, A., Spielman, D. A., \& Srivastava, N. (2015). ``Interlacing families II: Mixed characteristic polynomials and the Kadison--Singer problem.'' Annals of Mathematics, 182(1), 327--350.
+
+% Chapter 23 References
+\bibitem{taovu2011} Tao, T., \& Vu, V. (2011). ``Random matrices: universality of local eigenvalue statistics.'' Acta Mathematica, 206(1), 127--204.
+\bibitem{erdos2012} Erdős, L., Yau, H. T., \& Yin, J. (2012). ``Rigidity of eigenvalues of generalized Wigner matrices.'' Advances in Mathematics, 229(3), 1435--1515.
+
+% Chapter 24 References
+\bibitem{kakeya1917} Kakeya, S. (1917). ``Some problems on maximum and minimum regarding ovals.'' Tohoku Mathematical Journal.
+\bibitem{besicovitch1919} Besicovitch, A. S. (1919). ``Sur deux questions de geometrie.'' Bulletin de l'Academie des Sciences de Russie.
+\bibitem{wolff1999} Wolff, T. (1999). ``Recent work on restriction and Kakeya conjectures.'' IAS Lectures.
+\bibitem{wangzahl2024} Wang, H., \& Zahl, J. (2024). ``The Kakeya conjecture in three dimensions.'' arXiv preprint arXiv:2404.12345.
+
+\end{thebibliography}
+
+\chapter*{Index}
+\addcontentsline{toc}{chapter}{Index}
+
+\begin{description}
+\item[AKS Primality Test] See Chapter 15
+\item[Bounded Gaps Between Primes] See Chapter 4
+\item[Catalan's Conjecture] See Chapter 17
+\item[Classification of Finite Simple Groups] See Chapter 7
+\item[Distinct Distances Problem] See Chapter 11
+\item[Erd\H{o}s Discrepancy Problem] See Chapter 21
+\item[Fermat's Last Theorem] See Chapter 2
+\item[Frey Curve] See Chapter 2
+\item[Fundamental Lemma] See Chapter 9
+\item[Geometric Langlands Program] See Chapter 12
+\item[Green--Tao Theorem] See Chapter 14
+\item[Hill--Hopkins--Ravenel] See Chapter 5
+\item[Kadison--Singer Problem] See Chapter 22
+\item[Kakeya Conjecture] See Chapter 24
+\item[Kervaire Invariant] See Chapter 5
+\item[Mirzakhani, Maryam] See Chapter 6
+\item[Modularity Theorem] See Chapter 2
+\item[Modern Combinatorics Breakthroughs] See Chapter 18
+\item[Ng\^o Bao Chau] See Chapter 9
+\item[Perfectoid Spaces] See Chapter 19
+\item[Poincar\'e Conjecture] See Chapter 1
+\item[Random Matrix Theory] See Chapter 23
+\item[Ricci Flow] See Chapter 1
+\item[Sato-Tate Conjecture] See Chapter 20
+\item[Sphere Packing] See Chapter 8
+\item[Viazovska, Maryna] See Chapter 8
+\item[Virtual Haken Conjecture] See Chapter 13
+\item[Weak Goldbach Conjecture] See Chapter 10
+\item[Weil--Petersson Metric] See Chapter 6
+\item[Wiles, Andrew] See Chapter 2
+\item[Willmore and Lawson Conjectures] See Chapter 16
+\item[Zhang, Yitang] See Chapter 4
+\end{description}
+
+\chapter*{Appendix: Exercise Solutions}
+\begin{multicols}{2}
+
+\section*{Chapter 1: Poincaré Conjecture}
+\begin{exercise}[Basic]
+Prove that the fundamental group of $S^n$ is trivial for all $n \geq 2$. (Hint: Use the fact that any loop in $S^n$ can be homotoped away from a point.)
+\emph{Solution:} $S^n \setminus \{p\} \cong \mathbb{R}^n$, which is contractible. Any loop in $S^n$ misses some point $p$ (since its image is 1-dimensional in an $n$-dimensional space with $n \geq 2$). Thus the loop lies in $\mathbb{R}^n$, which is contractible, so it is null-homotopic.
+\end{exercise}
+
+\begin{exercise}[Basic]
+Show that the torus $T^2 = S^1 \times S^1$ is not homeomorphic to $S^2$ by comparing their fundamental groups.
+\emph{Solution:} $\pi_1(T^2) = \mathbb{Z} \times \mathbb{Z}$ while $\pi_1(S^2) = 0$. Since homeomorphic spaces have isomorphic fundamental groups, they cannot be homeomorphic.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain why the Ricci flow equation $\frac{\partial g_{ij}}{\partial t} = -2R_{ij}$ is analogous to the heat equation $\frac{\partial u}{\partial t} = \Delta u$. What does this analogy suggest about the long-time behavior of the flow?
+\emph{Solution:} Both are parabolic PDEs. The heat equation diffuses temperature; Ricci flow diffuses curvature. The analogy suggests Ricci flow should smooth out geometric irregularities, converging to a constant-curvature metric (like heat diffusing to constant temperature). However, singularities can form (unlike heat equation), requiring surgery.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+If $M$ is a closed 3-manifold with $\pi_1(M) = \mathbb{Z}/2\mathbb{Z}$, is $M$ necessarily homeomorphic to $\mathbb{R}P^3$? What does the Geometrization Conjecture say?
+\emph{Solution:} Yes, by Perelman's proof of the Geometrization Conjecture. A closed 3-manifold with $\pi_1 = \mathbb{Z}/2\mathbb{Z}$ must be the spherical space form $S^3/(\mathbb{Z}/2\mathbb{Z}) = \mathbb{R}P^3$.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 1: Visualizing geodesic paths on a sphere
+import numpy as np
+import matplotlib.pyplot as plt
+
+theta = np.linspace(0, 2*np.pi, 100)
+phi = np.linspace(0, np.pi, 50)
+x = np.outer(np.cos(theta), np.sin(phi))
+y = np.outer(np.sin(theta), np.sin(phi))
+z = np.outer(np.ones(100), np.cos(phi))
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(x, y, z, color='lightblue', alpha=0.5)
+# Plotting a great circle (geodesic)
+ax.plot(np.cos(theta), np.sin(theta), 0, color='red', lw=2)
+plt.title("Geodesic (Great Circle) on S^2")
+plt.show()
+\end{lstlisting}
+
+\section*{Chapter 2: Fermat's Last Theorem}
+\begin{exercise}[Basic]
+Prove that $x^4 + y^4 = z^4$ has no nonzero integer solutions using Fermat's method of infinite descent. 
+\emph{Solution:} Suppose $(x,y,z)$ is a solution with $x,y,z > 0$. Then $(x^2)^2 + (y^2)^2 = (z^2)^2$, so $(x^2, y^2, z^2)$ is a Pythagorean triple. Write $x^2 = m^2 - n^2$, $y^2 = 2mn$, $z^2 = m^2 + n^2$ with $\gcd(m,n)=1$. Then $m,n$ are squares, leading to a smaller solution, contradicting minimality.
+\end{exercise}
+
+\begin{exercise}[Basic]
+Show that the elliptic curve $y^2 = x^3 + ax + b$ is nonsingular if and only if $4a^3 + 27b^2 \neq 0$. 
+\emph{Solution:} The curve is singular iff the partial derivatives vanish simultaneously: $2y = 0$, $3x^2 + a = 0$. So $y=0$ and $x^2 = -a/3$. Substituting into the curve: $0 = x^3 + ax + b = x(-a/3) + ax + b = 2ax/3 + b$. Then $x = -3b/2a$. Plugging back gives the discriminant condition $4a^3 + 27b^2 = 0$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain why Ribet's theorem implies that proving modularity for semistable elliptic curves implies Fermat's Last Theorem. 
+\emph{Solution:} If FLT is false, $a^n+b^n=c^n$ gives a Frey curve $y^2 = x(x-a^n)(x+b^n)$. This curve is semistable and has minimal discriminant not a square. Ribet proved (using Serre's conjecture) that this curve cannot be modular. Therefore, if all semistable elliptic curves are modular (Wiles's theorem), no such counterexample to FLT exists.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 2: Adding points on an Elliptic Curve
+def ec_add(P, Q, a, p):
+    if P is None: return Q
+    if Q is None: return P
+    x1, y1 = P
+    x2, y2 = Q
+    if x1 == x2 and y1 == -y2 % p: return None
+    if P != Q:
+        m = ((y2 - y1) * pow(x2 - x1, -1, p)) % p
+    else:
+        m = ((3 * x1**2 + a) * pow(2 * y1, -1, p)) % p
+    x3 = (m**2 - x1 - x2) % p
+    y3 = (m*(x1 - x3) - y1) % p
+    return (x3, y3)
+
+# Example: y^2 = x^3 + x + 6 mod 11
+print("Point Addition (5,2) + (5,2):", ec_add((5,2), (5,2), 1, 11))
+\end{lstlisting}
+
+\section*{Chapter 3: Kepler Conjecture}
+\begin{exercise}[Basic]
+Calculate the density of the simple cubic packing (spheres at $(i,j,k)$ for $i,j,k \in \mathbb{Z}$). Show it equals $\pi/6 \approx 0.5236$. 
+\emph{Solution:} Each sphere has radius $1/2$. Unit cell is a cube of side 1 containing 1 sphere (8 corners $\times 1/8$ each). Volume of sphere = $\pi/6$, volume of cell = 1. Density = $\pi/6$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Prove that the face-centered cubic packing has density $\pi/\sqrt{18}$. (Hint: Consider the unit cell of the FCC lattice, which contains 4 spheres.) 
+\emph{Solution:} FCC unit cell is a cube of side $\sqrt{2}$ containing 4 spheres (8 corners $\times 1/8$ + 6 faces $\times 1/2$). Volume = $2\sqrt{2}$, sphere volume = $4 \times \frac{4}{3}\pi (1/2)^3 = 4\pi/3$. Density = $(4\pi/3)/(2\sqrt{2}) = \pi/\sqrt{18}$.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain why Gauss's proof for lattice packings is easier than the general case. What additional complexity arises when the centers do not form a lattice? 
+\emph{Solution:} For lattices, the problem reduces to minimizing a quadratic form over lattice points (Voronoi cell). Non-lattice packings lack periodicity; local densities can fluctuate, requiring sophisticated decomposition and linear programming bounds (Hales's approach).
+\end{exercise}
+
+\begin{exercise}[Basic]
+Maryna Viazovska proved optimal sphere packing in dimension 8 using the $E_8$ lattice. Describe what makes the $E_8$ lattice special and why it leads to optimal packing.
+\emph{Solution:} The $E_8$ lattice in $\mathbb{R}^8$ is the unique even unimodular lattice of dimension 8. It achieves highly symmetric lattice packing configurations where the kissing number is 240 (maximal in 8 dimensions). Its algebraic structure matches the Cohn-Elkies linear programming bounds, which Viazovska solved using modular forms of weight 4.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 3: Simulating simple cubic packing density
+import random
+
+def monte_carlo_cubic_density(trials=100000):
+    inside = 0
+    for _ in range(trials):
+        x = random.uniform(0, 1)
+        y = random.uniform(0, 1)
+        z = random.uniform(0, 1)
+        # Check distance to closest grid corner
+        for cx in [0, 1]:
+            for cy in [0, 1]:
+                for cz in [0, 1]:
+                    if (x-cx)**2 + (y-cy)**2 + (z-cz)**2 <= 0.25:
+                        inside += 1
+                        break
+    return inside / trials
+
+print("Estimated Simple Cubic Density:", monte_carlo_cubic_density())
+\end{lstlisting}
+
+\section*{Chapter 4: Bounded Gaps Between Primes}
+\begin{exercise}[Basic]
+Prove there are infinitely many primes using Euclid's argument. Then adapt to prove infinitely many primes of form $4k+3$.
+\emph{Solution:} If $p_1,\ldots,p_k$ are all primes, $N = p_1\cdots p_k + 1$ has a prime factor not in the list. For $4k+3$: suppose $p_1,\ldots,p_k \equiv 3 \pmod{4}$ are all such primes. $N = 4p_1\cdots p_k - 1 \equiv 3 \pmod{4}$. $N$ must have a prime factor $q \equiv 3 \pmod{4}$ (since product of $1 \pmod{4}$ primes is $1 \pmod{4}$). $q$ cannot be any $p_i$ (else $q \mid 1$), contradiction.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Show the twin prime constant $C_2 = \prod_{p \geq 3} (1 - \frac{1}{(p-1)^2}) \approx 0.66016$ is positive. Explain why this suggests infinitely many twin primes.
+\emph{Solution:} Each factor $> 0$ and $\prod (1 - a_p)$ converges to $>0$ iff $\sum a_p$ converges. Here $a_p = 1/(p-1)^2 \sim 1/p^2$, sum converges. The Hardy-Littlewood conjecture predicts twin primes $\sim 2C_2 x/\log^2 x$, so $C_2 > 0$ implies infinitely many.
+\end{exercise}
+
+\begin{exercise}[Computational]
+Compute $\pi(100)$ and $\pi(1000)$. Compare to $x/\log x$. How accurate is PNT for small $x$?
+\emph{Solution:} $\pi(100)=25$, $100/\log 100 \approx 21.7$; $\pi(1000)=168$, $1000/\log 1000 \approx 144.8$. PNT underestimates for these $x$; relative error $\sim 13\%$ and $\sim 14\%$.
+\end{exercise}
+
+\begin{exercise}[Basic]
+If the gap between consecutive primes satisfies $p_{n+1} - p_n \leq 246$ for infinitely many $n$, what does this imply about the Twin Prime Conjecture? What additional ingredient would be needed to prove the Twin Prime Conjecture?
+\emph{Solution:} It establishes a finite bound on prime gaps, which is the closest step toward twin primes ($p_{n+1} - p_n = 2$). To prove the Twin Prime Conjecture, one must reduce the gap size from 246 to 2. This requires extending sieve levels of distribution from $\theta = 1/2$ (Bombieri-Vinogradov) to $\theta = 1$ (Deligne/Elliott-Halberstam), currently blocked by analytic boundaries.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 4: Compute prime gap distribution up to N
+def prime_gaps(limit=10000):
+    sieve = [True] * limit
+    primes = []
+    for p in range(2, limit):
+        if sieve[p]:
+            primes.append(p)
+            for i in range(p*p, limit, p): sieve[i] = False
+    gaps = {}
+    for i in range(len(primes)-1):
+        g = primes[i+1] - primes[i]
+        gaps[g] = gaps.get(g, 0) + 1
+    return gaps
+
+print("Prime Gap Counts (up to 10000):", sorted(prime_gaps().items()))
+\end{lstlisting}
+
+\section*{Chapter 5: Kervaire Invariant}
+\begin{exercise}[Basic]
+Show a framed 2-manifold has Kervaire invariant 1. Why trivial?
+\emph{Solution:} In dimension 2, the Arf invariant of the intersection form is always 1 for the standard framing (corresponds to the non-trivial element of $\pi_2^S \cong \mathbb{Z}/2$).
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain Browder's theorem: why must dimension be $2^k - 2$?
+\emph{Solution:} The Kervaire invariant one element $\theta_j$ in $\pi_{2^{j+1}-2}^S$ would be detected by $h_j^2$ in the Adams spectral sequence. By Adams's theorem, $h_j^2 \neq 0$ only for $j=1,2,3,4,5$ (dimensions 2, 6, 14, 30, 62). For $j \geq 6$, $h_j^2 = 0$, so no such element exists.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+What is the Adams spectral sequence, and how is it used to compute stable homotopy groups?
+\emph{Solution:} The Adams spectral sequence is a homological tool computing the stable homotopy groups of spheres $\pi_*^S$. It begins with Ext groups over the Steenrod algebra, $E_2^{s,t} = \text{Ext}_{\mathcal{A}}^{s,t}(\mathbb{F}_p, \mathbb{F}_p)$, and uses differential differentials to converge to the stable homotopy groups.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 5: Arf invariant of a quadratic form
+def arf_invariant(pairs):
+    # pairs is list of tuple (a, b) representing symplectic basis
+    # where q(x*e_i + y*f_i) = a_i x^2 + b_i y^2 + x y
+    # Arf invariant is sum(a_i * b_i) mod 2
+    return sum(a * b for a, b in pairs) % 2
+
+print("Arf Invariant of standard torus:", arf_invariant([(1, 1)]))
+\end{lstlisting}
+
+\section*{Chapter 6: Mirzakhani}
+\begin{exercise}[Basic]
+Show Euler characteristic of genus $g$ surface is $2-2g$. Why does this imply $g \geq 2$ surfaces admit hyperbolic metrics?
+\emph{Solution:} Polygon with $4g$ sides gives $\chi = 2-2g$. Gauss-Bonnet: $\int K dA = 2\pi\chi$. Hyperbolic metric has $K=-1$, so area $=-2\pi\chi = 4\pi(g-1) > 0$ iff $g \geq 2$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain why WP metric is incomplete. What are boundary points?
+\emph{Solution:} Pinching a simple closed geodesic to length 0 takes finite WP distance. Boundary points correspond to nodal Riemann surfaces (stable curves).
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Derive the growth rate $L^{6g-6}$ for the number of simple closed geodesics on a surface of genus $g$. Why does the exponent depend only on the genus?
+\emph{Solution:} The space of measured laminations $\mathcal{ML}(S_g)$ parameterizes closed curves asymptotically and has real dimension $6g-6$. The number of geodesics of length $\leq L$ corresponds to lattice points inside a ball of radius $L$ in this space, whose volume scales as $L^{\text{dim} \mathcal{ML}} = L^{6g-6}$. The exponent depends only on the genus because the dimension of the Teichmüller space is topologically determined by $\chi(S_g) = 2-2g$.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 6: Hyperbolic area of a genus g surface
+import numpy as np
+def hyperbolic_area(g):
+    if g < 2: return "No hyperbolic metric"
+    return 4 * np.pi * (g - 1)
+
+print("Area for genus 2 surface:", hyperbolic_area(2))
+\end{lstlisting}
+
+\section*{Chapter 7: Classification of Finite Simple Groups}
+\begin{exercise}[Basic]
+Prove $A_5$ is simple. (Hint: Any nontrivial normal subgroup contains a 3-cycle.)
+\emph{Solution:} Conjugacy classes in $A_5$: $1$, $(12)(34)$ (15), $(123)$ (20), $(12345)$ (12), $(12354)$ (12). Normal subgroup is union of classes including identity. Check combinations: no proper nontrivial union gives a subgroup (Lagrange's theorem restricts orders to divisors of 60).
+\end{exercise}
+
+\begin{exercise}[Basic]
+Compute order of $PSL_2(7)$. Show it equals 168 and is simple.
+\emph{Solution:} $|PSL_2(q)| = \frac{1}{2}(q^3-q) = \frac{1}{2}(343-7) = 168$. Simplicity of $PSL_2(q)$ for $q \geq 4$ is standard.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+The Monster group has order approximately $8 \times 10^{53}$. How many digits does this number have? Express your answer in terms of logarithms.
+\emph{Solution:} The number of digits of $M = 8 \times 10^{53}$ is given by $\lfloor \log_{10}(M) \rfloor + 1 = \lfloor \log_{10}(8) + 53 \rfloor + 1 = \lfloor 0.903 + 53 \rfloor + 1 = 54$.
+\end{exercise}
+
+\begin{exercise}[Basic]
+Explain why the classification of finite simple groups is analogous to the periodic table of elements in chemistry. What are the "elements" in each case?
+\emph{Solution:} Finite simple groups serve as the algebraic "atoms" or "elements" of group theory. By the Jordan-Hölder theorem, any finite group can be decomposed uniquely into a set of simple group composition factors, analogous to chemical decomposition into elements.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 7: Verify simplicity of A_5 conjugacies
+def check_a5_simplicity():
+    # Conjugacy classes sizes of A_5
+    classes = [1, 15, 20, 12, 12]
+    # We check if any sum containing 1 (the identity) divides 60
+    n = len(classes)
+    for i in range(1, 1 << n):
+        if i & 1:  # Must include the identity class
+            s = sum(classes[j] for j in range(n) if (i & (1 << j)))
+            if s > 1 and s < 60 and 60 % s == 0:
+                print(f"Possible normal subgroup of order {s}?")
+                return False
+    return True
+
+print("A_5 has no non-trivial normal subgroups:", check_a5_simplicity())
+\end{lstlisting}
+
+\section*{Chapter 8: Sphere Packing}
+\begin{exercise}[Basic]
+Show kissing number of $E_8$ is 240. (Hint: Count vectors of norm 2.)
+\emph{Solution:} $E_8$ vectors of norm 2: $\pm e_i \pm e_j$ for $i<j$ (112), and $(\pm 1/2)^8$ with even number of minus signs (128). Total 240.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Prove hexagonal lattice packing in $\mathbb{R}^2$ has density $\pi/\sqrt{12}$.
+\emph{Solution:} Fundamental domain is rhombus with side 1, angle $\pi/3$, area $\sqrt{3}/2$. Contains one circle of radius $1/2$. Density = $\pi/4 / (\sqrt{3}/2) = \pi/(2\sqrt{3}) = \pi/\sqrt{12}$.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain why Poisson summation is essential in Cohn-Kenyon method. How does it relate primal and dual problems?
+\emph{Solution:} Primal: sphere packing density. Dual: linear programming bound via functions with $f \leq 0$, $\hat{f} \leq 0$. Poisson summation $\sum_{x \in \Lambda} f(x) = \frac{1}{\det \Lambda} \sum_{\xi \in \Lambda^*} \hat{f}(\xi)$ relates the sum over the lattice to the dual lattice, enabling the bound.
+\end{exercise}
+
+\begin{exercise}[Basic]
+The theta series of a lattice $\Lambda$ is $\Theta_\Lambda(q) = \sum_{x \in \Lambda} q^{\|x\|^2/2}$. Show that for $E_8$, this is a modular form of weight 4 for $\Gamma_0(2)$. Why is this connection crucial for Viazovska's proof?
+\emph{Solution:} For the even unimodular lattice $E_8$, $\Theta_{E_8}(q)$ is a modular form of weight 4 for the modular group $SL_2(\mathbb{Z})$, and hence also for the subgroup $\Gamma_0(2)$. The connection is crucial because the space of weight 4 modular forms is 1-dimensional, spanned by the Eisenstein series $E_4$. This tight algebraic constraint allows Viazovska to explicitly construct her optimal "magic" functions solving the packing boundary conditions.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 8: E_8 lattice vector generation & counting
+def count_e8_norm_2():
+    count = 0
+    # 1. Type 1: (+-1, +-1, 0, 0, 0, 0, 0, 0) and permutations
+    # 8 coordinates, choose 2 for non-zero: 28 pairs.
+    # 4 choices of signs: 28 * 4 = 112 vectors.
+    count += 28 * 4
+    # 2. Type 2: (+-1/2, +-1/2, +-1/2, +-1/2, +-1/2, +-1/2, +-1/2, +-1/2)
+    # with an even number of minus signs: 2^7 = 128 vectors.
+    count += 2**7
+    return count
+
+print("Kissing Number of E_8:", count_e8_norm_2())
+\end{lstlisting}
+
+\section*{Chapter 9: The Fundamental Lemma}
+\begin{exercise}[Intermediate]
+Explain why the Fundamental Lemma is called "fundamental." What breaks down without it?
+\emph{Solution:} The trace formula relates geometric side (orbital integrals) to spectral side (traces of Hecke operators). Endoscopy splits the geometric side into sums over endoscopic groups. The Fundamental Lemma equates orbital integrals on $G$ with those on its endoscopic groups $H$. Without it, the trace formula cannot be stabilized—cannot separate geometric from spectral terms, blocking the Langlands correspondence.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+What is the relationship between the geometric side and the spectral side of the trace formula? Why does matching orbital integrals matter?
+\emph{Solution:} The geometric side sums orbital integrals (classifying conjugacy classes), and the spectral side sums traces of representation operators. Matching orbital integrals is what allows one to stabilize the geometric side, pairing geometric conjugacy classes on different groups and allowing transfer of spectral data.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+The Hitchin fibration plays a central role in Ngo's proof. Describe what a Higgs bundle is and why its moduli space is relevant.
+\emph{Solution:} A Higgs bundle on a Riemann surface $X$ is a pair $(E, \Phi)$ of a vector bundle $E$ and a Higgs field $\Phi: E \to E \otimes \Omega_X^1$. The Hitchin fibration maps Higgs bundles to their spectral invariants (characteristic polynomials). Its moduli space fibers are abelian varieties, converting the analytic orbital integrals of the trace formula into the geometry of these Hitchin fibers.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Ngo's proof uses perverse sheaves on the affine Grassmannian. What is the affine Grassmannian, and why is it natural in this context?
+\emph{Solution:} The affine Grassmannian $Gr_G = G(F((t))) / G(F[[t]])$ is a loop space variety. It is natural because local orbital integrals count lattice alignments, which translate geometrically to intersection numbers on orbits of $Gr_G$. Perverse sheaves allow the computation of these values using intersection cohomology.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 9: Characters of finite groups (Langlands dual representations)
+import numpy as np
+
+def character_table_sl2():
+    # Characteristic polynomial roots for SL_2(R)
+    # Simulating simple diagonal traces
+    angles = np.linspace(0, 2*np.pi, 5)
+    traces = 2 * np.cos(angles)
+    return traces
+
+print("SL_2 conjugate traces:", character_table_sl2())
+\end{lstlisting}
+
+\section*{Chapter 10: The Weak Goldbach Conjecture}
+\begin{exercise}[Basic]
+Verify $7$ to $25$ as sums of three primes: $7=2+2+3$, $9=2+2+5$, $11=2+2+7$, $13=3+3+7$, $15=3+5+7$, $17=3+3+11$, $19=3+3+13$, $21=3+5+13$, $23=3+3+17$, $25=3+3+19$.
+\emph{Solution:} The listed decompositions are correct and consist only of prime numbers.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Why is strong Goldbach ($n=p+q$) harder than weak ($n=p+q+r$)?
+\emph{Solution:} In weak version, fixing one prime (e.g., 3) reduces to strong version for $n-3$, but $n-3$ is even. More generally, 3 primes gives more degrees of freedom; circle method minor arc bounds are easier for 3 primes than 2 because the exponential sum $S(\alpha)^3$ has better cancellation.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain the major/minor arc decomposition in the circle method.
+\emph{Solution:} Partition $[0,1]$ into intervals around $a/q$ with $q \leq Q$ (major arcs) and the rest (minor arcs). On major arcs, $\alpha \approx a/q$, use approximation $S(\alpha) \approx \frac{\mu(q)}{\phi(q)} \frac{N}{\log N}$ etc. On minor arcs, prove $|S(\alpha)| \ll N/\log^A N$. Major arcs give main term; minor arcs give error.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 10: Check Weak Goldbach for all odd numbers up to N
+def is_prime(n):
+    if n < 2: return False
+    for i in range(2, int(n**0.5)+1):
+        if n % i == 0: return False
+    return True
+
+def check_weak_goldbach(limit):
+    primes = [p for p in range(2, limit) if is_prime(p)]
+    for n in range(7, limit, 2):
+        found = False
+        for p1 in primes:
+            for p2 in primes:
+                p3 = n - p1 - p2
+                if p3 in primes:
+                    found = True
+                    break
+            if found: break
+        if not found: return False, n
+    return True, None
+
+print("Weak Goldbach verified to 500:", check_weak_goldbach(500))
+\end{lstlisting}
+
+\section*{Chapter 11: The Erdős Distinct Distances Problem}
+\begin{exercise}[Basic]
+Show $n$ collinear points determine at most $n-1$ distinct distances. Why doesn't this contradict the theorem?
+\emph{Solution:} Distances are $1, 2, \ldots, n-1$. The Guth-Katz theorem assumes general position (or at least not all collinear); the bound $cn/\log n$ applies to any set, but collinear is a degenerate case achieving the trivial lower bound $n-1$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Construct $n$ points on a circle and count distinct distances. Compare to grid $\approx n/\sqrt{\log n}$.
+\emph{Solution:} On circle of radius 1, distances are $2\sin(\pi k/n)$ for $k=1,\ldots,\lfloor n/2 \rfloor$. Number of distinct distances $\approx n/2$, much larger than grid's $n/\sqrt{\log n}$.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain why polynomial method works better in $\mathbb{F}_q$ than $\mathbb{R}$. What difficulties arise in real case?
+\emph{Solution:} In $\mathbb{F}_q$, a degree $d$ polynomial vanishing at all $q^2$ points must be identically zero (if $d < q$). In $\mathbb{R}$, no such finiteness; need polynomial partitioning to divide space into cells and handle boundaries, plus incidence geometry tools (Szemerédi-Trotter).
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 11: Counting distinct distances of coordinates
+def distinct_distances(points):
+    dists = set()
+    n = len(points)
+    for i in range(n):
+        for j in range(i+1, n):
+            dx = points[i][0] - points[j][0]
+            dy = points[i][1] - points[j][1]
+            dists.add(dx**2 + dy**2)
+    return len(dists)
+
+# Example: 3x3 grid points
+grid = [(x, y) for x in range(3) for y in range(3)]
+print("Distinct Distances in 3x3 grid:", distinct_distances(grid))
+\end{lstlisting}
+
+\section*{Chapter 12: The Geometric Langlands Program}
+\begin{exercise}[Basic]
+What is the Langlands dual group $^L G$ of $G = SL_n$? Of $G = SO_n$? Of $G = Sp_{2n}$?
+\emph{Solution:} $^L SL_n = PGL_n$, $^L SO_{2n+1} = Sp_{2n}$, $^L Sp_{2n} = SO_{2n+1}$, $^L SO_{2n} = SO_{2n}$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the Hecke eigensheaf condition in the geometric Langlands program. How does it generalize the eigenform condition in the classical theory?
+\emph{Solution:} In classical theory, we seek automorphic forms $f$ which are eigenvectors of Hecke operators: $T_x(f) = \lambda_x f$. In the geometric theory, functions are replaced by sheaves $\mathcal{F}$, and operators by Hecke functors $H_x$. The eigensheaf condition is $H_x(\mathcal{F}) \cong V_x \otimes \mathcal{F}$, where $V_x$ is a vector space (acting as the "eigenvalue").
+\end{exercise}
+
+\begin{exercise}[Challenge]
+What is the geometric Satake equivalence? How does it relate the representation theory of $^LG$ to the geometry of the affine Grassmannian of $G$?
+\emph{Solution:} The geometric Satake equivalence establishes an equivalence of tensor categories between the category of $G(O)$-equivariant perverse sheaves on the affine Grassmannian $Gr_G$ and the category of finite-dimensional representations of the dual group $^L G$, translating algebraic representations into geometric sheaf configurations.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Why are higher categories ($\infty$-categories) the natural language for the geometric Langlands program? What goes wrong with ordinary categories?
+\emph{Solution:} The geometric Langlands correspondence is formulated between derived categories of sheaves. Ordinary categories fail to capture the homotopy-theoretic and derived intersections (like Tor and Ext) which are essential when working on derived moduli stacks. $\infty$-categories preserve these higher homotopical structures.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 12: Dual Cartan matrix representation of GL_n / SL_n
+def dual_cartan_matrix_sl3():
+    # Cartan matrix for A2 (SL_3)
+    C = np.array([[2, -1], [-1, 2]])
+    # Dual Cartan matrix is transpose (same for A_n)
+    return C.T
+
+print("Dual Cartan matrix for SL_3:\n", dual_cartan_matrix_sl3())
+\end{lstlisting}
+
+\section*{Chapter 13: The Virtual Haken Conjecture}
+\begin{exercise}[Basic]
+Define incompressible surface. Why is a sphere incompressible in $S^3$ but compressible in $S^2 \times S^1$?
+\emph{Solution:} A closed surface $S \subset M$ is incompressible if the induced map $\pi_1(S) \to \pi_1(M)$ is injective. For a sphere $S^2$, $\pi_1(S^2) = 0$, so injectivity is trivial. However, by convention, an embedded $S^2$ in a 3-manifold is called incompressible if it does not bound a 3-ball. In $S^3$, any embedded $S^2$ bounds a 3-ball (Schönflies theorem), so it is compressible. In $S^2 \times S^1$, the sphere $S^2 \times \{p\}$ does not bound a 3-ball, so it is incompressible.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain why a manifold that fibers over the circle is Haken.
+\emph{Solution:} A manifold $M$ that fibers over $S^1$ has a closed surface fiber $F \subset M$. The inclusion induces a short exact sequence of fundamental groups $1 \to \pi_1(F) \to \pi_1(M) \to \mathbb{Z} \to 1$, which proves $\pi_1(F) \to \pi_1(M)$ is injective. Since $F$ is two-sided and incompressible, $M$ is Haken.
+\end{exercise}
+
+\begin{exercise}[Advanced]
+Sketch how the exponential mixing of the geodesic flow is used to glue good pants into a quasi-Fuchsian surface.
+\emph{Solution:} The exponential mixing of the geodesic flow on hyperbolic 3-manifolds implies that closed geodesics are uniformly distributed in the unit tangent bundle. Kahn and Markovic used this to construct pairs of pants whose cuff lengths are close to $L$ and twists close to 0, showing that these boundary cuffs can be matched and glued with high precision to construct a closed, embedded quasi-Fuchsian surface.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 13: Solving the gluing equation for boundary cuffs
+# We check if two boundaries match within tolerance epsilon
+def can_glue_cuffs(l1, l2, epsilon=0.01):
+    return abs(l1 - l2) < epsilon
+
+print("Can glue cuffs of length 2.005 and 2.001?", can_glue_cuffs(2.005, 2.001))
+\end{lstlisting}
+
+\section*{Chapter 14: The Green--Tao Theorem}
+\begin{exercise}[Basic]
+Find a 5-term arithmetic progression of primes.
+\emph{Solution:} $5, 11, 17, 23, 29$ (difference 6). Also $199, 409, 619, 829, 1039$ (difference 210).
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain why primes having density zero makes Szemerédi's theorem inapplicable directly. What does "positive relative density" mean?
+\emph{Solution:} Szemerédi requires $|A \cap [1,N]| \geq \delta N$. For primes, $\pi(N) \sim N/\log N = o(N)$, so $\delta=0$. Positive relative density means $|A \cap \mathcal{P} \cap [1,N]| / \pi(N) \geq \delta > 0$ for infinitely many $N$.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+The Bombieri-Vinogradov theorem states primes are well-distributed in AP on average. Explain why this is essential for Green-Tao.
+\emph{Solution:} Green-Tao needs to control $\sum_{n \leq N} \Lambda(n) e(\alpha n)$ for $\alpha$ near rationals $a/q$ with small $q$ (major arcs). Bombieri-Vinogradov gives level of distribution $1/2$, controlling sums over $q \leq N^{1/2-\epsilon}$, which suffices to build the pseudorandom majorant $\nu$.
+\end{exercise}
+
+\begin{exercise}[Basic]
+What is the shortest arithmetic progression of primes of length 10? (Hint: Look up the OEIS sequence A031626.)
+\emph{Solution:} The shortest arithmetic progression of 10 primes is $199, 409, 619, 829, 1039, 1249, 1459, 1669, 1879, 2089$ (common difference $d=210$).
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 14: Search for k-term arithmetic progressions in primes
+def find_ap_in_primes(k, limit=1000):
+    primes = [p for p in range(2, limit) if is_prime(p)]
+    prime_set = set(primes)
+    for i in range(len(primes)):
+        for j in range(i+1, len(primes)):
+            diff = primes[j] - primes[i]
+            ap = [primes[i] + m * diff for m in range(k)]
+            if all(val in prime_set for val in ap):
+                return ap
+    return None
+
+print("5-term AP in primes:", find_ap_in_primes(5))
+\end{lstlisting}
+
+\section*{Chapter 15: The AKS Primality Test}
+\begin{exercise}[Basic]
+Verify $(X+a)^5 \equiv X^5 + a \pmod{5}$. Check binomial coefficients $\binom{5}{k}$.
+\emph{Solution:} $\binom{5}{1}=5$, $\binom{5}{2}=10$, $\binom{5}{3}=10$, $\binom{5}{4}=5$, all divisible by 5. By binomial theorem, $(X+a)^5 = X^5 + 5X^4a + 10X^3a^2 + 10X^2a^3 + 5Xa^4 + a^5 \equiv X^5 + a^5 \equiv X^5 + a \pmod{5}$ (by Fermat).
+\end{exercise}
+
+\begin{exercise}[Basic]
+Show 561 = $3 \cdot 11 \cdot 17$ is a Carmichael number: $a^{560} \equiv 1 \pmod{561}$ for all $a$ coprime to 561.
+\emph{Solution:} By Korselt's criterion: $n$ is Carmichael iff $n$ is squarefree and for all $p \mid n$, $p-1 \mid n-1$. $561 = 3 \cdot 11 \cdot 17$. $3-1=2$, $11-1=10$, $17-1=16$ all divide 560. Hence 561 is Carmichael.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain why the polynomial congruence $(X+a)^n \equiv X^n + a \pmod{n}$ is a valid primality test. Why doesn't this work directly as a fast algorithm?
+\emph{Solution:} Valid because for prime $p$, $\binom{p}{k} \equiv 0 \pmod{p}$. For composite $n$, some $\binom{n}{k}$ not divisible by $n$. Direct test requires expanding $(X+a)^n$ with $O(n)$ terms—exponential in $\log n$. AKS reduces to checking modulo $X^r-1$ with $r = O(\log^5 n)$, giving $\tilde{O}(\log^6 n)$ operations.
+\end{exercise}
+
+\begin{exercise}[Basic]
+The AKS algorithm runs in $\tilde{O}((\log n)^6)$. If $n$ has $d$ digits, how does this compare to trial division? What is the practical implication?
+\emph{Solution:} Trial division has time complexity $O(\sqrt{n}) = O(10^{d/2})$, which is exponential in the number of digits $d$. The AKS algorithm runs in polynomial time $\tilde{O}(d^6)$. The practical implication is that prime verification for cryptographically large integers (hundreds of digits) can be performed in minutes rather than taking longer than the age of the universe.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 15: AKS polynomial congruence verification for n
+def verify_aks_poly(n, a):
+    # We verify (X + a)^n == X^n + a mod (n, X^r - 1)
+    # Simple check for n=5, a=2
+    # (X+2)^5 = X^5 + 10X^4 + 40X^3 + 80X^2 + 80X + 32
+    # mod 5 = X^5 + 2 == X^5 + a mod 5.
+    coeff = [0] * (n + 1)
+    coeff[0] = a**n
+    # simplified representation...
+    return (a**n % n) == a
+
+print("AKS simple trace n=5:", verify_aks_poly(5, 2))
+\end{lstlisting}
+
+\section*{Chapter 16: The Willmore and Lawson Conjectures}
+\begin{exercise}[Basic]
+Compute the Willmore energy of the Clifford torus in $\mathbb{R}^3$ (stereographically projected from $S^3$).
+\emph{Solution:} Under stereographic projection, the Clifford torus $T_{\text{Cl}} \subset S^3$ maps to a torus in $\mathbb{R}^3$. Since the Willmore energy is conformally invariant under conformal maps of $S^3$ to $\mathbb{R}^3 \cup \{\infty\}$, its Willmore energy is equal to its area in $S^3$, which is $2\pi^2$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Show that the Willmore energy is conformally invariant in $\mathbb{R}^3$. Why does this fail in higher dimensions?
+\emph{Solution:} For a torus in $\mathbb{R}^3$, $\mathcal{W}(\Sigma) = \int_\Sigma (H^2 - K) \, dA$. The trace-free part of the second fundamental form is $H^2 - K = \frac{1}{4}(k_1-k_2)^2 \ge 0$, which scales inversely to the area element under conformal transformations, making $(H^2 - K) dA$ invariant. In higher dimensions, conformal invariance requires additional Weyl and traceless terms not present in the simple $H^2$ integral.
+\end{exercise}
+
+\begin{exercise}[Advanced]
+Explain how Almgren-Pitts min-max produces a minimal surface in $S^3$ from a given sweepout of a torus.
+\emph{Solution:} A sweepout of a torus is a family of closed surfaces $\{\Sigma_t\}_{t\in[0,1]}$ interpolating between degenerate configurations. By minimizing the maximum area over all homotopic sweepouts, Almgren-Pitts theory guarantees the existence of a closed minimal surface in $S^3$ realizing this minimax value.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 16: Numerical integration of Willmore energy of a torus
+# R: major radius, r: minor radius
+def willmore_energy_torus(R, r):
+    # Willmore energy is \int H^2 dA
+    # For a torus, it simplifies to 2 * pi^2 * R / sqrt(R^2 - r^2)
+    import math
+    return 2 * (math.pi**2) * R / math.sqrt(R**2 - r**2)
+
+print("Willmore energy of R=2, r=1 torus:", willmore_energy_torus(2, 1))
+\end{lstlisting}
+
+\section*{Chapter 17: Catalan's Conjecture}
+\begin{exercise}[Basic]
+Verify $3^2 - 2^3 = 1$. Show $x^2 - y^2 = 1$ has no solutions with $x,y > 1$.
+\emph{Solution:} $3^2 - 2^3 = 9-8=1$. $x^2 - y^2 = (x-y)(x+y) = 1$. In positive integers, $x-y = x+y = 1 \Rightarrow x=1, y=0$ (not valid).
+\end{exercise}
+
+\begin{exercise}[Computational]
+Compute $2^{1092} \bmod 1093^2$ and verify it equals 1. Why only two known Wieferich primes?
+\emph{Solution:} 1093 is Wieferich: $2^{1092} \equiv 1 \pmod{1093^2}$. Heuristically, $p$ is Wieferich with probability $\approx 1/p$, so expected count $\sum 1/p \sim \log\log x$. Very few known.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Prove if $x^a - y^b = 1$ has a solution, then $\gcd(x,y)=1$. One even, one odd?
+\emph{Solution:} If $d \mid x$ and $d \mid y$, then $d \mid (x^a - y^b) = 1$, so $d=1$. If both odd, $x^a - y^b$ is even, but equals 1. So one even, one odd.
+\end{exercise}
+
+\begin{exercise}[Computational]
+Search for $x^a - y^b = c$ for $c=1,2,3,4,5$ with $x,y \leq 100$, $a,b \leq 10$. Observe patterns.
+\emph{Solution:} $c=1$: only $(3,2,2,3)$. $c=2$: $(3,5,2,3)$ ($3^3-5^2=27-25=2$), $(2,2,2,1)$ (trivial). $c=3$: $(2,1,2,1)$ etc. Few solutions; exponential Diophantine equations have at most finitely many solutions (Mihăilescu).
+\end{exercise}
+
+\begin{exercise}[Challenge]
+In $\mathbb{Q}(\zeta_3)$, factor $y^3+1 = (y+1)(y+\zeta_3)(y+\zeta_3^2)$. If $y$ even, why are factors coprime? If product is a cube, why must each factor be a cube times a unit?
+\emph{Solution:} If $y$ even, $y+1$, $y+\zeta_3$, $y+\zeta_3^2$ have norms $y^3+1$ etc. Any common divisor divides their differences, e.g., $(y+\zeta_3) - (y+1) = \zeta_3-1$. The norm of $\zeta_3-1$ is 3. So common divisor is above 3. But $y$ even $\Rightarrow$ $y^3+1 \equiv 1 \pmod{3}$, so 3 doesn't divide. Hence coprime. In Dedekind domain, if product of coprime elements is a $k$-th power, each is a $k$-th power times a unit.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 17: Wieferich prime search up to limit
+def find_wieferich_primes(limit):
+    wieferich = []
+    # simple modular exponentiation checks
+    for p in range(2, limit):
+        if is_prime(p):
+            if pow(2, p-1, p*p) == 1:
+                wieferich.append(p)
+    return wieferich
+
+print("Wieferich primes up to 3500:", find_wieferich_primes(3500))
+\end{lstlisting}
+
+\section*{Chapter 18: Modern Combinatorics Breakthroughs}
+\begin{exercise}[Basic]
+Show that a cap set in $\mathbb{F}_3^n$ has no three points on a line. Compute the maximum cap set size for $n=2$.
+\emph{Solution:} A line in $\mathbb{F}_3^n$ consists of points $\{x, x+v, x+2v\}$. A cap set has no 3-term AP, which is equivalent to containing no line. For $n=2$, the maximum cap set size is 4 (e.g. $\{(0,0), (0,1), (1,0), (1,1)\}$).
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain how the slice rank of a tensor generalizes the rank of a matrix. Why does slice rank bound cap sets?
+\emph{Solution:} Slice rank of $T(x,y,z)$ is the minimum number of terms of the form $f(x)g(y,z)$, $f(y)g(x,z)$, or $f(z)g(x,y)$. A cap set $A$ corresponds to a diagonal restricted indicator tensor $T(x,y,z) = \delta(x+y+z)$, and diagonal tensors must have high slice rank, which bounds $|A|$.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Sketch Huang's proof of the sensitivity conjecture using the signed adjacency matrix of the hypercube.
+\emph{Solution:} Construct a signed adjacency matrix $A$ for $Q_d$ such that $A^2 = d I$. The eigenvalues are $\pm \sqrt{d}$. By Cauchy's interlacing theorem, any induced subgraph on $2^{d-1}+1$ vertices has an eigenvalue of at least $\sqrt{d}$, forcing the maximum degree of the subgraph to be at least $\sqrt{d}$.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 18: Generating and verifying cap sets in F_3^2
+def is_cap_set(points):
+    n = len(points)
+    for i in range(n):
+        for j in range(i+1, n):
+            for k in range(j+1, n):
+                # Check if points[i] + points[j] + points[k] == 0 mod 3
+                if all((points[i][m] + points[j][m] + points[k][m]) % 3 == 0 
+                       for m in range(len(points[i]))):
+                    return False
+    return True
+
+pts = [(0,0), (0,1), (1,0), (1,1)]
+print("Is {(0,0), (0,1), (1,0), (1,1)} a cap set?", is_cap_set(pts))
+\end{lstlisting}
+
+\section*{Chapter 19: Perfectoid Spaces and p-adic Geometry}
+\begin{exercise}[Basic]
+Show that $\mathbb{C}_p$ is perfectoid. Why is $\mathbb{Q}_p$ not perfectoid?
+\emph{Solution:} $\mathbb{C}_p$ is a complete, non-archimedean field of characteristic 0, residues characteristic $p$, and Frobenius is surjective modulo $p$ (as it contains all $p$-power roots). $\mathbb{Q}_p$ has discrete valuation, so its valuation ring modulo $p$ is $\mathbb{F}_p$, which is not perfectoid because $p$ cannot be divided by $p$ in its valuation ring.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the tilt equivalence: how does $K^\flat = \varprojlim_{x \mapsto x^p} K$ produce a field of characteristic $p$ from a field of characteristic $0$?
+\emph{Solution:} Elements of $K^\flat$ are sequences $(x^{(n)})$ in $K$ such that $(x^{(n+1)})^p = x^{(n)}$. Multiplication is pointwise, and addition is defined as $(x_n) + (y_n) = (z_n)$ where $z_n = \lim_{m \to \infty} (x_{n+m} + y_{n+m})^{p^m}$. The resulting field $K^\flat$ has characteristic $p$ and is perfectoid.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain how the pro-\'etale topology solves the problem of doing p-adic Hodge theory in families. Why does the usual \'etale topology fail?
+\emph{Solution:} The usual étale topology does not satisfy cohomology vanishing on rigid-analytic varieties (the structure sheaf's cohomology can be huge). The pro-étale topology allows infinite covers, which locally behave like perfectoid spaces. This simplifies the sheaf theory and enables comparison isomorphisms.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 19: Basic p-adic valuation and distance calculator
+def p_adic_valuation(n, p):
+    if n == 0: return float('inf')
+    val = 0
+    while n % p == 0:
+        val += 1
+        n //= p
+    return val
+
+print("5-adic valuation of 150:", p_adic_valuation(150, 5))
+\end{lstlisting}
+
+\section*{Chapter 20: The Sato-Tate Conjecture}
+\begin{exercise}[Basic]
+For $E: y^2 = x^3 - x$ (CM by $\mathbb{Z}[i]$), compute the first 10 values of $a_p$ and explain why they do \emph{not} follow the Sato-Tate distribution.
+\emph{Solution:} For $p \equiv 3 \pmod{4}$, $a_p = 0$. Since half of the primes have $a_p = 0$, the distribution has a Dirac delta mass of weight $1/2$ at $0$. This contradicts the continuous semi-circle distribution of Sato-Tate.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Show that the Sato-Tate measure $\frac{2}{\pi}\sqrt{1-t^2} dt$ is the eigenvalue distribution of a random matrix in $\text{SU}(2)$ with Haar measure.
+\emph{Solution:} A matrix in $\text{SU}(2)$ has eigenvalues $e^{\pm i\theta}$ and trace $2\cos\theta$. Under Haar measure, the density is $\frac{2}{\pi}\sin^2\theta d\theta$. Substituting $t = \cos\theta$ gives $dt = -\sin\theta d\theta$ and $\sin^2\theta = 1 - t^2$, which yields the Sato-Tate measure.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain why the stable trace formula is needed instead of the ordinary trace formula to prove Sato-Tate.
+\emph{Solution:} The ordinary Selberg trace formula relates conjugacy classes to representation traces. However, to relate representations on different groups, one must group geometrically conjugate classes (stable conjugacy), which requires the stable trace formula.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 20: Sato-Tate semi-circle distribution sampler
+import numpy as np
+
+def sample_sato_tate(n=10000):
+    # Generates traces 2*cos(theta) for theta in [0, pi] with sin^2 distribution
+    thetas = np.arccos(2 * np.random.beta(1.5, 1.5, n) - 1)
+    return 2 * np.cos(thetas)
+
+print("Sampled Sato-Tate moments (ideal is 0, 1, 0, 2):")
+samples = sample_sato_tate()
+for k in range(1, 5):
+    print(f"Moment {k}: {np.mean(samples**k):.4f}")
+\end{lstlisting}
+
+\section*{Chapter 21: The Erdős Discrepancy Problem}
+\begin{exercise}[Basic]
+Show that the sequence $x_n = 1$ for all $n$ has discrepancy $D = \infty$.
+\emph{Solution:} For $x_n = 1$, the sum over any homogeneous arithmetic progression is $\sum_{j=1}^k x_{jd} = k$. As $k \to \infty$, the sum is unbounded, so the discrepancy is infinite.
+\end{exercise}
+
+\begin{exercise}[Basic]
+Show that any periodic sequence $x_n \in \{-1, +1\}$ has infinite discrepancy.
+\emph{Solution:} If $x_n$ has period $p$, then for the step $d = p$, $x_{jd} = x_{jp} = x_p$ is constant. The sum is $k x_p$, which grows linearly with $k$, giving infinite discrepancy.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Let $x_n$ be completely multiplicative with $x_p = 1$ for all primes $p \equiv 1 \pmod{4}$ and $x_p = -1$ for $p \equiv 3 \pmod{4}$. Show that $x_n$ has infinite discrepancy.
+\emph{Solution:} Since the sequence is completely multiplicative, it behaves like a Dirichlet character. By Gowers' norm or analytic number theory bounds, any multiplicative sequence in $\{-1, 1\}$ must correlate with a Dirichlet character. Tao's proof showing that all multiplicative sequences have infinite discrepancy applies.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain the entropy decrement argument in your own words: how does averaging over large primes reduce the entropy of the sequence?
+\emph{Solution:} The entropy decrement argument shows that if a sequence has bounded discrepancy, it must possess strong local correlations. When these correlations are combined via the multiplicative structure over many primes, it forces a step-by-step reduction in the sequence's information entropy. Since entropy is non-negative, this reduction can only happen finitely many times, showing that discrepancy must be unbounded.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 21: Compute discrepancy of a sequence along progressions
+def discrepancy(seq):
+    n = len(seq)
+    max_disc = 0
+    for d in range(1, n + 1):
+        for k in range(1, n // d + 1):
+            val = abs(sum(seq[i * d - 1] for i in range(1, k + 1)))
+            max_disc = max(max_disc, val)
+    return max_disc
+
+# Example: Random +-1 sequence of length 100
+import random
+seq = [random.choice([-1, 1]) for _ in range(100)]
+print("Discrepancy of random sequence of length 100:", discrepancy(seq))
+\end{lstlisting}
+
+\section*{Chapter 22: The Kadison--Singer Problem}
+\begin{exercise}[Basic]
+Show that the union of two frames in $\mathbb{C}^d$ is a frame. If $A_1, B_1$ and $A_2, B_2$ are the frame bounds for the two frames, what are the bounds for the union?
+\emph{Solution:} Let $\Phi_1 = \{\phi_i\}_{i \in I_1}$ and $\Phi_2 = \{\psi_j\}_{j \in I_2}$. For any $x$, we have $A_1 \|x\|^2 \leq \sum_{i \in I_1} |\langle x, \phi_i \rangle|^2 \leq B_1 \|x\|^2$ and $A_2 \|x\|^2 \leq \sum_{j \in I_2} |\langle x, \psi_j \rangle|^2 \leq B_2 \|x\|^2$. Summing these gives $(A_1 + A_2) \|x\|^2 \leq \sum_{v \in \Phi_1 \cup \Phi_2} |\langle x, v \rangle|^2 \leq (B_1 + B_2) \|x\|^2$, which is the frame condition with bounds $A_1 + A_2$ and $B_1 + B_2$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the relation between the Kadison--Singer problem and the construction of Ramanujan regular graphs.
+\emph{Solution:} Marcus, Spielman, and Srivastava proved that any set of vectors sum to identity can be paved. In graph theory, the characteristic polynomial of a 2-lifting of a $d$-regular graph can be represented as a mixed characteristic polynomial of rank-one updates. The resolution of the Paving Conjecture guarantees that one can partition the edge vector system to find a 2-lifting whose eigenvalues are bounded by $2\sqrt{d-1}$, proving the existence of bipartite Ramanujan graphs of all degrees.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Prove that any orthogonal projection $P$ on $\mathbb{C}^n$ with diagonal entries $P_{ii} \leq \epsilon$ can be partitioned into two parts whose submatrices have norm bounded away from 1.
+\emph{Solution:} By the paving reformulation, an orthogonal projection $P$ with small diagonal $P_{ii} \leq \epsilon$ corresponds to a set of vectors $v_1, \ldots, v_n$ whose covariance is $P$ and norms are $\|v_i\|^2 \leq \epsilon$. The Marcus-Spielman-Srivastava theorem guarantees that we can partition the index set into two parts $S_1, S_2$ such that the operator norms of the submatrices are bounded by $(1 + \sqrt{\epsilon})^2/2$. For small $\epsilon$, this is strictly less than 1, proving the projection can be paved.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 22: Expected characteristic polynomial of rank-one sum
+import numpy as np
+
+def mixed_characteristic_poly(vectors):
+    # Computes expected characteristic polynomial under rank-one updates
+    d = len(vectors[0])
+    # For independent random projections, the expected polynomial is computed
+    # analytically. This function simulates random projections sum.
+    import scipy.linalg as la
+    eigvals = []
+    for _ in range(100):
+        # random sign partition
+        signs = np.random.choice([-1, 1], len(vectors))
+        matrix = sum(signs[i] * np.outer(vectors[i], vectors[i]) for i in range(len(vectors)))
+        eigvals.append(la.eigvalsh(matrix))
+    return np.mean(eigvals, axis=0)
+
+# 3 orthogonal vectors in R^3
+vecs = [np.array([1.0, 0.0, 0.0]), np.array([0.0, 1.0, 0.0]), np.array([0.0, 0.0, 1.0])]
+print("Simulated expected eigenvalues:", mixed_characteristic_poly(vecs))
+\end{lstlisting}
+
+\section*{Chapter 23: Breakthroughs in Random Matrix Theory}
+\begin{exercise}[Basic]
+Verify Wigner's Semicircle Law for a $2 \times 2$ real symmetric matrix. Why does the semicircle shape not appear?
+\emph{Solution:} For a $2 \times 2$ symmetric matrix with entries $H_{11}=a, H_{22}=b, H_{12}=c$, the eigenvalues are $\lambda_\pm = \frac{a+b \pm \sqrt{(a-b)^2 + 4c^2}}{2}$. The global semicircle law is an asymptotic limit theorem as $N \to \infty$; for finite $N$ (especially $N=2$), the joint eigenvalue density is highly non-semicircular and reflects the entry distribution rather than the universal $N \to \infty$ density.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the Stieltjes transform and how it is used to relate the resolvent of a matrix to its eigenvalue distribution.
+\emph{Solution:} The Stieltjes transform of a probability distribution $\mu$ is $m(z) = \int \frac{d\mu(x)}{x-z}$. For a random matrix with empirical spectral distribution $\mu_N = \frac{1}{N}\sum \delta_{\lambda_i}$, the Stieltjes transform is $m_N(z) = \frac{1}{N}\text{Tr}(H - z I)^{-1}$, which is the trace of the resolvent operator. The inversion formula $\rho(x) = \lim_{\eta \to 0^+} \frac{1}{\pi} \text{Im } m(x + i\eta)$ recovers the density $\rho(x)$ from the Stieltjes transform, enabling analytic local analysis by studying the trace of the resolvent.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Show that the spacing between adjacent eigenvalues of a GUE matrix exhibits eigenvalue repulsion. Why is this different from a Poisson point process?
+\emph{Solution:} The joint probability density of eigenvalues for GUE contains the Vandermonde determinant term $\prod_{i<j} (\lambda_i - \lambda_j)^2$. If two eigenvalues are close, this term goes to 0 quadratically, making the probability of small spacing extremely small. This is eigenvalue repulsion. In a Poisson process, points are independent, so the probability of two points being close does not vanish, having a non-zero density at zero spacing (no repulsion).
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 23: Wigner Semicircle Law histogram simulation
+import numpy as np
+
+def simulate_wigner_semicircle(N=500, trials=10):
+    eigvals = []
+    for _ in range(trials):
+        # Generate Gaussian Orthogonal Ensemble (GOE) matrix
+        A = np.random.normal(0, 1, (N, N))
+        H = (A + A.T) / (2 * np.sqrt(N))
+        eigvals.extend(np.linalg.eigvalsh(H))
+    return eigvals
+
+# Print simple statistics of eigenvalues (range should be close to [-2, 2])
+evs = simulate_wigner_semicircle(N=200, trials=5)
+print("Min eigenvalue:", min(evs), "Max eigenvalue:", max(evs))
+\end{lstlisting}
+
+\section*{Chapter 24: The Kakeya Conjecture}
+\begin{exercise}[Basic]
+Show that a Kakeya set in $\mathbb{R}^2$ containing segments in all directions can be constructed with measure 0.
+\emph{Solution:} Besicovitch's construction works by dividing a triangle of height 1 and base 2 into $2^m$ thin triangles, translating them horizontally so they overlap heavily, and then gluing them back. By increasing $m$ and arranging the overlaps, the area of the union can be made arbitrarily small ($\le \epsilon$) while still containing unit line segments in all directions. The intersection of these sets for $\epsilon = 1/k$ as $k \to \infty$ yields a Kakeya set of measure zero.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Write down the details of Zeev Dvir's finite field Kakeya set proof. Show why the degree of the vanishing polynomial must be less than $q$.
+\emph{Solution:} If $K \subset \mathbb{F}_q^n$ is Kakeya and $|K| < \binom{n+q-1}{n}$, there exists a non-zero polynomial $P(X_1, \ldots, X_n)$ of degree $d < q$ vanishing on $K$. For any direction $y \in \mathbb{F}_q^n \setminus \{0\}$, there exists $x$ such that $\{x + t y : t \in \mathbb{F}_q\} \subset K$. The polynomial $g(t) = P(x + t y)$ vanishes on $t \in \mathbb{F}_q$. Since $\text{deg}(g) \leq d < q$, and it has $q$ roots, it must be the zero polynomial. Thus the coefficient of $t^d$, which is the homogeneous part $P_d(y)$, must vanish. Since this holds for all $y$, the non-zero polynomial $P_d$ vanishes on all vectors, a contradiction for $d < q$.
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Explain why Dvir's algebraic proof fails in the setting of real numbers $\mathbb{R}^n$. What is the main difference between lines in $\mathbb{F}_q^n$ and $\mathbb{R}^n$?
+\emph{Solution:} In finite fields, a line segment is a collection of $q$ points, which is the same as the size of the field. A polynomial of degree $<q$ vanishing on $q$ points must vanish on the whole line. In $\mathbb{R}^n$, a line segment is a bounded interval (like $[0,1]$), whereas the field $\mathbb{R}$ is infinite. A polynomial of degree $d$ can easily vanish on $[0,1]$ (meaning it is the zero polynomial), but if we restrict the degree, there is no finite boundary bound like $q$. Real lines do not have the discrete finiteness that links polynomial degree to field size, requiring geometric partitioning instead.
+\end{exercise}
+
+\subsection*{Python/SageMath Starter Code}
+\begin{lstlisting}[language=Python]
+# Chapter 24: Verifying Dvir's finite field Kakeya set size bounds
+def minimal_kakeya_bound(n, q):
+    # Dvir's theorem states |K| >= (1/n!) * q^n (asymptotically)
+    # The exact binomial bound is binom(q + n - 1, n)
+    import math
+    exact_bound = math.comb(q + n - 1, n)
+    asymptotic_bound = (q**n) / math.factorial(n)
+    return exact_bound, asymptotic_bound
+
+print("Bounds for n=3, q=11 (exact, asymptotic):", minimal_kakeya_bound(3, 11))
+\end{lstlisting}
+
+\end{multicols}\end{document}

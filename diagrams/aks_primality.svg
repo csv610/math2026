@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="600" height="400" fill="#1a1a2e" rx="8"/>
+  <text x="300" y="30" text-anchor="middle" fill="#e0e0e0" font-size="16" font-weight="bold">AKS Primality Test: Polynomial Congruence</text>
+  
+  <!-- Prime case -->
+  <text x="150" y="70" text-anchor="middle" fill="#16c79a" font-size="13" font-weight="bold">n = 7 (prime)</text>
+  <rect x="50" y="80" width="200" height="200" fill="#16213e" stroke="#16c79a" stroke-width="1.5" rx="5"/>
+  
+  <text x="150" y="105" text-anchor="middle" fill="#aaa" font-size="10">(X + a)^7 mod 7</text>
+  <text x="150" y="125" text-anchor="middle" fill="#e0e0e0" font-size="10" font-family="monospace">= X^7 + a^7</text>
+  <text x="150" y="140" text-anchor="middle" fill="#e0e0e0" font-size="10" font-family="monospace">+ 7·(...) ≡ X^7 + a</text>
+  <text x="150" y="155" text-anchor="middle" fill="#e0e0e0" font-size="10" font-family="monospace">mod 7</text>
+  <text x="150" y="180" text-anchor="middle" fill="#16c79a" font-size="11" font-weight="bold">✓ PASS</text>
+  <text x="150" y="198" text-anchor="middle" fill="#aaa" font-size="9">Binomial coeffs:</text>
+  <text x="150" y="213" text-anchor="middle" fill="#aaa" font-size="9">C(7,1)=7, C(7,2)=21,</text>
+  <text x="150" y="228" text-anchor="middle" fill="#aaa" font-size="9">C(7,3)=35, C(7,4)=35,</text>
+  <text x="150" y="243" text-anchor="middle" fill="#aaa" font-size="9">C(7,5)=21, C(7,6)=7</text>
+  <text x="150" y="260" text-anchor="middle" fill="#aaa" font-size="9">All divisible by 7!</text>
+  
+  <!-- Composite case -->
+  <text x="450" y="70" text-anchor="middle" fill="#e94560" font-size="13" font-weight="bold">n = 9 (composite)</text>
+  <rect x="350" y="80" width="200" height="200" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="5"/>
+  
+  <text x="450" y="105" text-anchor="middle" fill="#aaa" font-size="10">(X + a)^9 mod 9</text>
+  <text x="450" y="125" text-anchor="middle" fill="#e0e0e0" font-size="10" font-family="monospace">= X^9 + a^9</text>
+  <text x="450" y="140" text-anchor="middle" fill="#e0e0e0" font-size="10" font-family="monospace">+ 9·(...) + C(9,3)X^6a^3</text>
+  <text x="450" y="155" text-anchor="middle" fill="#e0e0e0" font-size="10" font-family="monospace">+ C(9,2)X^7a^2</text>
+  <text x="450" y="180" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">✗ FAIL</text>
+  <text x="450" y="198" text-anchor="middle" fill="#aaa" font-size="9">Binomial coeffs:</text>
+  <text x="450" y="213" text-anchor="middle" fill="#aaa" font-size="9">C(9,1)=9, C(9,2)=36,</text>
+  <text x="450" y="228" text-anchor="middle" fill="#aaa" font-size="9">C(9,3)=84 NOT div by 9,</text>
+  <text x="450" y="243" text-anchor="middle" fill="#aaa" font-size="9">C(9,4)=126 NOT div by 9,</text>
+  <text x="450" y="258" text-anchor="middle" fill="#aaa" font-size="9">C(9,5)=126, C(9,6)=84,</text>
+  <text x="450" y="273" text-anchor="middle" fill="#aaa" font-size="9">C(9,7)=36, C(9,8)=9</text>
+  
+  <!-- Key insight -->
+  <rect x="100" y="300" width="400" height="80" fill="#16213e" stroke="#0f3460" stroke-width="2" rx="8"/>
+  <text x="300" y="325" text-anchor="middle" fill="#e0e0e0" font-size="12" font-weight="bold">Key Insight</text>
+  <text x="300" y="345" text-anchor="middle" fill="#53a8b9" font-size="11">For prime p: all binomial coeffs C(p,k) are divisible by p</text>
+  <text x="300" y="362" text-anchor="middle" fill="#53a8b9" font-size="11">For composite n: some C(n,k) are NOT divisible by n</text>
+  <text x="300" y="378" text-anchor="middle" fill="#16c79a" font-size="11">AKS: Check (X+a)^n ≡ X^n+a mod (X^r−1, n) for small r</text>
+</svg>

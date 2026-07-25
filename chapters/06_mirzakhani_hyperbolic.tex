@@ -1,0 +1,173 @@
+% Chapter 6: Maryam Mirzakhani's Work on Hyperbolic Surfaces
+\let\LocalMacro\relax
+
+\chapter{Maryam Mirzakhani's Work on Hyperbolic Surfaces}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Differential geometry (surfaces, curvature, geodesics)
+\item Teichm\"uller theory (moduli spaces, mapping class groups)
+\item Hyperbolic geometry (constant negative curvature, $\mathbb{H}^2$)
+\item Basic algebraic topology (Euler characteristic, intersection theory)
+\end{itemize}
+
+\section{The Problem}
+A hyperbolic surface is a surface equipped with a Riemannian metric of constant negative curvature. The simplest example is the hyperbolic plane $\mathbb{H}^2$. Compact hyperbolic surfaces exist in any genus $g \geq 2$ by the uniformization theorem.
+
+Maryam Mirzakhani asked several deep questions about the geometry and topology of the moduli space of hyperbolic surfaces:
+
+\begin{enumerate}
+\item How many simple closed geodesics of length at most $L$ exist on a hyperbolic surface, as $L \to \infty$?
+\item What is the volume of the moduli space of hyperbolic surfaces with respect to the Weil--Petersson metric?
+\item How do geodesics behave on hyperbolic surfaces?
+\end{enumerate}
+
+These questions connected hyperbolic geometry, Teichm\"uller theory, and ergodic theory in unexpected ways.
+
+\begin{historicalbox}
+Mirzakhani was the first woman to win the Fields Medal (2014). She earned two gold medals at the International Mathematical Olympiad (1994, 1995) before becoming a professor at Stanford University. Her work on hyperbolic surfaces was recognized as among the most beautiful and profound in modern geometry. She passed away in 2017 at age 40, leaving an extraordinary legacy.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{The Moduli Space and Weil--Petersson Metric}
+
+The moduli space $\mathcal{M}_{g,n}$ of hyperbolic surfaces of genus $g$ with $n$ punctures (or geodesic boundaries of lengths $L_1, \ldots, L_n$) carries a natural Riemannian metric called the Weil--Petersson metric.
+
+\begin{definition}[Weil--Petersson Metric]
+The \emph{Weil--Petersson metric} on Teichm\"uller space $\mathcal{T}_{g,n}$ is the K\"ahler metric defined by
+\[\langle \mu, \nu \rangle_{WP} = \int_{\Sigma} \mu \overline{\nu} \, \rho^2 \, dA\]
+where $\mu, \nu$ are Beltrami differentials representing tangent vectors, and $\rho^2|dz|^2$ is the hyperbolic metric on the surface $\Sigma$.
+\end{definition}
+
+This metric is incomplete: surfaces can degenerate by pinching geodesics, and the distance to the boundary is finite.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{weil_petersson_recursive}
+\caption{The recursive structure of Weil--Petersson volumes: each volume $V_{g,n}$ can be expressed as a sum of products of lower-dimensional volumes.}
+\label{fig:wp_recursive}
+\end{figure}
+
+\subsection{Simple Closed Geodesics}
+
+A simple closed geodesic on a hyperbolic surface is a closed curve that locally minimizes distance and does not intersect itself. The set of all simple closed geodesics up to isotopy is countable.
+
+Mirzakhani showed that the number of simple closed geodesics of length at most $L$ grows polynomially in $L$:
+
+\begin{equation}
+s_\gamma(L) \sim c_\gamma \cdot L^{6g-6}
+\end{equation}
+
+where $c_\gamma$ depends on the topology of the curve $\gamma$ (its position in the space of measured laminations).
+
+\subsection{Mirror Symmetry and Intersection Theory}
+
+Mirzakhani's breakthrough was a deep connection between counting geodesics and intersection theory on the moduli space. She expressed the growth constants $c_\gamma$ in terms of integrals of tautological classes on $\mathcal{M}_{g,n}$.
+
+The \emph{tautological classes} are cohomology classes $\kappa_i, \psi_i, \lambda_i$ on $\mathcal{M}_{g,n}$ that encode geometric information. For example:
+\begin{itemize}
+\item $\psi_i = c_1(\mathbb{L}_i)$ where $\mathbb{L}_i$ is the cotangent line bundle at the $i$-th marked point.
+\item $\kappa_i$ are the Miller--Morita--Mumford classes, pushforwards of $\psi$-classes.
+\end{itemize}
+
+\section{The Discovery}
+
+\subsection{Recursive Formula for Weil--Petersson Volumes (2007--2008)}
+
+\begin{theorem}[Mirzakhani, 2007 \cite{mirzakhani2007}]
+The volume of the moduli space $\mathcal{M}_{g,n}(L_1, \ldots, L_n)$ with respect to the Weil--Petersson metric satisfies a recursive formula:
+\begin{equation}
+V_{g,n}(L_1, \ldots, L_n) = \int_{\mathcal{M}_{g,n}(L_1, \ldots, L_n)} e^{-\omega_{WP}}
+\end{equation}
+where $V_{g,n}$ is a polynomial in the boundary lengths $L_i$ of degree $3g-3+n$.
+\end{theorem}
+
+The recursion is:
+\begin{multline}
+V_{g,n}(L_1, \ldots, L_n) = \frac{1}{2} \sum_{i+j = n-1} \sum_{g_1+g_2 = g} \int_0^\infty \int_0^\infty V_{g_1,i+1}(L_1, \ldots, L_i, x, y) \\
+\times V_{g_2,j+1}(L_{i+1}, \ldots, L_{i+j}, x, y) \, x y \, dx \, dy \\
++ \frac{1}{2} \int_0^\infty \int_0^\infty V_{g-1,n+1}(L_1, \ldots, L_n, x, y) \, x y \, dx \, dy
+\end{multline}
+
+This was revolutionary because it connected:
+\begin{itemize}
+\item Counting simple closed geodesics (combinatorial geometry)
+\item Weil--Petersson volumes (differential geometry)
+\item Mirror symmetry (algebraic geometry)
+\end{itemize}
+
+\begin{highlightbox}
+Mirzakhani's recursive formula was unexpected because it connected the Weil--Petersson volumes to mirror symmetry in a way that had never been anticipated. Her methods combined techniques from hyperbolic geometry, Teichm\"uller theory, and algebraic geometry in a novel and powerful way.
+\end{highlightbox}
+
+\subsection{Counting Simple Closed Geodesics (2008)}
+
+Mirzakhani proved that the number of simple closed geodesics of length at most $L$ on a hyperbolic surface grows like $L^{6g-6}$, with the leading coefficient expressible as an intersection number on the moduli space \cite{mirzakhani2008}.
+
+For a fixed simple closed curve $\gamma$ on a surface $\Sigma_{g,n}$:
+\begin{equation}
+\lim_{L \to \infty} \frac{s_\gamma(L)}{L^{6g-6}} = \frac{2^{|\gamma|} (6g-6)!}{\dim \mathcal{ML}_{g,n}} \int_{\mathcal{ML}_{g,n}} \cdots
+\end{equation}
+
+where $\mathcal{ML}_{g,n}$ is the space of measured laminations, and the integral involves Thurston's symplectic measure.
+
+\subsection{The Witten--Kontsevich Theorem (2013)}
+
+Mirzakhani gave a new proof of the Witten--Kontsevich theorem, which relates intersection numbers on $\mathcal{M}_{g,n}$ to the KdV hierarchy of integrable systems \cite{mirzakhani2013}. This established a bridge between hyperbolic geometry and integrable systems.
+
+\subsection{Moments of Closed Geodesics (2014)}
+
+In her Fields Medal lecture, Mirzakhani presented results on the moments of closed geodesics and their relationship to the Weil--Petersson volume polynomial. She showed that the $k$-th moment of the length of a random simple closed geodesic is a rational multiple of the Weil--Petersson volume.
+
+\section{Impact}
+
+\begin{itemize}
+\item \textbf{Teichm\"uller theory}: Mirzakhani's recursive formulas for Weil--Petersson volumes have become fundamental tools. They allow computation of volumes to arbitrarily high genus.
+\item \textbf{Counting geodesics}: Her methods for counting simple closed geodesics have been extended to many other settings, including counting curves on flat surfaces and on higher-dimensional varieties.
+\item \textbf{Mirror symmetry}: The connection she discovered between counting geodesics and mirror symmetry opened new research directions linking Teichm\"uller theory, algebraic geometry, and mathematical physics.
+\item \textbf{Ergodic theory}: Her work on the earthquake flow on moduli space has connections to Ratner's theorems and dynamics on homogeneous spaces.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Show that the Euler characteristic of a surface of genus $g$ is $2 - 2g$. Why does this imply that surfaces of genus $g \geq 2$ admit hyperbolic metrics? \emph{Hint: Uniformization theorem.}
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain why the Weil--Petersson metric is incomplete on Teichm\"uller space. What are the boundary points? \emph{Hint: Consider pinching a simple closed geodesic to length 0.}
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Derive the growth rate $L^{6g-6}$ for the number of simple closed geodesics on a surface of genus $g$. Why does the exponent depend only on the genus? \emph{Hint: The dimension of the space of measured laminations is $6g-6$.}
+\end{exercise}
+
+
+\begin{exercise}[Computational]
+Write a Python/SageMath script to explore a concept from this chapter. See the appendix for starter code.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+2004 & Mirzakhani's PhD thesis at Harvard (supervised by Curtis McMullen) \\ 
+2007 & Mirzakhani proves the recursive formula for Weil--Petersson volumes \cite{mirzakhani2007} \\ 
+2008 & Mirzakhani publishes counting geodesics results \cite{mirzakhani2008} \\ 
+2013 & Mirzakhani proves the Witten conjecture/Kontsevich theorem \cite{mirzakhani2013} \\ 
+2014 & Fields Medal awarded to Mirzakhani \\ 
+2017 & Mirzakhani passes away at age 40 \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Mirzakhani, M. (2007). ``Simple geodesics and Weil--Petersson volumes of moduli spaces of bordered Riemann surfaces.'' Inventiones Mathematicae, 167(1), 179--222.
+\item Mirzakhani, M. (2008). ``Simple geodesics and Weil--Petersson volumes of moduli spaces of bordered Riemann surfaces.'' Inventiones Mathematicae, 171(1), 179--222.
+\item Mirzakhani, M. (2013). ``A simple proof of the Witten--Kontsevich theorem.'' Geometry \& Topology, 17(2), 681--706.
+\item Mirzakhani, M. (2014). ``Hyperbolic geometry on moduli space.'' Annals of Mathematics Studies, 183, Princeton University Press.
+\item Wolpert, S. (2008). ``On the Weil--Petersson geometry of the moduli space of curves.'' American Journal of Mathematics, 130(4), 1045--1069.
+\end{enumerate}

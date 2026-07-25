@@ -1,0 +1,183 @@
+% Chapter 17: Catalan's Conjecture
+\let\LocalMacro\relax
+
+\chapter{Catalan's Conjecture}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Elementary number theory (congruences, factorization, gcd)
+\item Algebraic number theory (number fields, rings of integers, units, class groups)
+\item Cyclotomic fields (roots of unity, cyclotomic polynomials)
+\item Basic $p$-adic numbers (valuations, extensions)
+\end{itemize}
+
+\section{The Problem}
+In 1844, Eugene Catalan observed that:
+\begin{equation}
+3^2 - 2^3 = 9 - 8 = 1
+\end{equation}
+and asked: \emph{Are there any other consecutive perfect powers?}
+
+Formally, the equation
+\begin{equation}
+x^a - y^b = 1
+\end{equation}
+for integers $x, y, a, b > 1$ has only the solution $(x, y, a, b) = (3, 2, 2, 3)$.
+
+This is a Diophantine equation — an equation seeking integer solutions. Despite its elementary statement, it resisted solution for 158 years.
+
+\begin{historicalbox}
+Catalan was a Belgian mathematician who worked in differential geometry and number theory. His conjecture seemed almost trivially simple but required tools far beyond what was available in the 19th century. The problem became a benchmark for progress in algebraic number theory.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{The Equation and Elementary Observations}
+
+\begin{definition}[Catalan Equation]
+The \emph{Catalan equation} is $x^a - y^b = 1$ for integers $x, y, a, b > 1$.
+\end{definition}
+
+\begin{lemma}
+If $x^a - y^b = 1$, then $\gcd(x, y) = 1$.
+\end{lemma}
+\begin{proof}
+Any common divisor of $x$ and $y$ divides their difference $x^a - y^b = 1$, so $\gcd(x, y) = 1$.
+\end{proof}
+
+\begin{lemma}
+In any solution, $x$ and $y$ cannot both be even, and one must be even, the other odd.
+\end{lemma}
+\begin{proof}
+If both were odd, $x^a - y^b$ would be even, but it equals 1. If both were even, their gcd would be at least 2.
+\end{proof}
+
+\subsection{Previous Partial Results}
+
+\begin{itemize}
+\item \textbf{Euler \cite{euler1783}}: Proved $x^2 - y^3 = 1$ has only the solution $3^2 - 2^3 = 1$ (using infinite descent in $\mathbb{Z}[\sqrt{-3}]$).
+\item \textbf{Lebesgue \cite{lebesgue1850}}: Proved $x^2 - y^n = 1$ has no solutions for $n \geq 3$.
+\item \textbf{Cassels \cite{cassels1960}}: Proved that if $x^a - y^b = 1$ with $a, b$ odd primes, then $a \mid y$ and $b \mid x$.
+\item \textbf{Ko Chao \cite{kochao1965}}: Proved the case $a = 2$.
+\item \textbf{Mihailescu \cite{mihailescu2004}}: Made the crucial breakthrough by proving that any solution must satisfy the double Wieferich condition.
+\end{itemize}
+
+\subsection{Cyclotomic Fields and Units}
+
+The key algebraic number theory setup: if $x^a - y^b = 1$, then in the cyclotomic field $\mathbb{Q}(\zeta_a)$ we have the factorization:
+\begin{equation}
+x^a = y^b + 1 = \prod_{i=0}^{a-1} (y + \zeta_a^i)
+\end{equation}
+The factors on the right are coprime in the ring of integers, so each must be an $a$-th power times a unit. This leads to studying the unit group of cyclotomic fields.
+
+\begin{definition}[Cyclotomic Units]
+The \emph{cyclotomic units} in $\mathbb{Q}(\zeta_p)$ are the units of the form $1 - \zeta_p^k$ and their products.
+\end{definition}
+
+\subsection{Double Wieferich Primes}
+
+\begin{definition}[Wieferich Prime]
+A prime $p$ is a \emph{Wieferich prime} if $2^{p-1} \equiv 1 \pmod{p^2}$.
+\end{definition}
+
+Only two such primes are known: 1093 and 3511.
+
+\begin{definition}[Double Wieferich Pair]
+A pair of distinct primes $(p, q)$ is a \emph{double Wieferich pair} if
+\begin{align}
+p^{q-1} &\equiv 1 \pmod{q^2} \\
+q^{p-1} &\equiv 1 \pmod{p^2}
+\end{align}
+\end{definition}
+
+The only known double Wieferich pairs are $(2, 1093)$, $(3, 1093)$, and their symmetric counterparts — none of which can be the exponents $(a, b)$ in a Catalan solution.
+
+\section{The Discovery}
+
+\subsection{Mihailescu's Proof (2002)}
+
+\begin{theorem}[Mihailescu \cite{mihailescu2004}]
+The only solution to $x^a - y^b = 1$ in integers $x, y, a, b > 1$ is $(3, 2, 2, 3)$.
+\end{theorem}
+
+Mihailescu's proof combined several deep ideas:
+
+\begin{enumerate}
+\item \textbf{Reduction to prime exponents}: It suffices to consider $a$ and $b$ prime (if $a = rs$, then $x^a = (x^r)^s$).
+\item \textbf{The Cassels conditions}: If $a, b$ are odd primes and $x^a - y^b = 1$, then $a \mid y$ and $b \mid x$.
+\item \textbf{The double Wieferich condition}: Using the Cassels conditions and properties of cyclotomic units, Mihailescu showed that $a$ and $b$ must form a double Wieferich pair.
+\item \textbf{Thaine's theorem and $p$-adic logarithms}: He used a deep result of Thaine on circular units together with $p$-adic analytic methods to show that the only possible double Wieferich pairs for the exponents lead to the known solution.
+\item \textbf{Final contradiction}: For any hypothetical solution beyond $(3, 2, 2, 3)$, the arithmetic constraints force a contradiction via size estimates on the cyclotomic units.
+\end{enumerate}
+
+\begin{highlightbox}
+Mihailescu's proof was remarkably short (about 20 pages in its final form) and used a beautiful synthesis of classical algebraic number theory (cyclotomic units, class field theory) with modern $p$-adic analytic methods. It showed that the Catalan equation is essentially a question about the arithmetic of cyclotomic fields.
+\end{highlightbox}
+
+\subsection{Subsequent Developments}
+
+\begin{itemize}
+\item \textbf{Simplified proofs}: Several authors (Bilu, Hanrot, Voutier, etc.) have given alternative proofs or simplifications.
+\item \textbf{Generalizations}: The methods extend to equations of the form $x^a - y^b = c$ for small fixed $c$.
+\item \textbf{Computational verification}: The double Wieferich condition has been checked for all primes up to very large bounds.
+\end{itemize}
+
+\section{Impact}
+
+\begin{itemize}
+\item \textbf{Diophantine equations}: The proof advanced techniques for solving exponential Diophantine equations, showing how cyclotomic units can control solutions.
+\item \textbf{Algebraic number theory}: The use of Thaine's theorem on circular units and $p$-adic logarithms in this context was novel and has inspired work on other problems.
+\item \textbf{Wieferich primes}: The connection to double Wieferich primes opened new computational and theoretical directions in the study of these rare primes.
+\item \textbf{Mathematical culture}: The resolution of a 158-year-old problem with an elementary statement but deep proof is a landmark in the history of number theory.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Verify that $3^2 - 2^3 = 1$. Show that there are no other solutions with $a = b = 2$ (i.e., $x^2 - y^2 = 1$ has no solutions with $x, y > 1$).
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain what a Wieferich prime is. Verify that 1093 is a Wieferich prime by computing $2^{1092} \bmod 1093^2$ (you may use a computer). Why are there only two known Wieferich primes?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Prove that if $x^a - y^b = 1$ has a solution, then $x$ and $y$ must be coprime. Why must one be even and the other odd?
+\end{exercise}
+
+\begin{exercise}[Computer exploration]
+Write a program to search for solutions to $x^a - y^b = 1$ with $x, y \leq 100$ and $a, b \leq 10$. Verify that only $(3, 2, 2, 3)$ appears. Then search for solutions to $x^a - y^b = c$ for $c = 2, 3, 4, 5$. What patterns do you observe?
+\end{exercise}
+
+\begin{exercise}
+In the cyclotomic field $\mathbb{Q}(\zeta_3)$, factor $y^3 + 1 = (y+1)(y+\zeta_3)(y+\zeta_3^2)$. Explain why the three factors are pairwise coprime when $y$ is even. How does this lead to the conclusion that each factor must be a cube times a unit?
+\end{exercise}
+
+
+\begin{exercise}[Computational]
+Write a Python/SageMath script to explore a concept from this chapter. See the appendix for starter code.
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1844 & Catalan poses the conjecture \\ 
+1783 & Euler solves $x^2 - y^3 = 1$ \\ 
+1850 & Lebesgue solves $x^2 - y^n = 1$ \\ 
+1960 & Cassels proves $a \mid y$, $b \mid x$ for prime exponents \\ 
+1965 & Ko Chao solves the case $a = 2$ \\ 
+2000 & Mihailescu proves the double Wieferich condition \\ 
+2002 & Mihailescu completes the proof \\ 
+2004 & Proof published in Crelle's Journal \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Mihailescu, P. (2004). ``Primary cyclotomic units and a proof of Catalan's conjecture.'' Journal f\"ur die Reine und Angewandte Mathematik, 572, 167--195.
+\item Catalan, E. (1844). ``Note sur une \'equation diophantienne.'' Journal de Math\'ematiques Pures et Appliqu\'ees.
+\item Bilu, Y., Hanrot, G., \& Voutier, P. M. (2001). ``Existence of primitive divisors of Lucas and Lehmer numbers.'' Journal f\"ur die Reine und Angewandte Mathematik.
+\end{enumerate}
