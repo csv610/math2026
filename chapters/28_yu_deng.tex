@@ -3,14 +3,6 @@
 
 \chapter{Yu Deng: From Atoms to Fluids}
 
-\section{Prerequisites}
-This chapter assumes familiarity with:
-\begin{itemize}
-\item Partial differential equations (Euler, Navier--Stokes)
-\item Statistical mechanics (probability distributions, expectation values)
-\item Basic Newtonian mechanics (elastic collisions)
-\end{itemize}
-
 \section{The Problem}
 One of the oldest questions in mathematical physics is: \emph{Can the smooth, continuous equations of fluid mechanics be rigorously derived from the microscopic behavior of individual particles?}
 
@@ -28,7 +20,18 @@ where $f(t, x, v)$ is the density of molecules at position $x$ with velocity $v$
 
 The challenge is that this transition---from discrete particles to continuous fluid---had never been made rigorous for realistic molecular interactions. For decades, progress was limited to special cases: the Lorentz gas (dilute scatterers), linearized Boltzmann, or simplified kinetic models.
 
-\section{The Discovery}
+
+\section{Mathematical Theory}
+
+\subsection{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Partial differential equations (Euler, Navier--Stokes)
+\item Statistical mechanics (probability distributions, expectation values)
+\item Basic Newtonian mechanics (elastic collisions)
+\end{itemize}
+
+\subsection{The Discovery}
 
 \subsection{Deng--Hani--Ma (2024--2025)}
 
@@ -56,14 +59,14 @@ In separate work, Deng also derived the \emph{wave kinetic equation} from nonlin
 The wave kinetic equation describing the long-time evolution of nonlinear dispersive waves on a torus can be derived from the fundamental wave equation via a mean-field limit.
 \end{theorem}
 
-\section{Impact}
+\subsection{Impact}
 \begin{itemize}
 \item \textbf{Mathematical physics}: Provides the first rigorous justification for using fluid equations as a macroscopic description of molecular gases.
 \item \textbf{Statistical mechanics}: The quantitative propagation of chaos gives explicit bounds on when ``molecular independence'' holds, a foundational assumption in kinetic theory.
 \item \textbf{Irreversibility}: The microscopic-to-macroscopic derivation explains how time-reversible particle dynamics produce irreversible macroscopic behavior---a philosophical question that has haunted physics since Boltzmann.
 \end{itemize}
 
-\section{Exercises}
+\subsection{Exercises}
 
 \begin{exercise}[Basic]
 Explain the difference between the microscopic description of a fluid (Newton's laws for individual particles) and the macroscopic description (Euler/Navier--Stokes equations). Why is the transition between them mathematically challenging?
@@ -77,7 +80,7 @@ What is the physical meaning of the collision operator $Q(f,f)$ in Boltzmann's e
 The propagation of chaos assumption states that after many collisions, distinct molecules become statistically independent. Explain why this assumption is necessary for deriving the Boltzmann equation, and why it is non-trivial to prove.
 \end{exercise}
 
-\section{Timeline}
+\subsection{Timeline}
 
 \begin{tabularx}{\linewidth}{lX}
 \toprule
@@ -90,7 +93,7 @@ The propagation of chaos assumption states that after many collisions, distinct 
 \bottomrule
 \end{tabularx}
 
-\section{Citations}
+\subsection{Citations}
 
 \begin{enumerate}
 \item Deng, Y., Hani, Z., \& Ma, X. (2024). ``Rigorous derivation of the Boltzmann equation from hard-sphere dynamics.'' arXiv:2408.07818.

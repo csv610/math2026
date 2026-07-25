@@ -3,14 +3,6 @@
 
 \chapter{The Sensitivity Conjecture}
 
-\section{Prerequisites}
-This chapter assumes familiarity with:
-\begin{itemize}
-\item Boolean functions ($f: \{0,1\}^n \to \{0,1\}$)
-\item Spectral graph theory (eigenvalues of adjacency matrices)
-\item Basic complexity theory (decision trees, polynomial degree)
-\end{itemize}
-
 \section{The Problem}
 For a boolean function $f: \{0,1\}^n \to \{0,1\}$, several complexity measures characterize how ``complex'' $f$ is:
 \begin{itemize}
@@ -29,7 +21,18 @@ $s(f)$ and $bs(f)$ are polynomially related: $bs(f) \le s(f)^c$ for some constan
 The sensitivity conjecture stood for 27 years, resisting attacks from Fourier analysis, probability theory, and complexity theory. It was one of the oldest open problems in theoretical computer science.
 \end{historicalbox}
 
-\section{The Discovery}
+
+\section{Mathematical Theory}
+
+\subsection{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Boolean functions ($f: \{0,1\}^n \to \{0,1\}$)
+\item Spectral graph theory (eigenvalues of adjacency matrices)
+\item Basic complexity theory (decision trees, polynomial degree)
+\end{itemize}
+
+\subsection{The Discovery}
 
 \subsection{Huang (2019)}
 
@@ -51,14 +54,14 @@ Huang's proof is famously short (2 pages) and uses only spectral graph theory:
 Huang's proof resolved a 27-year-old problem using a single clever idea: a signing of the hypercube's adjacency matrix. The proof uses no Fourier analysis, no probability, and no complexity theory---just linear algebra.
 \end{highlightbox}
 
-\section{Impact}
+\subsection{Impact}
 \begin{itemize}
 \item \textbf{Complexity theory}: Established polynomial relationships between all known boolean function complexity measures.
 \item \textbf{Spectral methods}: The signing technique has been applied to other graph-theoretic problems.
 \item \textbf{Open question}: The exact polynomial relating $s(f)$ and $bs(f)$ remains unknown---Huang's proof gives $c = 4$, but the conjectured value is $c = 1$.
 \end{itemize}
 
-\section{Exercises}
+\subsection{Exercises}
 
 \begin{exercise}[Basic]
 Compute $s(f)$ and $bs(f)$ for the parity function $f(x_1, \ldots, x_n) = x_1 \oplus \cdots \oplus x_n$.
@@ -72,7 +75,7 @@ Explain the Cauchy interlacing theorem: if $A$ is an $n \times n$ symmetric matr
 Sketch Huang's construction of the signing of $Q_n$'s adjacency matrix. Why does $A^2 = nI$ hold?
 \end{exercise}
 
-\section{Timeline}
+\subsection{Timeline}
 
 \begin{tabularx}{\linewidth}{lX}
 \toprule
@@ -82,7 +85,7 @@ Sketch Huang's construction of the signing of $Q_n$'s adjacency matrix. Why does
 \bottomrule
 \end{tabularx}
 
-\section{Citations}
+\subsection{Citations}
 
 \begin{enumerate}
 \item Huang, H. (2019). ``Induced subgraphs of hypercubes and a proof of the sensitivity conjecture.'' Annals of Mathematics, 190(3), 949--955.

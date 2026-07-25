@@ -3,14 +3,6 @@
 
 \chapter{The Cap Set Problem}
 
-\section{Prerequisites}
-This chapter assumes familiarity with:
-\begin{itemize}
-\item Basic combinatorics (binomial coefficients, extremal combinatorics)
-\item Linear algebra (rank of matrices and tensors)
-\item Finite fields ($\mathbb{F}_3$, arithmetic in characteristic 3)
-\end{itemize}
-
 \section{The Problem}
 A \emph{cap set} in $\mathbb{F}_3^n$ is a subset with no three-term arithmetic progression---that is, no distinct $x, y, z$ with $x + y + z = 0$. Let $r_3(n)$ be the maximum size of a cap set in $\mathbb{F}_3^n$.
 
@@ -24,7 +16,18 @@ The trivial bound is $3^n$. Meshulam (1995) proved $r_3(n) \le 2 \cdot 3^n / n$,
 The cap set problem is the $\mathbb{F}_3$-analogue of Roth's theorem on arithmetic progressions in the integers (1953). While Roth's theorem was proved using Fourier analysis on $\mathbb{Z}$, the finite-field version resisted analogous techniques for decades.
 \end{historicalbox}
 
-\section{The Discovery}
+
+\section{Mathematical Theory}
+
+\subsection{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Basic combinatorics (binomial coefficients, extremal combinatorics)
+\item Linear algebra (rank of matrices and tensors)
+\item Finite fields ($\mathbb{F}_3$, arithmetic in characteristic 3)
+\end{itemize}
+
+\subsection{The Discovery}
 
 \subsection{Ellenberg-Gijswijt (2016)}
 
@@ -46,14 +49,14 @@ The key idea is the \emph{slice rank} method, a variant of the polynomial method
 The slice rank method is a powerful generalization of the polynomial method: instead of vanishing of a polynomial, one uses the rank of a tensor. It has since been applied to many problems including the sunflower lemma and the Erd\H{o}s-Ginzburg-Ziv theorem.
 \end{highlightbox}
 
-\section{Impact}
+\subsection{Impact}
 \begin{itemize}
 \item \textbf{Polynomial method 2.0}: Slice rank opened a new chapter in the polynomial method, extending it from geometry (Dvir's Kakeya) to combinatorics.
 \item \textbf{Roth's theorem over $\mathbb{F}_3$}: The bound $2.756^n$ is exponentially better than previous methods.
 \item \textbf{Connections to TCS}: The slice rank is related to the non-deterministic communication complexity of tensor operations.
 \end{itemize}
 
-\section{Exercises}
+\subsection{Exercises}
 
 \begin{exercise}[Basic]
 Show that a cap set in $\mathbb{F}_3^n$ has no three points on a line. Compute the maximum cap set size for $n=2$.
@@ -63,7 +66,7 @@ Show that a cap set in $\mathbb{F}_3^n$ has no three points on a line. Compute t
 Explain how the slice rank of a tensor generalizes the rank of a matrix. Why does slice rank bound cap sets?
 \end{exercise}
 
-\section{Timeline}
+\subsection{Timeline}
 
 \begin{tabularx}{\linewidth}{lX}
 \toprule
@@ -76,7 +79,7 @@ Explain how the slice rank of a tensor generalizes the rank of a matrix. Why doe
 \bottomrule
 \end{tabularx}
 
-\section{Citations}
+\subsection{Citations}
 
 \begin{enumerate}
 \item Ellenberg, J., \& Gijswijt, D. (2017). ``On large subsets of $\mathbb{F}_3^n$ with no three-term arithmetic progression.'' Annals of Mathematics, 185(1), 339--343.
