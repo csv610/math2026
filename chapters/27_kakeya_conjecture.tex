@@ -1,4 +1,4 @@
-% Chapter 24: The Kakeya Conjecture
+% Chapter 27: The Kakeya Conjecture
 \let\LocalMacro\relax
 
 \chapter{The Kakeya Conjecture}
@@ -6,11 +6,7 @@
 \section{The Problem}
 In 1917, Soichi Kakeya posed a simple question in geometry \cite{kakeya1917}: \emph{What is the minimum area of a planar set in which a unit line segment can be turned 360 degrees (a needle set)?}
 
-In 1919, Abram Besicovitch shocked the mathematical community by proving that such a set—now called a \emph{Besicovitch set} or \emph{Kakeya set}—can have Lebesgue measure **zero** \cite{besicovitch1919}:
-
-\begin{definition}[Kakeya Set]
-A subset $K \subset \mathbb{R}^n$ is a \emph{Kakeya set} if it contains a unit line segment in every direction. That is, for every unit vector $e \in S^{n-1}$, there exists $x \in \mathbb{R}^n$ such that $\{x + t e : t \in [0, 1]\} \subset K$.
-\end{definition}
+In 1919, Abram Besicovitch shocked the mathematical community by proving that such a set---now called a \emph{Besicovitch set} or \emph{Kakeya set}---can have Lebesgue measure \textbf{zero} \cite{besicovitch1919}. This was deeply counterintuitive: a set that contains a line segment in \emph{every} direction can still be infinitely thin.
 
 Since Kakeya sets in $\mathbb{R}^n$ can have measure zero, mathematicians shifted their focus to the \emph{dimension} of these sets. This led to the Kakeya Conjecture:
 
@@ -21,11 +17,10 @@ Any Kakeya set in $\mathbb{R}^n$ must have Hausdorff dimension and Minkowski dim
 Despite its geometric statement, the Kakeya conjecture is deeply connected to harmonic analysis, specifically to wave equations, Fourier multipliers, and the restriction conjecture.
 
 \begin{historicalbox}
-The Kakeya conjecture is one of the most famous unsolved problems in analysis. While it is settled for $n=2$, it remains open in higher dimensions ($n \geq 3$), representing a key barrier to understanding multi-directional wave propagation.
+The Kakeya conjecture is one of the most famous unsolved problems in analysis. While it is settled for $n=2$, it remains open in higher dimensions ($n \geq 3$), representing a key barrier to understanding multi-directional wave propagation. Nets Katz of Rice University called the 3D progress the solution of the ``holy grail'' problem in harmonic analysis.
 \end{historicalbox}
 
 \section{Mathematical Theory}
-
 
 \subsection{Prerequisites}
 This chapter assumes familiarity with:
@@ -33,21 +28,24 @@ This chapter assumes familiarity with:
 \item Basic real analysis (Lebesgue measure, open/closed sets, limits)
 \item Geometric measure theory (Hausdorff dimension)
 \item Finite fields and polynomials (roots, finite vector spaces)
+\item Harmonic analysis (Fourier transform, restriction operators) --- helpful but not essential
 \end{itemize}
 
 \subsection{Besicovitch's Construction}
-Besicovitch's proof uses a geometric decomposition called "panning." By dividing a triangle into smaller triangles, shifting them, and overlapping them, one can concentrate the area into arbitrarily small regions while preserving segments in all directions.
+Besicovitch's proof uses a geometric decomposition called ``panning.'' By dividing a triangle into smaller triangles, shifting them, and overlapping them, one can concentrate the area into arbitrarily small regions while preserving segments in all directions.
 
 \subsection{Finite Field Analogue}
 In 1999, Thomas Wolff proposed studying the Kakeya conjecture in the simplified setting of vector spaces over finite fields $\mathbb{F}_q^n$ to bypass real-variable complications \cite{wolff1999}.
+
 \begin{definition}[Finite Field Kakeya Set]
 A subset $K \subset \mathbb{F}_q^n$ is a Kakeya set if for every direction $y \in \mathbb{F}_q^n \setminus \{0\}$, there exists $x \in \mathbb{F}_q^n$ such that $\{x + t y : t \in \mathbb{F}_q\} \subset K$.
 \end{definition}
+
 Wolff conjectured that any Kakeya set in $\mathbb{F}_q^n$ satisfies $|K| \geq C_n q^n$.
 
 \section{The Discovery}
 
-The Kakeya conjecture has seen two major breakthroughs in recent years:
+The Kakeya conjecture has seen two major breakthroughs in recent years.
 
 \subsection{Dvir's Finite Field Proof (2008)}
 In 2008, Zeev Dvir proved Wolff's finite field conjecture in a paper that was only four pages long, using the \emph{polynomial method} \cite{dvir2009}:
@@ -58,26 +56,43 @@ Any Kakeya set $K \subset \mathbb{F}_q^n$ satisfies:
 |K| \geq \frac{1}{n!} q^n
 \end{equation}
 \end{theorem}
+
 The proof is elegant: if $|K| < \binom{n+q-1}{n}$, there exists a non-zero polynomial of degree $<q$ vanishing on $K$. By complete induction along line directions, the polynomial's highest degree homogeneous part must vanish on all of $\mathbb{F}_q^n$, which is impossible.
 
-\subsection{The 3D Real Breakthrough (2023--2025)}
-In 2023 and 2024, Hong Wang (NYU) and Joshua Zahl (UBC) made the first major progress on the real conjecture in three dimensions in decades \cite{wangzahl2024}:
+\subsection{The 3D Real Breakthrough: Wang--Zahl (2023--2025)}
 
-\begin{theorem}[Wang--Zahl, 2024]
-Any Kakeya set in $\mathbb{R}^3$ has Hausdorff dimension at least $2.5 + \epsilon$ for a positive constant $\epsilon > 0$.
+The polynomial method had been spectacularly successful for the finite field Kakeya problem, but extending it to the real setting $\mathbb{R}^n$ had resisted all attempts for decades. The breakthrough came from Hong Wang (NYU) and Joshua Zahl (UBC).
+
+\begin{historicalbox}
+Hong Wang (born 1992, China) brought deep expertise in polynomial partitioning and geometric measure theory. Joshua Zahl (UBC) contributed experience in incidence geometry and harmonic analysis. Their collaboration spanned several years and required new ideas at each stage.
+\end{historicalbox}
+
+\begin{theorem}[Wang--Zahl, 2025 \cite{wangzahl2025}]
+Any Kakeya set $K \subset \mathbb{R}^3$ has Hausdorff dimension at least $2.5 + \epsilon$ for an absolute constant $\epsilon > 0$.
 \end{theorem}
 
-Their proof combined Dvir's polynomial method with \emph{polynomial partitioning} (introduced by Guth and Katz in 2010) and linear programming bounds on line incidences, breaking the long-standing "2.5 dimension barrier" in $\mathbb{R}^3$.
+Their proof combined three major innovations:
+
+\begin{enumerate}
+\item \textbf{Polynomial partitioning}: A technique from algebraic geometry (introduced by Guth and Katz in 2010) that decomposes space using the zero sets of polynomials. Given a Kakeya set $K \subset \mathbb{R}^3$, construct a polynomial $P$ that vanishes on a carefully chosen subset of the lines in $K$. The zero set of $P$ decomposes space into cells, each containing relatively few lines.
+\item \textbf{Linear programming bounds}: Optimizing over families of line configurations to extract dimensional lower bounds. This technique converts geometric statements about Kakeya sets into optimization problems that can be solved systematically.
+\item \textbf{New incidence geometry}: Novel bounds on the number of incidences between points and lines in three dimensions, extending the work of Guth and Katz.
+\end{enumerate}
 
 \begin{highlightbox}
-The Kakeya conjecture progress in 3D by Wang and Zahl represents a major triumph of polynomial techniques in real harmonic analysis, showing how algebraic structures can control geometric sets in $\mathbb{R}^3$.
+The Wang--Zahl result broke the long-standing ``2.5 dimension barrier'' in $\mathbb{R}^3$. The full Kakeya conjecture---that Kakeya sets in $\mathbb{R}^n$ have Hausdorff dimension $n$---remains open for $n \geq 3$, but the gap between the best lower bound and the conjectured value has narrowed dramatically.
 \end{highlightbox}
+
+\subsection{Hong Wang and the Fields Medal}
+
+In 2026, Hong Wang was awarded the Fields Medal at the International Congress of Mathematicians in Philadelphia, becoming the third woman to receive the prize (after Maryam Mirzakhani in 2014 and Maryna Viazovska in 2022). Her work demonstrated that algebraic techniques are powerful enough to attack real-variable problems that had resisted Fourier-analytic methods for decades.
 
 \section{Impact}
 \begin{itemize}
-\item \textbf{Harmonic Analysis}: Directly bounds the restriction operator for the Fourier transform, influencing local smoothing estimates for wave equations.
-\item \textbf{Additive Combinatorics}: The finite field polynomial method has been adapted to prove the joints conjecture and other incidence geometry problems.
+\item \textbf{Harmonic Analysis}: Directly bounds the restriction operator for the Fourier transform, influencing local smoothing estimates for wave equations. The Wang--Zahl bound limits how concentrated energy can become during wave propagation.
+\item \textbf{Additive Combinatorics}: The finite field polynomial method has been adapted to prove the joints conjecture and other incidence geometry problems. The incidence geometry techniques have applications to sum-product estimates.
 \item \textbf{Partial Differential Equations}: Provides bounds on the size of singularity sets for dispersive wave propagation.
+\item \textbf{Geometric Measure Theory}: The polynomial method developed for Kakeya has been applied to Falconer's distance set problem and other classical questions.
 \end{itemize}
 
 \section{Exercises}
@@ -103,12 +118,15 @@ Write a Python/SageMath script to explore a concept from this chapter. See the a
 \begin{tabularx}{\linewidth}{lX}
 \toprule
 \textbf{Year} & \textbf{Event} \\ \midrule
-1917 & Kakeya poses the needle turning problem \cite{kakeya1917} \\ 
-1919 & Besicovitch constructs a Kakeya set of measure zero \cite{besicovitch1919} \\ 
-1999 & Wolff formulates the finite field Kakeya conjecture \cite{wolff1999} \\ 
-2008 & Dvir proves the finite field Kakeya conjecture using the polynomial method \cite{dvir2009} \\ 
+1917 & Kakeya poses the needle turning problem \cite{kakeya1917} \\
+1919 & Besicovitch constructs a Kakeya set of measure zero \cite{besicovitch1919} \\
+1971 & C\'ordoba proves the Kakeya maximal function conjecture for $n=2$ \\
+1999 & Wolff formulates the finite field Kakeya conjecture \cite{wolff1999} \\
+2003 & Wolff improves the lower bound on Kakeya dimension in $\mathbb{R}^3$ \\
+2008 & Dvir proves the finite field Kakeya conjecture using the polynomial method \cite{dvir2009} \\
 2023--2025 & Wang and Zahl break the 2.5-dimension barrier in $\mathbb{R}^3$ \cite{wangzahl2024} \\
-2026 & Hong Wang awarded the Fields Medal for contributions to harmonic analysis and the Kakeya conjecture \\ \bottomrule
+2026 & Hong Wang awarded the Fields Medal at ICM Philadelphia \\
+\bottomrule
 \end{tabularx}
 
 \section{Citations}
@@ -118,6 +136,7 @@ Write a Python/SageMath script to explore a concept from this chapter. See the a
 \item Besicovitch, A. S. (1919). ``Sur deux questions de geometrie.'' Bulletin de l'Academie des Sciences de Russie.
 \item Wolff, T. (1999). ``Recent work on restriction and Kakeya conjectures.'' IAS Lectures.
 \item Dvir, Z. (2009). ``On the size of Kakeya sets in finite fields.'' Journal of the AMS, 23(4), 1107--1119.
+\item Guth, L., \& Katz, N. (2015). ``On the Erd\H{o}s distinct distances problem in the plane.'' Annals of Mathematics, 181(1), 155--190.
 \item Wang, H., \& Zahl, J. (2025). ``The Kakeya conjecture in three dimensions.'' arXiv:2502.17655.
 \item International Mathematical Union. (2026). ``Fields Medal citation: Hong Wang.'' ICM 2026, Philadelphia.
 \end{enumerate}
