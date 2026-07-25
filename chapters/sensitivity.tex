@@ -127,6 +127,14 @@ Huang's proof is famously short (2 pages) and uses only spectral graph theory:
 Huang's proof resolved a 27-year-old problem using a single clever idea: a signing of the hypercube's adjacency matrix. The proof uses no Fourier analysis, no probability, and no complexity theory---just linear algebra.
 \end{highlightbox}
 
+\subsection{After the Proof}
+
+The sensitivity conjecture is settled: block sensitivity is polynomially related to sensitivity. Huang proved $bs(f) \le s(f)^4$, confirming the qualitative statement that Nisan and Szegedy conjectured in 1992. The question of whether these measures are polynomially related---versus exponentially related---has a definitive answer.
+
+But the exact polynomial is still unknown. Huang's proof gives the exponent 4, meaning $bs(f) \le s(f)^4$. The conjectured truth is $bs(f) \le s(f)^2$, a quadratic relationship. For the parity function on $n$ bits, sensitivity is $\sqrt{n}$ and block sensitivity is $n$, so the quadratic bound would be tight. Whether the exponent can be reduced from 4 to 2 is a major open question. Some progress has been made on special classes of functions, but the general case remains open.
+
+The signing technique that Huang introduced---constructing a Hadamard-like signing of the hypercube's adjacency matrix to maximize spectral gap---has been applied to other graph-theoretic problems. It connects to questions about induced subgraphs of the hypercube, spectral graph theory, and the structure of Boolean function complexity landscapes. The broader picture of how all the complexity measures (sensitivity, block sensitivity, certificate complexity, decision tree depth, degree, and others) relate to each other is better understood but still not complete.
+
 \section{Impact}
 \begin{itemize}
 \item \textbf{Complexity theory}: Established polynomial relationships between all known boolean function complexity measures.

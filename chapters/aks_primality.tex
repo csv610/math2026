@@ -150,6 +150,14 @@ The algorithm's correctness proof uses deep algebraic number theory:
 The AKS algorithm was the first \emph{general} deterministic polynomial-time primality test. It settled a decades-old open problem and proved unconditionally that PRIMES $\in$ P. While not the fastest in practice (probabilistic tests are still preferred for real-world applications), it is theoretically fundamental: it showed that primality is a property that can be checked in polynomial time, without any unproven assumptions. The proof introduced a novel bridge between computational complexity and algebraic number theory that continues to inspire research.
 \end{highlightbox}
 
+\subsection{After the Proof}
+
+The AKS result is completely settled: PRIMES $\in$ P is a theorem, and the question of whether deterministic polynomial-time primality testing is possible has a definitive answer. The proof is unconditional---it does not rely on the Riemann Hypothesis or any other unproven assumption. In that sense, the theoretical question is closed.
+
+However, the AKS algorithm is not practical. It is far too slow compared to probabilistic tests like Miller--Rabin, which are both faster and simple enough to implement. In real-world cryptography, nobody uses AKS. Its importance is theoretical: it settled a fundamental question about the boundary between efficient and inefficient computation. The proof also introduced new connections between algebraic number theory (cyclotomic fields, order of elements in multiplicative groups) and computational complexity that continue to inspire research.
+
+On the quantitative side, room for improvement remains. The original AKS algorithm ran in $\tilde{O}((\log n)^{12})$ time, which was quickly reduced to $\tilde{O}((\log n)^6)$ and eventually to $\tilde{O}((\log n)^3)$ by Lenstra and Pomerance in 2011. Whether the exponent can be reduced further---perhaps to $\tilde{O}((\log n)^2)$ or even $\tilde{O}(\log n)$---is an open question. The Lenstra--Pomerance bound is conjectured to be close to optimal, but a matching lower bound is not known. Beyond speed, there is also the question of whether the underlying ideas can be used to construct other efficient deterministic algorithms for related algebraic problems.
+
 \section{Impact}
 
 \begin{itemize}

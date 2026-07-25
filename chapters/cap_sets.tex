@@ -145,6 +145,14 @@ $r_3(n) \le 2.756^n$ for sufficiently large $n$.
 \textbf{The punchline:} The slice rank method is a powerful generalization of the polynomial method: instead of a single polynomial vanishing on a set, one uses the rank of a tensor. This upgraded tool can handle three-body constraints (like the cap set condition) that defeat two-body tools like Fourier analysis. It has since been applied to many problems including the sunflower lemma, the Erd\H{o}s-Ginzburg-Ziv theorem, and the problem of finding large subsets of $\mathbb{F}_p^n$ with no solutions to linear equations.
 \end{highlightbox}
 
+\subsection{After the Proof}
+
+The cap set problem is settled in the sense that an exponential upper bound $r_3(n) \le 2.756^n$ has been proved, replacing all previous bounds. However, the full conjecture---that cap sets should be subexponential ($2^{o(n)}$)---remains open. The gap between $2.756^n$ and the conjectured answer is still exponential, and removing the exponential dependence is a major open question. It is possible that the true growth rate is polynomial or even sub-polynomial, but no known technique can achieve this.
+
+The slice rank method that cracked the cap set problem has been applied far beyond its original setting. It has been used to prove results about sunflowers, the Erd\H{o}s--Ginzburg--Ziv theorem, and other problems in additive combinatorics and theoretical computer science. The polynomial method, upgraded through slice rank, has become a standard tool alongside Fourier analysis and the probabilistic method in extremal combinatorics. It has connections to tensor complexity theory and the study of communication complexity.
+
+The central open question is whether the exponential bound can be improved to subexponential. The Ruzsa--Szemer\'{e}di conjecture (also known as the cap set conjecture in its original formulation) predicts that cap sets should be subexponential, and proving or disproving this remains one of the most important problems in additive combinatorics. Understanding the limitations of the polynomial method---why it gives $2.756^n$ rather than something smaller---is itself a deep question. New techniques beyond slice rank may be needed to break the exponential barrier.
+
 \section{Impact}
 \begin{itemize}
 \item \textbf{Polynomial method 2.0}: Slice rank opened a new chapter in the polynomial method, extending it from geometry (Dvir's Kakeya) to combinatorics.
