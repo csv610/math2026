@@ -33,6 +33,61 @@ This chapter assumes familiarity with:
 \item Basic complexity theory (decision trees, polynomial degree)
 \end{itemize}
 
+\subsection{Boolean Function Complexity Measures}
+
+The sensitivity conjecture concerns the relationship between several complexity measures of Boolean functions. For $f: \{0,1\}^n \to \{0,1\}$, the key measures are:
+
+\begin{definition}[Sensitivity]
+The \emph{sensitivity} $s(f)$ is the maximum, over all $x \in \{0,1\}^n$, of the number of coordinates $i$ such that flipping the $i$-th bit of $x$ changes the value of $f$.
+\end{definition}
+
+\begin{definition}[Block Sensitivity]
+The \emph{block sensitivity} $bs(f)$ is the maximum number $k$ such that there exist disjoint non-empty sets of coordinates $B_1, \ldots, B_k$ with the property that for each $i$, flipping all bits in $B_i$ changes the value of $f$.
+\end{definition}
+
+\begin{definition}[Degree]
+The \emph{degree} $\deg(f)$ is the degree of the unique multilinear polynomial $P$ over $\mathbb{R}$ such that $f(x) = P(x)$ for all $x \in \{0,1\}^n$.
+\end{definition}
+
+\begin{definition}[Decision Tree Depth]
+The \emph{decision tree depth} $D(f)$ is the minimum depth of a deterministic decision tree that computes $f$.
+\end{definition}
+
+These measures are ordered: $s(f) \le bs(f)$, $s(f) \le \deg(f)$, $s(f) \le D(f)$. The conjecture asserted that all are polynomially related.
+
+\subsection{The Hypercube and Its Spectrum}
+
+The $n$-dimensional hypercube graph $Q_n$ has vertex set $\{0,1\}^n$ with edges between strings differing in exactly one coordinate. Its spectral theory is classical:
+
+\begin{fact}
+The eigenvalues of the adjacency matrix of $Q_n$ are $n - 2k$ for $k = 0, 1, \ldots, n$, with multiplicity $\binom{n}{k}$.
+\end{fact}
+
+The eigenspace for eigenvalue $n$ is spanned by the all-ones vector. The eigenspace for eigenvalue $n - 2$ is spanned by the $n$ coordinate functions $x_i$.
+
+\subsection{Cauchy Interlacing}
+
+The key tool in Huang's proof is a classical result about how eigenvalues change when restricting to a subgraph:
+
+\begin{theorem}[Cauchy Interlacing]
+If $A$ is an $n \times n$ symmetric matrix with eigenvalues $\lambda_1 \ge \cdots \ge \lambda_n$, and $B$ is an $(n-1) \times (n-1)$ principal submatrix with eigenvalues $\mu_1 \ge \cdots \ge \mu_{n-1}$, then:
+\[
+\lambda_1 \ge \mu_1 \ge \lambda_2 \ge \mu_2 \ge \cdots \ge \mu_{n-1} \ge \lambda_n.
+\]
+\end{theorem}
+
+This means that restricting to a subgraph can only push eigenvalues inward, but the largest eigenvalue can decrease by at most the gap between the two largest eigenvalues.
+
+\subsection{Signings and Hadamard Matrices}
+
+A \emph{signing} of a graph $G$ is an assignment of $\pm 1$ to each edge, producing a signed adjacency matrix $A_G$. Huang's key construction produces a signing of $Q_n$ such that:
+
+\begin{fact}
+There exists a signing of $Q_n$ such that $A^2 = nI$, making $A$ proportional to a Hadamard matrix.
+\end{fact}
+
+This is the crucial ingredient: it means the signed hypercube has all eigenvalues equal to $\pm\sqrt{n}$, giving maximum spectral gap.
+
 \section{The Solution}
 
 \subsection{Huang (2019)}

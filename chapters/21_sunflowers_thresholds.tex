@@ -53,6 +53,56 @@ This chapter assumes familiarity with:
 \item Graph theory (chromatic number, cliques)
 \end{itemize}
 
+\subsection{Sunflowers and the Erd\H{o}s-Rado Bound}
+
+A \emph{sunflower} with $k$ petals and core $C$ is a family $\mathcal{F} = \{A_1, \ldots, A_k\}$ of sets such that $A_i \cap A_j = C$ for all $i \neq j$. The sets $A_i \setminus C$ are pairwise disjoint (the ``petals'').
+
+\begin{definition}[Sunflower]
+A family $\{A_1, \ldots, A_k\}$ of subsets of $[w]$ is a \emph{sunflower} if there exists a set $C \subset [w]$ (the \emph{core}) such that $A_i \cap A_j = C$ for all $i \neq j$.
+\end{definition}
+
+The Erd\H{o}s-Rado bound states that any family of $w$-element sets with more than $(w!)^{k-1}$ sets contains a $k$-petal sunflower. This bound is factorial in $w$, and the conjecture asks for a bound of the form $c^k$ instead.
+
+\subsection{Spread Families}
+
+The key innovation of Alweiss--Lovett--Wu--Zhang is the notion of a \emph{spread} family:
+
+\begin{definition}[Spread Family]
+A family $\mathcal{F}$ of subsets of $[w]$ is \emph{$s$-spread} if every element $i \in [w]$ appears in at most $|\mathcal{F}| / w^s$ sets of $\mathcal{F}$.
+\end{definition}
+
+The idea is that in a spread family, no element ``dominates''---every element appears with roughly equal frequency. Any family can be ``spread-approximated'' by partitioning it into subfamilies and discarding sets containing over-represented elements.
+
+\subsection{Thresholds and the Kahn-Kalai Framework}
+
+For an increasing property $\mathcal{P}$ on the Boolean lattice $2^{[n]}$, the \emph{threshold} is:
+\[
+p_c(\mathcal{P}) = \inf\{p : \Pr_{G \sim G(n,p)}[G \in \mathcal{P}] \ge 1/2\}.
+\]
+
+The \emph{expectation threshold} is:
+\[
+q(\mathcal{P}) = \inf\{p : \mathbb{E}_{G \sim G(n,p)}[|\text{witnesses of } \mathcal{P}|] \ge 1\}.
+\]
+
+Always $q(\mathcal{P}) \le p_c(\mathcal{P})$, since if the expected number of witnesses is at least 1, the probability of having at least one witness is positive. The Kahn-Kalai conjecture asserts that this gap is at most logarithmic:
+
+\begin{fact}
+$q(\mathcal{P}) \le p_c(\mathcal{P}) \le C \log \ell \cdot q(\mathcal{P})$, where $\ell$ is the size of the smallest witness.
+\end{fact}
+
+\subsection{The Absorption Method}
+
+The absorption method is a technique for completing partial constructions. The idea is:
+
+\begin{enumerate}
+\item Reserve a small ``absorbing set'' $A$ at the start.
+\item Build the desired structure on the remaining vertices, possibly leaving a small remainder $R$.
+\item Use the absorbing set to ``absorb'' $R$: the set $A$ is designed so that it can accommodate any small remainder.
+\end{enumerate}
+
+The power of absorption is that it reduces a global problem to a local one: instead of building the entire structure at once, you build most of it and then clean up.
+
 \section{The Solution}
 
 \subsection{Sunflowers: Alweiss, Lovett, Wu, Zhang (2022)}

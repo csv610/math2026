@@ -32,6 +32,63 @@ This chapter assumes familiarity with:
 \item Linear algebra (eigenvalues, capacities)
 \end{itemize}
 
+\subsection{Symplectic Geometry}
+
+Symplectic geometry is the mathematical framework of classical mechanics. A symplectic manifold is a smooth even-dimensional manifold $M$ equipped with a closed non-degenerate 2-form $\omega$.
+
+\begin{definition}[Symplectic Manifold]
+A \emph{symplectic manifold} $(M^{2n}, \omega)$ is a $2n$-dimensional smooth manifold with a closed non-degenerate 2-form $\omega \in \Omega^2(M)$, meaning $\omega^n \neq 0$ everywhere and $d\omega = 0$.
+\end{definition}
+
+The prototypical example is $(\mathbb{R}^{2n}, \sum_{i=1}^{n} dx_i \wedge dp_i)$, the phase space of $n$ particles. Unlike Riemannian geometry, symplectic geometry is rigid: there are no local invariants, and the only invariant is the volume form $\omega^n$.
+
+\subsection{Contact Geometry}
+
+Contact geometry is the odd-dimensional counterpart of symplectic geometry, arising naturally as the boundary of symplectic manifolds.
+
+\begin{definition}[Contact Manifold]
+A \emph{contact manifold} $(M^{2n-1}, \xi)$ is a $(2n-1)$-dimensional manifold with a maximally non-integrable hyperplane field $\xi = \ker \alpha$, where $\alpha \wedge (d\alpha)^{n-1} \neq 0$.
+\end{definition}
+
+Every compact contact manifold embeds as the boundary of a symplectic manifold (its \emph{skeleton}). Contact geometry governs the behavior of Legendrian submanifolds (maximal submanifolds tangent to $\xi$), which are the geometric counterpart of knots in classical mechanics.
+
+\subsection{Symplectic Embedding Problems}
+
+A central question in symplectic geometry is: when can one symplectic manifold be embedded into another?
+
+\begin{definition}[Symplectic Embedding]
+A \emph{symplectic embedding} of $(M_1, \omega_1)$ into $(M_2, \omega_2)$ is a smooth embedding $\iota: M_1 \hookrightarrow M_2$ such that $\iota^* \omega_2 = \omega_1$.
+\end{definition}
+
+Unlike smooth embeddings (which are governed by dimension alone), symplectic embeddings are highly constrained. The key obstruction is the \emph{volume}: if $\text{vol}(M_1) > \text{vol}(M_2)$, no symplectic embedding exists. But there are finer obstructions beyond volume.
+
+\subsection{The Conley--Zehnder Capacity}
+
+The Conley--Zehnder capacity is one of the most important symplectic invariants, measuring the ``size'' of a symplectic manifold.
+
+\begin{definition}[Conley--Zehnder Capacity]
+For a convex body $K \subset \mathbb{R}^{2n}$, the \emph{Conley--Zehnder capacity} $c_{CZ}(K)$ is defined via the minimal action of a periodic Hamiltonian orbit on $\partial K$:
+\[
+c_{CZ}(K) = \pi \cdot \inf \{ r^2 : \text{the Reeb flow on } \partial(r \cdot K) \text{ has a periodic orbit of action } r^2 \}.
+\]
+\end{definition}
+
+The Conley--Zehnder capacity gives a lower bound on the volume of symplectic embeddings: if $K_1$ symplectically embeds into $K_2$, then $c_{CZ}(K_1) \le c_{CZ}(K_2)$. It is monotone under inclusion and normalized so that $c_{CZ}(B^{2n}(1)) = 1$ for the unit ball.
+
+\subsection{Hofer Geometry and the Asymptotic Capacity}
+
+Pardon's key contribution was to define an \emph{asymptotic} version of the Conley--Zehnder capacity for all compact contact manifolds, not just convex bodies:
+
+\begin{theorem}[Pardon's Asymptotic Capacity]
+For a compact contact manifold $(M^{2n-1}, \xi)$, define:
+\[
+c_{CZ}^{\text{asymp}}(M) = \lim_{k \to \infty} \frac{c_{CZ}(\Sigma^k M)}{k}
+\]
+where $\Sigma^k M$ denotes the $k$-thiterated Legendrian surgery. This limit exists and provides a universal contact invariant.
+\end{theorem}
+
+This invariant detects when two contact manifolds are not contactomorphic, providing new tools for studying Legendrian knots and symplectic embedding problems.
+
 \section{The Solution}
 
 \subsection{Knot Distortion}

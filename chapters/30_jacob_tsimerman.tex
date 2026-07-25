@@ -28,6 +28,68 @@ This chapter assumes familiarity with:
 \item Model theory (o-minimal structures, Zilber's principle) --- helpful but not essential
 \end{itemize}
 
+\subsection{Shimura Varieties}
+
+Shimura varieties are the natural higher-dimensional generalization of modular curves. They parametrize abelian varieties with extra structure.
+
+\begin{definition}[Shimura Variety]
+A \emph{Shimura variety} is a quasi-projective algebraic variety over $\mathbb{C}$ that parametrizes isomorphism classes of abelian varieties with additional structures (polarization, level structure, endomorphism data). Formally, it is the quotient $G(\mathbb{Q}) \backslash \mathcal{X} / K$ where $G$ is a reductive algebraic group, $\mathcal{X}$ is a homogeneous space, and $K$ is a compact open subgroup.
+\end{definition}
+
+The simplest example is the modular curve $Y(N)$, which parametrizes elliptic curves with level-$N$ structure. Higher-dimensional Shimura varieties parametrize abelian varieties of dimension $g \ge 2$ with CM-type endomorphisms and level structure.
+
+\subsection{Special Points and Special Subvarieties}
+
+The André--Oort conjecture concerns the distinction between ``generic'' and ``special'' points and subvarieties.
+
+\begin{definition}[Special Point]
+A point $x$ on a Shimura variety $S$ is \emph{special} if the corresponding abelian variety $A_x$ has \emph{extra endomorphisms}: $\text{End}(A_x) \otimes \mathbb{Q}$ is strictly larger than expected from the dimension. Equivalently, $A_x$ is isogenous to a power of a CM abelian variety.
+\end{definition}
+
+\begin{definition}[Special Subvariety]
+A \emph{special subvariety} of $S$ is a Shimura subvariety---one that itself parametrizes abelian varieties with extra endomorphisms. Special subvarieties are the Zariski closures of families of special points.
+\end{definition}
+
+For example, on the modular curve, the special points are the $j$-invariants of CM elliptic curves (e.g., $j = 0, 1728$), and the special subvarieties are the CM points and their closures.
+
+\subsection{The André--Oort Conjecture}
+
+The conjecture asserts that algebraic subvarieties containing many special points must themselves be special:
+
+\begin{conjecture}[André--Oort, 1989]
+Let $S$ be a Shimura variety and $Z \subset S$ an irreducible closed subvariety. If the set of special points of $Z$ is dense in $Z$ (in the Zariski topology), then $Z$ is a special subvariety.
+\end{conjecture}
+
+The conjecture has a logical reformulation using model theory:
+
+\begin{fact}
+The André--Oort conjecture is equivalent to a statement about definable sets in o-minimal structures: if a definable set contains many special points, it must contain a special subvariety.
+\end{fact}
+
+\subsection{O-Minimality and the Pila--Wilkie Theorem}
+
+The proof uses tools from model theory, specifically the theory of o-minimal structures:
+
+\begin{definition}[O-Minimal Structure]
+A structure on $\mathbb{R}$ is \emph{o-minimal} if every definable subset of $\mathbb{R}$ is a finite union of intervals and points.
+\end{definition}
+
+The key fact connecting o-minimality to Diophantine geometry is:
+
+\begin{theorem}[Pila--Wilkie, 2006]
+Let $X \subset \mathbb{R}^n$ be a definable set in an o-minimal structure. For $\varepsilon > 0$, the number of rational points in $X \cap [0,1]^n$ with denominator at most $T$ and height at most $T^\varepsilon$ is $O_\varepsilon(T^\varepsilon)$.
+\end{theorem}
+
+This theorem bounds the number of ``unlikely'' rational points on definable sets, which is the engine that drives the Pila--Zannier method.
+
+\subsection{Zilber's Principle}
+
+Zilber's principle is a model-theoretic axiom asserting that sufficiently saturated geometric structures are ``algebraically closed''---meaning they behave like algebraically closed fields. In the context of the André--Oort conjecture:
+
+\begin{fact}[Zilber's Principle]
+If an algebraic structure is ``sufficiently saturated'' and has enough special points, then it must contain an algebraically closed substructure. This allows transferring results from the o-minimal setting to the algebraic setting.
+\end{fact}
+
 \section{The Solution}
 
 \subsection{Shimura Varieties}

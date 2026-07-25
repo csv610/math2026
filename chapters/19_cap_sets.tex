@@ -35,6 +35,68 @@ This chapter assumes familiarity with:
 \item Finite fields ($\mathbb{F}_3$, arithmetic in characteristic 3)
 \end{itemize}
 
+\subsection{The Polynomial Method}
+
+The polynomial method is a versatile combinatorial tool with a simple core idea: to show that a set $A$ is small, find a nonzero polynomial that vanishes on all of $A$. If the polynomial has low degree, it cannot have too many zeros, so $A$ must be small.
+
+\begin{definition}[Vanishing Polynomial]
+A polynomial $P \in \mathbb{F}_q[x_1, \ldots, x_n]$ \emph{vanishes} on a set $A \subset \mathbb{F}_q^n$ if $P(a) = 0$ for all $a \in A$.
+\end{definition}
+
+The key fact connecting polynomials to finite fields is:
+
+\begin{fact}[Schwartz-Zippel]
+A nonzero polynomial of degree $d$ over $\mathbb{F}_q^n$ has at most $d \cdot q^{n-1}$ zeros.
+\end{fact}
+
+Dvir's 2008 proof of the Kakeya conjecture over finite fields demonstrated the power of this approach: by constructing a low-degree polynomial vanishing on a Kakeya set, he showed such sets must be large. The cap set problem asks whether a similar strategy can beat Meshulam's Fourier-analytic bound.
+
+\subsection{Tensor Rank and Slice Rank}
+
+The breakthrough of Croot, Lev, Pach, and Ellenberg--Gijswijt reformulates the cap set problem in terms of \emph{tensor rank}, a generalization of matrix rank.
+
+\begin{definition}[Tensor]
+A 3-tensor $T \in V_1 \otimes V_2 \otimes V_3$ over a field $\mathbb{F}$ is a multilinear map $T: V_1^* \times V_2^* \times V_3^* \to \mathbb{F}$.
+\end{definition}
+
+\begin{definition}[Slice Rank]
+The \emph{slice rank} of a 3-tensor $T \in V_1 \otimes V_2 \otimes V_3$ is the minimum $r$ such that $T$ can be written as a sum of $r$ terms, each of which is a product of a vector in one factor with a bilinear form on the other two:
+\[
+T = \sum_{i=1}^{r} v_i \otimes B_i
+\]
+where each $v_i$ lives in one of $V_1, V_2, V_3$ and $B_i$ lives in the tensor product of the other two.
+\end{definition}
+
+Slice rank is always at most the tensor rank, and for diagonal tensors (those supported only on the ``diagonal'' $x = y = z$), slice rank equals the size of the diagonal support.
+
+\subsection{The Cap Set Tensor}
+
+For the cap set problem over $\mathbb{F}_3^n$, define the tensor:
+\[
+T(x,y,z) = \begin{cases} 1 & \text{if } x + y + z = 0 \\ 0 & \text{otherwise} \end{cases}
+\]
+A subset $A \subset \mathbb{F}_3^n$ is a cap set if and only if $T|_{A \times A \times A}$ is diagonal (i.e., $T(x,y,z) \neq 0$ only when $x = y = z$). The slice rank of $T$ then upper-bounds $|A|$:
+\[
+|A| \le \text{slice rank}(T).
+\]
+
+\begin{highlightbox}
+The key insight: the cap set condition is exactly the condition that the restriction of $T$ to $A$ is diagonal. Since diagonal tensors have slice rank equal to the size of the diagonal, any cap set has size at most the slice rank of $T$.
+\end{highlightbox}
+
+\subsection{Counting Monomials}
+
+The slice rank of $T$ is bounded by counting low-degree monomials. Consider the vector space $\mathcal{P}_{<2n/3}$ of polynomials in $\mathbb{F}_3[x_1, \ldots, x_n]$ of degree less than $2n/3$ (with each variable exponent in $\{0, 1, 2\}$). Using Stirling's approximation:
+
+\begin{theorem}[Monomial Count]
+$|\mathcal{P}_{<2n/3}| \le 2.756^n$.
+\end{theorem}
+
+The slice rank of $T$ is at most $3 \cdot |\mathcal{P}_{<2n/3}|$ (the factor 3 accounts for the three tensor factors), giving:
+\[
+r_3(n) \le 3 \cdot 2.756^n.
+\]
+
 \section{The Solution}
 
 \subsection{Ellenberg-Gijswijt (2016)}

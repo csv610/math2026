@@ -39,6 +39,61 @@ This chapter assumes familiarity with:
 \item Basic Newtonian mechanics (elastic collisions)
 \end{itemize}
 
+\subsection{The Boltzmann Equation}
+
+The Boltzmann equation describes the statistical evolution of a dilute gas. For $N$ hard spheres of diameter $\varepsilon$ in a box of side length 1, the empirical measure is:
+\[
+f^\varepsilon_N(t, x, v) = \frac{1}{N} \sum_{i=1}^{N} \delta_{(x_i(t), v_i(t))}
+\]
+where $(x_i(t), v_i(t))$ is the position and velocity of the $i$-th particle at time $t$.
+
+The Boltzmann equation is:
+\[
+\frac{\partial f}{\partial t} + v \cdot \nabla_x f = Q(f, f),
+\]
+where the collision operator is:
+\[
+Q(f, g)(v) = \int_{\mathbb{R}^3} \int_{\mathbb{S}^2} [f(v')g(v'_*) - f(v)g(v_*)] \, |v - v_*| \, d\sigma \, dv_*.
+\]
+
+The collision operator encodes binary elastic collisions: two molecules with velocities $v$ and $v_*$ collide and emerge with velocities $v'$ and $v'_*$, conserving momentum and energy.
+
+\subsection{Propagation of Chaos}
+
+The fundamental assumption linking microscopic and macroscopic descriptions is:
+
+\begin{definition}[Propagation of Chaos]
+The $N$-particle system is \emph{chaotic at time $t$} with parameter $f$ if the joint distribution of any $k$ particles factorizes as:
+\[
+\mathbb{P}[(x_1, v_1), \ldots, (x_k, v_k)] \approx f(t, x_1, v_1) \cdots f(t, x_k, v_k).
+\]
+\end{definition}
+
+In other words, after many collisions, different molecules become statistically independent, each distributed according to the density $f$. Proving this rigorously---with explicit error bounds depending on $N$ and $\varepsilon$---is the core technical challenge.
+
+\subsection{The Hierarchy Expansion}
+
+The $N$-particle Liouville equation governs the joint distribution of all particles:
+\[
+\frac{\partial F_N}{\partial t} + \sum_{i=1}^{N} v_i \cdot \nabla_{x_i} F_N = \sum_{i < j} \mathcal{L}_{ij} F_N,
+\]
+where $\mathcal{L}_{ij}$ is the binary collision operator acting on particles $i$ and $j$.
+
+The Dyson--Schwinger hierarchy expands this into a system of equations for reduced distribution functions $f_k$ (marginals for $k$ particles):
+\[
+\frac{\partial f_k}{\partial t} + \sum_{i=1}^{k} v_i \cdot \nabla_{x_i} f_k = \sum_{i < j \le k} \mathcal{L}_{ij} f_k + (N - k) \sum_{i=1}^{k} \int \mathcal{L}_{i, k+1} f_{k+1} \, dv_{k+1}.
+\]
+
+The hierarchy closes in the limit $N \to \infty$: as the number of particles grows, the coupling between $f_k$ and $f_{k+1}$ weakens, and the system decouples into independent Boltzmann equations.
+
+\subsection{Bilinear Estimates}
+
+The key technical innovation in Deng--Hani--Ma is the use of \emph{bilinear} energy estimates rather than the classical linear $L^2$ theory. The collision operator has a product structure:
+\[
+Q(f, g) = \int [f' g'_* - f g_*] \, d\sigma \, dv_*,
+\]
+and bilinear estimates exploit this by controlling $Q(f, g)$ in norms adapted to the product structure, rather than treating $f$ and $g$ separately. This provides stronger decay and stability bounds essential for the convergence proof.
+
 \section{The Solution}
 
 \subsection{Deng--Hani--Ma (2024--2025)}
