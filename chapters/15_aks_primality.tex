@@ -16,6 +16,12 @@ The question was motivated by cryptography: RSA encryption relies on the difficu
 
 The AKS conjecture (now theorem) asks: is there a deterministic polynomial-time algorithm that correctly decides whether a given integer $n$ is prime or composite, without relying on any unproven assumptions?
 
+\subsection{Why It Matters}
+Testing whether a number is prime is fundamental to cryptography. RSA encryption, which secures online banking and commerce, requires generating huge prime numbers. Before AKS, mathematicians relied on tests that were fast but could occasionally give wrong answers. A deterministic, always-correct, fast test was the holy grail.
+
+\subsection{What Was Known}
+For centuries, trial division---checking every possible divisor---was the only method. It works but becomes impossibly slow for large numbers. In the 1970s and 1980s, probabilistic tests like Miller--Rabin were developed: they are extremely fast and almost always correct, but there is a tiny chance of error. The question of whether a fast, always-correct test existed was open for decades.
+
 \section{Mathematical Theory}
 
 
