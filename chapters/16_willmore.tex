@@ -1,7 +1,7 @@
-% Chapter 16: The Willmore Conjecture and the Lawson Conjecture
+% Chapter 16: The Willmore Conjecture
 \let\LocalMacro\relax
 
-\chapter{The Willmore Conjecture and the Lawson Conjecture}
+\chapter{The Willmore Conjecture}
 
 \section{Prerequisites}
 This chapter assumes familiarity with:
@@ -13,8 +13,6 @@ This chapter assumes familiarity with:
 \end{itemize}
 
 \section{The Problem}
-
-\subsection{The Willmore Energy}
 For a closed immersed surface $\Sigma \subset \mathbb{R}^3$, the \emph{Willmore energy} is
 \[
 \mathcal{W}(\Sigma) = \int_\Sigma H^2 \, dA
@@ -33,15 +31,6 @@ Equality holds for the Clifford torus in $S^3$ (stereographically projected to $
 Willmore conjectured this in 1965. It became a central problem in geometric analysis, connecting conformal geometry, integrable systems, and algebraic geometry. The conjecture resisted all attempts for 47 years.
 \end{historicalbox}
 
-\subsection{The Lawson Conjecture}
-For minimal surfaces in $S^3$, a related problem:
-
-\begin{conjecture}[Lawson, 1970]
-The only embedded minimal torus in $S^3$ is the Clifford torus (up to rigid motions).
-\end{conjecture}
-
-Lawson \cite{lawson1970} had classified all minimal tori in $S^3$ as a one-parameter family, but only the Clifford torus is embedded.
-
 \section{Mathematical Theory}
 
 \subsection{The Willmore Functional and Conformal Invariance}
@@ -58,12 +47,9 @@ T_{\text{Cl}} = \left\{ (z_1, z_2) \in \mathbb{C}^2 : |z_1| = |z_2| = \frac{1}{\
 \]
 It is minimal in $S^3$, has constant mean curvature in $\mathbb{R}^3$ (after stereographic projection), and $\mathcal{W}(T_{\text{Cl}}) = 2\pi^2$.
 
-\subsection{The Lawson Classification \cite{lawson1970}}
-Lawson showed that minimal tori in $S^3$ form a one-parameter family. The Clifford torus is the unique embedded one.
-
 \section{The Discovery}
 
-\subsection{The Willmore Conjecture: Marques and Neves \cite{marquesneves2014}}
+\subsection{Marques and Neves \cite{marquesneves2014}}
 
 \begin{theorem}[Marques-Neves \cite{marquesneves2014}]
 The Willmore conjecture is true: $\mathcal{W}(T^2) \ge 2\pi^2$ for any immersed torus $T^2 \subset \mathbb{R}^3$, with equality only for the Clifford torus (up to conformal transformations).
@@ -80,19 +66,6 @@ Their proof used:
 \begin{highlightbox}
 The proof is a tour de force of geometric measure theory: it combines Almgren-Pitts min-max, conformal geometry, and the classification of minimal surfaces in $S^3$ to solve a 47-year-old problem.
 \end{highlightbox}
-
-\subsection{The Lawson Conjecture: Brendle \cite{brendle2013}}
-
-\begin{theorem}[Brendle \cite{brendle2013}]
-The only embedded minimal torus in $S^3$ is the Clifford torus (up to rigid motions).
-\end{theorem}
-
-Brendle's proof used:
-\begin{enumerate}
-\item \textbf{Simon's identity}: A sharp integral inequality relating the second fundamental form to the metric.
-\item \textbf{Maximum principle}: A clever application of the Omori-Yau maximum principle to a quantity involving the second fundamental form.
-\item \textbf{Rigidity}: Show that equality forces the second fundamental form to be that of the Clifford torus.
-\end{enumerate}
 
 \section{Impact}
 \begin{itemize}
@@ -122,22 +95,16 @@ Explain how Almgren-Pitts min-max produces a minimal surface in $S^3$ from a giv
 \toprule
 \textbf{Year} & \textbf{Event} \\ \midrule
 1965 & Willmore conjectures $2\pi^2$ lower bound for tori \\ 
-1970 & Lawson classifies minimal tori in $S^3$ \\ 
 1993 & Li-Yau proves $\mathcal{W} \ge 2\pi^2$ for non-embedded tori \\ 
 2005 & Ros proves Willmore conjecture for tori of revolution \\ 
-2012 & Marques-Neves prove Willmore conjecture \\ 
-2013 & Brendle proves Lawson conjecture \\
-
-2014 & Marques-Neves win Ramanujan Prize; Brendle wins Fields Medal \\
-\bottomrule
+2012 & Marques-Neves prove Willmore conjecture \\
+2014 & Marques-Neves win Ramanujan Prize \\ \bottomrule
 \end{tabularx}
 
 \section{Citations}
 
 \begin{enumerate}
 \item Marques, F. C., \& Neves, A. (2014). ``Min-max theory and the Willmore conjecture.'' Annals of Mathematics, 179(2), 683--782.
-\item Brendle, S. (2013). ``Embedded minimal tori in $S^3$ and the Lawson conjecture.'' Acta Mathematica, 211(1), 177--190.
 \item Willmore, T. J. (1965). ``Note on embedded surfaces.'' Anais da Academia Brasileira de Ciências, 37, 475--478.
-\item Lawson, H. B. (1970). ``Complete minimal surfaces in $S^3$.'' Annals of Mathematics, 92(2), 335--374.
 \item Simon, L. (1993). ``Existence of surfaces minimizing the Willmore functional.'' Communications in Analysis and Geometry, 1(2), 281--326.
 \end{enumerate}

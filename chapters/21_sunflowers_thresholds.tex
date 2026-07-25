@@ -1,0 +1,124 @@
+% Chapter 20: Sunflowers, Thresholds, and the Erdős-Faber-Lovász Conjecture
+\let\LocalMacro\relax
+
+\chapter{Sunflowers, Thresholds, and the Erd\H{o}s-Faber-Lov\'{a}sz Conjecture}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Extremal combinatorics (set systems, hypergraphs)
+\item Probabilistic method (Lovász Local Lemma)
+\item Graph coloring and chromatic number
+\end{itemize}
+
+\section{The Problems}
+This chapter covers three landmark results from 2022 that share a common theme: \emph{spread approximations}---a technique for approximating set families by ``uniform'' families where random sampling works well.
+
+\subsection{The Sunflower Conjecture}
+A \emph{sunflower} with $k$ petals is a family of $k$ sets whose pairwise intersections are all equal to a common core $C$.
+
+\begin{conjecture}[Erd\H{o}s-Rado, 1960]
+Any family of sets of size $w$ with more than $c(w)^k$ sets contains a sunflower with $k$ petals.
+\end{conjecture}
+
+Erd\H{o}s offered \$1000 for a proof. The best bound before 2022 was $(w!)^{k-1}$.
+
+\subsection{The Kahn-Kalai Conjecture (Expectation-Threshold)}
+For an increasing property $\mathcal{P}$ on subsets of $[n]$, the \emph{threshold} $p_c(\mathcal{P})$ is the $p$ where $\mathbb{P}(G(n,p) \in \mathcal{P}) = 1/2$. The \emph{expectation threshold} $q(\mathcal{P})$ is the smallest $p$ where the expected number of witnesses is 1.
+
+\begin{conjecture}[Kahn-Kalai, 2006]
+$p_c(\mathcal{P}) \le C \log \ell \cdot q(\mathcal{P})$, where $\ell$ is the size of the smallest witness.
+\end{conjecture}
+
+\subsection{The Erd\H{o}s-Faber-Lov\'{a}sz Conjecture}
+
+\begin{conjecture}[Erd\H{o}s-Faber-Lov\'{a}sz, 1972]
+If $G$ is the union of $n$ cliques of size $n$, each pair intersecting in at most one vertex, then $\chi(G) = n$.
+\end{conjecture}
+
+Erd\H{o}s offered \$500. The conjecture was open for 49 years.
+
+\begin{historicalbox}
+All three conjectures were resolved within months of each other in 2022, using variations of the same core technique: spread approximations and entropy arguments.
+\end{historicalbox}
+
+\section{The Discoveries}
+
+\subsection{Sunflowers: Alweiss, Lovett, Wu, Zhang (2022)}
+
+\begin{theorem}[ALWZ \cite{alweiss2022}]
+Any family of sets of size $w$ with more than $(C \log w)^{k-1} w!$ sets contains a sunflower with $k$ petals.
+\end{theorem}
+
+Their proof uses:
+\begin{enumerate}
+\item \textbf{Spread approximations}: A set family is ``spread'' if no element appears too often. Any family can be approximated by a spread family.
+\item \textbf{Random sampling}: A random subset of a spread family contains a sunflower with high probability.
+\item \textbf{Entropy arguments}: Use the Lopsided Lovász Local Lemma to find the sunflower.
+\end{enumerate}
+
+\subsection{Kahn-Kalai: Park and Pham (2022)}
+
+\begin{theorem}[Park-Pham \cite{parkpham2022}]
+The Kahn-Kalai conjecture is true: $p_c(\mathcal{P}) \le C \log \ell \cdot q(\mathcal{P})$.
+\end{theorem}
+
+Their proof uses spread approximations combined with weighted random sampling and entropy compression.
+
+\subsection{Erd\H{o}s-Faber-Lov\'{a}sz: Kang, Kelly, K\"{u}hn, Methuku, Osthus (2022)}
+
+\begin{theorem}[KKKMO \cite{kang2022}]
+The EFL conjecture is true for sufficiently large $n$.
+\end{theorem}
+
+Their proof uses the \emph{absorption method}: build the coloring iteratively, absorbing leftover vertices at the end, using expansion properties of the hypergraph to guarantee absorption works.
+
+\begin{highlightbox}
+The common thread: all three proofs approximate complex structures by ``spread'' (uniform) versions, then use entropy or probabilistic arguments. This spread approximation technique has become a new tool in extremal combinatorics.
+\end{highlightbox}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{Extremal combinatorics}: Spread approximations form a new toolkit alongside the polynomial method and the probabilistic method.
+\item \textbf{Threshold phenomena}: The Kahn-Kalai result connects random graph thresholds to expected thresholds, unifying two branches of probabilistic combinatorics.
+\item \textbf{Graph coloring}: The EFL result settles a 49-year-old conjecture about the chromatic number of structured hypergraph unions.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Show that a sunflower with $k$ petals and core $C$ has the property that any two petals intersect exactly in $C$. Find a sunflower with 3 petals in $\{1,2,3\}, \{1,4,5\}, \{1,6,7\}$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the difference between the threshold $p_c(\mathcal{P})$ and the expectation threshold $q(\mathcal{P})$. Why is $q(\mathcal{P}) \le p_c(\mathcal{P})$ always?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Describe the absorption method intuitively: why does ``building in spare capacity'' allow one to complete a coloring at the end?
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1960 & Erd\H{o}s-Rado sunflower conjecture \\
+1972 & Erd\H{o}s-Faber-Lov\'{a}sz conjecture \\
+2006 & Kahn-Kalai conjecture on expectation-threshold \\
+2022 & ALWZ prove sunflower conjecture (up to log factor) \\
+2022 & Park-Pham prove Kahn-Kalai conjecture \\
+2022 & KKKMO prove EFL conjecture \\
+2022 & Huh wins Fields Medal (log-concavity in combinatorics) \\
+\bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Alweiss, R., Lovett, S., Wu, K., \& Zhang, J. (2022). ``Improved bounds for the sunflower lemma.'' Annals of Mathematics, 196(3), 977--1021.
+\item Park, J., \& Pham, H. T. (2022). ``A proof of the Kahn-Kalai conjecture.'' arXiv:2203.17207.
+\item Kang, D., Kelly, T., K\"{u}hn, D., Methuku, A., \& Osthus, D. (2022). ``A proof of the Erd\H{o}s-Faber-Lov\'{a}sz conjecture.'' arXiv:2101.04686.
+\item Erd\H{o}s, P., \& Rado, R. (1960). ``Combinatorial theorem on classifications of sets of elements.'' Acta Mathematica Hungarica, 11, 117--142.
+\item Kahn, J., \& Kalai, G. (2006). ``A counterexample to Borsuk's conjecture.'' Bulletin of the AMS, 29, 60--68.
+\end{enumerate}

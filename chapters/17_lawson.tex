@@ -1,0 +1,104 @@
+% Chapter 17: The Lawson Conjecture
+\let\LocalMacro\relax
+
+\chapter{The Lawson Conjecture}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Differential geometry of surfaces (minimal surfaces, second fundamental form)
+\item Riemannian geometry (curvature, Jacobi fields)
+\item Maximum principle methods in geometric analysis
+\end{itemize}
+
+\section{The Problem}
+A minimal surface in $S^3$ is a surface whose mean curvature vanishes identically. The Clifford torus
+\[
+T_{\text{Cl}} = \left\{ (z_1, z_2) \in \mathbb{C}^2 : |z_1| = |z_2| = \frac{1}{\sqrt{2}} \right\}
+\]
+is the simplest example of a minimal torus in $S^3$.
+
+\begin{conjecture}[Lawson, 1970]
+The only embedded minimal torus in $S^3$ is the Clifford torus (up to rigid motions).
+\end{conjecture}
+
+\begin{historicalbox}
+Lawson (1970) classified all minimal tori in $S^3$ as a one-parameter family. The Clifford torus is the unique embedded member, but proving that no other embedded minimal torus exists resisted all attempts for over 40 years.
+\end{historicalbox}
+
+\section{Mathematical Theory}
+
+\subsection{Lawson's Classification}
+Lawson showed that minimal tori in $S^3$ form a one-parameter family $\{\Sigma_\theta\}_{\theta \in [0, \pi/2]}$, where:
+\begin{itemize}
+\item $\Sigma_0 = T_{\text{Cl}}$ is the Clifford torus.
+\item For $\theta > 0$, the surfaces $\Sigma_\theta$ are immersed but not embedded (they self-intersect).
+\end{itemize}
+
+\subsection{The Key Difficulty}
+To prove the Lawson conjecture, one must show that among all minimal tori in $S^3$, only the Clifford torus is embedded. The challenge is that the space of all minimal tori is infinite-dimensional, and one needs a global argument that rules out every possible competitor.
+
+\section{The Discovery}
+
+\subsection{Brendle \cite{brendle2013}}
+
+\begin{theorem}[Brendle \cite{brendle2013}]
+The only embedded minimal torus in $S^3$ is the Clifford torus (up to rigid motions).
+\end{theorem}
+
+Brendle's proof used:
+\begin{enumerate}
+\item \textbf{Simon's identity}: A sharp integral inequality relating the second fundamental form $|A|^2$ to the metric:
+\[
+\int_\Sigma \left( |A|^2 - 2 \right) \, dA = 4\pi \chi(\Sigma) + \int_\Sigma |\nabla \phi|^2 \, dA
+\]
+where $\phi$ is a specific function constructed from the second fundamental form.
+
+\item \textbf{Maximum principle}: A clever application of the Omori-Yau maximum principle to the quantity $|A|^2$, showing that if $|A|^2 > 2$ at any point, then $|A|^2$ must achieve a maximum that contradicts Simon's identity.
+
+\item \textbf{Rigidity}: Equality in Simon's identity forces $|A|^2 = 2$ everywhere, which characterizes the Clifford torus.
+\end{enumerate}
+
+\begin{highlightbox}
+Brendle's proof is remarkably short (about 15 pages) and uses only classical differential geometry: Simon's integral identity, the maximum principle, and rigidity. The key insight was choosing exactly the right test function for the maximum principle.
+\end{highlightbox}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{Minimal surface theory}: Established the Clifford torus as the unique minimal torus in $S^3$, completing Lawson's 1970 classification.
+\item \textbf{Maximum principle methods}: Demonstrated the power of combining integral identities with pointwise maximum arguments.
+\item \textbf{Connection to Willmore}: The Lawson result complements the Willmore conjecture (Chapter 16) by characterizing the unique minimizer.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Verify that the Clifford torus is minimal in $S^3$ by computing its mean curvature.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain why Lawson's one-parameter family $\Sigma_\theta$ for $\theta > 0$ consists of immersed (not embedded) tori. What causes the self-intersection?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Sketch how Simon's identity relates the total curvature $\int |A|^2 \, dA$ to the topology $\chi(\Sigma)$ of the surface. Why is this useful for rigidity?
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1970 & Lawson classifies minimal tori in $S^3$ \\ 
+1993 & Simon's identity proves existence of surfaces minimizing Willmore-type functionals \\
+2013 & Brendle proves the Lawson conjecture \\
+2014 & Brendle wins Fields Medal \\ \bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Brendle, S. (2013). ``Embedded minimal tori in $S^3$ and the Lawson conjecture.'' Acta Mathematica, 211(1), 177--190.
+\item Lawson, H. B. (1970). ``Complete minimal surfaces in $S^3$.'' Annals of Mathematics, 92(2), 335--374.
+\item Simon, L. (1993). ``Existence of surfaces minimizing the Willmore functional.'' Communications in Analysis and Geometry, 1(2), 281--326.
+\end{enumerate}

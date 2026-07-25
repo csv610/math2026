@@ -1,0 +1,90 @@
+% Chapter 19: The Sensitivity Conjecture
+\let\LocalMacro\relax
+
+\chapter{The Sensitivity Conjecture}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Boolean functions ($f: \{0,1\}^n \to \{0,1\}$)
+\item Spectral graph theory (eigenvalues of adjacency matrices)
+\item Basic complexity theory (decision trees, polynomial degree)
+\end{itemize}
+
+\section{The Problem}
+For a boolean function $f: \{0,1\}^n \to \{0,1\}$, several complexity measures characterize how ``complex'' $f$ is:
+\begin{itemize}
+\item \textbf{Sensitivity} $s(f)$: the maximum number of coordinates whose flip changes $f$.
+\item \textbf{Block sensitivity} $bs(f)$: the maximum number of disjoint blocks of coordinates whose simultaneous flip changes $f$.
+\item \textbf{Degree} $\deg(f)$: the degree of the real polynomial representing $f$.
+\end{itemize}
+
+It was known that $\deg(f) \le s(f)^2$ and $bs(f) \le \deg(f)^2$, so the conjecture would follow from $s(f) \le \deg(f)^c$.
+
+\begin{conjecture}[Nisan-Szegedy, 1992]
+$s(f)$ and $bs(f)$ are polynomially related: $bs(f) \le s(f)^c$ for some constant $c$.
+\end{conjecture}
+
+\begin{historicalbox}
+The sensitivity conjecture stood for 27 years, resisting attacks from Fourier analysis, probability theory, and complexity theory. It was one of the oldest open problems in theoretical computer science.
+\end{historicalbox}
+
+\section{The Discovery}
+
+\subsection{Huang (2019)}
+
+\begin{theorem}[Huang \cite{huang2019}]
+$s(f) \ge \sqrt{\deg(f)}$, hence $bs(f) \le s(f)^4$.
+\end{theorem}
+
+Huang's proof is famously short (2 pages) and uses only spectral graph theory:
+
+\begin{enumerate}
+\item Consider the $n$-dimensional hypercube graph $Q_n$, whose vertices are $\{0,1\}^n$ and edges connect strings differing in one coordinate.
+\item Construct a signing of the adjacency matrix $A$ of $Q_n$ such that $A^2 = nI$ (a Hadamard matrix structure).
+\item By the Cauchy interlacing theorem, the subgraph induced by $f^{-1}(1)$ has an eigenvalue $\ge \sqrt{n}$.
+\item This implies the subgraph has minimum degree $\ge \sqrt{n}$, so $s(f) \ge \sqrt{n}$.
+\item Since $\deg(f) = n$ for the dictator function, $s(f) \ge \sqrt{\deg(f)}$.
+\end{enumerate}
+
+\begin{highlightbox}
+Huang's proof resolved a 27-year-old problem using a single clever idea: a signing of the hypercube's adjacency matrix. The proof uses no Fourier analysis, no probability, and no complexity theory---just linear algebra.
+\end{highlightbox}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{Complexity theory}: Established polynomial relationships between all known boolean function complexity measures.
+\item \textbf{Spectral methods}: The signing technique has been applied to other graph-theoretic problems.
+\item \textbf{Open question}: The exact polynomial relating $s(f)$ and $bs(f)$ remains unknown---Huang's proof gives $c = 4$, but the conjectured value is $c = 1$.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Compute $s(f)$ and $bs(f)$ for the parity function $f(x_1, \ldots, x_n) = x_1 \oplus \cdots \oplus x_n$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain the Cauchy interlacing theorem: if $A$ is an $n \times n$ symmetric matrix and $B$ is an $(n-1) \times (n-1)$ principal submatrix, how do their eigenvalues relate?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Sketch Huang's construction of the signing of $Q_n$'s adjacency matrix. Why does $A^2 = nI$ hold?
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1992 & Nisan-Szegedy formulate the sensitivity conjecture \\
+2019 & Huang proves $s(f) \ge \sqrt{\deg(f)}$ in 2 pages \\
+\bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Huang, H. (2019). ``Induced subgraphs of hypercubes and a proof of the sensitivity conjecture.'' Annals of Mathematics, 190(3), 949--955.
+\item Nisan, N., \& Szegedy, M. (1992). ``On the degree of a boolean function as a real polynomial.'' Computational Complexity, 4(4), 301--313.
+\end{enumerate}

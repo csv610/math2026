@@ -1,0 +1,86 @@
+% Chapter 18: The Cap Set Problem
+\let\LocalMacro\relax
+
+\chapter{The Cap Set Problem}
+
+\section{Prerequisites}
+This chapter assumes familiarity with:
+\begin{itemize}
+\item Basic combinatorics (binomial coefficients, extremal combinatorics)
+\item Linear algebra (rank of matrices and tensors)
+\item Finite fields ($\mathbb{F}_3$, arithmetic in characteristic 3)
+\end{itemize}
+
+\section{The Problem}
+A \emph{cap set} in $\mathbb{F}_3^n$ is a subset with no three-term arithmetic progression---that is, no distinct $x, y, z$ with $x + y + z = 0$. Let $r_3(n)$ be the maximum size of a cap set in $\mathbb{F}_3^n$.
+
+\begin{conjecture}[Frankl-Graham-Rödl, 1987]
+$r_3(n) = o(3^n)$.
+\end{conjecture}
+
+The trivial bound is $3^n$. Meshulam (1995) proved $r_3(n) \le 2 \cdot 3^n / n$, using Fourier analysis. The best pre-2016 bound was $r_3(n) \le 3^n / n^{1+c}$ for a small constant $c > 0$.
+
+\begin{historicalbox}
+The cap set problem is the $\mathbb{F}_3$-analogue of Roth's theorem on arithmetic progressions in the integers (1953). While Roth's theorem was proved using Fourier analysis on $\mathbb{Z}$, the finite-field version resisted analogous techniques for decades.
+\end{historicalbox}
+
+\section{The Discovery}
+
+\subsection{Ellenberg-Gijswijt (2016)}
+
+\begin{theorem}[Ellenberg-Gijswijt \cite{ellenberggijswijt2017}]
+$r_3(n) \le 2.756^n$ for sufficiently large $n$.
+\end{theorem}
+
+The key idea is the \emph{slice rank} method, a variant of the polynomial method:
+
+\begin{enumerate}
+\item \textbf{Tensor formulation}: Represent the cap set condition by a tensor $T: \mathbb{F}_3^n \times \mathbb{F}_3^n \times \mathbb{F}_3^n \to \{0,1\}$ defined by $T(x,y,z) = 1$ if $x + y + z = 0$ and $0$ otherwise. A cap set is a set $A$ such that $T|_{A \times A \times A}$ is diagonal (no off-diagonal entries).
+
+\item \textbf{Slice rank bound}: The slice rank of $T$ is at most $3 \cdot M$, where $M$ is the number of monomials $x_1^{e_1} \cdots x_n^{e_n}$ with $e_i \in \{0,1,2\}$ and $\sum e_i < 2n/3$.
+
+\item \textbf{Stirling's formula}: $M \le 2.756^n$, giving the bound $|A| \le \text{slice rank}(T) \le 3 \cdot 2.756^n$.
+\end{enumerate}
+
+\begin{highlightbox}
+The slice rank method is a powerful generalization of the polynomial method: instead of vanishing of a polynomial, one uses the rank of a tensor. It has since been applied to many problems including the sunflower lemma and the Erd\H{o}s-Ginzburg-Ziv theorem.
+\end{highlightbox}
+
+\section{Impact}
+\begin{itemize}
+\item \textbf{Polynomial method 2.0}: Slice rank opened a new chapter in the polynomial method, extending it from geometry (Dvir's Kakeya) to combinatorics.
+\item \textbf{Roth's theorem over $\mathbb{F}_3$}: The bound $2.756^n$ is exponentially better than previous methods.
+\item \textbf{Connections to TCS}: The slice rank is related to the non-deterministic communication complexity of tensor operations.
+\end{itemize}
+
+\section{Exercises}
+
+\begin{exercise}[Basic]
+Show that a cap set in $\mathbb{F}_3^n$ has no three points on a line. Compute the maximum cap set size for $n=2$.
+\end{exercise}
+
+\begin{exercise}[Intermediate]
+Explain how the slice rank of a tensor generalizes the rank of a matrix. Why does slice rank bound cap sets?
+\end{exercise}
+
+\section{Timeline}
+
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Year} & \textbf{Event} \\ \midrule
+1953 & Roth proves no 3-AP in dense subsets of $\mathbb{Z}$ \\
+1995 & Meshulam proves $r_3(n) \le 2 \cdot 3^n / n$ via Fourier analysis \\
+2016 & Croot-Lev-Pach use polynomial method for $\mathbb{Z}_4^n$ \\
+2016 & Ellenberg-Gijswijt solve cap set with slice rank \\
+2022 & Huh wins Fields Medal (log-concavity in combinatorics) \\
+\bottomrule
+\end{tabularx}
+
+\section{Citations}
+
+\begin{enumerate}
+\item Ellenberg, J., \& Gijswijt, D. (2017). ``On large subsets of $\mathbb{F}_3^n$ with no three-term arithmetic progression.'' Annals of Mathematics, 185(1), 339--343.
+\item Tao, T. (2016). ``A symmetric formulation of the Croot-Lev-Pach-Ellenberg-Gijswijt capset bound.'' Blog post.
+\item Croot, E., Lev, V., \& Pach, P. P. (2017). ``Progression-free sets in $\mathbb{Z}_4^n$ are exponentially small.'' Annals of Mathematics, 185(1), 331--337.
+\item Meshulam, R. (1995). ``On subsets of finite abelian groups with no 3-term arithmetic progressions.'' Journal of Combinatorial Theory, Series A, 71(1), 168--174.
+\end{enumerate}
