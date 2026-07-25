@@ -63,6 +63,30 @@ Given a set of points $P \subset \mathbb{R}^2$, find a nonzero polynomial $p(x,y
 
 \section{The Solution}
 
+\subsection{What Was Missing Before}
+
+Erd\H{o}s proved in 1946 that $n$ points in the plane determine at least $cn/\sqrt{\log n}$ distinct distances, and his square grid construction showed that this was essentially tight---so the answer should be $\Theta(n/\sqrt{\log n})$. But after that promising start, progress stalled for decades. The best lower bound achieved by 2003 (Solymosi--T\'oth) was only $cn^{2/3}/(\log n)^c$ \cite{solymosi2003}. The exponent $2/3$ was nowhere near the $1$ needed to match the upper bound. The gap between what was known ($n^{2/3}$) and what was conjectured ($n/\sqrt{\log n}$) was enormous, and it had persisted in some form since the 1980s.
+
+\subsection{Why Existing Methods Failed}
+
+All prior approaches relied on \emph{combinatorial incidence counting}: lines, circles, and distances were studied through double-counting arguments, the Szemer\'edi--Trotter theorem, and graph-theoretic bounds. These methods could not escape a fundamental bottleneck. When you try to count how many points lie on how many lines, the best tools give you bounds of the form $n^{2/3}$ (from incidence geometry) or $n/\sqrt{\log n}$ (from the grid construction). The combinatorial methods always produced a lower bound with exponent strictly less than 1 because they could not simultaneously control all three variables---points, lines, and distances---without losing a polynomial factor. Every known technique hit the same wall: the $n^{2/3}$ barrier seemed impenetrable.
+
+\subsection{What Was Novel}
+
+The breakthrough came from a completely different field. In 2008, Zeev Dvir proved the finite-field Kakeya conjecture using \emph{polynomials}: he showed that if a set contains a line in every direction over a finite field, it must be large, by constructing a nonzero polynomial of controlled degree that vanishes on the set and then using the Schwartz--Zippel lemma \cite{dvir2009}.
+
+Guth and Katz realized that this algebraic technique could be adapted to the real plane. The key innovation was \textbf{polynomial partitioning}: given $n$ points, find a nonzero polynomial $p(x,y)$ of degree $d$ such that the zero set of $p$ divides $\mathbb{R}^2$ into $O(d^2)$ cells, each containing at most $n/d^2$ points. This transforms a geometric problem into an algebraic one. Inside each cell, the points are well-separated, and across cells, the polynomial structure constrains how distances can repeat.
+
+The second key idea was a \emph{joints argument}: if many lines meet in a point, that point is a ``joint'' where three non-coplanar lines intersect. Guth and Katz showed that a polynomial of degree $d$ can have at most $O(d^2)$ joints per line, giving a new incidence bound that escaped the $n^{2/3}$ barrier.
+
+\subsection{Student-Friendly Explanation}
+
+Here is how to think about the key insight. Imagine you have $n$ points scattered in the plane and very few distinct distances. That means many pairs of points are the same distance apart, so many pairs ``agree'' on a distance. Guth and Katz's idea is to build a polynomial surface (like a wavy sheet) that slices through the plane and puts roughly equal numbers of points in each piece. Because the polynomial has algebraic structure, it controls how the points can be arranged: you cannot pack too many points into a small region without the polynomial's degree forcing a contradiction. The polynomial acts like a ``net'' that catches any configuration with too few distances.
+
+More concretely: if there were far fewer than $n/\log n$ distinct distances, then some distance $d$ would appear many times. That means many points lie on many circles of radius $d$. The polynomial partitioning forces these circles to intersect the polynomial's zero set in controlled ways, and the joints argument counts those intersections. The algebraic structure of the polynomial---its degree, its factorization, its behavior at special points---gives you counting power that pure combinatorics never could.
+
+The result is $f(n) \ge cn/\log n$, which almost matches the grid construction's upper bound of $O(n/\sqrt{\log n})$. The $\log n$ gap remains, but the polynomial method closed a gap that had been open for 64 years.
+
 \subsection{Guth and Katz (2010)}
 
 Larry Guth and Nets Katz proved in 2010 \cite{guth2015}:

@@ -66,6 +66,25 @@ The Liouville function $\lambda(n) = (-1)^{\Omega(n)}$ (where $\Omega(n)$ counts
 
 \section{The Solution}
 
+\subsection{What Was Missing}
+Before Tao, the Erd\H{o}s discrepancy conjecture had been open for 58 years with virtually no progress on the general case. Partial results existed for special sequences---for instance, it was known that periodic completely multiplicative sequences have unbounded discrepancy, and that certain structured sequences (those correlated with Dirichlet characters) cannot maintain low discrepancy. But these special cases shed no light on the core difficulty: proving that \emph{every} completely multiplicative $\pm 1$ sequence, no matter how cleverly constructed, must eventually exhibit large partial sums along some arithmetic progression.
+
+\subsection{Why Existing Methods Failed}
+Classical tools in combinatorics---the Beck--Fiala theorem, Spencer's ``six standard deviations suffice'' result, and Banaszczyk's bounds---address discrepancy for \emph{set systems} (bounded-degree hypergraphs) and produce bounds of the form $O(\sqrt{n})$ or $O(\sqrt{\log n})$. These methods are fundamentally ill-suited to the Erd\H{o}s problem because the ``set system'' here consists of \emph{all} arithmetic progressions, which have unbounded degree. Fourier analysis on the integers, while useful for detecting periodicity, cannot directly handle non-periodic completely multiplicative sequences. Purely combinatorial arguments lacked the leverage to force global unboundedness from local constraints.
+
+\subsection{What Was Novel}
+Tao's 2015 proof introduced a new probabilistic--analytic technique:
+\begin{enumerate}
+\item \textbf{The entropy decrement argument:} This is a new averaging technique. If the discrepancy were bounded, one could average the sequence over large primes and show that the ``information content'' (entropy) of the sequence decreases. This forces the sequence to correlate with a Dirichlet character of bounded conductor.
+\item \textbf{Reduction to Elliott's conjecture:} Tao proved a logarithmically averaged version of Elliott's conjecture (a far-reaching generalization of Chowla's conjecture on correlations of multiplicative functions), which formalized the statement that correlation with a Dirichlet character propagates.
+\item \textbf{Forcing unbounded discrepancy:} Once correlation with a Dirichlet character is established, the discrepancy is forced to be unbounded because Dirichlet characters have unbounded partial sums along certain arithmetic progressions (by Dirichlet's theorem on primes in arithmetic progressions).
+\end{enumerate}
+
+\subsection{Student-Friendly Explanation}
+Suppose you could assign $+1$ and $-1$ to every counting number in a way that keeps \emph{every} evenly-spaced sum small forever. Tao showed this is impossible by an indirect argument. First, he showed that such a carefully balanced sequence would have to ``look like'' a periodic pattern based on prime numbers (a Dirichlet character). But periodic patterns always have unbounded sums along their own period---you can't hide from that. The key new idea is the \emph{entropy decrement}: imagine zooming out and averaging the sequence over larger and larger blocks of primes. If the discrepancy were bounded, this averaging would make the sequence more and more predictable (its entropy would drop), forcing it to look like a Dirichlet character---and that leads to a contradiction. It is like proving that no matter how you shuffle a deck of cards, if you zoom out enough, patterns must emerge, and those patterns inevitably blow up the discrepancy.
+
+\bigskip
+
 \subsection{Tao's Breakthrough \cite{tao2016discrepancy}}
 Terence Tao announced a proof on September 18, 2015, using a combination of:
 

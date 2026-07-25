@@ -79,6 +79,18 @@ Cohn and Kumar (2001) constructed such functions for dimensions $n \leq 8$ and $
 
 \section{The Solution}
 
+\subsection{What Was Missing}
+The $E_8$ lattice (dimension 8) and the Leech lattice (dimension 24) had been conjectured optimal for decades, and Cohn--Kumar (2001) showed that if a certain auxiliary radial function satisfying three inequalities could be constructed, then optimality would follow. What was missing was an explicit construction of this function. Cohn and Kumar found numerically optimized candidates that worked for many lattice packings, but numerical approximations are not proofs: the inequalities could fail at untested points, and no exact analytic formula was known.
+
+\subsection{Why Existing Methods Failed}
+The Cohn--Kumar linear programming bound reduces the packing problem to constructing a radial function $f$ with $f(x) \leq 0$ for $\|x\| \geq 1$, $\hat{f}(\xi) \leq 0$ for $0 < \|\xi\| \leq 1$, and $f(0) = \hat{f}(0)$. Previous attempts used piecewise polynomial or numerically optimized functions, which could only verify the inequalities on a finite grid---leaving open the possibility that violations existed elsewhere. Moreover, extending these methods to prove optimality for \emph{arbitrary} (not just lattice) packings required a fundamentally different approach, because the Fourier-analytic framework for non-lattice packings is much less constrained.
+
+\subsection{What Was Novel}
+Viazovska's 2016 proof was revolutionary because she constructed the auxiliary function \emph{exactly} using \textbf{modular forms}. The theta series of the $E_8$ lattice is a modular form of weight 4 for $\Gamma_0(2)$, and Viazovska used this to build $f$ as an integral transform involving the Bessel function $J_4$ and a polynomial $P$ determined by modular form coefficients. The modular form identity guarantees the Fourier-analytic inequalities \emph{exactly} at all critical points simultaneously---no numerical approximation needed. The proof was only 20 pages and was completed in a single weekend.
+
+\subsection{Student-Friendly Explanation}
+Imagine you want to prove that stacking oranges in the $E_8$ pattern (in an 8-dimensional room) is the absolute best way to pack them. Cohn and Kumar showed that this boils down to constructing a special ``test function'' that certifies optimality---like a mathematical witness. Previous attempts found approximate witnesses by computer search, but an approximation is not a proof. Viazovska's insight was that modular forms---functions with deep symmetry properties from number theory---can be used to write down the witness \emph{exactly}. The symmetry of modular forms automatically forces the test function to have the right shape everywhere, not just at finitely many checked points.
+
 \subsection{Viazovska's Breakthrough (2016)}
 
 In February 2016, Maryna Viazovska, then at the Institute for Advanced Study in Princeton, posted a paper on arXiv proving that the $E_8$ lattice gives the densest sphere packing in dimension 8 \cite{viazovska2017}:

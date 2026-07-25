@@ -75,6 +75,24 @@ Thomas Hales, at the University of Michigan, approached the problem by reducing 
 
 \section{The Solution}
 
+\subsection{What Was Missing}
+Before Hales, the best known rigorous bound was $\Delta \leq 0.7797$ (Rogers, 1947), well above the conjectured optimum of $\pi/\sqrt{18} \approx 0.74048$. Gauss (1831) had proved that no \emph{lattice} packing (one where sphere centers form a repeating lattice) can beat this density, but the real challenge was ruling out irregular, non-lattice packings. Nobody could show that an exotic, disordered arrangement of spheres does not secretly achieve a higher density than the neat face-centered cubic lattice.
+
+\subsection{Why Existing Methods Failed}
+Geometric and analytic methods---Rogers's sphere-bound techniques, general packing inequalities, and energy minimization arguments---could only produce upper bounds on density, and those bounds were too loose to reach $\pi/\sqrt{18}$. The fundamental difficulty is that sphere packings are not required to have any periodicity or symmetry; the centers can sit anywhere, and the ``worst case'' over all such arrangements is extraordinarily hard to pin down. Purely analytic methods lacked the resolution to distinguish the FCC density from slightly denser irregular configurations.
+
+\subsection{What Was Novel}
+Hales's proof combined two ingredients that no one had previously brought together for this problem:
+\begin{enumerate}
+\item \textbf{Geometric reduction via Voronoi decomposition and linear programming:} Hales showed that any packing can be dissected into simplices whose vertices are sphere centers, and that the global density is bounded by a linear programming problem over the scores of these simplices. This converted the infinite-dimensional packing problem into a finite (but enormous) system of linear inequalities.
+\item \textbf{Massive computer verification:} The resulting linear program had to be checked over approximately 100,000 non-isomorphic cases, each involving thousands of variables. Hales wrote specialized software to perform these checks exhaustively---a proof that no human could carry out by hand.
+\end{enumerate}
+
+\subsection{Student-Friendly Explanation}
+Imagine you want to prove that no arrangement of oranges in a grocery store can be denser than the usual neat stacking. Gauss already showed that no neat \emph{grid-like} stacking beats it. The hard part is the messy, chaotic arrangements---what if someone jiggles the oranges into a weird pattern that somehow packs tighter? Hales's idea was to chop space into small ``wedges'' (tetrahedra) around each orange and compute a ``score'' for each wedge. If the average score is low enough, the overall density cannot exceed $\pi/\sqrt{18}$. The catch: there are infinitely many possible wedge shapes, so you need a computer to check every one. Hales's computer crunched through 100,000 cases and confirmed that no wedge ever exceeds the critical score. The proof is thus a marriage of clever geometry and brute-force computing---geometry to set up the right inequality, and computers to verify it exhaustively.
+
+\bigskip
+
 Hales announced his proof in 1998, spanning approximately 250 pages of mathematics and 3 gigabytes of computer files. The proof was published in \emph{Annals of Mathematics} in 2005, but the refereeing process took four years.
 
 The referees reported: ``We are 99\% certain the proof is correct.'' This level of uncertainty was unprecedented for a journal of the Annals' stature.

@@ -66,6 +66,18 @@ Assuming the Generalized Riemann Hypothesis, there exist infinitely many pairs o
 
 \section{The Solution}
 
+\subsection{What Was Missing}
+By 2009, Goldston, Pintz, and Yildirim (GPY) had proved that $\liminf (p_{n+1} - p_n)/\log p_n = 0$: prime gaps can be arbitrarily small compared to the average gap. But this is a \emph{relative} statement---it says gaps can be tiny as a fraction of $\log p_n$, without giving any fixed upper bound. What was missing was the leap from ``gaps are small on average'' to ``gaps are bounded infinitely often.'' Concretely, nobody had proved the existence of a finite constant $N$ such that $p_{n+1} - p_n \leq N$ for infinitely many $n$.
+
+\subsection{Why Existing Methods Failed}
+The GPY sieve required a \emph{level of distribution} result for primes: one needed the prime counting function $\pi(x; q, a)$ to behave well in arithmetic progressions up to a range beyond $x^{1/2}$. The Bombieri--Vinogradov theorem, the best unconditional result available, provided this only up to $x^{1/2}$, which was insufficient to produce a bounded gap. Extending the level of distribution beyond $x^{1/2}$ was believed to require the Elliott--Halberstam conjecture, which remained unproven. Classical sieve methods (Brun, Selberg, large sieve) were inherently limited by this barrier: without a stronger equidistribution result, the error terms overwhelmed the main terms, and no finite bound could be extracted.
+
+\subsection{What Was Novel}
+Zhang's breakthrough was twofold. First, he proved a Bombieri--Vinogradov-type equidistribution result for a \emph{smoothed} version of the prime counting function, valid for moduli up to a fixed power of $x$---a result that, while slightly weaker than the full Elliott--Halberstam conjecture, was strong enough to push the GPY sieve past the $x^{1/2}$ barrier. Second, he combined this with a careful modification of the GPY weight function and the Selberg sieve to control the error terms. The combination of these innovations allowed him to prove that some bounded gap (initially $\leq 70{,}000{,}000$) occurs infinitely often. The bound was far from optimal, but the mere existence of a finite bound was revolutionary.
+
+\subsection{Student-Friendly Explanation}
+Imagine the primes as mile markers on a very long road, and you want to know: do two mile markers ever sit within a fixed distance of each other, forever? Before Zhang, mathematicians knew the gaps could get very small \emph{relative} to the average spacing, but they couldn't rule out the possibility that every fixed window eventually goes gap-free. Zhang showed that no matter how far you travel, you will always find two primes within, say, 70 million of each other. He did this by strengthening a tool (the GPY sieve) in exactly the right way---like discovering a sharper lens that finally brought a blurry image into focus.
+
 \subsection{Zhang's Breakthrough (2013)}
 
 In May 2013, Yitang Zhang, a mathematician at the University of New Hampshire, published a paper that stunned the mathematical world \cite{zhang2014}:

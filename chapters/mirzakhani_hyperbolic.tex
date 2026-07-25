@@ -72,6 +72,18 @@ The \emph{tautological classes} are cohomology classes $\kappa_i, \psi_i, \lambd
 
 \section{The Solution}
 
+\subsection{What Was Missing}
+Before Mirzakhani, the volumes $V_{g,n}(L_1, \ldots, L_n)$ of moduli spaces of bordered Riemann surfaces with respect to the Weil--Petersson metric were known only for a handful of low-genus cases. There was no general formula---not even a conjectured form---for arbitrary $g$ and $n$. The fundamental question was: do these volumes follow a predictable pattern (such as being polynomials in the $L_i$), and if so, can they be computed systematically? The gap was total: no recursion, no closed-form, and no structural theorem existed.
+
+\subsection{Why Existing Methods Failed}
+Prior approaches relied on topological recursion and matrix models, which gave \emph{recursive structures} for certain enumerative invariants (such as intersection numbers on $\overline{\mathcal{M}}_{g,n}$) but did not directly yield explicit polynomial formulas for Weil--Petersson volumes. The problem was that these methods operated at the level of cohomological invariants without connecting to the \emph{dynamics} of the moduli space. One could count geodesics or compute intersection numbers, but the link between the geometry of Teichm\"uller space and the combinatorics of the volume polynomial was missing. Existing techniques from Riemannian geometry (comparison theorems, heat kernels) gave asymptotic estimates but not exact formulas.
+
+\subsection{What Was Novel}
+Mirzakhani's key innovation was the \emph{earthquake flow}: she used the dynamics of earthquakes (continuous left-right shearing along measured geodesic laminations) on Teichm\"uller space to derive a recursion for Weil--Petersson volumes. The earthquake flow preserves the WP symplectic form and acts ergodically, allowing Mirzakhani to express the volume as an integral over the space of measured laminations. By decomposing this integral according to how geodesics are pinched, she obtained a recursion that expresses $V_{g,n}$ in terms of volumes of lower-genus surfaces. This connected three seemingly unrelated worlds: hyperbolic geometry (counting geodesics), differential geometry (WP volumes), and algebraic geometry (intersection numbers and mirror symmetry).
+
+\subsection{Student-Friendly Explanation}
+Imagine you have a vast landscape of possible saddle-shaped surfaces, each described by how its curves are arranged. Mirzakhani asked: can we measure the total ``size'' of this landscape? Previous mathematicians had computed this size for a few tiny pieces but had no recipe for the whole thing. Mirzakhani's idea was to use a natural motion on the landscape---imagine gently shifting the surface by sliding it along its curves, like shearing a deck of cards. By studying how this motion redistributes the landscape, she found a master equation (a recursion) that builds the volume for complicated surfaces out of volumes of simpler ones. The result is a beautiful polynomial formula, and the method connects hyperbolic geometry to mirror symmetry in a way nobody had expected.
+
 \subsection{Recursive Formula for Weil--Petersson Volumes (2007--2008)}
 
 \begin{theorem}[Mirzakhani, 2007 \cite{mirzakhani2007}]

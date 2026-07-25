@@ -82,6 +82,18 @@ Key properties:
 
 \section{The Solution}
 
+\subsection{What Was Missing}
+For decades, mathematicians had a ``dictionary'' between characteristic~$0$ and characteristic~$p$ geometry, but only for individual, well-behaved spaces. Fontaine's $p$-adic Hodge theory gave a precise comparison between de Rham and crystalline cohomology for a \emph{single} smooth proper variety over a $p$-adic field. What was missing was any framework that could handle \emph{families}---families of singular, non-projective spaces whose geometry changes from fibre to fibre. Without such a framework, fundamental questions (like the weight-monodromy conjecture) could not even be stated globally, let alone proved.
+
+\subsection{Why Existing Methods Failed}
+The classical tools---rigid analytic geometry and the étale topology---were designed for individual spaces. The étale site of a rigid space is too coarse: it cannot detect $p$-adic Hodge-theoretic phenomena, and $\mathcal{O}_X^+$ has non-trivial cohomology. Attempts to extend Fontaine's constructions to families ran into walls: comparison isomorphisms would break down, filtrations would become ill-defined, and there was no cohomology theory that was simultaneously $p$-adic and well-behaved for non-smooth spaces. In short, the existing geometric foundations were not powerful enough.
+
+\subsection{What Was Novel}
+Scholze's innovation was threefold: (1)~the \textbf{tilt equivalence}, which associates to every perfectoid field of characteristic~$0$ a perfectoid field of characteristic~$p$ while preserving all arithmetic data; (2)~the category of \textbf{perfectoid spaces}, which are locally isomorphic to adic spaces built from perfectoid rings and carry a natural tilt functor between characteristic~$0$ and characteristic~$p$; and (3)~the \textbf{pro-étale topology}, a new Grothendieck topology in which $\mathcal{O}_X^+$ becomes acyclic and comparison isomorphisms extend to families. Together these three innovations replace the rigid-analytic toolkit with a far more flexible foundation.
+
+\subsection{Student-Friendly Explanation}
+Imagine you have two languages---one for describing geometry over numbers like $0, 1, 2, \ldots$ (characteristic~$0$) and one for geometry over numbers like $0, 1, 1+1, \ldots$ where eventually $p=0$ (characteristic~$p$). For a long time, people had a pocket dictionary that worked for individual ``words'' (individual spaces), but it broke down when you tried to translate whole ``paragraphs'' (families of spaces). Scholze built a universal translator by first introducing a perfectoid space, which lives in both languages simultaneously, and then proving that the two languages are secretly the same---you just need the right topology to see it. This is like discovering that two apparently unrelated writing systems are actually encoding the same story.
+
 \subsection{Scholze's Thesis (2011) and Annals Papers (2012-2013)}
 
 \begin{theorem}[Scholze \cite{scholze2012} -- Local Langlands for $\text{GL}_n$]

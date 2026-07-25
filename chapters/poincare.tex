@@ -82,6 +82,25 @@ The fundamental insight: Ricci flow tends to make manifolds more spherical. If w
 
 \section{The Solution}
 
+\subsection{What Was Missing}
+By the early 2000s, the Poincar\'e conjecture had been settled in every dimension except three. Smale (1961) proved it for dimensions five and above, and Freedman (1982) handled dimension four. Dimension 3 remained stubbornly open. Hamilton's Ricci flow, introduced in 1982, was the most promising approach: it smoothly deforms a manifold's geometry toward uniform curvature. But after two decades of effort, a single critical obstacle remained---the flow develops singularities (pinch points where curvature blows up), and no one knew how to systematically control them and continue the flow past those singularities.
+
+\subsection{Why Existing Methods Failed}
+Higher-dimensional techniques (Smale's handle-trading, Freedman's Casson handles) exploit the fact that there is ``room'' in dimensions $\geq 4$ to untangle topological obstructions by general position arguments. In dimension 3, such room does not exist---surfaces cannot be pushed past each other generically. Hamilton's Ricci flow was the right idea, but his surgery procedure could only handle a limited taxonomy of singularities. Without a proof that \emph{all} singularities fall into manageable types, and that surgeries do not proliferate without bound, the program could not be completed.
+
+\subsection{What Was Novel}
+Perelman introduced two foundational innovations that cracked the singularity problem:
+\begin{enumerate}
+\item \textbf{Perelman's entropy functional ($\mathcal{W}$-entropy):} A new monotone quantity $\mathcal{W}(g,f,\tau)$ that governs the Ricci flow, analogous to thermodynamic entropy. Its monotonicity ($\frac{d\mathcal{W}}{dt}\geq 0$) provides global control over the flow's evolution, preventing the formation of unmanageable singularities.
+\item \textbf{The no-local-collapsing theorem:} Perelman proved that regions of bounded curvature under Ricci flow cannot collapse to lower dimensions---the volume of geodesic balls is bounded below. This prevented the pathological ``pinching'' that had derailed previous attempts and guaranteed that surgery could be performed uniformly.
+\end{enumerate}
+Together, these tools gave complete control of singularity formation and allowed Hamilton's surgery program to be carried out to completion.
+
+\subsection{Student-Friendly Explanation}
+Think of a crumpled rubber ball slowly inflating. The Ricci flow smooths out wrinkles---sharp dents flatten, and bumpy regions round off---just as heat spreads out hot spots in a metal plate. The trouble is, some wrinkles become so sharp that they pinch off, creating a singularity (like a needle forming on the surface). Perelman's key insight was to invent a ``thermometer for complexity''---his $\mathcal{W}$-entropy---that tracks whether the overall geometry is becoming simpler or more tangled. He proved this quantity never decreases, so the flow is always making progress. He also proved that no region can collapse to zero volume, so the manifold never ``folds in on itself.'' With these guarantees, one can surgically remove each pinch point and keep flowing until the manifold is revealed to be a perfect 3-sphere.
+
+\bigskip
+
 In 2002 and 2003, Grigori Perelman, a Russian mathematician working at the Steklov Institute in St. Petersburg, posted three preprints on arXiv that completed the proof \cite{perelman2002,perelman2003a,perelman2003b}:
 
 \begin{enumerate}

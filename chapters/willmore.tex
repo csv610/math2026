@@ -57,6 +57,58 @@ It is minimal in $S^3$, has constant mean curvature in $\mathbb{R}^3$ (after ste
 
 \section{The Solution}
 
+\subsection{What Was Missing Before}
+
+The Willmore conjecture (1965) stated that for any immersed torus $T^2 \subset \mathbb{R}^3$, the Willmore energy $\mathcal{W}(T^2) = \int H^2\,dA \ge 2\pi^2$, with equality only for the Clifford torus (up to conformal transformations). Before the proof, partial results had been obtained. Li and Yau proved in 1993 that non-embedded tori (those with self-intersections) have $\mathcal{W} \ge 2\pi^2$---but this excluded the most interesting case: embedded tori. Ros proved the conjecture for \emph{tori of revolution} in 2005 (surfaces obtained by rotating a circle around an axis). But the general case---for all tori, including embedded ones with complicated topology---remained open. The gap was: nobody could prove the lower bound for \emph{all} immersed tori simultaneously.
+
+\subsection{Why Existing Methods Failed}
+
+The Willmore energy is a \emph{functional} on the space of surfaces---it assigns a number to each torus, and you want to show the minimum is $2\pi^2$. The natural approach is variational: study critical points of the Willmore functional and show the minimum is achieved by the Clifford torus. But this approach fails for a fundamental reason: the space of immersed tori is infinite-dimensional and has complicated topology. You cannot simply ``optimize'' over all tori because:
+
+\begin{enumerate}
+\item \textbf{The space is too big.} The space of all immersed tori in $\mathbb{R}^3$ is infinite-dimensional. Direct minimization is impossible---you need to understand the global structure of this space.
+\item \textbf{Topology interferes.} Different tori can have different ``topological types'' (different embeddings into $\mathbb{R}^3$), and the Willmore energy is not monotone with respect to any natural ordering. A sequence of tori with decreasing energy might converge to something that is not a torus at all.
+\item \textbf{Conformal invariance is a double-edged sword.} The Willmore energy is conformally invariant (invariant under Möbius transformations of $\mathbb{R}^3$), which is a beautiful property but makes the functional ``flat''---it does not distinguish between conformally equivalent tori. This means the energy landscape has large flat directions, making variational methods tricky.
+\end{enumerate}
+
+Previous variational approaches (Simon 1993, Bauer and Kuwert 2003) could show that a minimizer exists within certain restricted classes, but they could not handle the full space of immersed tori. The problem was that no one could control the topology of the minimizer: how do you guarantee that a minimizing sequence does not degenerate into something with the wrong genus?
+
+\subsection{What Was Novel}
+
+The breakthrough of Marques and Neves (2014) \cite{marquesneves2014} was the application of \textbf{Almgren--Pitts min-max theory} to the Willmore functional. This theory, originally developed for minimal surfaces (surfaces with $H = 0$), was adapted to the Willmore setting.
+
+The key ideas are:
+
+\begin{enumerate}
+\item \textbf{Min-max theory.} Instead of minimizing the Willmore energy directly, you study \emph{sweepouts}---continuous families of tori that fill up a 3-manifold (like $S^3$). For each sweepout, look at the \emph{maximum} Willmore energy among all tori in the family. The min-max value is the infimum of this maximum over all sweepouts. By a compactness argument (using geometric measure theory), this infimum is achieved by a ``min-max torus''---a critical point of the Willmore functional.
+
+\item \textbf{The canonical family.} For any immersed torus $\Sigma$, Marques and Neves construct a \emph{canonical family} of tori in $S^3$ by applying conformal transformations to $\Sigma$. The maximum Willmore energy in this family gives a lower bound on $\mathcal{W}(\Sigma)$. The key is that this family is ``optimal''---no other sweepout can give a better bound.
+
+\item \textbf{The index bound.} Using the min-max theory, Marques and Neves show that any min-max torus with Willmore energy $< 2\pi^2$ must have index $\le 1$ (i.e., it is a local minimum or a saddle point with at most one negative direction). But the only torus in $S^3$ with index $\le 1$ and energy $< 2\pi^2$ is the Clifford torus (which has energy exactly $2\pi^2$). This forces the min-max value to be $\ge 2\pi^2$.
+
+\item \textbf{Free boundary extension.} To handle tori with boundary (which arise in the min-max construction), Marques and Neves use free boundary min-max theory, extending the Almgren--Pitts framework to manifolds with boundary.
+\end{enumerate}
+
+The novelty was not just using min-max theory (which had been applied to minimal surfaces since the 1980s) but adapting it to the Willmore functional, which has very different analytic properties. The Willmore functional is fourth-order (involving second derivatives of the embedding), while the area functional is second-order. This required new compactness and regularity theory.
+
+\subsection{Student-Friendly Explanation}
+
+Here is how to think about the proof. The Willmore energy measures how ``round'' a torus is: a perfectly round torus (the Clifford torus) has energy $2\pi^2$, and you want to show no torus can do better.
+
+The natural approach---just minimize the energy---fails because the space of tori is too complicated. Instead, Marques and Neves use a clever indirect strategy:
+
+\begin{enumerate}
+\item \textbf{Sweep out $S^3$ with tori.} Imagine filling up the 3-sphere with a continuous family of tori, like inflating a balloon that starts as a tiny Clifford torus and expands to fill all of $S^3$. At some point during the sweepout, the torus must have high Willmore energy---you cannot pass from a tiny torus to a huge one without the energy spiking.
+
+\item \textbf{Find the best sweepout.} Different sweepouts spike at different energies. The min-max value is the best (lowest) spike you can achieve over all sweepouts. Marques and Neves show that this min-max value is exactly $2\pi^2$.
+
+\item \textbf{The Clifford torus is the only possibility.} Using the theory of minimal surfaces in $S^3$, they show that any torus with energy $< 2\pi^2$ must have a very simple structure (low index). But the only such torus is the Clifford torus itself, which has energy exactly $2\pi^2$. So the min-max value cannot be less than $2\pi^2$.
+
+\item \textbf{Conclude.} Since the min-max value is $\ge 2\pi^2$, and the Clifford torus achieves $2\pi^2$, the Willmore conjecture follows: every torus has energy $\ge 2\pi^2$.
+\end{enumerate}
+
+The key insight is that min-max theory lets you study the Willmore energy \emph{globally}---you do not need to understand every individual torus, only the structure of sweepouts. The conformal geometry of $S^3$ and the classification of minimal surfaces provide the tools to analyze these sweepouts.
+
 \subsection{Marques and Neves \cite{marquesneves2014}}
 
 \begin{theorem}[Marques-Neves \cite{marquesneves2014}]

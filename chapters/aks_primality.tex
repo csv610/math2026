@@ -69,27 +69,82 @@ The key innovation was showing that a \emph{small} value of $r$ suffices, making
 
 \section{The Solution}
 
+\subsection{What Was Missing Before}
+
+Before 2002, primality testing was split into two incompatible worlds. On one side stood fast algorithms that could be \emph{wrong}. Probabilistic tests like Miller--Rabin flip a coin (figuratively) for each candidate: they run in polynomial time but declare a number ``probably prime'' with a small but nonzero chance of error. For cryptography this was acceptable in practice---you can run the test 100 times and drive the error probability below any threshold---but a theoretical guarantee was impossible. On the other side stood algorithms that were always correct but \emph{slow}. Trial division is exponential: for a $d$-digit number you might need to check up to $10^{d/2}$ divisors. Even the fastest known deterministic methods at the time---elliptic curve primality proving (ECPP)---were only ``practically polynomial'' (heuristically $\tilde{O}((\log n)^4)$) and relied on unproven assumptions about the distribution of elliptic curve group orders.
+
+The key gap was therefore: \textbf{no known deterministic algorithm could prove primality in proven polynomial time, and it was widely believed that this might be impossible.} Many complexity theorists suspected that PRIMES might not be in P at all, or that proving it \emph{would} require resolving deep open questions like the Riemann Hypothesis.
+
+\subsection{Why Existing Methods Failed}
+
+Each previous approach hit a specific wall:
+
+\begin{itemize}
+\item \textbf{Fermat's test and its descendants} were undermined by Carmichael numbers---composites like $561 = 3 \cdot 11 \cdot 17$ that satisfy $a^{n-1} \equiv 1 \pmod{n}$ for every $a$ coprime to $n$. No choice of base could reliably distinguish them from primes.
+\item \textbf{Miller's deterministic test} (1976) is polynomial-time \emph{assuming} the Extended Riemann Hypothesis (ERH). It reduces the number of bases you need to check from all of $\mathbb{Z}_n^*$ to just $(\log n)^2$, but proving the ERH remains one of the deepest open problems in mathematics. The test is conditional, not unconditional.
+\item \textbf{Solovay--Strassen} avoids ERH but is probabilistic: it has a one-in-two error rate per round, and no finite number of rounds eliminates the error entirely.
+\item \textbf{Elliptic curve methods} (Goldwasser--Kilian 1986, Atkin--Morain 1993) are deterministic and have expected polynomial running time, but their polynomial-time guarantee is \emph{conditional on heuristics} about the probability that random elliptic curves yield large group orders. No proof that these heuristics always holds was known.
+\item \textbf{Special-form tests} (Lucas--Lehmer for Mersenne numbers, Proth's theorem for $k \cdot 2^n + 1$) are fast and unconditional, but they only work for numbers with a very specific algebraic structure. A general-purpose test was missing.
+
+The fundamental obstacle was finding a purely algebraic characterization of primality that (a) is \emph{both necessary and sufficient}---not just one direction---and (b) can be checked using computations that scale polynomially with the number of digits. Every prior attempt either got the ``if and only if'' wrong (Fermat) or got it right but could not be checked efficiently without unproven assumptions (Miller, ECPP).
+
+\subsection{What Was Novel: The AKS Insight}
+
+Agrawal, Kayal, and Saxena's breakthrough was to realize that a beautiful identity from abstract algebra could serve as a \emph{perfect} primality test, and---crucially---that it could be made fast.
+
+The starting point is an old fact about prime numbers. If $p$ is prime, then in the ring $\mathbb{Z}/p\mathbb{Z}$:
+\[
+(X + a)^p \equiv X^p + a \pmod{p}
+\]
+for every integer $a$. This follows from the binomial theorem and the fact that $\binom{p}{k}$ is divisible by $p$ for $0 < k < p$. In ring-theoretic language, the map $x \mapsto x^p$ is the \emph{Frobenius endomorphism}, and the identity above says that the Frobenius acts as a ring homomorphism---it distributes over addition---if and only if $p$ is prime.
+
+This immediately gives a primality criterion: $n$ is prime if and only if $(X+a)^n \equiv X^n + a \pmod{n}$ as polynomials, for every $a$ coprime to $n$. The ``if'' direction is the hard part, and Agrawal--Kayal--Saxena proved it.
+
 \begin{theorem}[AKS Primality Test, 2002 \cite{agrawal2004}]
 There exists a deterministic algorithm that decides whether $n$ is prime in time $\tilde{O}((\log n)^6)$.
 \end{theorem}
 
-The original AKS paper ran in $\tilde{O}((\log n)^{12})$. Subsequent improvements:
-
-\begin{itemize}
-\item Lenstra and Pomerance (2011): $\tilde{O}((\log n)^3)$ \cite{lenstra2011}
-\item Cohen and Lenstra (2003): various optimizations \cite{bernstein2006}
-\end{itemize}
-
-The algorithm's correctness relies on deep algebraic number theory:
+The novelty was not the identity itself---it was known in algebra for over a century. The novelty was \emph{making it fast}. Na\"ively checking $(X+a)^n \pmod{X^r - 1, n}$ requires multiplying polynomials of degree up to $n$, which is too slow. The key ideas that made it polynomial were:
 
 \begin{enumerate}
-\item \textbf{Cyclotomic fields}: The proof uses properties of the $r$-th cyclotomic field $\mathbb{Q}(\zeta_r)$.
-\item \textbf{Order of $q$ modulo $r$}: The algorithm chooses $r$ such that the multiplicative order of $n$ modulo $r$ is large.
-\item \textbf{Irreducibility}: The proof shows that if $n$ is composite but passes all tests, then a certain polynomial must be irreducible, leading to a contradiction.
+\item \textbf{Work modulo $X^r - 1$ for a \emph{small} $r$}. Reducing to degree $< r$ keeps polynomial multiplications manageable (each takes $\tilde{O}(r)$ time). The challenge is choosing $r$ small enough to be fast but large enough to make the test correct.
+\item \textbf{Choose $r$ so that the order of $n$ modulo $r$ is large}. Specifically, the algorithm finds $r$ such that $\operatorname{ord}_r(n) > (\log n)^2$. This ensures that if $n$ is composite, the algebraic contradictions propagate far enough to be detected.
+\item \textbf{Check only a polynomial number of values of $a$}. Instead of testing every $a$, checking $a = 1, 2, \ldots, \lceil \sqrt{\phi(r)} \log n \rceil$ (where $\phi$ is Euler's totient) suffices. This bounds the total work.
+\end{enumerate}
+
+\subsection{Student-Friendly Summary}
+
+Here is the intuition in plain language. To test whether $n$ is prime:
+
+\begin{enumerate}
+\item Pick a small integer $r$ (chosen so that $n$ has large multiplicative order modulo $r$).
+\item In the polynomial ring $\mathbb{Z}_n[X] / (X^r - 1)$, compute $(X + a)^n$ for several values of $a$.
+\item Check whether the result equals $X^n + a$ in that ring.
+\item If it fails for any $a$, then $n$ is composite. If it passes for all tested values of $a$, then $n$ is prime.
+\end{enumerate}
+
+Think of it this way: \emph{composite numbers cannot consistently fake the Frobenius endomorphism}. When you expand $(X+a)^n$ and reduce modulo both $n$ and $X^r - 1$, a composite $n$ will ``leak''---the coefficients will not match $X^n + a$. The genius of AKS was proving that checking a polynomial number of $a$-values in a ring of polynomial degree suffices to catch every composite.
+
+\subsection{Complexity and Improvements}
+
+The original AKS paper ran in $\tilde{O}((\log n)^{12})$. Subsequent improvements dramatically reduced the running time:
+
+\begin{itemize}
+\item Bernstein (2003): practical optimizations, $\tilde{O}((\log n)^{12})$ with smaller constants.
+\item Lenstra and Pomerance (2011): improved the theoretical bound to $\tilde{O}((\log n)^3)$, which is close to optimal \cite{lenstra2011}.
+\item Cohen and Lenstra (2003): various structural optimizations \cite{bernstein2006}.
+\end{itemize}
+
+The algorithm's correctness proof uses deep algebraic number theory:
+
+\begin{enumerate}
+\item \textbf{Cyclotomic fields}: The proof studies splitting of primes in the $r$-th cyclotomic field $\mathbb{Q}(\zeta_r)$, using the fact that the Frobenius element controls how primes factor in extensions.
+\item \textbf{Order arguments}: The choice of $r$ ensures that if $n$ is composite and passes the polynomial tests, then $n$ must have a very specific algebraic structure---it must ``look like'' a prime in many cyclotomic extensions simultaneously.
+\item \textbf{Contradiction via irreducibility}: The proof shows that this structure is impossible for composite numbers: if $n$ is composite, the polynomial $X^r - 1$ would need to factor in a way that contradicts known results about cyclotomic polynomials.
 \end{enumerate}
 
 \begin{highlightbox}
-The AKS algorithm was the first \emph{general} deterministic polynomial-time primality test. It settled a decades-old open problem and proved that PRIMES $\in$ P. While not the fastest in practice (probabilistic tests are faster), it is theoretically fundamental.
+The AKS algorithm was the first \emph{general} deterministic polynomial-time primality test. It settled a decades-old open problem and proved unconditionally that PRIMES $\in$ P. While not the fastest in practice (probabilistic tests are still preferred for real-world applications), it is theoretically fundamental: it showed that primality is a property that can be checked in polynomial time, without any unproven assumptions. The proof introduced a novel bridge between computational complexity and algebraic number theory that continues to inspire research.
 \end{highlightbox}
 
 \section{Impact}

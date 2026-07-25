@@ -57,7 +57,19 @@ For random matrices, $m(z) = \frac{1}{N} \text{Tr}(H - z)^{-1}$ is the trace of 
 
 \section{The Solution}
 
-Between 2009 and 2012, two groups—Terence Tao and Van Vu, and Laszlo Erdős, Horng-Tzer Yau, and Jun Yin—developed revolutionary techniques to prove the local universality conjecture for Wigner matrices \cite{erdos2012, taovu2011}:
+\subsection{What Was Missing}
+The macroscopic eigenvalue distribution (Wigner's semicircle law) was settled by the 1960s, and explicit joint eigenvalue densities were known for the Gaussian ensembles. What was missing was the \emph{local} picture: the distribution of spacings between adjacent eigenvalues on a scale of $O(1/N)$, and crucially, whether this local picture was \emph{universal}---the same regardless of how the individual matrix entries were distributed. No existing technique could bridge the gap from a global spectral density statement to a microscopic spacing statement for non-Gaussian entries.
+
+\subsection{Why Existing Methods Failed}
+The classical Dyson Brownian motion (DBM) argument, introduced by Dyson in 1962, showed that eigenvalues of Gaussian matrices evolve like repelling particles and thermalize to the sine-kernel equilibrium. However, DBM only works when the entry distributions are exactly Gaussian (or when the process starts from a known equilibrium). For general Wigner matrices with non-Gaussian entries, there is no natural Brownian motion connecting them to the Gaussian ensemble, and even perturbative approaches could not control the microscopic statistics because the existing rigidity estimates were too weak at scale $O(1/N)$.
+
+\subsection{What Was Novel}
+Two independent groups made the breakthrough simultaneously: Tao--Vu proved the \textbf{four-moment theorem}, showing that matching just four moments of the entry distributions forces the local eigenvalue statistics to agree asymptotically; Erdős--Yau--Yin developed the \textbf{local semicircle law}, pushing the semicircle convergence down to the microscopic $O(1/N)$ scale. Together these tools let one reduce the universality problem for any Wigner matrix to the Gaussian case (where DBM does work), by first establishing rigidity of eigenvalues and then applying a short DBM interpolation in a small time window.
+
+\subsection{Student-Friendly Explanation}
+Think of a huge random spreadsheet where each cell contains a random number. The ``stretching directions'' (eigenvalues) of this spreadsheet spread out in a semicircle on a large scale---that was known. But the fine gaps between neighboring stretching directions were mysterious: do they depend on whether you fill the cells with coin flips, dice rolls, or bell-curve numbers? The breakthrough showed that the answer is \emph{no}: as the spreadsheet grows, the gap pattern always looks the same. The key trick was proving that only the first four statistical moments of the entries matter---so once you match those four moments, the fine structure is locked in.
+
+\subsection{Between 2009 and 2012, two groups---Terence Tao and Van Vu, and Laszlo Erdős, Horng-Tzer Yau, and Jun Yin---developed revolutionary techniques to prove the local universality conjecture for Wigner matrices \cite{erdos2012, taovu2011}:
 
 \begin{theorem}[Local Universality for Wigner Matrices, 2010s]
 For any Wigner matrix $H$ whose entry distributions have matching moments up to order 4 with the Gaussian ensembles, the local eigenvalue correlation functions converge to those of the GUE/GOE as $N \to \infty$.

@@ -92,6 +92,18 @@ This is the crucial ingredient: it means the signed hypercube has all eigenvalue
 
 \section{The Solution}
 
+\subsection{What Was Missing}
+By the time of Huang's work in 2019, the best known bound relating block sensitivity to sensitivity was $bs(f) \leq 2^{s(f)}$---an exponential bound. The conjecture asserted that $bs(f) \leq s(f)^c$ for some constant $c$; in other words, the relationship should be polynomial, not exponential. The gap was enormous: going from exponential to polynomial. For the parity function on $n$ bits, the sensitivity is $\sqrt{n}$ and the block sensitivity is $n$, so the known exponential bound $2^{\sqrt{n}}$ was wildly loose. What was missing was any technique that could bridge the gap from exponential to polynomial.
+
+\subsection{Why Existing Methods Failed}
+Three major families of techniques had been tried over 27 years without success. Fourier analysis could express sensitivity in terms of Fourier coefficients but could not extract polynomial bounds from them. Decision tree arguments gave $s(f) \leq D(f)$ (sensitivity bounded by decision tree depth) but could not connect $D(f)$ back to $bs(f)$ polynomially. Hypercontractivity, a powerful tool in Boolean function analysis, gave bounds on influence and noise sensitivity but could not improve beyond the exponential barrier. Each approach hit the same wall: the tools were strong enough to relate sensitivity to \emph{some} complexity measure, but not strongly enough to close the polynomial gap. The problem required a fundamentally different angle.
+
+\subsection{What Was Novel}
+Huang's proof introduced one key idea: the \emph{signed hypercube}. The standard hypercube $Q_n$ has adjacency matrix with eigenvalues $n, n-2, \ldots, -n$---a wide spread. Huang constructed a \emph{signing} (assigning $\pm 1$ to edges) of $Q_n$ such that the signed adjacency matrix $A$ satisfies $A^2 = nI$, meaning all eigenvalues are $\pm\sqrt{n}$. This is essentially a Hadamard matrix. He then applied the Cauchy interlacing theorem to the subgraph induced by $f^{-1}(1)$: since the signed hypercube has all eigenvalues at $\pm\sqrt{n}$, the induced subgraph must have an eigenvalue $\geq \sqrt{n}$, which implies minimum degree $\geq \sqrt{n}$. This gives $s(f) \geq \sqrt{\deg(f)}$, from which $bs(f) \leq s(f)^4$ follows by standard reductions. The entire proof is just two pages.
+
+\subsection{Student-Friendly Explanation}
+Think of the Boolean hypercube as a giant network where each corner is a string of $n$ zeros and ones, and two corners are connected if they differ in exactly one bit. The question is: if flipping a few bits always changes the function's answer, must flipping \emph{bigger groups} of bits also be effective? Huang's genius was to redraw the network with carefully chosen signs on the edges (like coloring them red or blue) so that the network becomes perfectly balanced---every ``frequency'' has the same magnitude. Then he used a classical theorem (Cauchy interlacing) to show that any subset of corners that the function labels as ``1'' must contain at least $\sqrt{n}$ connections. This single observation, from a one-page argument, was enough to settle a 27-year-old conjecture.
+
 \subsection{Huang (2019)}
 
 \begin{theorem}[Huang \cite{huang2019}]

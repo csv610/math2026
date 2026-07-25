@@ -48,13 +48,67 @@ To prove the Lawson conjecture, one must show that among all minimal tori in $S^
 
 \section{The Solution}
 
-\subsection{Brendle \cite{brendle2013}}
+\subsection{What Was Missing: The Uniqueness Gap}
+
+Lawson's 1970 classification produced a beautiful one-parameter family of minimal tori in $S^3$, and within that family the Clifford torus is clearly the only embedded member. But the conjecture asks something stronger: \emph{among all minimal tori in $S^3$---not just those in Lawson's family---is the Clifford torus the only embedded one?} The gap was that nobody could exclude the possibility of a ``rogue'' minimal torus, lurking outside Lawson's family, that might also be embedded.
+
+For over 30 years, geometers attacked this problem from multiple angles and failed:
+
+\begin{itemize}
+\item \textbf{Curvature flow methods} (e.g.\ mean curvature flow) could deform surfaces toward minimal ones, but could not establish \emph{uniqueness} of the limiting object among all embedded tori.
+\item \textbf{Variational and moduli-space methods} tried to analyze the space of all minimal tori directly, but this space is infinite-dimensional and its global topology was intractable.
+\item \textbf{Classification theorems} could show that \emph{within Lawson's family} only the Clifford torus is embedded, but could not rule out tori \emph{outside} the family.
+\end{itemize}
+
+The fundamental obstacle was that \emph{all known tools were either too local or too global}: they either analyzed one surface at a time (and couldn't compare across the family) or tried to control the entire moduli space at once (and couldn't close the argument).
+
+\subsection{Why Existing Methods Failed}
+
+The maximum principle and Simon's integral identity were both well-known tools in minimal surface theory, and both had been applied to this problem before. The issue was subtle:
+
+\begin{itemize}
+\item \textbf{Simon's identity} (1993) relates $\int_\Sigma (|A|^2 - 2)\,dA$ to a non-negative term involving the gradient of a function $\phi$. If you could show that $\phi$ is constant, then $|A|^2 = 2$ everywhere, characterizing the Clifford torus. But \emph{which} function $\phi$ to choose? A poor choice leads to a gradient term that cannot be controlled.
+\item \textbf{The maximum principle} says that a function on a compact manifold without boundary must achieve its maximum. Applied naively to $|A|^2$, it gives a pointwise bound---but translating that into a global rigidity statement requires a \emph{test function} that captures the specific geometry of tori in $S^3$.
+\end{itemize}
+
+Previous attempts chose test functions $\phi$ that were either too simple (yielding gradient terms too large to control) or too general (losing the specific structure that makes tori special among minimal surfaces). The proof was ``almost there'' for decades---the framework was clear, but the right input was missing.
+
+\subsection{What Was Novel: Brendle's Test Function}
+
+Simon Brendle's 2013 breakthrough was deceptively simple in its final form: he chose \emph{exactly the right test function} for the maximum principle. The novelty was:
+
+\begin{enumerate}
+\item \textbf{A tailored test function}: Brendle constructed a function $\phi$ built from the second fundamental form $|A|^2$ and the geometry of the torus, specifically designed so that the maximum principle applied to $\phi$ (not to $|A|^2$ directly) yields a contradiction if $|A|^2 > 2$ at any point.
+
+\item \textbf{Exploiting the torus topology}: The key insight was that tori have $\chi(\Sigma) = 0$, so the topological term in Simon's identity vanishes. This means the integral identity is \emph{exactly} an identity about $\int |A|^2\,dA$ and the gradient of $\phi$, with no leftover topological correction. Brendle's test function was chosen to make the gradient term $\int |\nabla\phi|^2\,dA$ precisely measurable against the curvature term.
+
+\item \textbf{Rigidity at equality}: If $|A|^2 > 2$ somewhere, the maximum principle forces a strict inequality in Simon's identity, contradicting the integral identity. Therefore $|A|^2 = 2$ everywhere, which is the defining property of the Clifford torus.
+\end{enumerate}
+
+\subsection{Student-Friendly Explanation: How to Think About the Key Insight}
+
+Here is the conceptual picture. Think of Simon's identity as a \emph{budget equation}:
+
+\[
+\underbrace{\int_\Sigma (|A|^2 - 2)\,dA}_{\text{``curvature budget''}} = \underbrace{4\pi \chi(\Sigma)}_{\text{topological cost}} + \underbrace{\int_\Sigma |\nabla \phi|^2\,dA}_{\text{``waste term''} \ge 0}
+\]
+
+For a torus, the topological cost is zero (since $\chi = 0$). So the equation says: \emph{the total curvature budget equals the waste}, and the waste is always non-negative. If $|A|^2 > 2$ anywhere, the left side is positive, so the waste must be positive---but Brendle's choice of $\phi$ shows that if $|A|^2$ achieves a large enough maximum, the waste term \emph{cannot} be large enough to balance. This is a contradiction.
+
+The art was in choosing $\phi$ so that its gradient is \emph{small enough} to force this contradiction, while still being a valid test function. Previous researchers tried many choices; Brendle found the one that works.
+
+\begin{highlightbox}
+\textbf{The punchline:} Brendle's proof is remarkably short (about 15 pages) and uses only classical differential geometry---Simon's integral identity, the maximum principle, and rigidity. The breakthrough was not a new theorem or a new technique, but the \emph{correct instantiation} of an existing framework: the right test function, exploiting the topology of tori, to close a 30-year gap. This is a powerful lesson: sometimes the hardest part of a proof is choosing the right input to a well-understood machine.
+\end{highlightbox}
+
+\subsection{Brendle's Proof in Detail}
 
 \begin{theorem}[Brendle \cite{brendle2013}]
 The only embedded minimal torus in $S^3$ is the Clifford torus (up to rigid motions).
 \end{theorem}
 
-Brendle's proof used:
+Brendle's proof proceeds in three steps:
+
 \begin{enumerate}
 \item \textbf{Simon's identity}: A sharp integral inequality relating the second fundamental form $|A|^2$ to the metric:
 \[
@@ -66,10 +120,6 @@ where $\phi$ is a specific function constructed from the second fundamental form
 
 \item \textbf{Rigidity}: Equality in Simon's identity forces $|A|^2 = 2$ everywhere, which characterizes the Clifford torus.
 \end{enumerate}
-
-\begin{highlightbox}
-Brendle's proof is remarkably short (about 15 pages) and uses only classical differential geometry: Simon's integral identity, the maximum principle, and rigidity. The key insight was choosing exactly the right test function for the maximum principle.
-\end{highlightbox}
 
 \section{Impact}
 \begin{itemize}
