@@ -9,7 +9,10 @@
 In 1637, a French mathematician named Pierre Fermat was reading an ancient Greek math book when he scribbled a note in the margin. He claimed that no whole number raised to a power higher than two can be split into two other whole numbers raised to that same power. For example, there is no way to write two perfect cubes that add up to another perfect cube, and the same is true for fourth powers, fifth powers, and so on forever. Fermat said he had a brilliant proof but never wrote it down. Mathematicians spent over 350 years chasing this ghost.
 
 \subsection{Simplified Version}
-Individual exponents were settled long ago: Fermat himself proved $n=4$ using an elegant infinite-descent argument. Euler settled $n=3$ in 1770, and Dirichlet and Legendre handled $n=5$ in 1825. The real challenge was proving the statement for \emph{all} exponents at once---which required an entirely new theory connecting elliptic curves to modular forms.
+The theorem is easiest to understand through examples: Fermat himself proved the case for $n=4$ using a technique called infinite descent. Leonhard Euler settled $n=3$ in 1770, and others handled $n=5$ shortly after. These special cases suggested the theorem was true, but proving it for \emph{all} possible exponents at once required a mathematical leap that would take centuries to achieve.
+
+\subsection{What Was Known}
+For over 350 years, mathematicians chipped away at special cases. By the 1990s, the theorem had been verified by computer for all exponents up to about four million. The critical breakthrough occurred in the 1980s when Gerhard Frey and Ken Ribet proved a surprising link: if Fermat's Last Theorem were false, it would imply the existence of an elliptic curve so strange that it could not be modular. This meant that proving the Taniyama--Shimura--Weil conjecture (the Modularity Theorem) would automatically prove Fermat's Last Theorem.
 
 \subsection{Formal}
 The equation
@@ -26,15 +29,8 @@ Every elliptic curve over $\mathbb{Q}$ is modular, meaning its $L$-function aris
 
 If this conjecture holds, then Fermat's Last Theorem follows, because a hypothetical counterexample $a^n + b^n = c^n$ would yield an elliptic curve (the Frey curve $y^2 = x(x - a^n)(x + b^n)$) that could not be modular, contradicting the conjecture.
 
-\begin{historicalbox}
-Fermat's marginal note became one of the most famous unsolved problems in mathematics. Generations of mathematicians tried and failed. Many claimed proofs, all were wrong. The problem inspired the development of algebraic number theory.
-\end{historicalbox}
-
 \subsection{Why It Matters}
 Fermat's Last Theorem is not just a curiosity about whole numbers. Proving it required building an entirely new bridge between two distant areas of mathematics---elliptic curves and modular forms---that has since become one of the most powerful tools in number theory. The techniques developed along the way have been applied to problems in cryptography, coding theory, and beyond.
-
-\subsection{What Was Known}
-For over 350 years, mathematicians chipped away at special cases. By the 1990s, the theorem had been verified by computer for all exponents up to about four million. Various partial results were proved using algebraic number theory and cyclotomic fields, but a general proof remained elusive. The key insight came in the 1980s when Gerhard Frey and Ken Ribet showed that proving the Taniyama--Shimura conjecture would imply Fermat's Last Theorem.
 
 \section{Mathematical Theory}
 

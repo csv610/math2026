@@ -8,25 +8,23 @@
 \subsection{Informal}
 For thousands of years, people have wanted to know: is this number prime, or can it be broken down into smaller pieces? Testing this by trying every possible divisor works but becomes impossibly slow for huge numbers. Faster shortcuts existed, but they were only best-guess tests that could occasionally be wrong. The big question was: can we always tell for sure whether a number is prime, both quickly and without any chance of error? This puzzle remained open for 40 years until it was finally solved in 2002.
 
+\subsection{Formal}
+The AKS conjecture (now theorem) asks: is there a deterministic polynomial-time algorithm that correctly decides whether a given integer $n$ is prime or composite, without relying on any unproven assumptions?
+
 \begin{historicalbox}
 The question was motivated by cryptography: RSA encryption relies on the difficulty of factoring, but key generation requires efficient primality testing. Before AKS, cryptographers relied on probabilistic tests.
 \end{historicalbox}
 
-\subsection{Simplified Version}
-For specific forms of numbers, fast primality tests already existed. Mersenne numbers ($2^p - 1$) can be tested using the Lucas--Lehmer test, and Proth's theorem handles numbers of the form $k \cdot 2^n + 1$. The challenge was a \emph{universal} deterministic test that works for \emph{all} numbers and runs in polynomial time---without relying on any unproven assumptions like the Extended Riemann Hypothesis.
-
-\subsection{Formal}
-
-The AKS conjecture (now theorem) asks: is there a deterministic polynomial-time algorithm that correctly decides whether a given integer $n$ is prime or composite, without relying on any unproven assumptions?
+\subsection{What Was Known}
+For centuries, trial division---checking every possible divisor---was the only method. It works but becomes impossibly slow for large numbers. In the 1970s and 1980s, probabilistic tests like Miller--Rabin were developed: they are extremely fast and almost always correct, but there is a tiny chance of error. The question of whether a fast, always-correct test existed was open for decades.
 
 \subsection{Why It Matters}
 Testing whether a number is prime is fundamental to cryptography. RSA encryption, which secures online banking and commerce, requires generating huge prime numbers. Before AKS, mathematicians relied on tests that were fast but could occasionally give wrong answers. A deterministic, always-correct, fast test was the holy grail.
 
-\subsection{What Was Known}
-For centuries, trial division---checking every possible divisor---was the only method. It works but becomes impossibly slow for large numbers. In the 1970s and 1980s, probabilistic tests like Miller--Rabin were developed: they are extremely fast and almost always correct, but there is a tiny chance of error. The question of whether a fast, always-correct test existed was open for decades.
+\subsection{Simplified Version}
+For specific forms of numbers, fast primality tests already existed. Mersenne numbers ($2^p - 1$) can be tested using the Lucas--Lehmer test, and Proth's theorem handles numbers of the form $k \cdot 2^n + 1$. The challenge was a \emph{universal} deterministic test that works for \emph{all} numbers and runs in polynomial time---without relying on any unproven assumptions like the Extended Riemann Hypothesis.
 
 \section{Mathematical Theory}
-
 
 \subsection{Prerequisites}
 This chapter assumes familiarity with:

@@ -8,8 +8,11 @@
 \subsection{Informal}
 Imagine you are asked a yes-or-no question about a long string of coin flips---say, ``is the number of heads even?'' If you flip one coin, the answer might change or it might not. One way to measure the question's complexity is the most coins you could flip at once to force the answer to change. Another way measures the same thing but lets you flip whole groups of coins together. The sensitivity conjecture, open for 27 years, asked whether these two ways of measuring complexity are always closely related: if a question looks simple by one measure, must it look simple by the other too?
 
-\subsection{Simplified Version}
-For the parity function $f(x_1, \ldots, x_n) = x_1 \oplus \cdots \oplus x_n$ (which outputs 1 if an odd number of bits are 1), the sensitivity is $\sqrt{n}$ while the block sensitivity is $n$---a quadratic gap. The conjecture asserted that this gap is always at most polynomial: $bs(f) \le s(f)^c$ for some constant $c$. Huang's 2019 proof showed $c \le 4$, settling the question.
+\subsection{What Was Known}
+The conjecture was posed by Nisan and Szegedy in 1992. For decades, attempts to prove it used Fourier analysis, probability theory, and algebraic approaches---all without success. The best known bound was exponentially weaker than the conjectured polynomial relationship. The problem was considered one of the most important open questions in complexity theory.
+
+\subsection{Why It Matters}
+The sensitivity conjecture is about measuring the complexity of yes-or-no questions---a fundamental concept in computer science. If two different ways of measuring complexity are always closely related, it means that the complexity of a problem is a robust notion, not an artifact of how you choose to measure it. This has implications for algorithm design and the theory of computation.
 
 \subsection{Formal}
 \begin{conjecture}[Nisan-Szegedy, 1992]
@@ -20,11 +23,8 @@ $s(f)$ and $bs(f)$ are polynomially related: $bs(f) \le s(f)^c$ for some constan
 The sensitivity conjecture stood for 27 years, resisting attacks from Fourier analysis, probability theory, and complexity theory. It was one of the oldest open problems in theoretical computer science.
 \end{historicalbox}
 
-\subsection{Why It Matters}
-The sensitivity conjecture is about measuring the complexity of yes-or-no questions---a fundamental concept in computer science. If two different ways of measuring complexity are always closely related, it means that the complexity of a problem is a robust notion, not an artifact of how you choose to measure it. This has implications for algorithm design and the theory of computation.
-
-\subsection{What Was Known}
-The conjecture was posed by Nisan and Szegedy in 1992. For decades, attempts to prove it used Fourier analysis, probability theory, and algebraic approaches---all without success. The best known bound was exponentially weaker than the conjectured polynomial relationship. The problem was considered one of the most important open questions in complexity theory.
+\subsection{Simplified Version}
+For the parity function $f(x_1, \ldots, x_n) = x_1 \oplus \cdots \oplus x_n$ (which outputs 1 if an odd number of bits are 1), the sensitivity is $\sqrt{n}$ while the block sensitivity is $n$---a quadratic gap. The conjecture asserted that this gap is always at most polynomial: $bs(f) \le s(f)^c$ for some constant $c$. Huang's 2019 proof showed $c \le 4$, settling the question.
 
 \section{Mathematical Theory}
 

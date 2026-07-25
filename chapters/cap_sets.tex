@@ -8,8 +8,11 @@
 \subsection{Informal}
 Imagine a big grid of points in space where the arithmetic wraps around like a clock. You want to pick as many points as possible, but with one strict rule: no three of your chosen points can be equally spaced in a line. How many points can you pick before you are forced to have three in a row? This problem stumped mathematicians for decades, despite being easy to state.
 
-\subsection{Simplified Version}
-The classical version of this problem works over the integers: Roth's theorem (1953) says that any subset of the integers $\{1, 2, \ldots, N\}$ without three-term arithmetic progressions must be thin---its size is at most $N / \log \log N$. The cap set problem asks the same question over $\mathbb{F}_3^n$ (the $n$-dimensional vector space over the field with 3 elements), where the arithmetic wraps around like a clock. The polynomial method, adapted from finite-field geometry, finally cracked this harder version.
+\subsection{What Was Known}
+Roth proved in 1953 that subsets of the integers without three-term arithmetic progressions must be thin. Meshulam extended this to three-dimensional grid arithmetic in 1995, proving that cap sets must be significantly smaller than the full grid. But the best known bound was still far from the conjectured answer. The polynomial method, newly adapted to combinatorics by Croot, Lev, and Pach in 2016, provided the breakthrough.
+
+\subsection{Why It Matters}
+The cap set problem is a testing ground for new mathematical techniques. The slice rank method used to solve it has since been applied to many other problems in combinatorics and theoretical computer science. Understanding how large structured sets can be has applications to coding theory and the study of error-correcting codes.
 
 \subsection{Formal}
 \begin{conjecture}[Frankl-Graham-Rödl, 1987]
@@ -22,11 +25,8 @@ The trivial bound is $3^n$. Meshulam (1995) proved $r_3(n) \le 2 \cdot 3^n / n$,
 The cap set problem is the $\mathbb{F}_3$-analogue of Roth's theorem on arithmetic progressions in the integers (1953). While Roth's theorem was proved using Fourier analysis on $\mathbb{Z}$, the finite-field version resisted analogous techniques for decades.
 \end{historicalbox}
 
-\subsection{Why It Matters}
-The cap set problem is a testing ground for new mathematical techniques. The slice rank method used to solve it has since been applied to many other problems in combinatorics and theoretical computer science. Understanding how large structured sets can be has applications to coding theory and the study of error-correcting codes.
-
-\subsection{What Was Known}
-Roth proved in 1953 that subsets of the integers without three-term arithmetic progressions must be thin. Meshulam extended this to three-dimensional grid arithmetic in 1995, proving that cap sets must be significantly smaller than the full grid. But the best known bound was still far from the conjectured answer. The polynomial method, newly adapted to combinatorics by Croot, Lev, and Pach in 2016, provided the breakthrough.
+\subsection{Simplified Version}
+The classical version of this problem works over the integers: Roth's theorem (1953) says that any subset of the integers $\{1, 2, \ldots, N\}$ without three-term arithmetic progressions must be thin---its size is at most $N / \log \log N$. The cap set problem asks the same question over $\mathbb{F}_3^n$ (the $n$-dimensional vector space over the field with 3 elements), where the arithmetic wraps around like a clock. The polynomial method, adapted from finite-field geometry, finally cracked this harder version.
 
 \section{Mathematical Theory}
 

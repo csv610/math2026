@@ -8,8 +8,11 @@
 \subsection{Informal}
 In 1844, the mathematician Eugene Catalan noticed something curious: 8 and 9 are consecutive whole numbers that are both perfect powers---8 is 2 cubed and 9 is 3 squared. He wondered: are there any other pairs of consecutive numbers that are both perfect powers? Surprisingly, no one could prove the answer for 158 years.
 
-\subsection{Simplified Version}
-When only one exponent is fixed, the problem is much easier. Euler proved in 1770 that $x^2 - y^3 = \pm 1$ has only the solution $3^2 - 2^3 = 1$ (and $2^3 - 3^2 = -1$). Lebesgue proved in 1850 that $x^2 - y^n = 1$ has no solutions for $n \ge 3$. The hard part was allowing \emph{both} exponents to vary simultaneously, which Mihăilescu accomplished in 2002 using sophisticated tools from cyclotomic fields.
+\subsection{What Was Known}
+The conjecture was proposed in 1844 and verified by computer for all exponents up to very large bounds. Euler proved in 1770 that $x^2 - y^3 = \pm 1$ has only the solution $3^2 - 2^3 = 1$. Lebesgue proved in 1850 that $x^2 - y^n = 1$ has no solutions for $n \ge 3$. This reduced the problem to checking finitely many cases, but the actual proof required sophisticated new ideas.
+
+\subsection{Why It Matters}
+Catalan's conjecture is about the simplest possible relationship between powers: can two consecutive whole numbers both be perfect powers? The answer---that 8 and 9 are the only such pair---reveals a deep rigidity in the structure of whole numbers. The problem connects to many areas of number theory, including the theory of exponential equations.
 
 \subsection{Formal}
 \begin{equation}
@@ -23,16 +26,14 @@ x^a - y^b = 1
 \end{equation}
 for integers $x, y, a, b > 1$ has only the solution $(x, y, a, b) = (3, 2, 2, 3)$.
 
-This is a Diophantine equation — an equation seeking integer solutions. Despite its elementary statement, it resisted solution for 158 years.
+This is a Diophantine equation --- an equation seeking integer solutions. Despite its elementary statement, it resisted solution for 158 years.
 
 \begin{historicalbox}
 Catalan was a Belgian mathematician who worked in differential geometry and number theory. His conjecture seemed almost trivially simple but required tools far beyond what was available in the 19th century. The problem became a benchmark for progress in algebraic number theory.
 \end{historicalbox}
 
-\subsection{Why It Matters}
-Catalan's conjecture is about the simplest possible relationship between powers: can two consecutive whole numbers both be perfect powers? The answer---that 8 and 9 are the only such pair---reveals a deep rigidity in the structure of whole numbers. The problem connects to many areas of number theory, including the theory of exponential equations.
-
-\subsection{What Was Known}
+\subsection{Simplified Version}
+When only one exponent is fixed, the problem is much easier. Euler proved in 1770 that $x^2 - y^3 = \pm 1$ has only the solution $3^2 - 2^3 = 1$ (and $2^3 - 3^2 = -1$). Lebesgue proved in 1850 that $x^2 - y^n = 1$ has no solutions for $n \ge 3$. The hard part was allowing \emph{both} exponents to vary simultaneously, which Mihăilescu accomplished in 2002 using sophisticated tools from cyclotomic fields.
 The conjecture was proposed in 1844 and verified by computer for all exponents up to very large bounds. Various partial results were obtained over the decades, including cases where one exponent was fixed. In 1976, Tijdeman proved that for any solution, the exponents must be bounded. This reduced the problem to checking finitely many cases, but the actual proof required sophisticated new ideas.
 
 \section{Mathematical Theory}
