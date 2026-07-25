@@ -92,20 +92,27 @@ This was the crucial link: proving modularity for all elliptic curves would sett
 
 \section{The Solution}
 
-\subsection{What Was Missing}
+\subsection{The Big Idea}
+Imagine trying to prove every lock in a city can be opened by keys from a single key-ring. Frey and Ribet showed that if there were even one lock with no matching key, it would produce an ``impossible'' lock---a lock so strange it could not exist. So proving every lock is on the ring suffices. Wiles's revolutionary move was to stop checking locks one by one. Instead, he studied the *entire space of possible locks* at once, and proved that the key-ring ``reaches'' all of them. The core insight is a *reduction*: a 350-year-old puzzle about whole numbers is secretly a question about whether two vast mathematical universes---elliptic curves and modular forms---are the same universe in disguise.
+
+\subsection{What Was Stopping Progress}
+Before Wiles, modularity was known only for special elliptic curves---those with unusual symmetry (complex multiplication) or other rare algebraic properties. Ordinary elliptic curves, the vast majority, were completely out of reach. It was like having a machine that could identify a few exotic species of fish but had no theory covering the ocean as a whole. The general problem---proving that *every* elliptic curve over the rationals is modular---required a tool that worked uniformly, without assuming any special structure. No such tool existed.
+
+\subsection{The Breakthrough}
+Wiles's key idea was *deformation theory*: instead of studying a single elliptic curve in isolation, study the *family* of all Galois representations that ``look like'' it, and prove that this entire family comes from modular forms. He turned modularity into a question about whether one algebraic ring maps onto another. The Taylor--Wiles patching argument then showed this map is surjective by a clever bookkeeping trick: add auxiliary data to kill off obstructions, pass to an inverse limit, and watch the obstruction vanish. It was like proving a bridge is strong enough by showing every possible load it could face is supported.
+
+\subsection{How It Works}
+
 Before Wiles, the Modularity Conjecture---the statement that every elliptic curve over $\mathbb{Q}$ is modular---was wide open in full generality. Frey (1984) and Ribet (1986) had shown that Fermat's Last Theorem follows from modularity: a counterexample to FLT would produce the Frey curve, an elliptic curve so ``pathological'' that it could not be modular, contradicting the conjecture. But this merely \emph{reduced} FLT to the Modularity Conjecture. The conjecture itself---connecting Galois representations attached to arbitrary elliptic curves with modular forms---had no proof for even the semistable case, let alone all elliptic curves.
 
-\subsection{Why Existing Methods Failed}
 Before Wiles, modularity was known only for special classes of elliptic curves: those with complex multiplication (CM), or curves whose Galois representations happened to factor through known Hecke characters. These methods exploited special algebraic structure that generic elliptic curves do not possess. The general problem required a tool that could handle \emph{all} elliptic curves uniformly---proving that a Galois representation ``comes from'' a modular form, without assuming any special properties of the curve. Classical approaches (explicit construction of modular forms, direct comparison of $L$-functions) did not scale to this level of generality.
 
-\subsection{What Was Novel}
 Wiles's breakthrough rested on a fundamentally new strategy:
 \begin{enumerate}
 \item \textbf{Deformation theory of Galois representations:} Rather than studying a single elliptic curve in isolation, Wiles considered the \emph{family} of all Galois representations that ``look like'' the one attached to a given elliptic curve. He formulated modularity as a question about whether a certain deformation ring maps surjectively onto a Hecke algebra.
 \item \textbf{The Taylor--Wiles patching argument:} To prove this surjectivity, Wiles and Taylor introduced a clever patching construction: they chose auxiliary primes to kill unwanted Selmer groups, then passed to an inverse limit (the ``patched module'') that became free over a power series ring, from which the surjectivity followed. This patching method has since become a standard technique in number theory.
 \end{enumerate}
 
-\subsection{Student-Friendly Explanation}
 Imagine you want to prove that every lock in a city can be opened by a key from a single key-ring. Frey and Ribet showed that if there were a lock with no matching key, it would produce an ``impossible'' lock---so proving every lock is on the ring suffices. Previous mathematicians had shown this for special locks (those with unusual ward patterns), but ordinary locks remained. Wiles's idea was revolutionary: instead of checking each lock one by one, he studied the \emph{space of all possible locks} and showed that the key-ring ``reaches'' all of them. He did this by studying how locks deform when you make small changes (deformation theory) and then showing, via a clever bookkeeping trick (patching), that the key-ring covers every deformation. Once every lock is accounted for, Fermat's Last Theorem falls as a corollary.
 
 \bigskip

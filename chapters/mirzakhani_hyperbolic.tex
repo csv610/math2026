@@ -72,6 +72,17 @@ The \emph{tautological classes} are cohomology classes $\kappa_i, \psi_i, \lambd
 
 \section{The Solution}
 
+\subsection{The Big Idea}
+Imagine a vast landscape of possible saddle-shaped surfaces, like an infinite collection of Pringle chips with different curvatures. Mirzakhani wanted to measure the total ``size'' of this landscape---not just compute it for one surface at a time, but find a formula that works for \emph{all} of them simultaneously. Her key metaphor: imagine gently shearing the surface along its internal curves, like sliding a deck of cards sideways. This shearing motion is called an earthquake flow. By studying how the earthquake flow rearranges the landscape, she discovered that the volume of complicated surfaces can always be built up from the volumes of simpler ones---like assembling a mosaic from smaller tiles. The result is a master equation: a polynomial recursion that works for every genus at once.
+
+\subsection{What Was Stopping Progress}
+Before Mirzakhani, mathematicians had managed to compute the ``size'' (volume) of the landscape for just a handful of the simplest surfaces---like measuring the area of only the first few rooms in an infinite building. There was no general formula, not even a guess, for what the volume should look like for surfaces of arbitrary complexity. Existing tools from Riemannian geometry could give rough estimates of volume but not exact answers, and tools from algebraic geometry could count specific objects on surfaces but didn't connect to the actual geometric volume. It was as if two teams of surveyors were measuring different properties of the same territory but had no map linking their measurements together.
+
+\subsection{The Breakthrough}
+Mirzakhani connected three worlds that nobody had linked before: hyperbolic geometry (counting curves on surfaces), differential geometry (measuring volumes of shape-spaces), and algebraic geometry (intersection numbers that arise in string theory). She did this by exploiting the earthquake flow---a natural dynamical system on Teichmuller space---to decompose the volume integral into pieces that correspond to ``pinching'' geodesics. Each piece factors into contributions from lower-genus surfaces, yielding a recursion. The deep surprise: the volume is always a \emph{polynomial} in the boundary lengths, and its coefficients encode mirror-symmetry data.
+
+\subsection{How It Works}
+
 \subsection{What Was Missing}
 Before Mirzakhani, the volumes $V_{g,n}(L_1, \ldots, L_n)$ of moduli spaces of bordered Riemann surfaces with respect to the Weil--Petersson metric were known only for a handful of low-genus cases. There was no general formula---not even a conjectured form---for arbitrary $g$ and $n$. The fundamental question was: do these volumes follow a predictable pattern (such as being polynomials in the $L_i$), and if so, can they be computed systematically? The gap was total: no recursion, no closed-form, and no structural theorem existed.
 

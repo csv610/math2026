@@ -75,7 +75,16 @@ Vinogradov's theorem only covered \emph{sufficiently large} odd integers. The ch
 
 \section{The Solution}
 
-\subsection{What Was Missing}
+\subsection{The Big Idea}
+Imagine you have a formula that always works for ``big enough'' numbers---but you don't know how big ``big enough'' is. Vinogradov proved in 1937 that every sufficiently large odd number is a sum of three primes, but ``sufficiently large'' meant numbers with *thousands of digits*. The deep insight of Helfgott's proof is that you can *compute the threshold exactly*: turn a qualitative theorem into a quantitative one with real, computable constants, then let a computer check every case below the threshold. It is the mathematical equivalent of proving that every building above 100 stories has a certain property, then *computing* that there are only 99 stories to check by hand.
+
+\subsection{What Was Stopping Progress}
+The circle method---the main tool---gives *asymptotic formulas*: formulas with a main term plus an error term. The result holds whenever the main term is positive and the error is smaller. For 70 years, everyone knew the method *should* work for large enough inputs, but nobody could extract *how large is large enough*. The estimates were qualitative (``the error is $o(x)$'') rather than quantitative (``the error is less than $0.001x$ for $x > 10^{29}$''). Without explicit constants, you cannot compute a numerical cutoff. It is like knowing that a river eventually gets wider, but not knowing whether that happens in 10 meters or 10,000 kilometers.
+
+\subsection{The Breakthrough}
+Helfgott's breakthrough was to make every constant in the circle method *explicit and computable*. He computed the major arc contribution with unprecedented precision, obtained new minor arc bounds with real numbers instead of big-O notation, and then used Ramaré's result (every odd number $\geq 7$ is a sum of at most 7 primes) to dramatically reduce the number of cases the computer had to check. The novelty was the *combination*: explicit analytic number theory joined to large-scale computer verification.
+
+\subsection{How It Works}
 
 Vinogradov's 1937 theorem was a landmark: it proved that every \emph{sufficiently large} odd number is the sum of three primes. But ``sufficiently large'' is doing a lot of heavy lifting in that sentence. The proof, as originally formulated, only guaranteed the result for numbers with \emph{thousands of digits}. This left a gaping hole: how far down does the three-prime result actually hold?
 
@@ -83,15 +92,11 @@ For over 70 years, nobody could extend Vinogradov's result much below astronomic
 
 The core difficulty was this: Vinogradov's theorem and Ramar\'e's result together implied that every odd number $n \geq 7$ could be written as a sum of at most seven primes, and that sufficiently large odd numbers could be written as a sum of exactly three. But the ``sufficiently large'' threshold from Vinogradov's method was still far too large to verify by computer. Nobody knew how to make the analytic machinery work all the way down to checkable cases.
 
-\subsection{Why Existing Methods Failed}
-
 The circle method, at its heart, produces \emph{asymptotic formulas}: formulas that describe the number of representations $r(n)$ as a main term plus an error term. For the weak Goldbach conjecture, the main term comes from the \emph{major arcs} (intervals around rational numbers with small denominators), and the error term comes from the \emph{minor arcs} (everything else). The result holds whenever the main term is positive and the error term is smaller in absolute value.
 
 The obstacle was getting explicit, numerically computable bounds on the error terms. Previous estimates of ``how large $n$ needs to be'' were too crude. They relied on qualitative versions of Vinogradov's estimate (``the error is $o(x)$'') rather than quantitative ones (``the error is less than $0.001\,x$ for $x > 10^{29}$''). Without explicit constants, you cannot compute a numerical cutoff. You know the error term eventually wins, but you cannot say \emph{when}.
 
 This is a common pattern in analytic number theory: the method clearly works for large enough inputs, but extracting \emph{how large is large enough} requires a level of quantitative control that is far harder to achieve than the qualitative result itself. For the weak Goldbach conjecture, the gap between the qualitative theorem and the quantitative bound needed for verification was enormous---roughly 25 orders of magnitude.
-
-\subsection{What Was Novel in Helfgott's Proof}
 
 Harald Helfgott completed the proof in 2013 \cite{helfgott2013}:
 
@@ -114,8 +119,6 @@ for specific, computable values of $B$ and $A$. This is qualitatively the same s
 \end{enumerate}
 
 The novelty of the proof lay in the \emph{combination}: explicit analytic number theory---with real, computable constants rather than big-O estimates---joined to large-scale computer verification. Neither component alone would have sufficed. The analytic methods without explicit constants could not produce a checkable bound; the computer without the analytic reduction could not handle the astronomically many cases. Together, they closed the gap.
-
-\subsection{A Student-Friendly Summary}
 
 Here is the argument in plain terms. Imagine you have a formula that works for ``big enough'' numbers, but you do not know how big ``big enough'' is. You want to prove it works for \emph{all} numbers above some threshold.
 

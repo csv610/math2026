@@ -54,6 +54,17 @@ Wolff conjectured that any Kakeya set in $\mathbb{F}_q^n$ satisfies $|K| \geq C_
 
 \section{The Solution}
 
+\subsection{The Big Idea}
+A Kakeya set is a region of space that contains a line segment pointing in \emph{every} direction---like a room with a needle stuck in every possible orientation. Besicovitch showed in 1919 that such a room can have zero volume, which is already shocking. The Kakeya conjecture asks: even though the volume can be zero, must the set still be ``thick'' in a more refined sense---must its dimension be the full $n$? In two dimensions this was settled (dimension must be 2), but in three dimensions the answer was stuck for decades below 2.5. Wang and Zahl's breakthrough used \emph{algebraic scissors}: they sliced space with the zero set of a polynomial, counted how many needle-lines land in each piece, and showed that the needles must pack together thickly enough to force dimension above 2.5. The polynomial acts like a smart cutting tool that automatically groups the lines into manageable bunches, turning a geometric problem into a counting problem.
+
+\subsection{What Was Stopping Progress}
+In two dimensions, Davies proved in 1971 that Kakeya sets must have full dimension 2. In three dimensions, Fourier-analytic methods---restriction theory, decoupling, endpoint estimates---kept improving the lower bound but always hit the same ceiling around 2.5. The polynomial method that Dvir used so brilliantly for the finite field case (2008) had no direct translation to the real setting: over a finite field $\mathbb{F}_q$, a polynomial of degree less than $q$ vanishing on a line must vanish everywhere---but over $\mathbb{R}$, lines have infinitely many points and there is no degree bound. It was as if the algebraic toolkit that cracked the finite-field version was missing a crucial adapter plug for the real-number setting.
+
+\subsection{The Breakthrough}
+Wang and Zahl adapted the polynomial method from the discrete to the continuous by combining three innovations: (1) \textbf{polynomial partitioning}, introduced by Guth and Katz, which decomposes space into cells each containing relatively few Kakeya lines; (2) \textbf{linear programming bounds} that optimize over families of line configurations to extract dimensional lower bounds; and (3) \textbf{new incidence geometry} giving sharp bounds on point-line incidences in three dimensions. Together these tools broke through the 2.5 barrier, proving that Kakeya sets in $\mathbb{R}^3$ have Hausdorff dimension at least $2.5 + \epsilon$ for an absolute $\epsilon > 0$. The full conjecture (dimension $n$ in $\mathbb{R}^n$) remains open, but the gap has narrowed dramatically.
+
+\subsection{How It Works}
+
 \subsection{What Was Missing}
 The Kakeya conjecture---that Kakeya sets in $\mathbb{R}^n$ must have Hausdorff dimension $n$---was settled for $n=2$ (Davies, 1971) but remained wide open in $\mathbb{R}^3$ and higher. The best known lower bound in $\mathbb{R}^3$ was stuck below 2.5 for many years. What was missing was a way to break past this dimension barrier: existing Fourier-analytic and combinatorial methods could not extract dimensional gains beyond roughly $n/2 + \epsilon$, and the polynomial method that had been spectacularly successful for the finite field analogue (Dvir, 2008) had no direct translation to the real setting.
 

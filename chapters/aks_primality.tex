@@ -69,13 +69,20 @@ The key innovation was showing that a \emph{small} value of $r$ suffices, making
 
 \section{The Solution}
 
-\subsection{What Was Missing Before}
+\subsection{The Big Idea}
+There is a beautiful algebraic identity: if $p$ is prime, then $(X + 1)^p$ distributes over addition perfectly---every binomial coefficient $\binom{p}{k}$ for $0 < k < p$ is divisible by $p$. Composite numbers fail this test. That is the Frobenius endomorphism, and it is a *perfect litmus test for primality*. The identity was known for over a century. The breakthrough was proving you can *check it efficiently*: you don't need to expand a polynomial of degree $n$ (which would be impossibly slow). By working modulo a small, cleverly chosen polynomial, you can run the check in polynomial time. It is like having a lie detector that has always existed---AKS showed how to make it fast.
+
+\subsection{What Was Stopping Progress}
+Before 2002, primality testing was split into two incompatible worlds: *fast but possibly wrong* (probabilistic tests like Miller--Rabin) and *always correct but agonizingly slow* (trial division, even elliptic curve methods). Many complexity theorists suspected that deterministic polynomial-time primality testing might be impossible---that PRIMES was not in P at all, or that proving otherwise would require resolving the Riemann Hypothesis. The gap was between an identity everyone knew about and a way to check it efficiently that nobody could find.
+
+\subsection{The Breakthrough}
+Agrawal, Kayal, and Saxena's key idea: don't check $(X + a)^n \equiv X^n + a \pmod{n}$ as polynomials of degree $n$. Instead, reduce modulo $X^r - 1$ for a small, carefully chosen $r$, so the polynomials stay short. Then check only a polynomial number of values of $a$. They proved that this---combined with a clever choice of $r$---catches every composite number. The identity itself was old; the novelty was proving a *small* ring suffices.
+
+\subsection{How It Works}
 
 Before 2002, primality testing was split into two incompatible worlds. On one side stood fast algorithms that could be \emph{wrong}. Probabilistic tests like Miller--Rabin flip a coin (figuratively) for each candidate: they run in polynomial time but declare a number ``probably prime'' with a small but nonzero chance of error. For cryptography this was acceptable in practice---you can run the test 100 times and drive the error probability below any threshold---but a theoretical guarantee was impossible. On the other side stood algorithms that were always correct but \emph{slow}. Trial division is exponential: for a $d$-digit number you might need to check up to $10^{d/2}$ divisors. Even the fastest known deterministic methods at the time---elliptic curve primality proving (ECPP)---were only ``practically polynomial'' (heuristically $\tilde{O}((\log n)^4)$) and relied on unproven assumptions about the distribution of elliptic curve group orders.
 
 The key gap was therefore: \textbf{no known deterministic algorithm could prove primality in proven polynomial time, and it was widely believed that this might be impossible.} Many complexity theorists suspected that PRIMES might not be in P at all, or that proving it \emph{would} require resolving deep open questions like the Riemann Hypothesis.
-
-\subsection{Why Existing Methods Failed}
 
 Each previous approach hit a specific wall:
 
@@ -87,8 +94,6 @@ Each previous approach hit a specific wall:
 \item \textbf{Special-form tests} (Lucas--Lehmer for Mersenne numbers, Proth's theorem for $k \cdot 2^n + 1$) are fast and unconditional, but they only work for numbers with a very specific algebraic structure. A general-purpose test was missing.
 
 The fundamental obstacle was finding a purely algebraic characterization of primality that (a) is \emph{both necessary and sufficient}---not just one direction---and (b) can be checked using computations that scale polynomially with the number of digits. Every prior attempt either got the ``if and only if'' wrong (Fermat) or got it right but could not be checked efficiently without unproven assumptions (Miller, ECPP).
-
-\subsection{What Was Novel: The AKS Insight}
 
 Agrawal, Kayal, and Saxena's breakthrough was to realize that a beautiful identity from abstract algebra could serve as a \emph{perfect} primality test, and---crucially---that it could be made fast.
 
@@ -111,8 +116,6 @@ The novelty was not the identity itself---it was known in algebra for over a cen
 \item \textbf{Choose $r$ so that the order of $n$ modulo $r$ is large}. Specifically, the algorithm finds $r$ such that $\operatorname{ord}_r(n) > (\log n)^2$. This ensures that if $n$ is composite, the algebraic contradictions propagate far enough to be detected.
 \item \textbf{Check only a polynomial number of values of $a$}. Instead of testing every $a$, checking $a = 1, 2, \ldots, \lceil \sqrt{\phi(r)} \log n \rceil$ (where $\phi$ is Euler's totient) suffices. This bounds the total work.
 \end{enumerate}
-
-\subsection{Student-Friendly Summary}
 
 Here is the intuition in plain language. To test whether $n$ is prime:
 

@@ -79,6 +79,17 @@ Cohn and Kumar (2001) constructed such functions for dimensions $n \leq 8$ and $
 
 \section{The Solution}
 
+\subsection{The Big Idea}
+Imagine you want to prove that a certain arrangement of objects in an 8-dimensional room is the absolute densest possible. Cohn and Kumar had shown in 2001 that this boils down to constructing a special ``witness function''---a mathematical certificate that, if you can build it, immediately proves optimality. The catch was that nobody could construct this witness exactly. Previous attempts used computer-searched approximations, which are like a witness who says ``I'm 99.99\% sure''---close, but not proof. Viazovska's stroke of genius was to realize that modular forms---ancient number-theoretic functions with extraordinary symmetry---already encode exactly the witness you need. The deep symmetries of modular forms automatically force the witness function to have the right shape at every point, not just at the points you checked.
+
+\subsection{What Was Stopping Progress}
+The Cohn--Kumar linear programming bound had already reduced the packing problem to an explicit construction task: find a radial function satisfying three specific inequalities. Previous attempts used numerically optimized functions---piecewise polynomial approximations checked on a computer grid. But a numerical check is not a proof: the inequalities could fail at untested points, and no exact analytic formula was known. It was like trying to prove a bridge can hold any weight by testing it with trucks up to 100 tons---you can never be sure an 101-ton truck wouldn't cause collapse.
+
+\subsection{The Breakthrough}
+Viazovska noticed that the $E_8$ lattice's theta series---the function that counts lattice vectors at each distance---is a modular form, a function with profound symmetry properties. Modular forms satisfy identities that relate their values at different points, automatically enforcing exactly the three inequalities Cohn and Kumar needed. By constructing the witness function as an integral transform of a carefully chosen modular form, Viazovska obtained an \emph{exact} proof---no approximations, no numerical checks. The modular symmetries do all the work, guaranteeing correctness at every point simultaneously. The proof was completed in a single weekend and spans only 20 pages.
+
+\subsection{How It Works}
+
 \subsection{What Was Missing}
 The $E_8$ lattice (dimension 8) and the Leech lattice (dimension 24) had been conjectured optimal for decades, and Cohn--Kumar (2001) showed that if a certain auxiliary radial function satisfying three inequalities could be constructed, then optimality would follow. What was missing was an explicit construction of this function. Cohn and Kumar found numerically optimized candidates that worked for many lattice packings, but numerical approximations are not proofs: the inequalities could fail at untested points, and no exact analytic formula was known.
 

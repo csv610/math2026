@@ -69,6 +69,17 @@ This is a categorical generalization of the classical Langlands correspondence.
 
 \section{The Solution}
 
+\subsection{The Big Idea}
+Mathematics has two enormous territories: one studies numbers and equations (the world of automorphic forms and Galois representations), the other studies shapes and curves (the world of sheaves and D-modules). The geometric Langlands conjecture says there is a \emph{perfect bilingual library}: for every book on one side, there is an exact counterpart on the other, and the cataloging system itself guarantees nothing is lost in translation. The 2024 proof built this library by showing that the Langlands duality can be realized by ``gluing'' local data---the correspondence between small pieces of the picture---into a global equivalence of categories. Think of it as building a jigsaw puzzle: once you know every individual piece fits its counterpart, and you have a recipe for how pieces connect to each other, the entire picture comes together.
+
+\subsection{What Was Stopping Progress}
+The classical Langlands program had established a dictionary between number-theoretic and geometric objects for the simplest case ($GL_1$) and some special groups, but the full conjecture---a categorical equivalence for \emph{all} reductive groups---required mathematical machinery that simply did not exist. The right language was not ordinary categories but \emph{derived categories of ind-coherent sheaves on stacks}, a vastly more sophisticated framework capable of handling singularities, non-properness, and infinite-dimensional objects. Previous approaches by Beilinson, Drinfeld, Laumon, and Rothstein built important pieces of the dictionary but could not assemble them into a complete translation. It was as if linguists had decoded individual words and grammar rules in two languages but had never produced a complete grammar that could translate any sentence.
+
+\subsection{The Breakthrough}
+Gaitsgory's program, culminating in the 2024 collaboration of nine mathematicians, introduced \textbf{ind-coherent sheaves} as the correct categorical framework and proved the equivalence via the \textbf{spectral gluing construction}. The key idea: decompose the Langlands duality into local pieces using the \emph{geometric Satake equivalence} (which handles the ``dictionary entry'' at each point of the curve) and then glue these pieces together using the theory of \emph{factorization categories}. The proof required over 1,000 pages across five preprints, combining techniques from derived algebraic geometry, topological field theory (Chern--Simons duality), and higher category theory. The result: an equivalence of derived categories between D-modules on the stack of $G$-bundles and coherent sheaves on the stack of ${}^L\!G$-local systems, for any reductive group $G$.
+
+\subsection{How It Works}
+
 \subsection{What Was Missing}
 The classical Langlands program posits a correspondence between automorphic forms and Galois representations for reductive groups over number fields. The geometric version, proposed by Drinfeld in 1987, reinterpreted this in the language of algebraic geometry: an equivalence between D-modules on the stack of $G$-bundles and coherent sheaves on the stack of ${}^L\!G$-local systems. What was missing was a proof that this equivalence holds for \emph{all} reductive groups---previous results covered $GL_1$ and some special cases, but the full conjecture required categorical machinery that did not yet exist.
 

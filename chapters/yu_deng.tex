@@ -98,6 +98,17 @@ and bilinear estimates exploit this by controlling $Q(f, g)$ in norms adapted to
 
 \section{The Solution}
 
+\subsection{The Big Idea}
+Imagine watching a flowing river from far away: the water moves smoothly as a single unit. Zoom in close and you see billions of individual molecules bouncing off each other like tiny billiard balls. Hilbert's sixth problem (1900) asked: can you start with the rules governing those individual collisions and \emph{prove} that the smooth river equations must follow? For over a century this was one of the hardest open problems in mathematical physics. Yu Deng's 2024 breakthrough with Hani and Ma finally proved it for hard-sphere gases. The core insight is ``propagation of chaos'': after enough collisions, different molecules become statistically independent---each one forgets its individual history and follows the crowd. Once you can prove this independence rigorously, with explicit error bounds, the smooth fluid equations emerge automatically from the microscopic chaos.
+
+\subsection{What Was Stopping Progress}
+The Boltzmann equation (1872) and the fluid equations (Euler, Navier--Stokes) were known individually, and physicists had long assumed that the former should follow from the latter in the right limit. But proving this rigorously---starting from Newton's laws for hard spheres and arriving at the Boltzmann equation with quantitative error bounds---had never been achieved for realistic molecular interactions. Previous progress was limited to simplified models: the Lorentz gas (particles bouncing off fixed obstacles rather than each other), linearized Boltzmann, or simplified kinetic models. The full chain from hard-sphere dynamics to Boltzmann resisted all attempts because controlling correlations between molecules over many collisions requires estimates far beyond what classical $L^2$ energy methods could provide.
+
+\subsection{The Breakthrough}
+Deng, Hani, and Ma introduced \emph{bilinear} energy estimates that exploit the product structure of the Boltzmann collision operator---instead of tracking each molecule independently (linear methods), they track pairs of molecules and how their correlations evolve. They combined this with the Dyson--Schwinger hierarchy, a technique borrowed from quantum field theory, to systematically expand the $N$-particle dynamics into a chain of equations for correlation functions. The key estimate shows that correlations decay exponentially in the number of collisions: after finitely many encounters, each molecule becomes statistically independent of the others. This quantitative propagation of chaos is the rigorous bridge from reversible Newtonian mechanics to irreversible fluid dynamics.
+
+\subsection{How It Works}
+
 \subsection{Deng--Hani--Ma (2024--2025)}
 
 \begin{theorem}[Deng--Hani--Ma, 2024--2025 \cite{denghani2024}]

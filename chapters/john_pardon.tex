@@ -92,23 +92,21 @@ This invariant detects when two contact manifolds are not contactomorphic, provi
 
 \section{The Solution}
 
-\subsection{The Gap: Could Knot Distortion Be Unbounded?}
+\subsection{The Big Idea}
 
-For over two decades after Gromov introduced knot distortion in the 1980s, a fundamental question remained open: \emph{can knots have arbitrarily large distortion, or is there an upper bound?} Mathematicians knew that some knots have large distortion---for example, certain iterated torus knots---but nobody could prove that distortion could be made arbitrarily large. The best known distortion bounds were polynomial in the crossing number, but nobody knew whether these bounds were tight or merely reflected the limitations of available techniques. It was conceivable that all knots had distortion bounded by some universal function of their combinatorial complexity.
+Suppose you want to know whether a tangled headphone cord can be \emph{arbitrarily} tangled---whether there is no upper limit on how far apart two neighboring points on the cord can be in space. Trying to measure this directly is like trying to prove a number is large by writing it down: you can get bigger and bigger, but you never know if you have reached the ceiling.
 
-\subsection{Why Existing Methods Failed}
+Pardon's idea was to stop measuring the cord directly and instead measure its \emph{shadow} in a completely different branch of mathematics---symplectic geometry, the mathematics of classical mechanics. He found an invariant (the asymptotic Conley--Zehnder capacity) that acts as a kind of ``tangle meter'' rooted in the geometry of phase space. If the tangle meter can be made arbitrarily large, then the distortion must be unbounded too---because a bounded distortion would force a bounded tangle meter. The tangle meter lives in a world where powerful topological tools apply, turning a question about distances into a question about abstract shape.
 
-The tools mathematicians had been using to study knot distortion were fundamentally \emph{combinatorial} and \emph{metric}: one would construct a specific knot, estimate its distortion by explicit calculation, and hope to push the estimate higher. These methods hit a wall for two reasons:
+\subsection{What Was Stopping Progress}
 
-\begin{enumerate}
-\item \textbf{The ``construction bottleneck'':} To prove distortion can be arbitrarily large, you need to construct a family of knots whose distortion grows without bound. But constructing explicit knots with high distortion requires simultaneously controlling both the intrinsic geometry (distances along the knot) and the extrinsic geometry (distances in $\mathbb{R}^3$). Every known construction faced a trade-off: making the knot more tangled in one region tended to simplify it elsewhere, keeping the overall distortion bounded.
+For over two decades, everyone attacked distortion as a \emph{metric} problem: construct a specific knot, measure its distortion, and try to push the number higher. This ran into two bottlenecks simultaneously. First, the \emph{construction bottleneck}: making a knot more tangled in one region tends to untangle it elsewhere, keeping the overall distortion bounded. Second, the \emph{measurement bottleneck}: proving distortion is large requires showing that \emph{no clever re-embedding} can bring all far-apart pairs back together---a statement about all possible embeddings, not just the one you drew. Metric tools alone could not overcome either obstacle.
 
-\item \textbf{The ``measurement bottleneck'':} Even for knots that ``look'' highly tangled, proving that distortion is large is surprisingly hard. The distortion is an infimum over all embeddings, so one must show that \emph{no clever re-embedding} can simultaneously bring together all far-apart pairs of points. This is a global statement about all possible embeddings, which is much harder than analyzing a single embedding.
-\end{enumerate}
+\subsection{The Breakthrough}
 
-The fundamental obstacle was that existing approaches treated distortion as a purely metric problem---a question about distances---and tried to solve it with metric tools. What was needed was a way to convert the metric question into a \emph{topological} or \emph{geometric} question, where the powerful machinery of modern geometry could be brought to bear.
+Pardon translated the metric question into a \emph{topological} one by finding an invariant from symplectic geometry---the asymptotic Conley--Zehnder capacity---that shadows knot distortion. This invariant applies to all compact contact manifolds (not just convex bodies) via a limiting construction, and it is powerful precisely because topological invariants are immune to the embedding tricks that defeated metric approaches. By constructing knots whose shadow grows without bound, Pardon proved distortion itself is unbounded.
 
-\subsection{What Was Novel: The Asymptotic Conley--Zehnder Capacity}
+\subsection{How It Works}
 
 Pardon's breakthrough was to realize that knot distortion could be detected by a new invariant from \emph{symplectic geometry}. The key idea:
 
@@ -129,20 +127,6 @@ There exist knots with arbitrarily large distortion. Specifically, for any $C > 
 \end{theorem}
 
 The proof constructs a family of knots whose associated contact manifolds have asymptotic Conley--Zehnder capacity growing without bound, which forces the distortion to grow without bound as well.
-
-\subsection{Student-Friendly Explanation: The Key Insight}
-
-Here is how to think about Pardon's argument at a high level:
-
-\begin{quote}
-\textbf{The analogy:} Imagine you have a tangled headphone cord. The \emph{distortion} asks: ``How much farther apart are two points along the cord than as the crow flies?'' A cord with high distortion has points that are neighbors along the wire but far apart in space.
-
-\textbf{The old approach:} For decades, people tried to prove high distortion exists by constructing specific tangled knots and measuring their distortion directly---like trying to prove a number is large by writing it down. They could get distortion up to some polynomial bound, but couldn't push it to infinity.
-
-\textbf{Pardon's insight:} Instead of measuring distortion directly, Pardon found a \emph{shadow} of distortion in a completely different branch of mathematics---symplectic geometry. The shadow is called the ``asymptotic Conley--Zehnder capacity,'' and it measures how much symplectic ``room'' a contact manifold needs. Pardon showed that if a knot has bounded distortion, its shadow must also be bounded. Then he constructed knots whose shadows grow without bound, forcing the distortion to grow without bound too.
-
-\textbf{Why this worked:} The Conley--Zehnder capacity is a \emph{topological} invariant---it doesn't depend on the specific embedding, only on the abstract contact structure. This means Pardon could use the powerful tools of symplectic geometry (which are good at detecting topological obstructions) to answer a question about metric geometry (distances along embeddings). The key step was extending this invariant from convex bodies to all compact contact manifolds via the asymptotic construction.
-\end{quote}
 
 \begin{highlightbox}
 The Conley--Zehnder capacity measures the ``size'' of a symplectic manifold---how large a ball can be symplectically embedded into it. Pardon's asymptotic version gave the first universal invariants for contact manifolds, turning a metric question about knots into a topological question about contact structures.

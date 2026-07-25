@@ -59,6 +59,17 @@ If a manifold fibers over the circle, it is Haken (the fiber is an incompressibl
 
 \section{The Solution}
 
+\subsection{The Big Idea}
+Imagine you have a hopelessly tangled knot of yarn---a complicated three-dimensional shape. A Haken manifold is one that already contains a useful ``seam'': an incompressible surface that cuts it into simpler, manageable pieces. The Virtual Haken Conjecture says: no matter how tangled your 3-manifold is, you can always find a finite cover---a many-sheeted version of it---that has such a seam. The proof came in two acts. First, Kahn and Markovic showed that useful surfaces (quasi-Fuchsian surfaces) always exist inside hyperbolic 3-manifolds, built from nearly-matching ``pairs of pants.'' Then Agol showed that the right framework for passing to a finite cover is \emph{cubulation}: representing the manifold as a quotient of a higher-dimensional cube complex, where the combinatorial structure automatically forces the existence of the desired surface.
+
+\subsection{What Was Stopping Progress}
+Haken's theory from the 1960s gave a powerful toolkit for manifolds that \emph{already} contain an incompressible surface---you can decompose them systematically, solve the homeomorphism problem, and understand their structure completely. But for a general 3-manifold, nobody knew how to guarantee that such a surface exists, even after passing to a finite cover. Standard topological tools---normal surface theory, Thurston's Dehn surgery, even Perelman's proof of geometrization---could give you the geometric structure of the manifold but not the virtual Haken property. It was like having a complete map of a city but no way to find a specific building that you know must be there somewhere.
+
+\subsection{The Breakthrough}
+Kahn and Markovic used the \emph{exponential mixing} of the geodesic flow---a deep property of hyperbolic dynamics that says nearby trajectories diverge at a controlled rate---to glue together ``good pants'' (pairs of pants with nearly matching boundary curves) into quasi-Fuchsian surfaces. This proved the Surface Subgroup Conjecture: every closed hyperbolic 3-manifold contains a surface subgroup. Agol then provided the crucial final step: building on Wise's cubulation program, he showed that hyperbolic 3-manifold groups act on CAT(0) cube complexes, which forces them to be \emph{virtually special}---having a finite-index subgroup that embeds into a right-angled Artin group. Virtual specialness automatically implies both virtual fibering and the Virtual Haken Conjecture.
+
+\subsection{How It Works}
+
 \subsection{What Was Missing}
 Waldhausen's theory of Haken manifolds gave a complete structural decomposition for 3-manifolds that already contain an incompressible surface---but there was no way to guarantee that an arbitrary 3-manifold contains one, even after passing to a finite cover. The Virtual Haken Conjecture asserts that every compact, orientable, irreducible 3-manifold with infinite fundamental group has a finite cover that is Haken. What was missing was a way to produce incompressible surfaces or essential subgroups (surface subgroups) inside manifolds where no surface was previously known to exist.
 

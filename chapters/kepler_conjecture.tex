@@ -75,6 +75,17 @@ Thomas Hales, at the University of Michigan, approached the problem by reducing 
 
 \section{The Solution}
 
+\subsection{The Big Idea}
+Imagine you're a grocery store manager trying to prove that no matter how a customer chaotically rearranges the oranges, they can never pack more oranges into the box than the neat hexagonal stacking your employees use. The trick is to stop worrying about the whole box and instead look at one orange at a time. Around each orange, draw a small ``territory''---a wedge-shaped region defined by its nearest neighbors. Now assign each territory a score based on how efficiently that orange fills it. If you can prove that \emph{every} possible territory shape has a score at or below a critical threshold, then no rearrangement---no matter how exotic---can beat the density of the neat packing. The global truth becomes a local checklist.
+
+\subsection{What Was Stopping Progress}
+Gauss had already proved that no neat \emph{grid-like} lattice packing beats the face-centered cubic arrangement. The real villain was disorder: what if someone jiggled the spheres into a weird, asymmetric pattern that secretly packed tighter? Analytic methods kept producing upper bounds that were too high---they couldn't tell the difference between the FCC density and something slightly denser. It was like trying to prove nobody can run a mile in under four minutes, but your stopwatch only reads to the nearest minute.
+
+\subsection{The Breakthrough}
+Hales realized that the entire infinite packing problem could be chopped into a finite---if enormous---checklist. By decomposing space into tetrahedra with sphere centers as vertices, he turned the density question into a linear programming problem: ``What is the maximum possible score for a single tetrahedron?'' A computer then exhaustively checked all 100,000 distinct tetrahedron shapes and confirmed that none exceeds the critical score. Geometry set up the right question; brute-force computing answered it.
+
+\subsection{How It Works}
+
 \subsection{What Was Missing}
 Before Hales, the best known rigorous bound was $\Delta \leq 0.7797$ (Rogers, 1947), well above the conjectured optimum of $\pi/\sqrt{18} \approx 0.74048$. Gauss (1831) had proved that no \emph{lattice} packing (one where sphere centers form a repeating lattice) can beat this density, but the real challenge was ruling out irregular, non-lattice packings. Nobody could show that an exotic, disordered arrangement of spheres does not secretly achieve a higher density than the neat face-centered cubic lattice.
 

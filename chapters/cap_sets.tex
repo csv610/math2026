@@ -101,39 +101,21 @@ r_3(n) \le 3 \cdot 2.756^n.
 
 \section{The Solution}
 
-\subsection{What Was Missing: Beating the Fourier Barrier}
+\subsection{The Big Idea}
 
-The cap set problem asks: how large can a subset $A \subset \mathbb{F}_3^n$ be if it contains no three-term arithmetic progression (i.e., no three distinct points $x, y, z$ with $x + y + z = 0$)?
+The cap set problem asks: how large can a subset of $\mathbb{F}_3^n$ be if it contains no three equally-spaced points? For decades, the best tools were \emph{two-dimensional}: Fourier analysis decomposes functions into waves (complex exponentials), and these waves can only see correlations between \emph{pairs} of points. But the cap set condition is inherently \emph{three-dimensional}---it involves \emph{triples} $(x, y, z)$ with $x + y + z = 0$. It is like trying to study a three-person relationship using only couple's therapy: the tool is structurally mismatched to the problem.
 
-The best result before 2016 was Meshulam's 1995 bound:
-\[
-r_3(n) \le \frac{2 \cdot 3^n}{n},
-\]
-obtained via Fourier analysis on $\mathbb{F}_3^n$. Incremental improvements nudged this to $3^n / n^{1+c}$ for a small constant $c > 0$, but nobody could break past the $2.756^n$ barrier. The gap was clear: Fourier analysis could remove a polynomial factor from $3^n$, but the conjecture (due to Frankl, Graham, and R\"odl) predicted $r_3(n) = o(3^n)$---indeed, the truth should be \emph{subexponential} in $n$, meaning the ratio $r_3(n)/3^n$ should tend to zero faster than any exponential.
+The breakthrough was to abandon Fourier analysis entirely and switch to \emph{polynomials}. A polynomial of low degree cannot vanish on too many points (Schwartz-Zippel), and the cap set condition forces the existence of such polynomials. Ellenberg and Gijswijt made this precise using \emph{slice rank}---a tensor generalization of matrix rank---which converts the cap set problem into a monomial counting exercise. The answer drops from $3^n$ to $2.756^n$, an exponential improvement.
 
-\subsection{Why Existing Methods Failed}
+\subsection{What Was Stopping Progress}
 
-Fourier analysis works beautifully for additive combinatorics over $\mathbb{Z}$ (Roth's 1953 theorem) and has been the workhorse for decades. The obstacle in $\mathbb{F}_3^n$ is structural:
+Fourier analysis was the workhorse of additive combinatorics since Roth's 1953 theorem, and Meshulam (1995) used it to prove $r_3(n) \le 2 \cdot 3^n / n$ over $\mathbb{F}_3^n$. But this approach could only peel off polynomial factors from $3^n$---it could not achieve the subexponential bound the conjecture predicted. The reason is structural: Fourier characters are one-dimensional objects, while the cap set condition is a three-body constraint involving triples. Pl\"unnecke-Ruzsa and entropy methods had the same limitation: they are inherently ``lossy,'' discarding higher-order information at each step. Before 2016, the polynomial method had only been used in geometry (Dvir's Kakeya proof) and nobody had applied it to additive combinatorics over $\mathbb{F}_3^n$.
 
-\begin{itemize}
-\item \textbf{The tensor structure of cap sets}: The condition ``no three points in arithmetic progression'' is a \emph{three-body} constraint: it involves triples $(x, y, z)$ with $x + y + z = 0$. Fourier analysis handles two-body correlations (via the Fourier transform of a single function) but cannot directly control three-body correlations without losing a factor of $3^n$.
+\subsection{The Breakthrough}
 
-\item \textbf{Pl\"unnecke-Ruzsa and entropy methods}: These tools, powerful for sumset problems, gave bounds of the form $|A| \le C \cdot 3^n / n^c$ for some small $c$. The problem is that these methods are ``lossy''---each step of the argument discards information about the higher-order structure of $A$.
+Croot, Lev, and Pach (June 2016) used the polynomial method to show progression-free subsets of $\mathbb{Z}_4^n$ are exponentially small. Ellenberg and Gijswijt (July 2016) adapted the idea to $\mathbb{F}_3^n$ using \emph{slice rank}. The key move: encode the cap set condition as a tensor, observe that cap sets force this tensor to be diagonal, and bound the slice rank of the tensor by counting low-degree monomials. Since low-degree polynomials cannot vanish on too many points, the cap set must be small.
 
-\item \textbf{The polynomial method was untested}: Before 2016, the polynomial method (vanishing polynomials, Schwartz-Zippel) had been used mainly in geometry (Dvir's 2008 Kakeya proof) and coding theory. Nobody had systematically applied it to additive combinatorics problems over $\mathbb{F}_3^n$.
-\end{itemize}
-
-The fundamental obstacle was that cap sets live in a world where \emph{the interesting structure is three-dimensional} (triples summing to zero), but all available tools were fundamentally two-dimensional (Fourier analysis, entropy, sumset inequalities).
-
-\subsection{What Was Novel: The Slice Rank Method}
-
-The breakthrough came in two stages in 2016:
-
-\begin{enumerate}
-\item \textbf{Croot, Lev, and Pach} (June 2016) used the polynomial method to prove that progression-free subsets of $\mathbb{Z}_4^n$ are exponentially small---a breakthrough for a related but easier problem.
-
-\item \textbf{Ellenberg and Gijswijt} (July 2016) adapted and generalized the idea to $\mathbb{F}_3^n$ using \emph{slice rank}, a notion of rank for tensors.
-\end{enumerate}
+\subsection{How It Works}
 
 The key innovation is a three-step reduction:
 
@@ -155,35 +137,13 @@ r_3(n) \le 3 \cdot 2.756^n.
 
 The constant $2.756$ comes from optimizing the entropy bound: it is the exponential rate of $\max_{0 \le t \le 2} 3^{H(t/3)}$ where $H$ is the binary entropy function, evaluated at the critical point.
 
-\subsection{Student-Friendly Explanation: How to Think About the Key Insight}
-
-Here is the conceptual picture, stripped of technicalities:
-
-\textbf{The old way (Fourier analysis).} Think of the cap set condition as saying: ``the set $A$ has no three-term arithmetic progression.'' Fourier analysis converts this into a statement about correlations between $A$ and characters of $\mathbb{F}_3^n$. But characters are \emph{one-dimensional} objects (complex exponentials), and the cap set condition is inherently \emph{three-dimensional} (it involves triples). So Fourier analysis can only give bounds that lose a factor of $3^n$.
-
-\textbf{The new way (slice rank).} Instead of Fourier analysis, use \emph{polynomials}. A polynomial of degree $d$ in $n$ variables over $\mathbb{F}_3$ has at most $d \cdot 3^{n-1}$ zeros (Schwartz-Zippel). If you can find a polynomial that vanishes on all of $A$ except one point, then $|A|$ is bounded by the number of zeros, which is controlled by the degree.
-
-The slice rank method makes this precise: it converts the cap set problem into a question about the rank of a tensor, and then bounds that rank by counting monomials. The key insight is that \emph{low-degree polynomials cannot vanish on too many points}, and the cap set condition forces the existence of such polynomials.
-
-\begin{highlightbox}
-\textbf{The punchline:} The slice rank method is a powerful generalization of the polynomial method: instead of a single polynomial vanishing on a set, one uses the rank of a tensor. This upgraded tool can handle three-body constraints (like the cap set condition) that defeat two-body tools like Fourier analysis. It has since been applied to many problems including the sunflower lemma, the Erd\H{o}s-Ginzburg-Ziv theorem, and the problem of finding large subsets of $\mathbb{F}_p^n$ with no solutions to linear equations.
-\end{highlightbox}
-
-\subsection{Ellenberg-Gijswijt's Proof in Detail}
-
 \begin{theorem}[Ellenberg-Gijswijt \cite{ellenberggijswijt2017}]
 $r_3(n) \le 2.756^n$ for sufficiently large $n$.
 \end{theorem}
 
-The proof proceeds in three steps:
-
-\begin{enumerate}
-\item \textbf{Tensor formulation}: Represent the cap set condition by a tensor $T: \mathbb{F}_3^n \times \mathbb{F}_3^n \times \mathbb{F}_3^n \to \{0,1\}$ defined by $T(x,y,z) = 1$ if $x + y + z = 0$ and $0$ otherwise. A cap set is a set $A$ such that $T|_{A \times A \times A}$ is diagonal (no off-diagonal entries).
-
-\item \textbf{Slice rank bound}: The slice rank of $T$ is at most $3 \cdot M$, where $M$ is the number of monomials $x_1^{e_1} \cdots x_n^{e_n}$ with $e_i \in \{0,1,2\}$ and $\sum e_i < 2n/3$.
-
-\item \textbf{Stirling's formula}: $M \le 2.756^n$, giving the bound $|A| \le \text{slice rank}(T) \le 3 \cdot 2.756^n$.
-\end{enumerate}
+\begin{highlightbox}
+\textbf{The punchline:} The slice rank method is a powerful generalization of the polynomial method: instead of a single polynomial vanishing on a set, one uses the rank of a tensor. This upgraded tool can handle three-body constraints (like the cap set condition) that defeat two-body tools like Fourier analysis. It has since been applied to many problems including the sunflower lemma, the Erd\H{o}s-Ginzburg-Ziv theorem, and the problem of finding large subsets of $\mathbb{F}_p^n$ with no solutions to linear equations.
+\end{highlightbox}
 
 \section{Impact}
 \begin{itemize}

@@ -82,13 +82,21 @@ The fundamental insight: Ricci flow tends to make manifolds more spherical. If w
 
 \section{The Solution}
 
-\subsection{What Was Missing}
+\subsection{The Big Idea}
+Imagine inflating a crumpled, wrinkled balloon. As the air goes in, sharp dents flatten and bumpy regions round off---the balloon wants to become a perfect sphere. That is essentially what the Ricci flow does to a 3-dimensional shape: it smooths out the geometry, pushing it toward uniform curvature. Perelman's genius was to prove this process always finishes the job---that no matter how tangled the starting shape, the ``inflation'' eventually reveals it to be a ball (or proves it was a ball all along). The deep insight is that *geometry has an arrow of time*: there is a natural direction in which shapes become simpler, and you cannot dodge it.
+
+\subsection{What Was Stopping Progress}
+Hamilton had the right engine---Ricci flow---but it kept stalling. As the flow runs, certain regions develop ever-sharper curvature, like wrinkles tightening into needle-thin pinch points. If you cannot deal with these pinch points, the flow breaks down and you learn nothing. It was like having a powerful smoothing machine that kept jamming on certain materials. Everyone could see the machine *should* work, but nobody could prove it would never permanently jam---that every jam could be cleared and the smoothing resumed.
+
+\subsection{The Breakthrough}
+Perelman invented two new tools. First, a ``thermometer for geometric complexity''---an entropy quantity that *never decreases* along the flow, guaranteeing the process always makes progress and cannot loop or stall forever. Second, a ``no-collapse'' theorem: the manifold never folds in on itself to zero volume, so there is always room to perform surgery on pinch points. Together, these two guarantees meant Hamilton's program---flow, cut out singularities, glue in smooth caps, repeat---could be carried to completion.
+
+\subsection{How It Works}
+
 By the early 2000s, the Poincar\'e conjecture had been settled in every dimension except three. Smale (1961) proved it for dimensions five and above, and Freedman (1982) handled dimension four. Dimension 3 remained stubbornly open. Hamilton's Ricci flow, introduced in 1982, was the most promising approach: it smoothly deforms a manifold's geometry toward uniform curvature. But after two decades of effort, a single critical obstacle remained---the flow develops singularities (pinch points where curvature blows up), and no one knew how to systematically control them and continue the flow past those singularities.
 
-\subsection{Why Existing Methods Failed}
 Higher-dimensional techniques (Smale's handle-trading, Freedman's Casson handles) exploit the fact that there is ``room'' in dimensions $\geq 4$ to untangle topological obstructions by general position arguments. In dimension 3, such room does not exist---surfaces cannot be pushed past each other generically. Hamilton's Ricci flow was the right idea, but his surgery procedure could only handle a limited taxonomy of singularities. Without a proof that \emph{all} singularities fall into manageable types, and that surgeries do not proliferate without bound, the program could not be completed.
 
-\subsection{What Was Novel}
 Perelman introduced two foundational innovations that cracked the singularity problem:
 \begin{enumerate}
 \item \textbf{Perelman's entropy functional ($\mathcal{W}$-entropy):} A new monotone quantity $\mathcal{W}(g,f,\tau)$ that governs the Ricci flow, analogous to thermodynamic entropy. Its monotonicity ($\frac{d\mathcal{W}}{dt}\geq 0$) provides global control over the flow's evolution, preventing the formation of unmanageable singularities.
@@ -96,7 +104,6 @@ Perelman introduced two foundational innovations that cracked the singularity pr
 \end{enumerate}
 Together, these tools gave complete control of singularity formation and allowed Hamilton's surgery program to be carried out to completion.
 
-\subsection{Student-Friendly Explanation}
 Think of a crumpled rubber ball slowly inflating. The Ricci flow smooths out wrinkles---sharp dents flatten, and bumpy regions round off---just as heat spreads out hot spots in a metal plate. The trouble is, some wrinkles become so sharp that they pinch off, creating a singularity (like a needle forming on the surface). Perelman's key insight was to invent a ``thermometer for complexity''---his $\mathcal{W}$-entropy---that tracks whether the overall geometry is becoming simpler or more tangled. He proved this quantity never decreases, so the flow is always making progress. He also proved that no region can collapse to zero volume, so the manifold never ``folds in on itself.'' With these guarantees, one can surgically remove each pinch point and keep flowing until the manifold is revealed to be a perfect 3-sphere.
 
 \bigskip
