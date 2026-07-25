@@ -8,9 +8,6 @@
 \subsection{Informal}
 Imagine filling a large square grid with random numbers and then asking: what pattern do the grid's special ``stretching directions'' follow? In the 1920s, statisticians noticed that as the grid grows larger, these stretching directions spread out in a remarkably uniform shape---a perfect semicircle, no matter what random process you used to fill the grid. The deeper question is whether \emph{finer} details---the tiny gaps between neighboring stretching directions---also follow the same universal pattern, regardless of the exact random recipe.
 
-\subsection{Simplified Version}
-Universality was already known for specific ensembles: the Gaussian Unitary Ensemble (GUE) and Gaussian Orthogonal Ensemble (GOE), where entries are drawn from Gaussian distributions. Wigner's semicircle law (1955) and the Marchenko--Pastur distribution (1967) were proved for these Gaussian cases. The deep question was whether the \emph{same} limiting distributions hold for \emph{all} entry distributions---a statement about universality that required entirely new techniques.
-
 \subsection{Formal}
 \begin{equation}
 \rho(t) = \frac{1}{2\pi} \sqrt{4 - t^2}, \quad t \in [-2, 2]
@@ -20,15 +17,17 @@ However, the major open problem for decades was \emph{universality}: does the lo
 
 Specifically, does local spacing behavior always match the Gaussian ensembles (GUE/GOE), regardless of whether the matrix entries are Bernoulli ($\pm 1$), Gaussian, or uniform random variables?
 
-\begin{historicalbox}
+\subsection{Historical Context}
 The universality conjecture was one of the most famous open problems in mathematical physics and probability theory, connecting random matrices to number theory (the zeros of the Riemann zeta function) and chaotic systems.
-\end{historicalbox}
+
+\subsection{What Was Known}
+Wigner predicted in the 1950s that the eigenvalues of large random matrices follow a semicircle law. The macroscopic distribution was well understood by the 1960s. But the microscopic behavior---the statistics of individual eigenvalue spacings---was much harder. Mehta's conjecture about the sine kernel distribution was proved for specific matrix ensembles, but universality across all ensembles was not established until the 2000s.
 
 \subsection{Why It Matters}
 Random matrix theory has become one of the most powerful tools in modern mathematics and physics. It describes the energy levels of heavy atoms, the distribution of zeros of the Riemann zeta function, and the behavior of large neural networks. Understanding the universal patterns in random matrices reveals deep connections between probability, number theory, and quantum physics.
 
-\subsection{What Was Known}
-Wigner predicted in the 1950s that the eigenvalues of large random matrices follow a semicircle law. The macroscopic distribution was well understood by the 1960s. But the microscopic behavior---the statistics of individual eigenvalue spacings---was much harder. Mehta's conjecture about the sine kernel distribution was proved for specific matrix ensembles, but universality across all ensembles was not established until the 2000s.
+\subsection{Simplified Version}
+Universality was already known for specific ensembles: the Gaussian Unitary Ensemble (GUE) and Gaussian Orthogonal Ensemble (GOE), where entries are drawn from Gaussian distributions. Wigner's semicircle law (1955) and the Marchenko--Pastur distribution (1967) were proved for these Gaussian cases. The deep question was whether the \emph{same} limiting distributions hold for \emph{all} entry distributions---a statement about universality that required entirely new techniques.
 
 \section{Mathematical Theory}
 

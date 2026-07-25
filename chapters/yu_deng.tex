@@ -8,12 +8,6 @@
 \subsection{Informal}
 Imagine watching a flowing river from far away: the water moves smoothly as a single unit. Now zoom in close enough and you see billions of individual molecules bouncing off each other like tiny billiard balls. The big question is: can you start with the rules governing those individual collisions and prove, mathematically, that the smooth river equations must follow? For over a century, this remained one of the hardest open problems in mathematical physics. In 2024, Yu Deng finally proved it for a simplified model of gas.
 
-\begin{historicalbox}
-Hilbert's sixth problem, posed at the 1900 ICM in Paris, asked for the axiomatization of physics. Specifically, he challenged mathematicians to show that the macroscopic equations of fluid dynamics---which treat matter as a continuous medium---follow necessarily from the microscopic laws governing the jostling of individual molecules.
-\end{historicalbox}
-
-The microscopic picture treats a fluid as a vast collection of molecules---think of them as tiny billiard balls---colliding elastically according to Newton's laws. In the late 19th century, Ludwig Boltzmann wrote down an equation describing the statistical distribution of these molecules:
-
 \subsection{Formal}
 \begin{equation}
 \frac{\partial f}{\partial t} + v \cdot \nabla_x f = Q(f, f)
@@ -23,11 +17,19 @@ where $f(t, x, v)$ is the density of molecules at position $x$ with velocity $v$
 
 The challenge is that this transition---from discrete particles to continuous fluid---had never been made rigorous for realistic molecular interactions. For decades, progress was limited to special cases: the Lorentz gas (dilute scatterers), linearized Boltzmann, or simplified kinetic models.
 
-\subsection{Why It Matters}
-If this derivation can be made rigorous, it would justify using fluid equations to model everything from weather prediction to aircraft design. It would also resolve a philosophical puzzle: how can irreversible behavior emerge from reversible microscopic laws? The answer has implications for thermodynamics, information theory, and the arrow of time.
+\subsection{Historical Context}
+Hilbert's sixth problem, posed at the 1900 ICM in Paris, asked for the axiomatization of physics. Specifically, he challenged mathematicians to show that the macroscopic equations of fluid dynamics---which treat matter as a continuous medium---follow necessarily from the microscopic laws governing the jostling of individual molecules.
+
+The microscopic picture treats a fluid as a vast collection of molecules---think of them as tiny billiard balls---colliding elastically according to Newton's laws. In the late 19th century, Ludwig Boltzmann wrote down an equation describing the statistical distribution of these molecules:
 
 \subsection{What Was Known}
 The Boltzmann equation was proposed in 1872, and the macroscopic fluid equations (Euler and Navier--Stokes) were known even earlier. But the rigorous derivation---starting from Newton's laws for individual particles and arriving at the fluid equations---had never been achieved for realistic molecular interactions. Progress was limited to simplified models like the Lorentz gas, where particles interact with fixed scatterers rather than with each other.
+
+\subsection{Why It Matters}
+If this derivation can be made rigorous, it would justify using fluid equations to model everything from weather prediction to aircraft design. It would also resolve a philosophical puzzle: how can irreversible behavior emerge from reversible microscopic laws? The answer has implications for thermodynamics, information theory, and the arrow of time.
+
+\subsection{Simplified Version}
+% TODO: Add content
 
 \section{Mathematical Theory}
 

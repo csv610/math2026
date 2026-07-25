@@ -1,18 +1,12 @@
 % Chapter 16: The Willmore Conjecture
 \let\LocalMacro\relax
 
-\chapter{The Willmore Conjecture}
+\chapter{Willmore Conjecture}
 
 \section{The Problem}
 
 \subsection{Informal}
 Imagine inflating a rubber donut and dipping it in soapy water---the film tries to settle into the smoothest shape it can. But not all donut shapes are equally smooth: some are naturally wrinklier, others more rounded. In 1965, Thomas Willmore asked: what is the smoothest a donut-shaped surface can possibly be? He predicted a specific lower limit that no donut shape can ever beat, no matter how you stretch or bend it.
-
-\subsection{What Was Known}
-Willmore conjectured in 1965 that the minimum energy is $2\pi^2$, achieved by the Clifford torus. Li and Yau proved in 1993 that non-embedded tori have energy at least $2\pi^2$. Ros proved the conjecture for tori of revolution in 2005. But the general case---for all tori, including self-intersecting ones---remained open for 47 years.
-
-\subsection{Why It Matters}
-The Willmore energy measures how much a surface deviates from being round---it is the natural measure of ``smoothness'' for curved surfaces. It appears in physics (the elasticity of cell membranes), computer graphics (smoothing 3D models), and biology (the shape of red blood cells). Understanding its minimum value reveals fundamental truths about the geometry of surfaces.
 
 \subsection{Formal}
 \begin{conjecture}[Willmore, 1965]
@@ -23,9 +17,14 @@ For any immersed torus $T^2 \subset \mathbb{R}^3$,
 Equality holds for the Clifford torus in $S^3$ (stereographically projected to $\mathbb{R}^3$).
 \end{conjecture}
 
-\begin{historicalbox}
+\subsection{Historical Context}
 Willmore conjectured this in 1965. It became a central problem in geometric analysis, connecting conformal geometry, integrable systems, and algebraic geometry. The conjecture resisted all attempts for 47 years.
-\end{historicalbox}
+
+\subsection{What Was Known}
+Willmore conjectured in 1965 that the minimum energy is $2\pi^2$, achieved by the Clifford torus. Li and Yau proved in 1993 that non-embedded tori have energy at least $2\pi^2$. Ros proved the conjecture for tori of revolution in 2005. But the general case---for all tori, including self-intersecting ones---remained open for 47 years.
+
+\subsection{Why It Matters}
+The Willmore energy measures how much a surface deviates from being round---it is the natural measure of ``smoothness'' for curved surfaces. It appears in physics (the elasticity of cell membranes), computer graphics (smoothing 3D models), and biology (the shape of red blood cells). Understanding its minimum value reveals fundamental truths about the geometry of surfaces.
 
 \subsection{Simplified Version}
 For spheres (genus 0), the answer is classical: the round sphere minimizes the Willmore energy, achieving the value $4\pi$. The torus (genus 1) is the next-simplest surface, and Willmore conjectured that the Clifford torus---a perfectly symmetric torus living in 4-dimensional space---minimizes the energy among all tori. This was proved by Marques and Neves in 2014.

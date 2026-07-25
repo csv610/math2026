@@ -1,7 +1,7 @@
 % Chapter 15: The AKS Primality Test
 \let\LocalMacro\relax
 
-\chapter{The AKS Primality Test}
+\chapter{AKS Primality Test}
 
 \section{The Problem}
 
@@ -11,9 +11,8 @@ For thousands of years, people have wanted to know: is this number prime, or can
 \subsection{Formal}
 The AKS conjecture (now theorem) asks: is there a deterministic polynomial-time algorithm that correctly decides whether a given integer $n$ is prime or composite, without relying on any unproven assumptions?
 
-\begin{historicalbox}
+\subsection{Historical Context}
 The question was motivated by cryptography: RSA encryption relies on the difficulty of factoring, but key generation requires efficient primality testing. Before AKS, cryptographers relied on probabilistic tests.
-\end{historicalbox}
 
 \subsection{What Was Known}
 For centuries, trial division---checking every possible divisor---was the only method. It works but becomes impossibly slow for large numbers. In the 1970s and 1980s, probabilistic tests like Miller--Rabin were developed: they are extremely fast and almost always correct, but there is a tiny chance of error. The question of whether a fast, always-correct test existed was open for decades.

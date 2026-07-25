@@ -1,22 +1,12 @@
 % Chapter 14: The Green--Tao Theorem
 \let\LocalMacro\relax
 
-\chapter{The Green--Tao Theorem}
+\chapter{Green--Tao Theorem}
 
 \section{The Problem}
 
 \subsection{Informal}
 An arithmetic progression is simply a sequence of numbers where the gap between neighbors is always the same---like 5, 11, 17, 23. In 1939, it was proved that you can find infinitely many such sequences made up entirely of prime numbers, as long as they have just three terms. The big question was: can you find evenly-spaced prime sequences of any length you want? This stayed open for over 60 years because the primes are spread very thinly among the integers, making them hard to pin down.
-
-\begin{historicalbox}
-Van der Waerden's theorem (1927) states that any partition of $\mathbb{N}$ into finitely many parts contains arbitrarily long monochromatic arithmetic progressions. Szemer\'edi's theorem (1975) strengthened this: any subset of $\mathbb{N}$ with positive density contains arbitrarily long APs. But the primes have density zero, so Szemer\'edi's theorem does not apply \cite{vdW1927, szemeredi1975}.
-\end{historicalbox}
-
-\subsection{What Was Known}
-Van der Waerden proved in 1927 that any coloring of the integers must contain long monochromatic arithmetic progressions. Szemer\'edi proved in 1975 that any set of integers with positive density contains arbitrarily long progressions. But the primes have density zero---they become increasingly sparse---so Szemer\'edi's theorem does not apply. The question of whether the primes contain long progressions was completely open before Green and Tao.
-
-\subsection{Why It Matters}
-The Green--Tao theorem is one of the most surprising results in modern mathematics: despite being spread thinner and thinner among the integers, the primes still contain every possible arithmetic progression. This shows that the primes, which appear random, actually have deep hidden structure. The techniques developed for this proof have been applied to many other problems in number theory.
 
 \subsection{Formal}
 
@@ -27,6 +17,18 @@ The prime numbers contain arbitrarily long arithmetic progressions. That is, for
 p_i = p_1 + (i-1)d \quad \text{for } i = 1, \ldots, k.
 \]
 \end{theorem}
+
+\subsection{Historical Context}
+Van der Waerden's theorem (1927) states that any partition of $\mathbb{N}$ into finitely many parts contains arbitrarily long monochromatic arithmetic progressions. Szemer\'edi's theorem (1975) strengthened this: any subset of $\mathbb{N}$ with positive density contains arbitrarily long APs. But the primes have density zero, so Szemer\'edi's theorem does not apply \cite{vdW1927, szemeredi1975}.
+
+\subsection{What Was Known}
+Van der Waerden proved in 1927 that any coloring of the integers must contain long monochromatic arithmetic progressions. Szemer\'edi proved in 1975 that any set of integers with positive density contains arbitrarily long progressions. But the primes have density zero---they become increasingly sparse---so Szemer\'edi's theorem does not apply. The question of whether the primes contain long progressions was completely open before Green and Tao.
+
+\subsection{Why It Matters}
+The Green--Tao theorem is one of the most surprising results in modern mathematics: despite being spread thinner and thinner among the integers, the primes still contain every possible arithmetic progression. This shows that the primes, which appear random, actually have deep hidden structure. The techniques developed for this proof have been applied to many other problems in number theory.
+
+\subsection{Simplified Version}
+% TODO: Add content
 
 \section{Mathematical Theory}
 

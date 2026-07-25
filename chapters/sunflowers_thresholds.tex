@@ -8,15 +8,6 @@
 \subsection{Informal}
 In 2022, three long-standing puzzles in mathematics were solved within months of each other using variations of the same clever idea. The most famous asks about sunflower patterns: imagine three groups of objects that all overlap in exactly the same common core, like petals of a flower sharing a center. The question is: how many groups do you need before a sunflower is guaranteed to appear? A related question asks when a complex system---like a network of connections---first becomes likely to have a certain property. A third asks about coloring the edges of a special kind of diagram. All three problems had resisted attack for decades.
 
-\subsection{What Was Known}
-The sunflower conjecture was open since 1960, with the best bound growing factorially. The Kahn--Kalai conjecture had been open since 2006, though Kalai had earlier suggested the threshold should be close to the expectation. The Erd\H{o}s--Faber--Lov\'{a}sz conjecture had been open since 1972, with only partial results for small values of $n$.
-
-\subsection{Why It Matters}
-These three problems are fundamental questions about how structured patterns emerge from large collections of objects. Sunflowers appear in data analysis and computational biology. Threshold phenomena govern how networks become connected. Graph coloring is central to scheduling, register allocation in compilers, and frequency assignment in wireless networks.
-
-\subsection{The Sunflower Conjecture}
-A \emph{sunflower} with $k$ petals is a family of $k$ sets whose pairwise intersections are all equal to a common core $C$.
-
 \subsection{Formal}
 \begin{conjecture}[Erd\H{o}s-Rado, 1960]
 Any family of sets of size $w$ with more than $c(w)^k$ sets contains a sunflower with $k$ petals.
@@ -24,27 +15,27 @@ Any family of sets of size $w$ with more than $c(w)^k$ sets contains a sunflower
 
 Erd\H{o}s offered \$1000 for a proof. The best bound before 2022 was $(w!)^{k-1}$.
 
+\subsection{Historical Context}
+All three conjectures were resolved within months of each other in 2022, using variations of the same core technique: spread approximations and entropy arguments.
+
+\subsection{What Was Known}
+The sunflower conjecture was open since 1960, with the best bound growing factorially. The Kahn--Kalai conjecture had been open since 2006, though Kalai had earlier suggested the threshold should be close to the expectation. The Erd\H{o}s--Faber--Lov\'{a}sz conjecture had been open since 1972, with only partial results for small values of $n$.
+
+\subsection{Why It Matters}
+These three problems are fundamental questions about how structured patterns emerge from large collections of objects. Sunflowers appear in data analysis and computational biology. Threshold phenomena govern how networks become connected. Graph coloring is central to scheduling, register allocation in compilers, and frequency assignment in wireless networks.
+
+\subsection{Simplified Version}
+For the sunflower problem, when the number of petals is fixed at $k = 3$, the Erd\H{o}s-Rado bound gives $(w!)^2$---a bound that grows factorially in the set size $w$. The conjecture asks for a bound of the form $c^k$ instead, independent of $w$. The 2022 breakthrough of Alweiss--Lovett--Wu--Zhang achieved $(C \log w)^{k-1} w!$, replacing the factorial with a near-exponential bound.
+
+\subsection{The Sunflower Conjecture}
+A \emph{sunflower} with $k$ petals is a family of $k$ sets whose pairwise intersections are all equal to a common core $C$.
+
 \subsection{The Kahn-Kalai Conjecture (Expectation-Threshold)}
 For an increasing property $\mathcal{P}$ on subsets of $[n]$, the \emph{threshold} $p_c(\mathcal{P})$ is the $p$ where $\mathbb{P}(G(n,p) \in \mathcal{P}) = 1/2$. The \emph{expectation threshold} $q(\mathcal{P})$ is the smallest $p$ where the expected number of witnesses is 1.
 
 \begin{conjecture}[Kahn-Kalai, 2006]
 $p_c(\mathcal{P}) \le C \log \ell \cdot q(\mathcal{P})$, where $\ell$ is the size of the smallest witness.
 \end{conjecture}
-
-\subsection{The Erd\H{o}s-Faber-Lov\'{a}sz Conjecture}
-
-\begin{conjecture}[Erd\H{o}s-Faber-Lov\'{a}sz, 1972]
-If $G$ is the union of $n$ cliques of size $n$, each pair intersecting in at most one vertex, then $\chi(G) = n$.
-\end{conjecture}
-
-Erd\H{o}s offered \$500. The conjecture was open for 49 years.
-
-\begin{historicalbox}
-All three conjectures were resolved within months of each other in 2022, using variations of the same core technique: spread approximations and entropy arguments.
-\end{historicalbox}
-
-\subsection{Simplified Version}
-For the sunflower problem, when the number of petals is fixed at $k = 3$, the Erd\H{o}s-Rado bound gives $(w!)^2$---a bound that grows factorially in the set size $w$. The conjecture asks for a bound of the form $c^k$ instead, independent of $w$. The 2022 breakthrough of Alweiss--Lovett--Wu--Zhang achieved $(C \log w)^{k-1} w!$, replacing the factorial with a near-exponential bound.
 
 \section{Mathematical Theory}
 

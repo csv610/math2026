@@ -1,22 +1,12 @@
 % Chapter 9: The Fundamental Lemma
 \let\LocalMacro\relax
 
-\chapter{The Fundamental Lemma}
+\chapter{Fundamental Lemma}
 
 \section{The Problem}
 
 \subsection{Informal}
 Number theorists have long tried to connect two very different ways of studying symmetry: one based on the shapes of geometric objects, the other based on the patterns of numbers. A master formula tries to translate between these two viewpoints, but it only works if a certain key identity holds true. That identity was guessed in 1981 and for decades nobody could prove it. In 2008, Ngo Bao Chau finally cracked it using deep geometric ideas that nobody had thought to apply.
-
-\begin{historicalbox}
-The Fundamental Lemma was the single biggest obstacle to the Langlands program for decades. Langlands himself called it ``the most important open problem in the theory of automorphic forms.''
-\end{historicalbox}
-
-\subsection{What Was Known}
-The Fundamental Lemma was conjectured by Robert Langlands and Dorottya Shelstad in the 1980s. It was known to be true in many special cases---for small groups and low dimensions---but a general proof seemed out of reach. Previous approaches relied on harmonic analysis and the theory of automorphic forms, but they could not handle the full generality of the conjecture.
-
-\subsection{Why It Matters}
-The Langlands program is often called the ``grand unified theory of mathematics''---a vast web of conjectures connecting number theory, geometry, and physics. The Fundamental Lemma was the single biggest obstacle blocking progress on this program. Its proof opened the door to proving deep results about the symmetries of equations, including connections to the Riemann hypothesis.
 
 \subsection{Formal}
 The fundamental lemma of endoscopy is an identity relating orbital integrals on a reductive group $G$ to orbital integrals on its endoscopic groups $H$. For a stable orbital integral $\mathrm{SOI}_G(f)$ on $G$ and an endoscopic group $H$, the lemma asserts:
@@ -24,6 +14,15 @@ The fundamental lemma of endoscopy is an identity relating orbital integrals on 
 \mathrm{SOI}_G(f) = \sum_{H} c_H \cdot \mathrm{OI}_H(f_H)
 \]
 where $f_H$ is a transfer of $f$ from $G$ to $H$, and $c_H$ are explicit constants. This identity was conjectured by Langlands and Shelstad in the 1980s and is a key ingredient in the Langlands program.
+
+\subsection{Historical Context}
+The Fundamental Lemma was the single biggest obstacle to the Langlands program for decades. Langlands himself called it ``the most important open problem in the theory of automorphic forms.''
+
+\subsection{What Was Known}
+The Fundamental Lemma was conjectured by Robert Langlands and Dorottya Shelstad in the 1980s. It was known to be true in many special cases---for small groups and low dimensions---but a general proof seemed out of reach. Previous approaches relied on harmonic analysis and the theory of automorphic forms, but they could not handle the full generality of the conjecture.
+
+\subsection{Why It Matters}
+The Langlands program is often called the ``grand unified theory of mathematics''---a vast web of conjectures connecting number theory, geometry, and physics. The Fundamental Lemma was the single biggest obstacle blocking progress on this program. Its proof opened the door to proving deep results about the symmetries of equations, including connections to the Riemann hypothesis.
 
 \subsection{Simplified Version}
 The Fundamental Lemma was verified computationally for many specific cases before the general proof. For the group $GL_2$ (the simplest non-abelian case), it was proved by Labesse and Langlands in 1988. The general case, proved by Ngô Bao Châu in 2009, required entirely new geometric techniques---the key insight was to interpret the orbital integrals as counts of points on algebraic varieties related to Hitchin fibrations.

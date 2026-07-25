@@ -1,18 +1,12 @@
 % Chapter 22: The Kadison--Singer Problem
 \let\LocalMacro\relax
 
-\chapter{The Kadison--Singer Problem}
+\chapter{Kadison--Singer Problem}
 
 \section{The Problem}
 
 \subsection{Informal}
 In the 1950s, two mathematicians asked a question that sounds like a riddle: suppose you have a huge collection of vectors in space, each pointing in a different direction. Can you always split them into a few groups, each of which behaves almost as nicely as a set of mutually perpendicular axes? This question, which seemed purely abstract, turned out to have deep consequences for how we understand quantum measurements, signal processing, and even the structure of data.
-
-\subsection{What Was Known}
-The problem was posed in 1959 and was known to be equivalent to several other important conjectures in mathematics, including the Paving Conjecture in operator algebras and the Feichtinger conjecture in harmonic analysis. By the 2000s, partial results had been obtained using techniques from Banach space theory, but the full problem remained open for over 50 years.
-
-\subsection{Why It Matters}
-The Kadison--Singer problem sits at the crossroads of quantum physics, signal processing, and pure mathematics. A positive answer means that incomplete quantum measurements can always be completed consistently. This has implications for how we understand measurement in quantum mechanics and how we process incomplete data in engineering.
 
 \subsection{Formal}
 \begin{conjecture}[Paving Conjecture]
@@ -25,9 +19,14 @@ for some $\eta > 0$ depending only on $\epsilon$.
 
 This conjecture implies that one can decompose a large projection into smaller parts whose operator norms are strictly bounded away from 1.
 
-\begin{historicalbox}
+\subsection{Historical Context}
 The Kadison--Singer problem remained unsolved for over 50 years. Its difficulty stemmed from its connection to diverse areas of mathematics, including C*-algebras, frame theory in signal processing, graph theory, and computer science.
-\end{historicalbox}
+
+\subsection{What Was Known}
+The problem was posed in 1959 and was known to be equivalent to several other important conjectures in mathematics, including the Paving Conjecture in operator algebras and the Feichtinger conjecture in harmonic analysis. By the 2000s, partial results had been obtained using techniques from Banach space theory, but the full problem remained open for over 50 years.
+
+\subsection{Why It Matters}
+The Kadison--Singer problem sits at the crossroads of quantum physics, signal processing, and pure mathematics. A positive answer means that incomplete quantum measurements can always be completed consistently. This has implications for how we understand measurement in quantum mechanics and how we process incomplete data in engineering.
 
 \subsection{Simplified Version}
 The problem is equivalent to the Paving Conjecture: given an infinite-dimensional diagonal operator $D$ with bounded entries, can the basis vectors be partitioned into finitely many blocks such that each block is nearly orthogonal? This was verified numerically for many examples before the proof, and Weaver had conjectured a finite-dimensional reformulation (Weaver's conjecture $KS_2$) that was already checked for small matrices. The breakthrough came from showing that Weaver's conjecture holds in general via the ``few moments'' method.
