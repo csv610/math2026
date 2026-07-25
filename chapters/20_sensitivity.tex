@@ -17,10 +17,6 @@ $s(f)$ and $bs(f)$ are polynomially related: $bs(f) \le s(f)^c$ for some constan
 The sensitivity conjecture stood for 27 years, resisting attacks from Fourier analysis, probability theory, and complexity theory. It was one of the oldest open problems in theoretical computer science.
 \end{historicalbox}
 
-\section{Solution}
-
-Who solved it and what techniques were required.
-
 \section{Mathematical Theory}
 
 \subsection{Prerequisites}
@@ -31,7 +27,7 @@ This chapter assumes familiarity with:
 \item Basic complexity theory (decision trees, polynomial degree)
 \end{itemize}
 
-\subsection{The Discovery}
+\section{The Solution}
 
 \subsection{Huang (2019)}
 
@@ -53,14 +49,14 @@ Huang's proof is famously short (2 pages) and uses only spectral graph theory:
 Huang's proof resolved a 27-year-old problem using a single clever idea: a signing of the hypercube's adjacency matrix. The proof uses no Fourier analysis, no probability, and no complexity theory---just linear algebra.
 \end{highlightbox}
 
-\subsection{Impact}
+\section{Impact}
 \begin{itemize}
 \item \textbf{Complexity theory}: Established polynomial relationships between all known boolean function complexity measures.
 \item \textbf{Spectral methods}: The signing technique has been applied to other graph-theoretic problems.
 \item \textbf{Open question}: The exact polynomial relating $s(f)$ and $bs(f)$ remains unknown---Huang's proof gives $c = 4$, but the conjectured value is $c = 1$.
 \end{itemize}
 
-\subsection{Exercises}
+\section{Exercises}
 
 \begin{exercise}[Basic]
 Compute $s(f)$ and $bs(f)$ for the parity function $f(x_1, \ldots, x_n) = x_1 \oplus \cdots \oplus x_n$.
@@ -74,7 +70,7 @@ Explain the Cauchy interlacing theorem: if $A$ is an $n \times n$ symmetric matr
 Sketch Huang's construction of the signing of $Q_n$'s adjacency matrix. Why does $A^2 = nI$ hold?
 \end{exercise}
 
-\subsection{Timeline}
+\section{Timeline}
 
 \begin{tabularx}{\linewidth}{lX}
 \toprule
@@ -84,7 +80,7 @@ Sketch Huang's construction of the signing of $Q_n$'s adjacency matrix. Why does
 \bottomrule
 \end{tabularx}
 
-\subsection{Citations}
+\section{Citations}
 
 \begin{enumerate}
 \item Huang, H. (2019). ``Induced subgraphs of hypercubes and a proof of the sensitivity conjecture.'' Annals of Mathematics, 190(3), 949--955.

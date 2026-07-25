@@ -14,10 +14,7 @@ The question was motivated by cryptography: RSA encryption relies on the difficu
 
 \subsection{Formal}
 
-
-\section{Solution}
-
-Who solved it and what techniques were required.
+The AKS conjecture (now theorem) asks: is there a deterministic polynomial-time algorithm that correctly decides whether a given integer $n$ is prime or composite, without relying on any unproven assumptions?
 
 \section{Mathematical Theory}
 
@@ -64,7 +61,7 @@ The AKS algorithm (Agrawal, Kayal, Saxena, 2002) proceeds in several steps:
 
 The key innovation was showing that a \emph{small} value of $r$ suffices, making the algorithm polynomial time.
 
-\section{The Discovery}
+\section{The Solution}
 
 \begin{theorem}[AKS Primality Test, 2002 \cite{agrawal2004}]
 There exists a deterministic algorithm that decides whether $n$ is prime in time $\tilde{O}((\log n)^6)$.

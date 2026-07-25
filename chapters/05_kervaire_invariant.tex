@@ -9,22 +9,16 @@
 Some shapes live in higher-dimensional spaces where our everyday intuition breaks down. In 1960, Michel Kervaire discovered a special kind of ten-dimensional shape that could not be neatly tucked inside a sixteen-dimensional space, even though it seemed like it should fit. He devised a simple yes-or-no test for these shapes that turned out to be the key to a much deeper question: in which dimensions can such stubborn shapes exist? It took over fifty years, but mathematicians finally proved that beyond a certain point, these shapes can no longer appear.
 
 \subsection{Formal}
-\begin{conjecture}
 For which dimensions $n$ does there exist a framed manifold with Kervaire invariant equal to 1?
-\end{conjecture}
 
-Kervaire showed such manifolds exist in dimension 2 (trivially). Browder (1969) proved that if such a manifold exists in dimension $n$, then $n$ must be of the form $2^k - 2$ for some integer $k \geq 2$ \cite{browder1969}. So the possible dimensions are:
-\[2, 6, 14, 30, 62, 126, \ldots\]
+Such manifolds exist in dimension 2 (trivially), and have been constructed in dimensions 6, 14, 30, and 62. The possible dimensions are:
+\[2, 6, 14, 30, 62, 126, 254, \ldots\]
 
-For decades, the Kervaire invariant was known to be 1 in dimensions 2, 6, 14, 30, and 62. The question of whether it could be 1 in any higher dimension remained open for 50 years.
+The open question is whether any framed manifold with Kervaire invariant 1 exists in dimensions $126, 254, 510, \ldots$ (i.e., dimensions $2^k - 2$ for $k \geq 8$).
 
 \begin{historicalbox}
 The Kervaire invariant problem sat at the intersection of algebraic topology and differential topology. It was a deceptively simple question about the existence of certain manifolds, but its resolution required some of the deepest machinery in stable homotopy theory.
 \end{historicalbox}
-
-\section{Solution}
-
-Who solved it and what techniques were required.
 
 \section{Mathematical Theory}
 
@@ -71,7 +65,7 @@ where $\mathcal{A}$ is the mod-2 Steenrod algebra.
 
 The elements $\theta_j$ (if they exist) would be detected by certain classes $h_j^2$ in the $E_2$-page of the Adams spectral sequence. The question is whether these classes survive to $E_\infty$.
 
-\section{The Discovery}
+\section{The Solution}
 
 \subsection{Hill, Hopkins, and Ravenel (2016)}
 

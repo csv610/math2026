@@ -15,21 +15,23 @@ It is impossible to separate a cube into two cubes, or a fourth power into two f
 This became known as Fermat's Last Theorem:
 
 \subsection{Formal}
+The equation
 \begin{equation}
 x^n + y^n = z^n
 \end{equation}
-
 has no nonzero integer solutions for $n > 2$.
 
-Fermat claimed he had a ``truly marvelous proof'' that the margin was too narrow to contain. He proved the case $n = 4$ using infinite descent \cite{euler1783}. Euler proved $n = 3$ \cite{euler1783}. Dirichlet and Legendre proved $n = 5$ (1825). Lam\'e proved $n = 7$ (1839). But the general case resisted all attempts for 358 years.
+More deeply, the Taniyama--Shimura--Weil conjecture (now the Modularity Theorem) asserts:
+
+\begin{conjecture}[Modularity Conjecture]
+Every elliptic curve over $\mathbb{Q}$ is modular, meaning its $L$-function arises from a modular form.
+\end{conjecture}
+
+If this conjecture holds, then Fermat's Last Theorem follows, because a hypothetical counterexample $a^n + b^n = c^n$ would yield an elliptic curve (the Frey curve $y^2 = x(x - a^n)(x + b^n)$) that could not be modular, contradicting the conjecture.
 
 \begin{historicalbox}
 Fermat's marginal note became one of the most famous unsolved problems in mathematics. Generations of mathematicians tried and failed. Many claimed proofs, all were wrong. The problem inspired the development of algebraic number theory.
 \end{historicalbox}
-
-\section{Solution}
-
-Who solved it and what techniques were required.
 
 \section{Mathematical Theory}
 
@@ -86,7 +88,7 @@ If the Modularity Conjecture is true, then Fermat's Last Theorem is true.
 
 This was the crucial link: proving modularity for all elliptic curves would settle Fermat's Last Theorem.
 
-\section{The Discovery}
+\section{The Solution}
 
 \subsection{Wiles's Proof (1993--1995)}
 
