@@ -92,6 +92,7 @@ Each previous approach hit a specific wall:
 \item \textbf{Solovay--Strassen} avoids ERH but is probabilistic: it has a one-in-two error rate per round, and no finite number of rounds eliminates the error entirely.
 \item \textbf{Elliptic curve methods} (Goldwasser--Kilian 1986, Atkin--Morain 1993) are deterministic and have expected polynomial running time, but their polynomial-time guarantee is \emph{conditional on heuristics} about the probability that random elliptic curves yield large group orders. No proof that these heuristics always holds was known.
 \item \textbf{Special-form tests} (Lucas--Lehmer for Mersenne numbers, Proth's theorem for $k \cdot 2^n + 1$) are fast and unconditional, but they only work for numbers with a very specific algebraic structure. A general-purpose test was missing.
+\end{itemize}
 
 The fundamental obstacle was finding a purely algebraic characterization of primality that (a) is \emph{both necessary and sufficient}---not just one direction---and (b) can be checked using computations that scale polynomially with the number of digits. Every prior attempt either got the ``if and only if'' wrong (Fermat) or got it right but could not be checked efficiently without unproven assumptions (Miller, ECPP).
 
