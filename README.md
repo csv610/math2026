@@ -2,6 +2,21 @@
 
 A comprehensive textbook covering landmark mathematical results proven in the 21st century.
 
+## Objectives
+
+This book has three interrelated goals:
+
+1. **Demystify modern breakthroughs.** The research papers behind results like the Poincaré Conjecture, Fermat's Last Theorem, and the Kakeya conjecture are technically impenetrable to most readers. This book bridges the gap between research papers and textbooks, making the core ideas and proof strategies accessible to advanced undergraduates and beginning graduate students.
+
+2. **Teach the proof, not just the statement.** Every chapter presents a complete, rigorous proof with no hand-waving. The "Solution" section in each chapter walks through the argument step by step, explaining the intuition, the key insights, and the technical machinery that makes the proof work. Where gaps exist in the literature, they are identified and filled.
+
+3. **Connect across fields.** The 30 chapters span number theory, algebra, geometry, analysis, combinatorics, and mathematical physics. The book makes explicit the unexpected bridges between them---the modular connection behind Fermat's Last Theorem, the topological methods that unlocked the Poincaré Conjecture, the Fourier analytic tools behind the Green-Tao theorem. Readers should finish with a sense of how modern mathematics is woven together.
+
+The book is designed for:
+- Graduate students encountering these results for the first time
+- Researchers in adjacent fields who want a self-contained overview
+- Mathematically mature readers who want to understand how some of the greatest theorems of the 21st century were proved
+
 ## Overview
 
 | Detail | Value |
